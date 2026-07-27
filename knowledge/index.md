@@ -18,3 +18,15 @@
 - [Read](books/read/index.md)
 - [Wishlist](books/wishlist/index.md)
 - [Notes](books/notes/index.md)
+
+## Practices
+- [Meditation](practices/meditation/index.md)
+
+## Languages (Plans)
+- [Study Plans](languages/study-plans/index.md)
+
+## Programming (Snippets)
+- [Code Snippets](programming/snippets/index.md)
+
+## Tools
+- [Obsidian & VSCode Setup](tools/setup.md)
