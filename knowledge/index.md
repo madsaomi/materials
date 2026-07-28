@@ -1,32 +1,83 @@
-# База знаний
+# 🧠 База знаний
 
-## Languages
-- [Japanese](languages/japanese/index.md)
-- [Chinese](languages/chinese/index.md)
-- [Korean](languages/korean/index.md)
+Персональная база знаний по языкам, программированию, философии, практикам и инструментам.
 
-## Programming
-- [Python](programming/python/index.md)
-- [Go](programming/go/index.md)
-- [JavaScript](programming/javascript/index.md)
+---
 
-## Philosophy
-- [Eastern](philosophy/eastern/index.md)
-- [Western](philosophy/western/index.md)
+## 📊 Статистика
 
-## Books
-- [Read](books/read/index.md)
-- [Wishlist](books/wishlist/index.md)
-- [Notes](books/notes/index.md)
+| Раздел | Тем | Файлов | Формат |
+|--------|-----|--------|--------|
+| Языки | 3 языка + сравнение | >60 | Учебник (юниты) |
+| Программирование | 3 языка | >20 | Теория + задачи + проекты |
+| Философия | Восточная + Западная | >10 | Уроки с вопросами |
+| Практики | Медитация | >8 | Теория + техники |
+| Книги | 4 раздела | >8 | Списки + заметки |
+| Инструменты | Гайды | >4 | Шпаргалки |
 
-## Practices
-- [Meditation](practices/meditation/index.md)
+---
 
-## Languages (Plans)
-- [Study Plans](languages/study-plans/index.md)
+## 🌍 Языки
 
-## Programming (Snippets)
-- [Code Snippets](programming/snippets/index.md)
+Каждый язык — полноценный курс с юнитами (диалог → грамматика → лексика → практика → чтение → тест).
 
-## Tools
-- [Obsidian & VSCode Setup](tools/setup.md)
+| Язык | Прогресс | Юнитов |
+|------|----------|--------|
+| [🇯🇵 Японский](languages/japanese/index.md) | Hiragana/Katakana → JLPT N4 | 5 |
+| [🇨🇳 Китайский](languages/chinese/index.md) | HSK 1-2 | 3 |
+| [🇰🇷 Корейский](languages/korean/index.md) | TOPIK I | 3 |
+
+Дополнительно:
+- [Сравнение языков](languages/comparison/index.md) — яп/кит/кор
+- [Study Plans](languages/study-plans/index.md) — планы изучения
+
+---
+
+## 💻 Программирование
+
+Пошаговое изучение: синтаксис → задачи → проект.
+
+| Язык | Юнитов | Содержание |
+|------|--------|-----------|
+| [🐍 Python](programming/python/index.md) | 3 | Основы → структуры данных → ООП |
+| [🔵 Go](programming/go/index.md) | 3 | Основы → интерфейсы → горутины |
+| [🟡 JavaScript](programming/javascript/index.md) | 3 | Основы → DOM/async → продвинутое |
+
+- [📋 Code Snippets](programming/snippets/index.md) — готовые куски кода
+
+---
+
+## 🏛 Философия
+
+| Раздел | Юнитов | Темы |
+|--------|--------|------|
+| [🌅 Восточная](philosophy/eastern/index.md) | 3 | Индуизм, буддизм, даосизм, конфуцианство, дзен |
+| [🏛 Западная](philosophy/western/index.md) | 3 | Античная, средневековье, новая философия |
+
+---
+
+## 🧘 Практики
+
+| Практика | Юнитов | Содержание |
+|----------|--------|-----------|
+| [🧘 Медитация](practices/meditation/index.md) | 3 | Основы → техники → продвинутая практика |
+
+---
+
+## 📚 Книги
+
+- [📖 Прочитано](books/read/index.md) — прочитанные книги с заметками
+- [🎯 Wishlist](books/wishlist/index.md) — что хочу прочитать
+- [📝 Заметки](books/notes/index.md) — конспекты и идеи
+- [🏷 По жанрам](books/genre/index.md) — разбивка по категориям
+
+---
+
+## 🛠 Инструменты
+
+- [⚙️ Гайды](tools/guides/index.md) — git, ssh, tmux, vim, docker
+- [🔧 Setup](tools/setup.md) — настройка окружения
+
+---
+
+*Последнее обновление: июль 2026. 140+ файлов базы знаний.*

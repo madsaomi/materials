@@ -1111,4 +1111,18 @@ worker.terminate()
 
 ---
 
+## 🎓 Курс
+
+| Unit | Тема | Содержание |
+|------|------|-----------|
+| [Unit 1](unit-01/syntax.md) | Основы | Переменные, типы, условия, циклы, функции, объекты |
+| [Unit 2](unit-02/syntax.md) | Массивы, DOM, async | map/filter/reduce, классы, Promise, async/await, DOM |
+| [Unit 3](unit-03/syntax.md) | Продвинутые темы | Замыкания, прототипы, модули, Event Loop, Proxy |
+
+Каждый unit включает: теорию, задачи, проекты.
+
+- [Unit 1: задачи](unit-01/practice.md) | [Unit 2: задачи](unit-02/practice.md) | [Unit 3: проекты](unit-03/practice.md)
+
+---
+
 *Полный конспект JavaScript. Регулярно дополняется.*
