@@ -2,62 +2,355 @@
 
 ## Введение
 
-Rust — системный язык программирования, разработанный Mozilla (2015), затем перешедший в независимый проект Rust Foundation. Главные принципы: безопасность памяти без сборщика мусора, производительность уровня C/C++, надёжность на этапе компиляции.
+Rust — системный язык программирования, разработанный Mozilla (2010–2015, первый релиз 1.0 в мае 2015), затем перешедший в независимый проект Rust Foundation (основана в 2021 году при поддержке AWS, Google, Huawei, Microsoft, Mozilla и других). Главные принципы: безопасность памяти без сборщика мусора, производительность уровня C/C++, надёжность на этапе компиляции.
 
 **Ключевые особенности:**
 - **Система владения (ownership)** — компилятор проверяет память без GC, ошибки памяти ловятся на этапе компиляции
-- Нулевая стоимость абстракций (zero-cost abstractions)
-- Статическая типизация с мощным выводом типов
-- `enum` с данными (algebraic data types) и сопоставление с образцом (`match`)
-- Трейты (traits) — аналог интерфейсов, но с композицией и generics
-- Встроенные инструменты: `cargo`, `rustfmt`, `clippy`, `rustdoc`
-- Нет наследования, нет исключений, нет сборщика мусора
+- Нулевая стоимость абстракций (zero-cost abstractions) — абстракции не создают накладных расходов во время выполнения
+- Статическая типизация с мощным выводом типов (type inference)
+- `enum` с данными (algebraic data types) и сопоставление с образцом (`match`) — исчерпывающий и безопасный
+- Трейты (traits) — аналог интерфейсов, но с композицией и generics, без наследования
+- Встроенные инструменты: `cargo`, `rustfmt`, `clippy`, `rustdoc`, `cargo clippy`, `cargo audit`
+- Нет наследования, нет исключений (exceptions), нет сборщика мусора
+- Поддержка FFI (Foreign Function Interface) для взаимодействия с C и другими языками
+- Кросс-компиляция для множества платформ (включая WASM, embedded, ОС)
 
-**Кому нужен:** системное программирование (ОС, драйверы), embedded, высоконагруженный бэкенд, WebAssembly, блокчейн (Solana, Parity/Substrate), инструменты CLI, game engines, ML-инфраструктура.
+**Кому нужен:** системное программирование (ОС, драйверы, ядра), embedded, высоконагруженный бэкенд, WebAssembly, блокчейн (Solana, Parity/Substrate), инструменты CLI, game engines, ML-инфраструктура, веб-бэкенд, сетевые сервисы, базы данных.
 
 **Области применения:**
-- Системное программирование: curl, ripgrep, fd, bat (многие Unix-утилиты переписаны на Rust)
-- Веб: axum, actix-web, Rocket; фронтенд через WASM (Yew, Leptos)
-- Блокчейн: Solana, Substrate, Near — ядра на Rust
-- Инструменты: cargo, rustup, eslint/deno (Node-альтернатива), uv (Python-пакетный менеджер), Polars
-- Embedded: Embassy, RTIC; Raspberry Pi Pico, ESP32
+- Системное программирование: curl, ripgrep, fd, bat, exa (многие Unix-утилиты переписаны на Rust)
+- Веб-бэкенд: axum, actix-web, Rocket; фронтенд через WASM (Yew, Leptos, Dioxus)
+- Блокчейн: Solana, Substrate (Polkadot), Near — ядра на Rust
+- Инструменты разработки: cargo, rustup, deno (Node-альтернатива), uv (Python-пакетный менеджер), Polars (аналог pandas)
+- Embedded: Embassy, RTIC; Raspberry Pi Pico, ESP32, nRF52
+- Игровые движки: Bevy, Amethyst, ggez
+- ML-инфраструктура: Candle, burn, tch-rs (обёртка над PyTorch)
+- CLI-инструменты: ripgrep, fd, bat, exa, tokei, hyperfine
+- Базы данных: SurrealDB, Databend, Rust-реализации Redis/PostgreSQL клиентов
 
-**Уникальность Rust** — система владения: каждое значение имеет ровно одного владельца; при передаче владение перемещается (move); заимствование возможно только по правилам компилятора. Итог: потоки без data races, безопасное освобождение памяти, отсутствие use-after-free и null-pointer — всё проверяется до запуска программы.
+**Уникальность Rust** — система владения: каждое значение имеет ровно одного владельца; при передаче владение перемещается (move); заимствование возможно только по правилам компилятора. Итог: потоки без data races, безопасное освобождение памяти, отсутствие use-after-free и null-pointer — всё проверяется до запуска программы. Это не runtime-проверка (как в GC-языках), а compile-time-проверка, которая не влияет на производительность.
+
+---
+
+## Сравнение с другими языками
+
+### Rust vs C/C++
+
+| Аспект | C/C++ | Rust |
+|--------|-------|------|
+| Безопасность памяти | Ручное управление, undefined behavior возможно | Проверяется компилятором, нет use-after-free, dangling pointers |
+| Сборщик мусора | Нет | Нет (но есть Drop, RAII) |
+| Параллелизм | Data races возможны, UB | Data races невозможны на уровне языка |
+| Скорость компиляции | Быстрая | Медленнее (проверка владения, мономорфизация) |
+| Кривая обучения | Умеренная | Крутая (владение, lifetimes) |
+| Экосистема | Make, CMake, Conan, vcpkg | Cargo (встроен, единый стандарт) |
+| Управление зависимостями | Фрагментировано | Единый реестр crates.io |
+| Современные фичи | C++20/23 добавляют модули, concepts | Модули, трейты, async/await из коробки |
+
+Rust обеспечивает безопасность C/C++ с гарантиями на уровне компилятора. В C++ можно случайно создать use-after-free, double-free, dangling pointer — в Rust эти ошибки невозможны без `unsafe` блока. `unsafe` в Rust — это не «всё разрешено», а явная декларация программиста: «я знаю, что делаю, и гарантирую безопасность».
+
+### Rust vs Go
+
+| Аспект | Go | Rust |
+|--------|----|------|
+| Скорость | Быстрая, но медленнее Rust | Очень быстрая, сопоставима с C++ |
+| Простота | Простой синтаксис, быстрый старт | Сложнее, но мощнее |
+| Concurrency | Горутины + каналы (встроены) | Потоки + каналы + async/await (требует runtime) |
+| Сборщик мусора | Да (gc) | Нет |
+| Типы | Интерфейсы (duck typing) | Трейты + generics |
+| Вывод типов | Да | Да (более мощный) |
+| Использование | Микросервисы, DevOps, облачные инструменты | Системное программирование, high-performance |
+
+Go проще для старта и лучше подходит для микросервисов с высокой конкурентностью. Rust даёт больше контроля и производительности, но требует больше усилий.
+
+### Rust vs Python/JavaScript/Java
+
+| Аспект | Python/JS/Java | Rust |
+|--------|----------------|------|
+| Типизация | Динамическая (Python/JS) / статическая (Java) | Статическая + вывод типов |
+| Скорость | Медленнее в 10–100x | Очень быстрая |
+| Безопасность памяти | GC (Java/Python) или GC (V8) | Compile-time проверка |
+| Кривая обучения | Пологая | Крутая |
+| Использование | Скрипты, веб-приложения, прототипы | Системное ПО, высоконагруженные сервисы |
+| Развёртывание | Интерпретаторы, JVM | Единственный бинарник без зависимостей |
+
+Rust конкурирует с C/C++ в производительности, а не с динамическими языками в простоте. Однако Rust активно используется как «язык расширений» для Python (PyO3), Node.js (N-API), и других динамических языков — когда нужна производительность критичного пути.
+
+### Rust vs C#
+
+| Аспект | C# | Rust |
+|--------|----|------|
+| Платформа | .NET / CLR | Нативная компиляция |
+| Сборщик мусора | Да (GC) | Нет |
+| Безопасность памяти | Да (runtime) | Да (compile-time) |
+| Производительность | Хорошая (но с overhead GC) | Отличная (zero-cost abstractions) |
+| Async/await | Встроен | Встроен (требует runtime) |
+| Использование | Enterprise, Unity, веб | Системное, embedded, high-performance |
+
+### Почему Rust выбирают
+
+1. **Надёжность** — ошибки памяти невозможны без `unsafe`, что критично для безопасности (CVE из-за buffer overflow — одна из главных категорий уязвимостей)
+2. **Производительность** — сопоставима с C/C++, нулевая стоимость абстракций
+3. **Современный инструментарий** — cargo, crates.io, rustfmt, clippy, rustdoc — всё из коробки
+4. **Отличная документация** — The Rust Book, Rust by Example, документация каждого крейта
+5. **Сообщество** — рейтинг «самый любимый язык» на Stack Overflow более 8 лет подряд
+6. **Безопасность параллелизма** — система типов предотвращает data races на уровне компиляции
+
+---
+
+## Экосистема Rust
+
+### Cargo — менеджер проектов и сборки
+
+`cargo` — встроенный инструмент, который заменяет Make, Maven, npm, pip и другие сборочные системы. Он управляет:
+- Сборкой проекта (компиляция, линковка)
+- Зависимостями (разрешение, загрузка, обновление)
+- Тестированием
+- Документацией
+- Форматированием
+- Линтерством
+
+```bash
+cargo new my_project          # создать проект
+cargo init                    # инициализировать в существующей папке
+cargo build                   # собрать (debug)
+cargo build --release         # собрать с оптимизациями
+cargo run                     # собрать и запустить
+cargo check                   # быстрая проверка без кодогенерации
+cargo clean                   # удалить build/ артефакты
+cargo doc --open              # собрать и открыть документацию
+```
+
+### Cargo.toml — манифест проекта
+
+```toml
+[package]
+name = "my_project"
+version = "0.1.0"
+edition = "2021"
+description = "Описание проекта"
+license = "MIT OR Apache-2.0"
+authors = ["Author <email@example.com>"]
+repository = "https://github.com/user/repo"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+axum = "0.7"
+
+[dev-dependencies]
+pretty_assertions = "1"
+proptest = "1"
+
+[build-dependencies]
+bindgen = "0.69"
+
+[features]
+default = ["std"]
+std = ["serde/std"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0
+```
+
+### crates.io — реестр пакетов
+
+[crates.io](https://crates.io) — центральный реестр пакетов Rust (аналог npm registry, PyPI, Maven Central). На момент 2026 года — более 150 000 крейтов.
+
+```bash
+# Поиск крейтов
+cargo search serde
+cargo search axum
+
+# Добавление зависимости (с Rust 1.62+)
+cargo add serde --features derive
+cargo add tokio --features full
+cargo add axum
+
+# Удаление
+cargo remove serde
+
+# Обновление зависимостей
+cargo update          # обновить lock-файл
+cargo upgrade         # обновить Cargo.toml (нужен cargo-upgrade)
+```
+
+### Важные крейты по категориям
+
+**Веб и HTTP:**
+- `axum` — веб-фреймворк от команды tokio, основанный на tower/hyper
+- `actix-web` — высокопроизводительный веб-фреймворк с actor-моделью
+- `warp` — функциональный веб-фреймворк на основе фильтров
+- `rocket` — эргономичный веб-фреймворк с макросами
+- `reqwest` — HTTP-клиент (sync и async)
+- `hyper` — низкоуровневый HTTP-протокол
+
+**Асинхронность и runtime:**
+- `tokio` — асинхронный runtime (наиболее популярный)
+- `async-std` — альтернативный async runtime, похожий на стандартную библиотеку
+- `smol` — лёгкий async runtime
+
+**Сериализация:**
+- `serde` + `serde_json` — сериализация/десериализация (JSON, YAML, TOML, Bincode, ...)
+- `serde_cbor`, `serde_msgpack` — бинарные форматы
+- `rkyv` — zero-copy сериализация
+
+**Обработка ошибок:**
+- `thiserror` — derive-макрос для пользовательских ошибок
+- `anyhow` — гибкая обработка ошибок для приложений
+- `snafu` — альтернатива thiserror/anyhow с более детальным контролем
+
+**CLI:**
+- `clap` — парсинг аргументов командной строки (derive API)
+- `structopt` (deprecated в пользу clap derive)
+- `dialoguer` — интерактивные prompts
+- `indicatif` — progress bars
+
+**Тестирование:**
+- `proptest` — property-based testing
+- `quickcheck` — property-based testing (альтернатива proptest)
+- `insta` — snapshot testing
+- `criterion` — бенчмаркинг
+
+**Дата и время:**
+- `chrono` — дата и время
+- `time` — современная альтернатива chrono
+
+**Случайные числа:**
+- `rand` — генерация случайных чисел
+- `fastrand` — быстрая альтернатива
+
+**Логирование:**
+- `log` + `env_logger` — классическая связка
+- `tracing` — структурированное логирование и трассировка (рекомендуется для async)
+- `slog` — структурированное логирование
+
+**Базы данных:**
+- `sqlx` — async SQL с компилируемыми запросами
+- `diesel` — ORM с compile-time проверкой запросов
+- `rusqlite` — обёртка над SQLite
+- `mongodb` — драйвер MongoDB
+- `redis` — драйвер Redis
+
+**Утилиты и прочее:**
+- `rayon` — параллельные итераторы (data parallelism)
+- `crossbeam` — низкоуровневые конкурентные примитивы
+- `parking_lot` — более производительные Mutex/RwLock
+- `anyhow`/`thiserror` — обработка ошибок
+- `tracing` — структурированная трассировка
+- `tower` — сетевые сервисы, middleware
+- `bytes` — работа с байтовыми буферами
+
+### Cargo Ecosystem — дополнительные инструменты
+
+- `cargo-edit` — `cargo add`, `cargo rm`, `cargo upgrade`
+- `cargo-watch` — автоматическая пересборка при изменении файлов
+- `cargo-outdated` — проверка устаревших зависимостей
+- `cargo-audit` — проверка зависимостей на уязвимости (CVE)
+- `cargo-geiger` — проверка использования unsafe в зависимостях
+- `cargo-expand` — разворачивание макросов (показывает сгенерированный код)
+- `cargo bloat` — анализ размера бинарника
+- `cargo flamegraph` — профилирование производительности
+- `cargo deny` — проверка лицензий и зависимостей
+- `cargo msrv` — проверка минимальной поддерживаемой версии Rust
+
+### rustup — менеджер toolchain'ов
+
+`rustup` — стандартный инструмент для управления версиями Rust:
+
+```bash
+# Установка
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Управление версиями
+rustup show                    # показать активные toolchain'ы
+rustup toolchain list          # список установленных
+rustup default stable          # установить стабильную версию по умолчанию
+rustup default nightly         # использовать nightly
+rustup run nightly rustc --version
+
+# Компоненты
+rustup component add clippy rustfmt rust-docs rust-analyzer
+rustup component remove rustfmt
+
+# Targets (для кросс-компиляции)
+rustup target add wasm32-unknown-unknown
+rustup target add x86_64-unknown-linux-gnu
+rustup target add aarch64-unknown-linux-gnu
+rustup target add thumbv7m-none-eabi   # embedded ARM Cortex-M
+
+# Обновление
+rustup update stable
+rustup update nightly
+rustup update
+```
+
+### IDE и редакторы
+
+- **rust-analyzer** — LSP-сервер для Rust (поддержка в VS Code, IntelliJ, Neovim, Emacs, Vim)
+- **VS Code** + расширение "rust-analyzer" — самый популярный вариант
+- **IntelliJ Rust** — плагин для JetBrains IDEs (CLion, IDEA)
+- **Neovim** + rust-analyzer + telescope.nvim — популярная комбинация для Vim-пользователей
+- **Emacs** + lsp-mode + rust-analyzer
 
 ---
 
 ## 1. Установка
 
+### Через rustup (рекомендуется)
+
 ```bash
-# Установка через rustup (рекомендуется)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Добавить в PATH (rustup делает это сам, но на всякий случай)
 source "$HOME/.cargo/env"
+rustc --version
+cargo --version
+rustup --version
+```
 
-# Проверка версий
-rustc --version     # компилятор
-cargo --version     # менеджер пакетов и сборка
-rustup --version    # менеджер toolchain'ов
+### Альтернативные способы
 
-# Альтернатива: пакетный менеджер (Ubuntu/Debian)
+```bash
+# Ubuntu/Debian
 sudo apt install rustc cargo
 
-# Обновление toolchain
-rustup update stable
+# Fedora/RHEL
+sudo dnf install rustc cargo
 
-# Набор компонентов: clippy (линтер), rustfmt (форматтер), rust-docs
-rustup component add clippy rustfmt rust-docs
+# Arch Linux
+sudo pacman -S rust
+
+# macOS (Homebrew)
+brew install rust
+
+# Windows (winget)
+winget install Rustlang.Rust
+
+# Docker
+docker run --rm -it rust:latest
+```
+
+### Набор компонентов
+
+```bash
+rustup component add clippy rustfmt rust-docs rust-analyzer
+rustup target add wasm32-unknown-unknown thumbv7m-none-eabi
 ```
 
 ### Создание нового проекта
 
 ```bash
-cargo new hello_world       # бинарный проект (bin)
+cargo new hello_world       # бинарный проект
+cargo new --lib my_lib      # библиотечный проект
 cd hello_world
-cargo build                 # сборка в debug-режиме
-cargo run                   # сборка + запуск
-cargo run --release         # сборка в release (оптимизации)
+cargo build                  # debug-сборка
+cargo run                    # сборка + запуск
+cargo run --release          # release-сборка с оптимизациями
+cargo run --example my_example  # запуск примера
 ```
 
 ---
@@ -72,7 +365,14 @@ fn main() {
 }
 ```
 
-`println!` — макрос (наличие `!`). `main` — точка входа. Каждая инструкция завершается точкой с запятой, но *выражения* её не требуют.
+`println!` — макрос (наличие `!`). `main` — точка входа. Каждая инструкция завершается точкой с запятой, но *выражения* её не требуют. Функция `main` может возвращать `Result`:
+
+```rust
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    println!("Hello, world!");
+    Ok(())
+}
+```
 
 ### 2.2 Переменные
 
@@ -87,11 +387,13 @@ let a = "строка";   // можно даже менять тип
 
 const MAX_SIZE: u32 = 1024;   // константа: тип обязателен, UPPER_CASE
 const PI: f64 = 3.14159;
+
+static GREETING: &str = "Hello";   // статическая переменная (всегда доступна)
 ```
 
 Ключевые отличия `let` + shadowing от `mut`:
-- `mut` — изменение значения той же переменной;
-- shadowing — создание новой переменной с тем же именем (можно менять тип).
+- `mut` — изменение значения той же переменной в памяти
+- shadowing — создание новой переменной с тем же именем (можно менять тип, преобразовывать)
 
 ### 2.3 Типы данных
 
@@ -109,10 +411,10 @@ const PI: f64 = 3.14159;
 ```rust
 let a: i8 = -128;
 let b: u128 = 340_282_366_920_938_463_463_374_607_431_768_211_455;
-let c: usize = 10;      // размер индекса массива
-let hex = 0xFF;         // 255
-let bin = 0b1010;       // 10
-let oct = 0o17;         // 15
+let c: usize = 10;        // размер индекса массива
+let hex = 0xFF;            // 255
+let bin = 0b1010;          // 10
+let oct = 0o17;            // 15
 let underscores = 1_000_000;  // читаемость
 ```
 
@@ -120,10 +422,11 @@ let underscores = 1_000_000;  // читаемость
 
 ```rust
 let x: f64 = 3.14;      // float64 — по умолчанию
-let y: f32 = 2.5;       // float32
+let y: f32 = 2.5;        // float32
 let is_ok: bool = true;
-let ch: char = 'я';     // Unicode-символ, 4 байта
-let unit = ();          // пустой кортеж, тип "ничего"
+let ch: char = 'я';      // Unicode-символ, 4 байта
+let unit = ();           // пустой кортеж, тип "ничего"
+let never: ! = panic!("это never type");  // never type — функция никогда не возвращается
 ```
 
 **Кортежи (tuple):**
@@ -131,16 +434,24 @@ let unit = ();          // пустой кортеж, тип "ничего"
 ```rust
 let point: (i32, f64, bool) = (10, 2.5, true);
 let (x, y, z) = point;       // деструктуризация
-println!("{x}");             // 10
-println!("{}", point.1);     // 2.5 — доступ по индексу через точку
+println!("{x}");               // 10
+println!("{}", point.1);       // 2.5 — доступ по индексу через точку
+let (a, ..) = point;           // проигнорировать остальные поля
 ```
 
 **Массивы (array) — фиксированная длина:**
 
 ```rust
 let arr: [i32; 5] = [1, 2, 3, 4, 5];
-let zeros = [0; 100];        // [0, 0, ..., 0] — 100 элементов
-println!("{}", arr[0]);      // 1
+let zeros = [0; 100];          // [0, 0, ..., 0] — 100 элементов
+println!("{}", arr[0]);         // 1
+println!("{}", arr.len());      // 5
+```
+
+**Срезы (slice) — динамический массив:**
+
+```rust
+let slice: &[i32] = &[1, 2, 3, 4, 5];   // ссылка на массив
 ```
 
 ### 2.4 Функции
@@ -164,12 +475,56 @@ fn div(a: f64, b: f64) -> Option<f64> {
 
 fn main() {
     println!("{}", add(3, 5));              // 8
-    println!("{}", greet("Мир"));           // Привет, Мир!
-    println!("{:?}", div(10.0, 4.0));       // Some(2.5)
+    println!("{}", greet("Мир"));             // Привет, Мир!
+    println!("{:?}", div(10.0, 4.0));        // Some(2.5)
 }
 ```
 
-Параметры функции — immutable; чтобы менять, нужно `mut x: i32`. Возвращается только одно значение — для нескольких используйте кортеж.
+Параметры функции — immutable по умолчанию; чтобы менять, нужно `mut x: i32`. Возвращается только одно значение — для нескольких используйте кортеж. Функции могут быть `pub` (публичными), `const` (константными), `async`.
+
+### 2.5 Закрытия (Closures)
+
+Замыкания — анонимные функции, которые могут захватывать переменные из окружающей среды:
+
+```rust
+let multiplier = 3;
+let times_three = |x: i32| x * multiplier;   // захватывает multiplier по ссылке
+println!("{}", times_three(5));                // 15
+
+let mut offset = 0;
+let mut add_offset = |x: i32| {
+    offset += 1;
+    x + offset
+};
+println!("{}", add_offset(10));   // 11
+println!("{}", add_offset(10));   // 12 (offset изменился)
+
+// move — захват владения (полное перемещение значений в замыкание)
+let v = vec![1, 2, 3];
+let consume = move || {
+    println!("{v:?}");
+    v.len()
+};
+// println!("{v:?}");  // ❌ v перемещён в замыкание
+```
+
+Замыкания реализуют трейты `Fn`, `FnMut`, `FnOnce` в зависимости от того, как они используют захваченные переменные:
+- `Fn` — только по ссылке (чтение)
+- `FnMut` — по изменяемой ссылке (модификация)
+- `FnOnce` — по значению (перемещение, потребление)
+
+```rust
+fn apply<F>(f: F, val: i32) -> i32
+where
+    F: Fn(i32) -> i32,
+{
+    f(val)
+}
+
+fn apply_mut<F: FnMut(i32) -> i32>(mut f: F, val: i32) -> i32 {
+    f(val)
+}
+```
 
 ---
 
@@ -178,7 +533,7 @@ fn main() {
 ### 3.1 Правила владения
 
 1. У каждого значения в Rust ровно **один владелец**.
-2. Когда владелец выходит из области видимости, значение освобождается (`drop`).
+2. Когда владелец выходит из области видимости, значение освобождается (`drop` вызывается автоматически).
 3. Владельца можно **переместить** (move) — тогда старое имя становится недоступным.
 
 ```rust
@@ -194,7 +549,7 @@ let s3 = s2.clone();         // глубокое копирование, обе 
 println!("{s2} {s3}");       // ✅
 ```
 
-Типы с `Copy`: все числа, `bool`, `char`, кортежи и массивы из Copy-типов. Типы в куче (`String`, `Vec`, `Box`) — только move.
+Типы с `Copy`: все числа (`i32`, `u64`, ...), `bool`, `char`, кортежи из Copy-типов, массивы из Copy-типов. Типы в куче (`String`, `Vec`, `Box`, `HashMap`, ...) — только move.
 
 Перемещение в функцию — передача владения:
 
@@ -203,17 +558,40 @@ fn take(s: String) -> usize {
     s.len()                  // s уничтожится здесь
 }
 
+fn takes_two(a: String, b: String) -> (usize, usize) {
+    (a.len(), b.len())
+}
+
 fn main() {
     let text = String::from("привет");
     let n = take(text);      // владение перешло в take
     // println!("{text}");   // ❌
     println!("{n}");
+
+    let s1 = String::from("hello");
+    let s2 = String::from("world");
+    let (len1, len2) = takes_two(s1, s2);
+    // println!("{s1} {s2}"); // ❌ оба перемещены
+    println!("{len1} {len2}");
+}
+```
+
+Для возврата владения из функции — просто вернуть значение:
+
+```rust
+fn create_string() -> String {
+    String::from("возвращённый")
+}
+
+fn main() {
+    let s = create_string();  // владение вернулось
+    println!("{s}");
 }
 ```
 
 ### 3.2 Заимствование (Borrowing)
 
-Ссылки (`&`) позволяют использовать значение, не забирая владение.
+Ссылки (`&`) позволяют использовать значение, не забирая владение. `&mut` — изменяемая ссылка.
 
 ```rust
 fn length(s: &String) -> usize {
@@ -228,13 +606,13 @@ fn main() {
     let mut text = String::from("Rust");
     let len = length(&text);      // & — неизменяемая ссылка
     add_hello(&mut text);         // &mut — изменяемая
-    println!("{len} {text}");
+    println!("{len} {text}");     // 9 Rust, hello!
 }
 ```
 
 **Правила заимствования (проверяются компилятором):**
-- В один момент времени либо **сколько угодно** неизменяемых `&`, либо **одна** изменяемая `&mut`;
-- Ссылка всегда действительна — никогда не висит (dangling).
+- В один момент времени либо **сколько угодно** неизменяемых `&`, либо **одна** изменяемая `&mut`
+- Ссылка всегда действительна — никогда не висит (dangling)
 
 ```rust
 let mut s = String::from("x");
@@ -242,20 +620,34 @@ let r1 = &s;
 let r2 = &s;                 // ✅ несколько неизменяемых
 // let r3 = &mut s;          // ❌ пока живы r1, r2 — нельзя
 println!("{r1} {r2}");
+
+let r3 = &mut s;             // ✅ после последнего использования r1, r2
+r3.push_str("yz");
+println!("{r3}");
+```
+
+**Скопирование vs перемещение в функцию:**
+
+```rust
+fn copy_param(x: i32) {}       // Copy — копия, оригинал доступен
+fn move_param(s: String) {}    // Move — владение ушло, оригинал недоступен
+fn borrow_param(s: &String) {} // Borrow — только чтение
+fn mut_borrow_param(s: &mut String) {} // Borrow mut — чтение и запись
 ```
 
 ### 3.3 Срезы (Slices)
 
-Срез — ссылка на непрерывную часть данных, без владения.
+Срез — ссылка на непрерывную часть данных, без владения. `&[T]` — срез массива/вектора, `&str` — срез строки.
 
 ```rust
 let s = String::from("hello world");
 let hello = &s[0..5];        // "hello" (по байтам!)
-let world = &s[6..11];       // "world"
-let whole = &s[..];          // вся строка
+let world = &s[6..11];        // "world"
+let whole = &s[..];           // вся строка (эквивалент &s)
 
 let arr = [1, 2, 3, 4, 5];
-let mid = &arr[1..4];        // [2, 3, 4]
+let mid = &arr[1..4];         // [2, 3, 4]
+let all: &[i32] = &arr[..];  // вся ссылка на массив
 ```
 
 Безопасное получение первого слова (пример из The Rust Book):
@@ -267,11 +659,19 @@ fn first_word(s: &str) -> &str {
         None => s,
     }
 }
+
+fn main() {
+    let sentence = String::from("hello world");
+    let word = first_word(&sentence);
+    println!("{word}");   // hello
+    // sentence.clear();  // ❌ если раскомментировать — ошибка компиляции:
+    // word ссылается на данные sentence, которые будут уничтожены
+}
 ```
 
 ### 3.4 Время жизни (Lifetimes) — кратко
 
-Компилятор отслеживает, как долго действительны ссылки. Обычно работает автоматически (elision), но в функциях с несколькими ссылками нужно писать аннотации:
+Компилятор отслеживает, как долго действительны ссылки. Обычно работает автоматически (elision), но в функциях с несколькими ссылками нужно писать аннотации. Подробнее — в `details.md`.
 
 ```rust
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
@@ -279,7 +679,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 }
 ```
 
-`'a` означает: результат живёт не дольше, чем короткая из входных ссылок. Подробнее — в `details.md`.
+`'a` означает: результат живёт не дольше, чем короткая из входных ссылок.
 
 ---
 
@@ -302,7 +702,7 @@ fn main() {
     };
     let u2 = User {
         name: String::from("Bob"),
-        ..u1                       // оставшиеся поля из u1
+        ..u1                       // оставшиеся поля из u1 (move)
     };
     println!("{} {} {}", u1.name, u1.age, u1.active);
     println!("{} {}", u2.name, u2.age);
@@ -317,16 +717,16 @@ struct Color(u8, u8, u8);
 struct Unit;                   // структура без полей
 
 let origin = Point(0, 0);
-println!("{}", origin.0);
+println!("{}", origin.0);      // 0
 ```
 
 ### 4.2 Перечисления (enum)
 
 ```rust
 enum Shape {
-    Circle(f64),                     // вариант с данными
-    Rectangle { width: f64, height: f64 },   // именованные поля
-    Line,                            // без данных
+    Circle(f64),                       // вариант с данными
+    Rectangle { width: f64, height: f64 },  // именованные поля
+    Line,                              // без данных
 }
 
 fn area(s: &Shape) -> f64 {
@@ -347,6 +747,16 @@ let none: Option<i32> = None;
 fn divide(n: i32, d: i32) -> Option<i32> {
     if d == 0 { None } else { Some(n / d) }
 }
+
+// Методы Option
+let val = Some(42);
+val.unwrap();           // 42
+val.unwrap_or(0);       // 42
+val.unwrap_or_else(|| 0);
+val.and(Some(100));     // Some(100)
+val.or(None);           // Some(42)
+val.map(|x| x * 2);     // Some(84)
+val.map_or(0, |x| x * 2);  // 84
 ```
 
 **Result\<T, E>** — операция, которая может завершиться ошибкой:
@@ -359,6 +769,11 @@ fn parse_int(s: &str) -> Result<i32, std::num::ParseIntError> {
 fn main() {
     let ok: Result<i32, _> = parse_int("42");
     let err: Result<i32, _> = parse_int("abc");
+
+    ok.unwrap();                    // 42
+    err.unwrap_or(0);               // 0
+    err.unwrap_or_else(|e| -1);     // -1
+    err.expect("ожидалось число");  // паника с сообщением
 }
 ```
 
@@ -371,7 +786,7 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    fn area(&self) -> f64 {          // метод: первый параметр &self
+    fn area(&self) -> f64 {            // метод: первый параметр &self
         self.width * self.height
     }
 
@@ -382,6 +797,10 @@ impl Rectangle {
 
     fn square(side: f64) -> Rectangle {   // ассоциированная функция (без self)
         Rectangle { width: side, height: side }
+    }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
     }
 }
 
@@ -484,6 +903,46 @@ fn main() {
 }
 ```
 
+### if let — сокращённый match
+
+```rust
+let some_val = Some(42);
+
+// Вместо:
+// match some_val {
+//     Some(v) => println!("{v}"),
+//     None => println!("нет значения"),
+// }
+
+// Можно:
+if let Some(v) = some_val {
+    println!("{v}");
+}
+
+// if let с else:
+let color = Some("red");
+if let Some(c) = color {
+    println!("цвет: {c}");
+} else {
+    println!("нет цвета");
+}
+
+// matches! макрос (Rust 1.42+):
+let x = 5;
+if matches!(x, 1 | 2 | 3) {
+    println!("маленькое число");
+}
+```
+
+### while let
+
+```rust
+let mut stack = vec![1, 2, 3];
+while let Some(top) = stack.pop() {
+    println!("{top}");  // 3, 2, 1
+}
+```
+
 ---
 
 ## 6. Строки
@@ -523,9 +982,29 @@ s.chars().nth(2);                 // Some('H')
 for ch in s.trim().chars() {
     print!("{ch}");
 }
+
+// Преобразование
+let bytes = s.as_bytes();         // &[u8]
+let as_str: &str = &s;            // приведение к &str
+let from_bytes = String::from_utf8_lossy(bytes);
 ```
 
 **Важно:** индексация `s[0]` не работает — строки — это UTF-8 байты, индекс может попасть внутрь символа. Используйте `s.chars()`, срезы `&s[..n]` только по границам символов, или `.bytes()`.
+
+**Форматирование:**
+
+```rust
+println!("{}", 42);                    // 42
+println!("{:?}", 42);                   // 42 (Debug)
+println!("{:#?}", vec![1, 2, 3]);      // многострочный Debug
+println!("{name} is {age}", name="Alice", age=30);  // именованные аргументы
+println!("{0} {1} {0}", "hello", "world");  // повтор аргумента
+println!("{:b}", 42);                   // двоичное: 101010
+println!("{:#x}", 255);                 // шестнадцатеричное с 0x: 0xff
+println!("{:.2}", 3.14159);             // 3.14 (2 знака после запятой)
+println!("{:>10}", "hi");               // "        hi" (правое выравнивание, ширина 10)
+println!("{:0>10}", 42);                // "0000000042" (заполнение нулями)
+```
 
 ---
 
@@ -541,7 +1020,9 @@ fn main() {
 }
 ```
 
-`panic!` — для unrecoverable ошибок (неисправимых).
+`panic!` — для unrecoverable ошибок (неисправимых). Можно настроить поведение при panic:
+- `panic = "abort"` в Cargo.toml — просто завершает процесс (меньше кода, меньше overhead)
+- `panic = "unwind"` (по умолчанию) — пытается распаковать стек
 
 ### 7.2 unwrap / expect — быстрый способ для Result/Option
 
@@ -555,6 +1036,9 @@ fn main() {
     let v = opt.unwrap_or(0);      // 7 — безопасная альтернатива
     let n: Option<i32> = None;
     let v = n.unwrap_or(42);       // 42
+
+    let result: Result<i32, _> = "7".parse();
+    let v = result.unwrap_or(0);   // 7
 }
 ```
 
@@ -584,6 +1068,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 ```
+
+`?` работает с `Result` и `Option`. Для `Option` можно использовать `.ok_or()` или `.ok_or_else()` для преобразования в `Result`.
 
 ### 7.4 Собственный тип ошибки
 
@@ -616,6 +1102,31 @@ fn find_user(id: u32) -> Result<String, MyError> {
 }
 ```
 
+### 7.5 Конвейер ошибок с anyhow
+
+```rust
+use anyhow::{Context, Result};
+
+fn read_config(path: &str) -> Result<String> {
+    let content = std::fs::read_to_string(path)
+        .with_context(|| format!("не удалось прочитать файл {path}"))?;
+    Ok(content)
+}
+
+fn parse_config(content: &str) -> Result<serde_json::Value> {
+    let value: serde_json::Value = serde_json::from_str(content)
+        .context("невалидный JSON в конфиге")?;
+    Ok(value)
+}
+
+fn main() -> Result<()> {
+    let config = read_config("config.json")?;
+    let parsed = parse_config(&config)?;
+    println!("{parsed:?}");
+    Ok(())
+}
+```
+
 ---
 
 ## 8. Обобщения и трейты
@@ -644,10 +1155,18 @@ impl<T> Pair<T> {
     }
 }
 
+// Специализация для конкретного типа
+impl Pair<i32> {
+    fn sum(&self) -> i32 {
+        self.first + self.second
+    }
+}
+
 fn main() {
     println!("{}", largest(&[3, 7, 1, 9]));    // 9
     println!("{}", largest(&['a', 'z', 'm'])); // 'z'
     let p = Pair::new(1, 2);
+    println!("{}", p.sum());
 }
 ```
 
@@ -708,6 +1227,76 @@ fn main() {
 
 **Общие трейты:** `Debug` (вывод `{:?}`), `Clone`/`Copy` (копирование), `PartialEq`/`Eq` (сравнение), `PartialOrd`/`Ord` (сортировка), `Hash` (для HashMap), `Default` (значения по умолчанию), `Serialize`/`Deserialize` (serde).
 
+### 8.4 Трейты с методами, имеющими реализацию по умолчанию
+
+```rust
+trait Animal {
+    fn name(&self) -> String;
+    fn speak(&self) -> String {
+        format!("{} говорит...", self.name())
+    }
+}
+
+struct Dog {
+    name: String,
+}
+
+impl Animal for Dog {
+    fn name(&self) -> String {
+        format!("Собака {}", self.name)
+    }
+    // speak() использует реализацию по умолчанию
+}
+
+fn make_sound(animal: &impl Animal) {
+    println!("{}", animal.speak());
+}
+```
+
+### 8.5 Супертрейты (Supertraits)
+
+Супертрейт ограничивает трейт, требуя реализации другого трейта:
+
+```rust
+trait Read {
+    fn read(&self) -> String;
+}
+
+trait ReadWrite: Read {    // ReadWrite требует Read
+    fn write(&self, data: &str);
+}
+
+struct File {
+    name: String,
+}
+
+impl Read for File {
+    fn read(&self) -> String {
+        format!("содержимое {}", self.name)
+    }
+}
+
+impl ReadWrite for File {
+    fn write(&self, data: &str) {
+        println!("записано в {}: {}", self.name, data);
+    }
+}
+```
+
+### 8.6 Объединение трейтов (Trait Bounds)
+
+```rust
+fn process<T: std::fmt::Display + std::fmt::Debug>(item: T) {
+    println!("Display: {}", item);
+    println!("Debug: {:?}", item);
+}
+
+// Синтаксис через +:
+fn process2(item: &(impl std::fmt::Display + std::fmt::Debug)) {
+    println!("{}", item);
+}
+```
+
 ---
 
 ## 9. Модули и пакеты
@@ -736,7 +1325,7 @@ fn main() {
 }
 ```
 
-По умолчанию всё приватно; `pub` — публичный. `use` подтягивает в область видимости.
+По умолчанию всё приватно; `pub` — публичный. `use` подтягивает в область видимости. Можно использовать `pub(crate)` для видимости внутри крейта, `pub(super)` для видимости в родительском модуле.
 
 ### 9.2 Модули в файлах
 
@@ -794,11 +1383,13 @@ edition = "2021"
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 
-[dev-dependencies]       # только для тестов/примеров
+[dev-dependencies]
 pretty_assertions = "1"
+proptest = "1"
 
 [profile.release]
 opt-level = 3
+lto = true
 ```
 
 ```bash
@@ -811,10 +1402,10 @@ cargo run                # запустить
 
 ```bash
 cargo publish --dry-run      # проверка
-cargo publish                # публикация (нужен токен)
+cargo publish                  # публикация (нужен токен)
 ```
 
-`cargo publish` требует: публичный репозиторий с лицензией в `Cargo.toml`, `README.md`, версию, которой нет на crates.io.
+`cargo publish` требует: публичный репозиторий с лицензией в `Cargo.toml`, `README.md`, версию, которой нет на crates.io. Для подготовки используйте `cargo login` с API-токеном.
 
 ---
 
@@ -838,6 +1429,10 @@ v.len();                         // 2
 v.contains(&2);                  // true
 v.remove(0);                     // убрать по индексу
 v.sort();                        // сортировка на месте
+v.reverse();                     // разворот
+v.dedup();                       // убрать дубликаты (после sort)
+v.retain(|x| x % 2 == 0);       // оставить только чётные
+v.clear();                       // очистить
 
 for x in &v {                    // итерация по ссылкам
     println!("{x}");
@@ -846,6 +1441,16 @@ for x in &v {                    // итерация по ссылкам
 for x in v {                     // итерация с перемещением
     println!("{x}");
 }
+
+// Итерация с индексом
+for (i, x) in v.iter().enumerate() {
+    println!("{i}: {x}");
+}
+
+// Преобразования
+let doubled: Vec<i32> = v.iter().map(|x| x * 2).collect();
+let sum: i32 = v.iter().sum();
+let filtered: Vec<i32> = v.into_iter().filter(|x| x > 2).collect();
 ```
 
 ### 10.2 HashMap\<K, V> — словарь
@@ -862,6 +1467,7 @@ scores.get("Mallory");                     // None
 scores.contains_key("Bob");                // true
 
 scores.entry(String::from("Alice")).or_insert(0);   // вставить, если нет
+scores.entry(String::from("Carol")).or_insert(0);   // вставит 0
 
 for (name, score) in &scores {
     println!("{name}: {score}");
@@ -893,6 +1499,37 @@ let a: HashSet<_> = [1, 2, 3].into_iter().collect();
 let b: HashSet<_> = [3, 4, 5].into_iter().collect();
 let union: HashSet<_> = a.union(&b).collect();        // {1,2,3,4,5}
 let inter: HashSet<_> = a.intersection(&b).collect(); // {3}
+let diff: HashSet<_> = a.difference(&b).collect();     // {1,2}
+let sym_diff: HashSet<_> = a.symmetric_difference(&b).collect(); // {1,2,4,5}
+```
+
+### 10.4 VecDeque, LinkedList, BTreeMap, BTreeSet
+
+```rust
+use std::collections::{VecDeque, LinkedList, BTreeMap, BTreeSet};
+
+// VecDeque — двусторонняя очередь (O(1) push/pop с обоих концов)
+let mut deque: VecDeque<i32> = VecDeque::new();
+deque.push_front(1);
+deque.push_back(2);
+let front = deque.pop_front();  // Some(1)
+
+// BTreeMap — отсортированный словарь (по ключу)
+let mut sorted = BTreeMap::new();
+sorted.insert("b", 2);
+sorted.insert("a", 1);
+sorted.insert("c", 3);
+// Итерация в порядке ключей: a, b, c
+for (k, v) in &sorted {
+    println!("{k}: {v}");
+}
+
+// BTreeSet — отсортированное множество
+let mut set: BTreeSet<i32> = BTreeSet::new();
+set.insert(3);
+set.insert(1);
+set.insert(2);
+// Итерация: 1, 2, 3
 ```
 
 ---
@@ -949,6 +1586,18 @@ fn main() {
         println!("получено: {received}");
     }
 }
+
+// Несколько отправителей
+fn multi_producer() {
+    let (tx, rx) = mpsc::channel();
+    let tx2 = tx.clone();
+
+    thread::spawn(move || { tx.send(1).unwrap(); });
+    thread::spawn(move || { tx2.send(2).unwrap(); });
+
+    let values: Vec<i32> = rx.iter().take(2).collect();
+    println!("{values:?}");     // [1, 2] (порядок не гарантирован)
+}
 ```
 
 ### 11.3 Общее состояние: Arc\<Mutex\<T>>
@@ -978,9 +1627,58 @@ fn main() {
 ```
 
 - `Arc` — атомарный подсчёт ссылок (разделяемая собственность между потоками);
-- `Mutex` — взаимоисключающий доступ (один поток за раз).
+- `Mutex` — взаимоисключающий доступ (один поток за раз);
+- `RwLock` — чтение параллельно, запись эксклюзивно:
 
-### 11.4 async/await — кратко
+```rust
+use std::sync::{Arc, RwLock};
+use std::thread;
+
+fn main() {
+    let data = Arc::new(RwLock::new(vec![1, 2, 3]));
+
+    let data_read = Arc::clone(&data);
+    let reader = thread::spawn(move || {
+        let read_guard = data_read.read().unwrap();
+        println!("чтение: {:?}", *read_guard);
+    });
+
+    let data_write = Arc::clone(&data);
+    let writer = thread::spawn(move || {
+        let mut write_guard = data_write.write().unwrap();
+        write_guard.push(4);
+    });
+
+    reader.join().unwrap();
+    writer.join().unwrap();
+    println!("итог: {:?}", *data.read().unwrap());
+}
+```
+
+### 11.4 Scoped Threads (стабильно с Rust 1.63+)
+
+```rust
+use std::thread;
+
+fn main() {
+    let mut v = vec![1, 2, 3];
+
+    // scoped threads — не нужен Arc/Mutex, т.к. компилятор гарантирует
+    // что все потоки завершатся до выхода из области видимости
+    thread::scope(|s| {
+        s.spawn(|| {
+            println!("вектор: {:?}", v);  // ✅ можно читать v
+        });
+        s.spawn(|| {
+            v.push(4);  // ✅ можно изменять v
+        });
+    });
+    // v доступен здесь — все потоки завершены
+    println!("{v:?}");  // [1, 2, 3, 4]
+}
+```
+
+### 11.5 async/await — кратко
 
 Асинхронный код работает на `tokio` (не в std). Подходит для I/O-bound задач (HTTP, БД).
 
@@ -1004,7 +1702,7 @@ async fn main() {
 }
 ```
 
-`async fn` возвращает `Future`; выполняется в runtime (`#[tokio::main]`). `await` — точка ожидания, не блокирует поток.
+`async fn` возвращает `Future`; выполняется в runtime (`#[tokio::main]`). `await` — точка ожидания, не блокирует поток. Подробнее — в `details.md`.
 
 ---
 
@@ -1061,7 +1759,50 @@ cargo test -- --ignored       # только ignored
 cargo test --release          # тесты в release
 ```
 
-Интеграционные тесты — в `tests/`, могут использовать библиотечный крейт через `use my_lib::...`.
+### Интеграционные тесты
+
+Папка `tests/` — каждый файл — отдельный интеграционный тест:
+
+```
+my_project/
+├── src/
+│   └── lib.rs
+└── tests/
+    ├── integration_test.rs
+    └── another_test.rs
+```
+
+```rust
+// tests/integration_test.rs
+use my_lib::add;
+
+#[test]
+fn test_add_from_lib() {
+    assert_eq!(add(2, 3), 5);
+}
+```
+
+### Doc-тесты
+
+Тесты прямо в документации:
+
+```rust
+/// Складывает два числа
+///
+/// # Примеры
+///
+/// ```
+/// let result = my_crate::add(2, 3);
+/// assert_eq!(result, 5);
+/// ```
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+```
+
+```bash
+cargo test --doc           # запустить doc-тесты
+```
 
 ---
 
@@ -1085,6 +1826,11 @@ cargo test --release          # тесты в release
 | [sqlx](https://docs.rs/sqlx) | Асинхронная работа с БД (компилируемые запросы) |
 | [diesel](https://docs.rs/diesel) | ORM |
 | [tui-rs](https://docs.rs/tui) / [ratatui](https://docs.rs/ratatui) | TUI-приложения |
+| [proptest](https://docs.rs/proptest) | Property-based тестирование |
+| [criterion](https://docs.rs/criterion) | Бенчмаркинг |
+| [insta](https://docs.rs/insta) | Snapshot-тестирование |
+| [crossbeam](https://docs.rs/crossbeam) | Низкоуровневые конкурентные примитивы |
+| [parking_lot](https://docs.rs/parking_lot) | Более производительные Mutex/RwLock |
 
 ---
 
@@ -1099,9 +1845,10 @@ cargo run                     # сборка + запуск
 cargo run --release
 cargo check                   # быстрая проверка без кодогенерации
 cargo test                    # тесты
-cargo test -- --nocapture
+cargo test test_add           # фильтр по имени
+cargo test -- --nocapture   # показать println!
 cargo clippy                  # линтер (ловит неидиоматичный код)
-cargo clippy -- -D warnings   # предупреждения как ошибки
+cargo clippy -- -D warnings  # предупреждения как ошибки
 cargo fmt                     # форматирование по rustfmt
 cargo fmt --check             # проверить форматирование (для CI)
 cargo add <crate>             # добавить зависимость
@@ -1111,6 +1858,9 @@ cargo doc --open
 cargo publish                 # публикация в crates.io
 cargo expand                  # разворачивание макросов (cargo-expand)
 cargo audit                   # проверка зависимостей на уязвимости
+cargo outdated                # проверить устаревшие зависимости
+cargo bloat                   # анализ размера бинарника
+cargo clean                   # удалить build/ артефакты
 ```
 
 Файлы: `Cargo.toml` (манифест), `Cargo.lock` (зафиксированные версии, в git для бинарников). Проект хранится в `src/`.
@@ -1129,6 +1879,9 @@ cargo audit                   # проверка зависимостей на �
 - **[Tour of Rust](https://tourofrust.com)** — короткий интерактивный курс
 - **[Rust Design Patterns](https://rust-unofficial.github.io/patterns/)** — паттерны проектирования
 - **[r/rust](https://www.reddit.com/r/rust/)** и **This Week in Rust** — новости сообщества
+- **[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)** — стиль написания библиотек
+- **[Rust Performance Book](https://nnethercote.github.io/perf-book/)** — оптимизация производительности
+- **[Rust Security Response](https://security.rust-lang.org/)** — политика безопасности
 
 ---
 
@@ -1136,9 +1889,9 @@ cargo audit                   # проверка зависимостей на �
 
 | Unit | Тема | Содержание |
 |------|------|-----------|
-| [Unit 1](unit-01/syntax.md) | Основы | Переменные, типы, функции, владение, заимствование, срезы, управляющие конструкции |
-| [Unit 2](unit-02/syntax.md) | Структуры и перечисления | struct, enum, Option/Result, match, impl, методы, коллекции (Vec, HashMap, HashSet) |
-| [Unit 3](unit-03/syntax.md) | Ошибки, трейты, конкурентность | Обработка ошибок, трейты, обобщения, модули, потоки, каналы, Arc/Mutex, тестирование |
+| [Unit 1](unit-01/syntax.md) | Основы | Переменные, типы, функции, владение, заимствование, срезы, управляющие конструкции, замыкания |
+| [Unit 2](unit-02/syntax.md) | Структуры и перечисления | struct, enum, Option/Result, match, impl, методы, коллекции (Vec, HashMap, HashSet), derive |
+| [Unit 3](unit-03/syntax.md) | Ошибки, трейты, конкурентность | Обработка ошибок, трейты, обобщения, модули, потоки, каналы, Arc/Mutex, RwLock, тестирование |
 
 Каждый unit включает: теорию, задачи, разбор.
 
@@ -1149,4 +1902,52 @@ cargo audit                   # проверка зависимостей на �
 - [Практические проекты](projects/index.md)
 
 ---
+
+## Рекомендуемый порядок изучения
+
+### Для новичков в программировании
+
+1. **Unit 1** — основы синтаксиса, переменные, типы, функции, владение, заимствование, срезы
+2. **Unit 2** — структуры, перечисления, Option/Result, методы, коллекции
+3. **Unit 3** — обработка ошибок, трейты, конкурентность, тестирование
+4. **details.md** — lifetimes, unsafe, макросы, async/await в глубину
+5. **Проекты** — начать с простых (grepsh, угадай число), затем переходить к сложным
+
+### Для опытных программистов (из другого языка)
+
+1. **Unit 1** — но с акцентом на владение и заимствование (это главная сложность)
+2. **Unit 2** — структуры, enum, match — быстро, знакомые паттерны
+3. **Unit 3** — трейты, обобщения, конкурентность — ключевые отличия от других языков
+4. **details.md** — lifetimes (глава 1), trait objects (глава 2), async/await (глава 7)
+5. **Проекты** — сразу к средним проектам (todo-api, парсер)
+
+### Для тех, кто уже знает C/C++
+
+1. **Unit 1** — владение вместо manual memory management, заимствование вместо raw pointers
+2. **Unit 2** — enum с данными вместо union/variant, match вместо switch
+3. **Unit 3** — трейты вместо виртуальных функций, Arc/Mutex вместо shared_ptr + mutex
+4. **details.md** — unsafe (глава 4) — аналогичен C, но с контрактами; Pin (глава 6) — аналог unique_ptr для self-referential типов
+5. **Проекты** — grepsh (CLI), todo-api (веб), парсер (AST)
+
+### Для тех, кто знает Go/Python/JS
+
+1. **Unit 1** — владение и заимствование — ключевая концепция, которой нет в вашем языке
+2. **Unit 2** — enum с данными, Option/Result — замена nil/exception
+3. **Unit 3** — трейты (аналог интерфейсов Go, но с generics), конкурентность (потоки вместо горутин)
+4. **details.md** — lifetimes (аналог borrow checker в Go, но строже), async/await (аналог goroutines + channels)
+5. **Проекты** — grepsh (аналог grep/awk), todo-api (аналог Flask/FastAPI)
+
+### Общий план на 4–6 недель
+
+| Неделя | Фокус | Задачи |
+|--------|-------|--------|
+| 1 | Unit 1 + Unit 2 основы | Все задачи из practice.md Unit 1 и Unit 2 |
+| 2 | Unit 2 продвинутый + Unit 3 основы | Все задачи из practice.md Unit 2 и Unit 3 |
+| 3 | details.md (lifetimes, unsafe, async) | Переписать проекты с использованием продвинутых фич |
+| 4 | Проект 1 (grepsh) | Реализовать CLI-утилиту с clap |
+| 5 | Проект 2 (todo-api) или Проект 3 (парсер) | Выбрать по интересу |
+| 6 | Проект 4 (угадай число) + завершение | Углубиться в rand, match, обработку ошибок |
+
+---
+
 *Полный конспект Rust. Регулярно дополняется.*

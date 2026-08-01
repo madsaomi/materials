@@ -60,6 +60,13 @@ struct Book<'a> {
 fn make<'a>(t: &'a str) -> Book<'a> {
     Book { title: t, pages: 100 }
 }
+
+fn main() {
+    let title = String::from("Rust Programming");
+    let book = make(&title);
+    println!("{} — {} страниц", book.title, book.pages);
+    // title живёт до конца main, book тоже — всё корректно
+}
 ```
 
 ### 1.4 Статическое время жизни `'static`
@@ -85,6 +92,83 @@ let v = vec![1, 2, 3];
 thread::spawn(move || {        // move — перенос владения в поток
     println!("{v:?}");
 });
+```
+
+### 1.5 Вложенные и связанные lifetimes
+
+Когда структура содержит несколько ссылок с разными временами жизни:
+
+```rust
+struct Parser<'a, 'b> {
+    input: &'a str,
+    output: &'b str,
+}
+
+// Ограничение: 'b не может жить дольше 'a
+struct Parser2<'a, 'b: 'a> {
+    input: &'a str,
+    output: &'b str,    // 'b: 'a означает, что &'b str живёт не меньше, чем &'a str
+}
+```
+
+### 1.6 Lifetime elision в методах impl
+
+```rust
+struct Container<'a> {
+    items: &'a [i32],
+}
+
+impl<'a> Container<'a> {
+    // Элизия: &self → &'a self, т.к. Container<'a> содержит &'a
+    fn len(&self) -> usize {
+        self.items.len()
+    }
+
+    // Явная аннотация: результат живёт не дольше self
+    fn first(&self) -> Option<&'a i32> {
+        self.items.first()
+    }
+}
+```
+
+### 1.7 Практический пример: парсер с lifetime
+
+```rust
+struct Token<'a> {
+    kind: &'a str,
+    value: &'a str,
+}
+
+struct Lexer<'a> {
+    input: &'a str,
+    pos: usize,
+}
+
+impl<'a> Lexer<'a> {
+    fn new(input: &'a str) -> Lexer<'a> {
+        Lexer { input, pos: 0 }
+    }
+
+    fn next_token(&mut self) -> Option<Token<'a>> {
+        if self.pos >= self.input.len() {
+            return None;
+        }
+        let start = self.pos;
+        while self.pos < self.input.len() && !self.input.as_bytes()[self.pos].is_ascii_whitespace() {
+            self.pos += 1;
+        }
+        let value = &self.input[start..self.pos];
+        Some(Token { kind: "word", value })
+    }
+}
+
+fn main() {
+    let input = "let x = 42";
+    let mut lexer = Lexer::new(input);
+    while let Some(token) = lexer.next_token() {
+        println!("{}: {}", token.kind, token.value);
+    }
+}
 ```
 
 ---
@@ -161,6 +245,70 @@ fn spawn_with_object(t: Arc<dyn Draw + Send + Sync>) {
 
 Трейт-объект-совместимы только трейты без обобщённых методов и без `Sized`-супертрейтов.
 
+### 2.4 Trait object и trait bounds — подробнее
+
+```rust
+// Трейт-объект — динамическая диспетчеризация через vtable
+trait Animal {
+    fn name(&self) -> String;
+    fn speak(&self) -> String;
+}
+
+struct Dog { name: String }
+struct Cat { name: String }
+
+impl Animal for Dog {
+    fn name(&self) -> String { format!("Собака {}", self.name) }
+    fn speak(&self) -> String { "Гав!".to_string() }
+}
+
+impl Animal for Cat {
+    fn name(&self) -> String { format!("Кот {}", self.name) }
+    fn speak(&self) -> String { "Мяу!".to_string() }
+}
+
+// Вектор разных типов, реализующих Animal
+fn animal_sounds(animals: &[Box<dyn Animal>]) {
+    for animal in animals {
+        println!("{} говорит: {}", animal.name(), animal.speak());
+    }
+}
+
+// Функция, принимающая любой тип, реализующий Animal (статическая диспетчеризация)
+fn make_sound<T: Animal>(animal: &T) {
+    println!("{}", animal.speak());
+}
+```
+
+### 2.5 Object Safety
+
+Трейт не является object-safe, если содержит:
+- Методы, возвращающие `Self` (разный размер для разных типов)
+- Методы с обобщёнными типовыми параметрами
+- Методы, требующие `Self: Sized`
+
+```rust
+// ❌ Не object-safe: возвращает Self
+trait Factory {
+    fn create(&self) -> Self;
+}
+
+// ✅ Object-safe: возвращает Box<dyn Trait>
+trait FactorySafe {
+    fn create(&self) -> Box<dyn FactorySafe>;
+}
+
+// ❌ Не object-safe: обобщённый метод
+trait Processor {
+    fn process<T>(&self, item: T) -> T;
+}
+
+// ✅ Object-safe: конкретный тип
+trait ProcessorSafe {
+    fn process(&self, item: i32) -> i32;
+}
+```
+
 ---
 
 ## 3. Макросы
@@ -199,16 +347,32 @@ macro_rules! min_of {
     };
 }
 
+// Макрос с повторением через разделитель
+macro_rules! create_functions {
+    ($($name:ident) *) => {
+        $(
+            fn $name() {
+                println!("Функция {}", stringify!($name));
+            }
+        )*
+    };
+}
+
 fn main() {
     say_hello!();
     let v = vec_of![1, 2, 3];
     println!("{:?}", v);      // [1, 2, 3]
     let m = min_of![5, 3, 9, 1];
     println!("{m}");          // 1
+
+    create_functions!(foo bar baz);
+    foo();   // Функция foo
+    bar();   // Функция bar
+    baz();   // Функция baz
 }
 ```
 
-Шаблоны: `$x:expr` — выражение, `$($y),*` — повторение (ноль и более), `$($y),+` — одно и более, `$(,)?` — необязательная запятая.
+Шаблоны: `$x:expr` — выражение, `$($y),*` — повторение (ноль и более), `$($y),+` — одно и более, `$(,)?` — необязательная запятая. `stringify!($name)` — превращает идентификатор в строку.
 
 ### 3.3 Процедурные макросы — пример derive
 
@@ -250,6 +414,65 @@ fn main() {
 
 `syn` — парсинг Rust-кода в AST, `quote` — генерация кода.
 
+### 3.4 Атрибутные макросы
+
+```rust
+// Процедурный атрибутный макрос: #[my_attribute]
+use proc_macro::TokenStream;
+
+#[proc_macro_attribute]
+pub fn my_attribute(attr: TokenStream, item: TokenStream) -> TokenStream {
+    // attr — содержимое внутри скобок: #[my_attribute(foo, bar)]
+    // item — структуры/функции, к которым применён атрибут
+    let input = syn::parse_macro_input!(item as syn::ItemFn);
+    let name = &input.sig.ident;
+    let expanded = quote::quote! {
+        fn #name() {
+            println!("до вызова {}", stringify!(#name));
+            // оригинальное тело функции
+            #input
+            println!("после вызова {}", stringify!(#name));
+        }
+    };
+    expanded.into()
+}
+```
+
+Использование:
+
+```rust
+#[my_attribute]
+fn my_function() {
+    println!("работа");
+}
+```
+
+### 3.5 Функциональные процедурные макросы
+
+```rust
+// #[proc_macro] — макрос, вызываемый как функция: my_macro!(...)
+use proc_macro::TokenStream;
+
+#[proc_macro]
+pub fn create_struct(input: TokenStream) -> TokenStream {
+    let input = syn::parse_macro_input!(input as syn::Expr);
+    // Генерация кода на основе входного выражения
+    // ...
+    TokenStream::new()
+}
+```
+
+### 3.6 declarative vs procedural — сравнение
+
+| Аспект | macro_rules! | proc-macro |
+|--------|-------------|------------|
+| Сложность | Простая | Средняя/высокая |
+| Доступ к AST | Только токены | Полный AST через syn |
+| Типы | Нет | Да (через syn) |
+| Скорость компиляции | Быстрее | Медленнее |
+| Использование | Внутри одного крейта | В отдельном proc-macro крейте |
+| Ошибки | Ограниченные | Полный контроль |
+
 ---
 
 ## 4. unsafe
@@ -276,21 +499,35 @@ fn main() {
 
     // 3. Доступ к static mut (вне unsafe — нельзя)
     static mut COUNTER: u32 = 0;
+    unsafe {
+        COUNTER += 1;
+        println!("{}", COUNTER);
+    }
 
     // 4. Реализация unsafe-трейта (Send, Sync, ...)
     unsafe impl Send for MyType {}
 
     // 5. Доступ к union-полям
+    let u = MyUnion { f1: 42 };
+    unsafe {
+        println!("{}", u.f1);
+    }
 }
 
 struct MyType;
+
+union MyUnion {
+    f1: i32,
+    f2: f64,
+}
 ```
 
 ### 4.2 Когда unsafe оправдан
 
 - FFI (вызов C): `extern "C" { fn printf(...); }`;
 - Реализация безопасных абстракций поверх сырых указателей (Vec, String, HashMap внутри используют unsafe);
-- Крайняя оптимизация.
+- Крайняя оптимизация (SIMD, ручное управление памятью);
+- Реализация трейтов `Send`/`Sync` для типов, которые гарантированно безопасны для передачи между потоками.
 
 **Правило:** инкапсулируйте unsafe в безопасный API и документируйте инварианты с `# Safety`-комментарием. unsafe не отключает проверки владения — это обещание программиста.
 
@@ -308,6 +545,88 @@ fn main() {
 }
 ```
 
+### 4.4 Unsafe и указатели — подробнее
+
+```rust
+fn main() {
+    let mut x = 42;
+
+    // Создание сырых указателей (безопасно)
+    let raw_ptr: *mut i32 = &mut x;
+    let const_ptr: *const i32 = &x;
+
+    // Разыменование сырых указателей (небезопасно)
+    unsafe {
+        println!("{}", *raw_ptr);   // 42
+        println!("{}", *const_ptr); // 42
+    }
+
+    // Сырые указатели можно преобразовывать между типами
+    let float_ptr = raw_ptr as *mut f64;
+
+    // Сырые указатели можно сравнивать
+    let another_ptr: *const i32 = &x;
+    let equal = raw_ptr == another_ptr as *mut i32;
+    println!("{}", equal);  // true
+}
+```
+
+### 4.5 Unsafe и Send/Sync
+
+```rust
+// Send — тип можно безопасно передать в другой поток
+// Sync — тип можно безопасно разделить между потоками (&T: Send)
+
+// По умолчанию:
+// - Типы, содержащие *mut, не являются Send и Sync
+// - Типы, содержащие &mut, не являются Send
+// - Типы, содержащие &T, Send если T: Sync
+
+// Пример: Rc не Send/Sync (не атомарный счётчик ссылок)
+use std::rc::Rc;
+// let rc = Rc::new(42);
+// thread::spawn(move || { println!("{}", rc); }); // ❌ Rc не Send
+
+// Arc — Send + Sync (атомарный счётчик)
+use std::sync::Arc;
+let arc = Arc::new(42);
+// thread::spawn(move || { println!("{}", arc); }); // ✅ Arc: Send + Sync
+```
+
+### 4.6 Опасные паттерны и как их избежать
+
+```rust
+// ❌ Паттерн 1: Use-after-free через raw pointer
+// let s = String::from("hello");
+// let ptr = s.as_ptr();
+// drop(s);
+// unsafe { println!("{}", *ptr); }  // ❌ use-after-free
+
+// ✅ Паттерн 2: Безопасная абстракция поверх unsafe
+struct SafeBuffer {
+    data: Vec<u8>,
+}
+
+impl SafeBuffer {
+    fn new(size: usize) -> Self {
+        SafeBuffer { data: vec![0; size] }
+    }
+
+    fn as_ptr(&self) -> *const u8 {
+        self.data.as_ptr()
+    }
+
+    fn as_mut_ptr(&mut self) -> *mut u8 {
+        self.data.as_mut_ptr()
+    }
+
+    fn len(&self) -> usize {
+        self.data.len()
+    }
+}
+// Внешний код не может создать use-after-free — Vec управляет памятью
+```
+
 ---
 
 ## 5. std::mem
@@ -320,7 +639,7 @@ use std::mem;
 let x = 42u64;
 
 mem::size_of_val(&x);      // 8
-mem::size_of::<f64>();     // 8
+mem::size_of::<f64>();       // 8
 mem::align_of::<u32>();    // 4
 
 // swap — обменять значения двух мутабельных переменных
@@ -346,6 +665,10 @@ mem::drop(s);
 
 // transmute — произвольное преобразование типов (ОПАСНО!)
 let bytes: [u8; 4] = unsafe { mem::transmute(1u32) };   // [1, 0, 0, 0] на LE
+
+// forget — предотвратить вызов Drop (нужно осторожно!)
+let boxed = Box::new(42);
+let leaked: &mut i32 = Box::leak(boxed);  // 'static ссылка, память не освобождена
 ```
 
 `mem::discriminant` — идентификатор варианта enum без данных:
@@ -360,6 +683,31 @@ let a = Foo::A;
 let b = Foo::B(10);
 assert_eq!(discriminant(&a), discriminant(&Foo::A));
 assert_ne!(discriminant(&a), discriminant(&b));
+```
+
+### 5.1 size_of и align_of — детально
+
+```rust
+// Размер типов
+assert_eq!(mem::size_of::<u8>(), 1);
+assert_eq!(mem::size_of::<u32>(), 4);
+assert_eq!(mem::size_of::<u64>(), 8);
+assert_eq!(mem::size_of::<bool>(), 1);
+assert_eq!(mem::size_of::<char>(), 4);
+
+// Выравнивание
+assert_eq!(mem::align_of::<u8>(), 1);
+assert_eq!(mem::align_of::<u32>(), 4);
+assert_eq!(mem::align_of::<u64>(), 8);
+
+// Enum с данными — размер = max(размер вариантов) + тег
+enum Small { A, B(u32) }
+assert_eq!(mem::size_of::<Small>(), 8);  // max(1, 4+tag)
+
+// Zero-sized типы (ZST)
+struct ZST;
+assert_eq!(mem::size_of::<ZST>(), 0);
+// Vec<ZST> может хранить произвольное количество элементов без расхода памяти
 ```
 
 ---
@@ -378,11 +726,10 @@ use std::pin::Pin;
 let boxed = Box::new(42);
 let pinned: Pin<Box<i32>> = Box::into_pin(boxed);
 let value: &i32 = pinned.as_ref().get_ref();   // ✅ чтение можно
-// let mut_ref = pinned.get_mut();             // ❌ i32: Unpin? на самом деле i32 — Unpin
+// let mut_ref = pinned.get_mut();               // ❌ i32: Unpin? на самом деле i32 — Unpin
 ```
 
 Большинство типов — `Unpin` (можно перемещать). `Pin` важен для:
-
 - `Future` (в `async` блоков хранятся self-referential структуры);
 - самоссылающихся структур;
 - гарантий для библиотек (например, `tokio`).
@@ -416,6 +763,33 @@ fn main() {
 }
 ```
 
+### 6.4 Unpin и Pin<Box<T>>
+
+```rust
+// Типы, реализующие Unpin, можно свободно перемещать даже внутри Pin
+fn print_unpin<T: Unpin>(mut val: Pin<Box<T>>) {
+    let reference = val.as_mut().get_mut();  // ✅ Unpin: можно получить &mut
+    println!("{}", reference);
+}
+
+// Для не-Unpin типов нужен Pin::new_cyclic или unsafe
+struct SelfRef {
+    data: String,
+    ptr: *const String,
+}
+
+impl SelfRef {
+    fn new(s: String) -> Pin<Box<SelfRef>> {
+        let mut sr = Box::new(SelfRef {
+            data: s,
+            ptr: std::ptr::null(),
+        });
+        sr.ptr = &sr.data as *const String;
+        sr
+    }
+}
+```
+
 ---
 
 ## 7. async/await в глубину
@@ -433,6 +807,11 @@ async fn download(url: &str) -> Result<String, std::io::Error> {
 // Эквивалентный трейт-объект:
 // fn download<'a>(url: &'a str) -> Pin<Box<dyn Future<Output=Result<String, io::Error>> + 'a>>
 ```
+
+Компилятор превращает `async fn` в конечный автомат с состояниями:
+- State 0: до первого `.await`
+- State 1: после первого `.await`, до возврата
+- State 2: завершено
 
 ### 7.2 Future трейт
 
@@ -452,9 +831,55 @@ impl Future for MyFuture {
 }
 ```
 
-Runtime (`tokio`) вызывает `poll` на futures; когда `Pending` — поток освобождается для других задач.
+`Poll<T>` — это `Poll::Ready(T)` (готово) или `Poll::Pending` (нужно ждать, вызвать waker позже).
 
-### 7.3 Executor и планирование
+### 7.3 Внутреннее устройство async/await
+
+```rust
+// async fn download(url: &str) -> String {
+//     tokio::time::sleep(Duration::from_millis(10)).await;
+//     format!("данные: {url}")
+// }
+
+// Эквивалентная state machine (упрощённо):
+enum DownloadFuture<'a> {
+    State0 { url: &'a str },          // начальное состояние
+    State1 { url: &'a str, sleep: Pin<Box<SleepFuture>> },  // ждём sleep
+    State2 { result: String },        // завершено
+}
+
+impl Future for DownloadFuture<'_> {
+    type Output = String;
+
+    fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<String> {
+        loop {
+            match *self {
+                DownloadFuture::State0 { url } => {
+                    // Создаём sleep future, переходим в State1
+                    let sleep = tokio::time::sleep(Duration::from_millis(10));
+                    *self = DownloadFuture::State1 { url, sleep: Box::pin(sleep) };
+                }
+                DownloadFuture::State1 { url, ref mut sleep } => {
+                    // Поллим sleep
+                    match sleep.as_mut().poll(cx) {
+                        Poll::Pending => return Poll::Pending,
+                        Poll::Ready(()) => {
+                            *self = DownloadFuture::State2 {
+                                result: format!("данные: {url}"),
+                            };
+                        }
+                    }
+                }
+                DownloadFuture::State2 { ref result } => {
+                    return Poll::Ready(result.clone());
+                }
+            }
+        }
+    }
+}
+```
+
+### 7.4 Executor и планирование
 
 ```rust
 // #[tokio::main] разворачивается примерно в:
@@ -474,7 +899,7 @@ async fn main() {
 }
 ```
 
-### 7.4 select! — гонка между futures
+### 7.5 select! — гонка между futures
 
 ```rust
 use std::time::Duration;
@@ -492,7 +917,7 @@ async fn main() {
 }
 ```
 
-### 7.5 Send/Sync и потоки
+### 7.6 Send/Sync и потоки
 
 - `tokio::spawn` требует `Future: Send + 'static`;
 - держите `Mutex` (std) между `.await` только через `tokio::sync::Mutex` или `Arc<tokio::sync::Mutex>` — иначе заблокируется весь поток;
@@ -521,7 +946,61 @@ async fn main() {
 }
 ```
 
-### 7.6 Заключение
+### 7.7 Streams
+
+Асинхронные последовательности (аналог Iterator для async):
+
+```rust
+use tokio_stream::StreamExt;
+
+#[tokio::main]
+async fn main() {
+    let stream = tokio_stream::iter(vec![1, 2, 3, 4, 5]);
+
+    // map — преобразование
+    let doubled = stream.map(|x| x * 2);
+
+    // filter — фильтрация
+    let evens = tokio_stream::iter(vec![1, 2, 3, 4, 5])
+        .filter(|x| std::future::ready(x % 2 == 0));
+
+    // for_each — потребление
+    tokio_stream::iter(vec![1, 2, 3])
+        .for_each(|x| async move {
+            println!("{x}");
+        })
+        .await;
+
+    // collect — сборка в Vec
+    let v: Vec<i32> = tokio_stream::iter(vec![1, 2, 3]).collect().await;
+    println!("{v:?}");  // [1, 2, 3]
+}
+```
+
+### 7.8 Channels для async
+
+```rust
+use tokio::sync::mpsc;
+
+#[tokio::main]
+async fn main() {
+    let (tx, mut rx) = mpsc::channel::<String>(32);  // буфер на 32 сообщения
+
+    // Продюсер
+    tokio::spawn(async move {
+        for i in 0..5 {
+            tx.send(format!("сообщение {i}")).await.unwrap();
+        }
+    });
+
+    // Консьюмер
+    while let Some(msg) = rx.recv().await {
+        println!("{msg}");
+    }
+}
+```
+
+### 7.9 Заключение
 
 - **Потоки** — для CPU-bound параллелизма (rayon, std::thread);
 - **async** — для I/O-bound конкурентности (сети, диски), тысячи подключений на одном потоке;
@@ -557,6 +1036,59 @@ struct Node {
 }
 ```
 
+### 8.1.1 Arc vs Rc — когда что использовать
+
+```rust
+use std::rc::Rc;
+use std::sync::Arc;
+
+// Rc — только для одного потока, легче (нет атомарных операций)
+let rc = Rc::new(vec![1, 2, 3]);
+// thread::spawn(move || { println!("{:?}", rc); }); // ❌ Rc не Send
+
+// Arc — для многопоточности, чуть тяжелее (атомарный счётчик)
+let arc = Arc::new(vec![1, 2, 3]);
+// thread::spawn(move || { println!("{:?}", arc); }); // ✅ Arc: Send + Sync
+```
+
+### 8.1.2 Cell<T> — внутренняя изменяемость для Copy-типов
+
+```rust
+use std::cell::Cell;
+
+let cell = Cell::new(5);
+cell.set(10);
+let val = cell.get();  // 10
+
+// Cell<T> работает только с Copy-типами
+let c = Cell::new(42i32);
+c.set(c.get() + 1);
+
+// Для не-Copy типов — RefCell
+```
+
+### 8.1.3 OnceCell и LazyCell — ленивая инициализация
+
+```rust
+use std::sync::OnceLock;
+
+static CONFIG: OnceLock<String> = OnceLock::new();
+
+fn get_config() -> &String {
+    CONFIG.get_or_init(|| {
+        // Вычисляется один раз, при первом обращении
+        "default_config".to_string()
+    })
+}
+
+// LazyCell (стабиль с Rust 1.80)
+use std::cell::LazyCell;
+
+static LAZY: LazyCell<Vec<i32>> = LazyCell::new(|| {
+    (1..=100).collect()
+});
+```
+
 ### 8.2 Идиомы
 
 ```rust
@@ -578,6 +1110,7 @@ let c: Config = "ab".into();   // через From
 
 // Newtype — обёртка для строгой типизации
 struct UserId(u64);
+struct UserName(String);
 
 // Default
 #[derive(Default)]
@@ -629,5 +1162,152 @@ enum AppError {
 }
 ```
 
+### 8.5 Процедурные макросы для валидации
+
+```rust
+// Крейт validator — валидация структур через derive
+use validator::Validate;
+
+#[derive(Debug, Validate)]
+struct SignUpRequest {
+    #[validate(email)]
+    email: String,
+
+    #[validate(length(min = 8, message = "пароль слишком короткий"))]
+    password: String,
+
+    #[validate(range(min = 18, max = 120))]
+    age: u8,
+}
+
+fn main() {
+    let req = SignUpRequest {
+        email: "not-an-email".to_string(),
+        password: "short".to_string(),
+        age: 15,
+    };
+    let result = req.validate();
+    // result содержит ошибки валидации
+}
+```
+
+### 8.6 Строчные типы: String vs &str vs Cow
+
+```rust
+use std::borrow::Cow;
+
+// &str — заимствованная ссылка на строку
+// String — владеющая, изменяемая строка в куче
+// Cow — Copy-on-Write: &str если возможно, String если нужно изменить
+
+fn process(input: &str) -> Cow<str> {
+    if input.contains(' ') {
+        Cow::Owned(input.replace(' ', "_"))  // аллокация, т.к. нужно изменить
+    } else {
+        Cow::Borrowed(input)                  // без аллокации
+    }
+}
+```
+
 ---
+
+## 9. Продвинутые паттерны
+
+### 9.1 Мемоизация с lazy_static / OnceLock
+
+```rust
+use std::collections::HashMap;
+use std::sync::OnceLock;
+
+fn expensive_computation() -> HashMap<String, i32> {
+    // Симуляция дорогого вычисления
+    let mut map = HashMap::new();
+    map.insert("key1".to_string(), 42);
+    map.insert("key2".to_string(), 100);
+    map
+}
+
+static CACHE: OnceLock<HashMap<String, i32>> = OnceLock::new();
+
+fn get_cached(key: &str) -> Option<&i32> {
+    let cache = CACHE.get_or_init(expensive_computation);
+    cache.get(key)
+}
+```
+
+### 9.2 Типажный паттерн (Type State Pattern)
+
+```rust
+// Позволяет перемещать состояние через типы на уровне компиляции
+struct Connection<State> {
+    data: String,
+    _state: std::marker::PhantomData<State>,
+}
+
+struct Open;
+struct Closed;
+
+impl Connection<Closed> {
+    fn new() -> Self {
+        Connection { data: String::new(), _state: std::marker::PhantomData }
+    }
+
+    fn open(self) -> Connection<Open> {
+        Connection { data: self.data, _state: std::marker::PhantomData }
+    }
+}
+
+impl Connection<Open> {
+    fn send(&mut self, msg: &str) {
+        self.data.push_str(msg);
+    }
+
+    fn close(self) -> Connection<Closed> {
+        Connection { data: self.data, _state: std::marker::PhantomData }
+    }
+}
+
+fn main() {
+    let conn = Connection::<Closed>::new();
+    let mut conn = conn.open();
+    conn.send("hello");
+    let conn = conn.close();
+    // conn.send("world"); // ❌ Connection<Closed> не имеет метода send
+}
+```
+
+### 9.3 Трейт-объекты и иерархии
+
+```rust
+trait Shape {
+    fn area(&self) -> f64;
+    fn describe(&self) -> String;
+}
+
+trait Printable {
+    fn print(&self);
+}
+
+// Два трейта, реализуемых одним типом
+struct Circle { radius: f64 }
+
+impl Shape for Circle {
+    fn area(&self) -> f64 { std::f64::consts::PI * self.radius * self.radius }
+    fn describe(&self) -> String { format!("Круг с радиусом {}", self.radius) }
+}
+
+impl Printable for Circle {
+    fn print(&self) {
+        println!("{} (площадь: {})", self.describe(), self.area());
+    }
+}
+
+// Функция, принимающая любой Shape
+fn print_area(shape: &dyn Shape) {
+    println!("Площадь: {}", shape.area());
+}
+```
+
+---
+
 *Детали Rust. Продолжение конспекта — `index.md`.*

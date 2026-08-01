@@ -1,85 +1,29 @@
 # Rust — Проекты
 
-4 практических проекта: от CLI-утилиты до парсера и консольной игры. Каждый — с описанием, шагами и тем, что вы изучаете.
+Более 15 практических проектов: от CLI-утилиты до парсера, веб-сервера и консольной игры. Каждый — с описанием, шагами, стеком и тем, что вы изучаете.
+
+---
+
+## Уровни сложности
+
+| Уровень | Описание | Предпосылки |
+|---------|----------|-------------|
+| 🟢 Начинающий | Базовый синтаксис, владение, строки, циклы | Unit 1 |
+| 🟡 Средний | enum, Option/Result, impl, коллекции | Unit 2 |
+| 🔴 Продвинутый | трейты, конкурентность, async/await | Unit 3 |
+| 🟣 Эксперт | unsafe, макросы, FFI, кастомные трейты | Все units + details.md |
 
 ---
 
 ## Проект 1: CLI-утилита «grepsh» (поиск в тексте)
 
-**Уровень:** Начинающий  
-**Стек:** clap, std::fs, std::env  
+**Уровень:** 🟢 Начинающий
+**Стек:** clap, std::fs, std::env
 **Время:** 2-3 часа
 
 ### Описание
 
-Утилита поиска строки в файле — аналог `grep`. Поддерживает флаги: чувствительность к регистру, номера строк, подсчёт совпадений.
-
-```bash
-cargo new grepsh
-cd grepsh
-cargo add clap --features derive
-```
-
-```rust
-use clap::Parser;
-
-#[derive(Parser, Debug)]
-#[command(name = "grepsh", version, about = "Поиск строки в файле")]
-struct Args {
-    /// Искомая строка
-    query: String,
-
-    /// Файл для поиска
-    path: String,
-
-    /// Игнорировать регистр
-    #[arg(short, long)]
-    ignore_case: bool,
-
-    /// Печатать номера строк
-    #[arg(short = 'n', long)]
-    line_number: bool,
-
-    /// Только подсчёт совпадений
-    #[arg(short, long)]
-    count: bool,
-}
-
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let args = Args::parse();
-    let content = std::fs::read_to_string(&args.path)?;
-
-    let query = if args.ignore_case {
-        args.query.to_lowercase()
-    } else {
-        args.query.clone()
-    };
-
-    let mut matches = 0;
-    for (idx, line) in content.lines().enumerate() {
-        let haystack = if args.ignore_case {
-            line.to_lowercase()
-        } else {
-            line.to_string()
-        };
-        if haystack.contains(&query) {
-            matches += 1;
-            if !args.count {
-                if args.line_number {
-                    println!("{}: {}", idx + 1, line);
-                } else {
-                    println!("{line}");
-                }
-            }
-        }
-    }
-
-    if args.count {
-        println!("{matches}");
-    }
-    Ok(())
-}
-```
+Утилита поиска строки в файле — аналог `grep`. Поддерживает флаги: чувствительность к регистру, номера строк, подсчёт совпадений, подсветку.
 
 ### Шаги
 
@@ -87,7 +31,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 2. Реализуйте поиск без регистра и с номерами строк;
 3. Добавьте флаг `--count`;
 4. Проверьте: `cargo run -- "rust" Cargo.toml --ignore-case -n`;
-5. Дополнительно: добавьте `--color` для подсветки совпадений.
+5. Дополнительно: добавьте `--color` для подсветки совпадений с `owo-colors` или `colored`.
 
 ### Что изучается
 
@@ -97,99 +41,20 @@ CLI-фреймворки (`clap`), работа с файлами (`fs::read_to_
 
 ## Проект 2: HTTP-сервер «todo-api» на axum
 
-**Уровень:** Средний  
-**Стек:** axum, tokio, serde  
+**Уровень:** 🟡 Средний
+**Стек:** axum, tokio, serde
 **Время:** 4-6 часов
 
 ### Описание
 
-REST API для задач (to-do): `GET /todos`, `POST /todos`, `DELETE /todos/:id`. Хранение в памяти (затем — в БД).
-
-```bash
-cargo new todo-api
-cd todo-api
-cargo add axum tokio --features tokio/full
-cargo add serde --features derive
-```
-
-```rust
-use axum::{
-    extract::{Path, State},
-    http::StatusCode,
-    response::IntoResponse,
-    routing::{delete, get, post},
-    Json, Router,
-};
-use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
-
-#[derive(Clone, Serialize, Deserialize)]
-struct Todo {
-    id: u64,
-    title: String,
-    done: bool,
-}
-
-#[derive(Deserialize)]
-struct NewTodo {
-    title: String,
-}
-
-type Db = Arc<Mutex<HashMap<u64, Todo>>>;
-
-async fn list_todos(State(db): State<Db>) -> Json<Vec<Todo>> {
-    let db = db.lock().unwrap();
-    let mut todos: Vec<Todo> = db.values().cloned().collect();
-    todos.sort_by_key(|t| t.id);
-    Json(todos)
-}
-
-async fn create_todo(
-    State(db): State<Db>,
-    Json(input): Json<NewTodo>,
-) -> impl IntoResponse {
-    let mut db = db.lock().unwrap();
-    let id = db.len() as u64 + 1;
-    let todo = Todo {
-        id,
-        title: input.title,
-        done: false,
-    };
-    db.insert(id, todo.clone());
-    (StatusCode::CREATED, Json(todo))
-}
-
-async fn delete_todo(State(db): State<Db>, Path(id): Path<u64>) -> StatusCode {
-    let mut db = db.lock().unwrap();
-    if db.remove(&id).is_some() {
-        StatusCode::NO_CONTENT
-    } else {
-        StatusCode::NOT_FOUND
-    }
-}
-
-#[tokio::main]
-async fn main() {
-    let db: Db = Arc::new(Mutex::new(HashMap::new()));
-
-    let app = Router::new()
-        .route("/todos", get(list_todos).post(create_todo))
-        .route("/todos/{id}", delete(delete_todo))
-        .with_state(db);
-
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000").await.unwrap();
-    println!("сервер на http://127.0.0.1:3000");
-    axum::serve(listener, app).await.unwrap();
-}
-```
+REST API для задач (to-do): `GET /todos`, `POST /todos`, `DELETE /todos/:id`, `PUT /todos/:id`. Хранение в памяти (затем — в БД через `sqlx`).
 
 ### Шаги
 
 1. Разберитесь с `Router`, маршрутами и `with_state`;
 2. Реализуйте `GET` и `POST`;
-3. Добавьте `DELETE` и проверку существования;
-4. Протестируйте: `curl -X POST localhost:3000/todos -d '{"title":"учиться"}' -H 'Content-Type: application/json'`;
+3. Добавьте `DELETE` и `PUT`;
+4. Протестируйте через `curl` или `httpie`;
 5. Дополнительно: подключите SQLite через `rusqlite` или PostgreSQL через `sqlx`.
 
 ### Что изучается
@@ -200,170 +65,13 @@ async fn main() {
 
 ## Проект 3: Парсер арифметических выражений
 
-**Уровень:** Средний  
-**Стек:** только std, рекурсивный спуск  
+**Уровень:** 🟡 Средний
+**Стек:** только std, рекурсивный спуск
 **Время:** 3-5 часов
 
 ### Описание
 
 Калькулятор выражений с приоритетом операций, скобками и унарным минусом: `2 + 3 * (4 - 1)` → `11`. Реализация рекурсивного спуска (парсер выражений).
-
-```rust
-#[derive(Debug, Clone, PartialEq)]
-enum Expr {
-    Num(f64),
-    Add(Box<Expr>, Box<Expr>),
-    Sub(Box<Expr>, Box<Expr>),
-    Mul(Box<Expr>, Box<Expr>),
-    Div(Box<Expr>, Box<Expr>),
-    Neg(Box<Expr>),
-}
-
-struct Parser {
-    tokens: Vec<Token>,
-    pos: usize,
-}
-
-#[derive(Debug, Clone, PartialEq)]
-enum Token {
-    Num(f64),
-    Plus,
-    Minus,
-    Star,
-    Slash,
-    LParen,
-    RParen,
-}
-
-impl Parser {
-    fn new(input: &str) -> Parser {
-        let tokens = tokenize(input);
-        Parser { tokens, pos: 0 }
-    }
-
-    fn peek(&self) -> Option<&Token> {
-        self.tokens.get(self.pos)
-    }
-
-    fn next(&mut self) -> Option<Token> {
-        let t = self.tokens.get(self.pos).cloned();
-        self.pos += 1;
-        t
-    }
-
-    fn parse(&mut self) -> Expr {
-        self.parse_expr()
-    }
-
-    // expr := term (('+' | '-') term)*
-    fn parse_expr(&mut self) -> Expr {
-        let mut left = self.parse_term();
-        loop {
-            match self.peek() {
-                Some(Token::Plus) => {
-                    self.next();
-                    let right = self.parse_term();
-                    left = Expr::Add(Box::new(left), Box::new(right));
-                }
-                Some(Token::Minus) => {
-                    self.next();
-                    let right = self.parse_term();
-                    left = Expr::Sub(Box::new(left), Box::new(right));
-                }
-                _ => return left,
-            }
-        }
-    }
-
-    // term := factor (('*' | '/') factor)*
-    fn parse_term(&mut self) -> Expr {
-        let mut left = self.parse_factor();
-        loop {
-            match self.peek() {
-                Some(Token::Star) => {
-                    self.next();
-                    let right = self.parse_factor();
-                    left = Expr::Mul(Box::new(left), Box::new(right));
-                }
-                Some(Token::Slash) => {
-                    self.next();
-                    let right = self.parse_factor();
-                    left = Expr::Div(Box::new(left), Box::new(right));
-                }
-                _ => return left,
-            }
-        }
-    }
-
-    // factor := '-' factor | '(' expr ')' | num
-    fn parse_factor(&mut self) -> Expr {
-        match self.peek() {
-            Some(Token::Minus) => {
-                self.next();
-                let inner = self.parse_factor();
-                Expr::Neg(Box::new(inner))
-            }
-            Some(Token::LParen) => {
-                self.next();
-                let e = self.parse_expr();
-                assert_eq!(self.next(), Some(Token::RParen), "ожидалась ')'");
-                e
-            }
-            Some(Token::Num(n)) => {
-                let n = *n;
-                self.next();
-                Expr::Num(n)
-            }
-            _ => panic!("неожиданный токен"),
-        }
-    }
-}
-
-fn tokenize(input: &str) -> Vec<Token> {
-    let mut tokens = Vec::new();
-    let chars: Vec<char> = input.chars().filter(|c| !c.is_whitespace()).collect();
-    let mut i = 0;
-    while i < chars.len() {
-        match chars[i] {
-            '+' => { tokens.push(Token::Plus); i += 1; }
-            '-' => { tokens.push(Token::Minus); i += 1; }
-            '*' => { tokens.push(Token::Star); i += 1; }
-            '/' => { tokens.push(Token::Slash); i += 1; }
-            '(' => { tokens.push(Token::LParen); i += 1; }
-            ')' => { tokens.push(Token::RParen); i += 1; }
-            c if c.is_ascii_digit() => {
-                let start = i;
-                while i < chars.len() && chars[i].is_ascii_digit() {
-                    i += 1;
-                }
-                let num: f64 = chars[start..i].iter().collect::<String>().parse().unwrap();
-                tokens.push(Token::Num(num));
-            }
-            _ => panic!("неизвестный символ: {}", chars[i]),
-        }
-    }
-    tokens
-}
-
-impl Expr {
-    fn eval(&self) -> f64 {
-        match self {
-            Expr::Num(n) => *n,
-            Expr::Add(a, b) => a.eval() + b.eval(),
-            Expr::Sub(a, b) => a.eval() - b.eval(),
-            Expr::Mul(a, b) => a.eval() * b.eval(),
-            Expr::Div(a, b) => a.eval() / b.eval(),
-            Expr::Neg(a) => -a.eval(),
-        }
-    }
-}
-
-fn main() {
-    let expr = "2 + 3 * (4 - 1)";
-    let result = Parser::new(expr).parse().eval();
-    println!("{expr} = {result}");      // 2 + 3 * (4 - 1) = 11
-}
-```
 
 ### Шаги
 
@@ -371,7 +79,8 @@ fn main() {
 2. Напишите грамматику: `expr → term`, `term → factor`, `factor → ...`;
 3. Добавьте приоритет операторов (сначала `* /`, потом `+ -`);
 4. Добавьте скобки и унарный минус;
-5. Напишите юнит-тесты для приоритета, скобок и ошибок.
+5. Напишите юнит-тесты для приоритета, скобок и ошибок;
+6. Дополнительно: добавьте переменные (`x = 5; x + 3`) или функции (`sin(0)`).
 
 ### Что изучается
 
@@ -381,69 +90,13 @@ fn main() {
 
 ## Проект 4: Консольная игра «Угадай число»
 
-**Уровень:** Начинающий  
-**Стек:** std + rand  
+**Уровень:** 🟢 Начинающий
+**Стек:** std + rand
 **Время:** 1-2 часа
 
 ### Описание
 
-Классическая игра из The Rust Book: программа загадывает число, игрок угадывает с подсказками «больше/меньше». Счётчик попыток и режим «реванша».
-
-```bash
-cargo new guess-game
-cd guess-game
-cargo add rand
-```
-
-```rust
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
-
-fn main() {
-    println!("Угадай число от 1 до 100!");
-
-    loop {
-        let secret = rand::thread_rng().gen_range(1..=100);
-        let mut attempts = 0;
-
-        loop {
-            print!("Твой вариант: ");
-            io::Write::flush(&mut io::stdout()).unwrap();
-
-            let mut guess = String::new();
-            io::stdin().read_line(&mut guess).unwrap();
-
-            let guess: u32 = match guess.trim().parse() {
-                Ok(n) => n,
-                Err(_) => {
-                    println!("Введи число!");
-                    continue;
-                }
-            };
-
-            attempts += 1;
-
-            match guess.cmp(&secret) {
-                Ordering::Less => println!("Больше"),
-                Ordering::Greater => println!("Меньше"),
-                Ordering::Equal => {
-                    println!("Точно! Попыток: {attempts}");
-                    break;
-                }
-            }
-        }
-
-        print!("Ещё раз? (y/n): ");
-        io::Write::flush(&mut io::stdout()).unwrap();
-        let mut again = String::new();
-        io::stdin().read_line(&mut again).unwrap();
-        if !again.trim().eq_ignore_ascii_case("y") {
-            break;
-        }
-    }
-}
-```
+Классическая игра: программа загадывает число, игрок угадывает с подсказками «больше/меньше». Счётчик попыток и режим «реванша».
 
 ### Шаги
 
@@ -459,11 +112,444 @@ fn main() {
 
 ---
 
-## Порядок выполнения
+## Проект 5: Файловый менеджер CLI
 
-1. Проект 1 и 4 — после Unit 1 (основы, строки, циклы);
-2. Проект 3 — после Unit 2 (enum, Box, match) или Unit 3 (тесты);
-3. Проект 2 — после Unit 3 (трейты, Arc/Mutex, async/await).
+**Уровень:** 🟢 Начинающий
+**Стек:** std::fs, clap
+**Время:** 2-3 часа
+
+### Описание
+
+CLI-утилита для работы с файлами: `ls`, `cat`, `cp`, `mv`, `rm`, `mkdir`, `tree`. Поддержка флагов и цветов.
+
+### Шаги
+
+1. Реализуйте `ls` — вывод содержимого директории;
+2. Реализуйте `cat` — вывод содержимого файла;
+3. Реализуйте `cp` и `mv` — копирование и перемещение;
+4. Реализуйте `mkdir` — создание директории;
+5. Реализуйте `tree` — рекурсивный вывод структуры директории;
+6. Добавьте цвета через `owo-colors` или `colored`.
+
+### Что изучается
+
+`std::fs` (read_dir, create_dir, copy, rename, remove_file), работа с путями (`std::path`), обработка ошибок, clap.
 
 ---
-*Больше идей: https://github.com/practical-tutorials/project-based-learning#rust, https://github.com/kirillzhosul/awesome-rust-apps*
+
+## Проект 6: Терминальная TODO-список (TUI)
+
+**Уровень:** 🟡 Средний
+**Стек:** ratatui (или tui-rs), crossterm, tokio
+**Время:** 5-8 часов
+
+### Описание
+
+Интерактивная терминальная TODO-лист с клавишами: `j`/`k` — навигация, `n` — новая задача, `d` — удалить, `t` — переключить статус, `q` — выход.
+
+### Шаги
+
+1. Изучите `ratatui` — рендеринг TUI-виджетов;
+2. Изучите `crossterm` — обработка клавиатуры в терминале;
+3. Реализуйте базовый рендеринг списка задач;
+4. Добавьте навигацию клавишами;
+5. Добавьте создание, удаление и переключение задач;
+6. Добавьте сохранение в JSON-файл.
+
+### Что изучается
+
+TUI-рендеринг, событийный цикл, serde (JSON-сохранение), работа с терминалом, конкурентность (input + render).
+
+---
+
+## Проект 7: HTTP-клиент «minireq»
+
+**Уровень:** 🟡 Средний
+**Стек:** reqwest (sync), clap, colored
+**Время:** 2-4 часа
+
+### Описание
+
+CLI-HTTP-клиент — аналог `curl`. Поддерживает `GET`, `POST`, заголовки, тело запроса, вывод статуса и тела ответа.
+
+### Шаги
+
+1. Реализуйте `GET`-запрос с выводом статуса и тела;
+2. Добавьте поддержку `POST` с телом (`-d`);
+3. Добавьте заголовки (`-H "Content-Type: application/json"`);
+4. Добавьте флаг `--json` для автоматического парсинга JSON-ответа;
+5. Добавьте флаг `--headers` для вывода только заголовков;
+6. Добавьте цветовой вывод статусов (2xx зелёный, 4xx жёлтый, 5xx красный).
+
+### Что изучается
+
+HTTP-клиент (`reqwest`), CLI-парсинг (`clap`), сериализация (`serde_json`), обработка ошибок, строковое форматирование.
+
+---
+
+## Проект 8: Markdown-рендерер в HTML
+
+**Уровень:** 🟡 Средний
+**Стек:** только std, regex (опционально)
+**Время:** 3-5 часов
+
+### Описание
+
+Конвертер Markdown в HTML. Поддерживает заголовки, жирный/курсивный текст, списки, кодовые блоки, ссылки, изображения.
+
+### Шаги
+
+1. Реализуйте парсинг заголовков (`#`, `##`, ...);
+2. Реализуйте жирный (`**text**`) и курсивный (`*text*`);
+3. Реализуйте неупорядоченные списки (`- item`);
+4. Реализуйте кодовые блоки (`` ``` ``` ``);
+5. Реализуйте ссылки (`[text](url)`) и изображения (`![alt](url)`);
+6. Добавьте CSS-стили для красивого вывода;
+7. Дополнительно: поддержка таблиц, blockquote, горизонтальных линий.
+
+### Что изучается
+
+String processing, pattern matching, enum для AST, итераторы, обработка ошибок, файловый ввод-вывод.
+
+---
+
+## Проект 9: Веб-сервер статических файлов
+
+**Уровень:** 🟡 Средний
+**Стек:** tokio, hyper (или axum)
+**Время:** 3-5 часов
+
+### Описание
+
+Простой веб-сервер, раздающий статические файлы из директории. Поддерживает `GET`, MIME-типы по расширению, 404 для отсутствующих файлов.
+
+### Шаги
+
+1. Создайте TCP-listener на заданном порту;
+2. Парсите HTTP-запросы (метод, путь);
+3. Маппинг путей к файлам в директории;
+4. Определение MIME-типа по расширению;
+5. Возврат 200 с содержимым файла или 404;
+6. Добавьте логирование запросов;
+7. Дополнительно: directory listing, поддержка `index.html`.
+
+### Что изучается
+
+Низкоуровневый HTTP (hyper), работа с файловой системой, MIME-типы, async/await, обработка ошибок.
+
+---
+
+## Проект 10: Компилятор простого языка
+
+**Уровень:** 🔴 Продвинутый
+**Стек:** только std (или pest для парсинга)
+**Время:** 8-15 часов
+
+### Описание
+
+Мини-компилятор для простого языка программирования. Язык поддерживает: переменные, арифметические выражения, условия (`if`), циклы (`while`), функции. Компилятор генерирует LLVM IR или WebAssembly.
+
+### Шаги
+
+1. Определите грамматику языка;
+2. Реализуйте лексер (токенизация);
+3. Реализуйте парсер (AST);
+4. Реализуйте семантический анализ (проверка типов, области видимости);
+5. Реализуйте генерацию кода (LLVM IR или WASM);
+6. Добавьте REPL для интерактивного запуска;
+7. Дополнительно: замыкания, модули, обработка ошибок с подсказками.
+
+### Что изучается
+
+Рекурсивный спуск, AST, трейты для абстракции, обработка ошибок, enum как дерево, паттерны проектирования (visitor, interpreter).
+
+---
+
+## Проект 11: Key-Value хранилище (аналог Redis)
+
+**Уровень:** 🔴 Продвинутый
+**Стек:** tokio, tokio-util, serde, bincode или JSON
+**Время:** 6-10 часов
+
+### Описание
+
+In-memory key-value хранилище с поддержкой команд: `SET`, `GET`, `DEL`, `EXPIRE`, `TTL`, `KEYS`, `FLUSHALL`. Поддержка TTL (время жизни ключей) через фоновый поток.
+
+### Шаги
+
+1. Реализуйте базовый `SET`/`GET`/`DEL`;
+2. Добавьте TTL с автоматическим удалением;
+3. Реализуйте `KEYS` и `FLUSHALL`;
+4. Добавьте сериализацию/десериализацию (bincode или JSON);
+5. Добавьте персистентность (сохранение на диск);
+6. Реализуйте TCP-протокол для удалённого доступа;
+7. Дополнительно: атомарные операции (`INCR`, `DECR`), транзакции.
+
+### Что изучается
+
+HashMap, Arc<Mutex>, async/await, TCP-сокеты, сериализация, фоновые задачи (tokio::spawn), таймеры.
+
+---
+
+## Проект 12: CLI-инструмент для анализа логов
+
+**Уровень:** 🟡 Средний
+**Стек:** clap, regex, std::fs, rayon (опционально)
+**Время:** 3-5 часов
+
+### Описание
+
+Утилита для анализа лог-файлов: подсчёт строк по уровням (ERROR, WARN, INFO), поиск по шаблону, группировка по часам, вывод статистики.
+
+### Шаги
+
+1. Реализуйте парсинг строк лог-файла (regex);
+2. Подсчитайте количество строк по уровням;
+3. Добавьте фильтрацию по уровню (`--level ERROR`);
+4. Добавьте поиск по шаблону (`--grep "timeout"`);
+5. Добавьте группировку по часу;
+6. Добавьте вывод статистики (мин/макс/среднее);
+7. Дополнительно: параллельная обработка через `rayon`.
+
+### Что изучается
+
+Regex, итераторы, парсинг строк, статистика, clap, rayon (параллельные итераторы).
+
+---
+
+## Проект 13: Библиотека для работы с CSV
+
+**Уровень:** 🟡 Средний
+**Стек:** только std (или csv-крейт для сравнения)
+**Время:** 3-5 часов
+
+### Описание
+
+Библиотека для чтения и записи CSV-файлов: парсинг с учётом кавычек, экранирования, разделителей. API для итерации по строкам и доступу к колонкам по имени.
+
+### Шаги
+
+1. Реализуйте парсер CSV (учитывайте кавычки, экранирование, новые строки внутри полей);
+2. Создайте `Reader` — итератор по строкам;
+3. Создайте `Writer` — запись CSV;
+4. Добавьте доступ к колонкам по имени (через заголовки);
+5. Добавьте обработку ошибок с информативными сообщениями;
+6. Дополнительно: поддержка разных разделителей, типизированный парсинг через serde.
+
+### Что изучается
+
+String processing, итераторы, error handling, lifetime annotations (для парсера), serde (опционально).
+
+---
+
+## Проект 14: Conway's Game of Life
+
+**Уровень:** 🟢 Начинающий
+**Стек:** std, rand (опционально)
+**Время:** 2-3 часа
+
+### Описание
+
+Игра «Жизнь» Конвея — клеточный автомат. Реализуйте сетку, правила рождения/смерти, вывод в терминал с анимацией.
+
+### Шаги
+
+1. Создайте структуру `Grid` с двумерным массивом;
+2. Реализуйте инициализацию (случайная или из файла);
+3. Реализуйте правила Конвея;
+4. Добавьте вывод в терминал с очисткой экрана;
+5. Добавьте цикл с задержкой (анимация);
+6. Дополнительно: поддержка разных начальных конфигураций (glider, pulsar), подсчёт поколений.
+
+### Что изучается
+
+Двумерные массивы, итераторы, циклы, строковое форматирование, работа с терминалом.
+
+---
+
+## Проект 15: Генератор паролей
+
+**Уровень:** 🟢 Начинающий
+**Стек:** std, rand, clap
+**Время:** 1-2 часа
+
+### Описание
+
+CLI-утилита для генерации безопасных паролей. Поддерживает длину, наборы символов (буквы, цифры, спецсимволы), количество паролей, вывод в JSON.
+
+### Шаги
+
+1. Реализуйте генерацию случайного пароля;
+2. Добавьте параметры через clap (длина, включение цифр, спецсимволов);
+3. Добавьте проверку качества пароля (наличие каждого типа символов);
+4. Добавьте вывод в JSON (`--json`);
+5. Добавьте интерактивный режим (запрос параметров);
+6. Дополнительно: проверка против словаря (избежание распространённых паролей).
+
+### Что изучается
+
+rand, clap, строки, JSON-сериализация (serde_json), обработка ошибок.
+
+---
+
+## Проект 16: HTTP-клиент с поддержкой cookies и сессий
+
+**Уровень:** 🔴 Продвинутый
+**Стек:** reqwest (async), tokio, cookie-store
+**Время:** 4-6 часов
+
+### Описание
+
+HTTP-клиент с автоматическим управлением cookies, поддержкой сессий, redirect following и базовой аутентификации.
+
+### Шаги
+
+1. Реализуйте базовый HTTP GET/POST;
+2. Добавьте автоматическое управление cookies;
+3. Добавьте follow redirects;
+4. Добавьте базовую аутентификацию (`Authorization: Basic`);
+5. Добавьте сессии (сохранение/загрузка cookies);
+6. Дополнительно: поддержка multipart/form-data, загрузка файлов.
+
+### Что изучается
+
+Async HTTP, cookies, серийнаязация, файловый ввод-вывод, обработка ошибок.
+
+---
+
+## Проект 17: Статистический калькулятор для CSV
+
+**Уровень:** 🟡 Средний
+**Стек:** std, clap, rayon (опционально)
+**Время:** 2-4 часа
+
+### Описание
+
+CLI-утилита для вычисления статистики по числовым колонкам CSV: среднее, медиана, стандартное отклонение, минимум, максимум, перцентили.
+
+### Шаги
+
+1. Реализуйте парсинг CSV (простой, без экранирования);
+2. Извлеките числовые колонки;
+3. Вычислите статистики;
+4. Добавьте поддержку фильтрации (`--column name --min 10`);
+5. Добавьте вывод в табличном формате;
+6. Дополнительно: гистограмма, box plot (ASCII).
+
+### Что изучается
+
+CSV parsing, статистика, итераторы, clap, форматирование вывода.
+
+---
+
+## Проект 18: Реализация простого ORM
+
+**Уровень:** 🔴 Продвинутый
+**Стек:** sqlx, tokio, serde
+**Время:** 8-12 часов
+
+### Описание
+
+Мини-ORM для работы с PostgreSQL/SQLite: маппинг структур на таблицы, CRUD-операции, миграции, связи между таблицами.
+
+### Шаги
+
+1. Определите trait `Model` с методами `table_name()`, `columns()`;
+2. Реализуйте `save()`, `find()`, `delete()`, `update()`;
+3. Добавьте поддержку связей (`has_many`, `belongs_to`);
+4. Реализуйте миграции (создание/обновление таблиц);
+5. Добавьте сериализацию/десериализацию через serde;
+6. Дополнительно: lazy/eager loading, query builder.
+
+### Что изучается
+
+Трейты, обобщения, derive-макросы, SQL, async/await, serde, sqlx.
+
+---
+
+## Проект 19: Рекурсивный спусковый парсер для простого языка программирования
+
+**Уровень:** 🔴 Продвинутый
+**Стек:** только std
+**Время:** 6-10 часов
+
+### Описание
+
+Парсер и интерпретатор для простого языка с переменными, функциями, условиями, циклами. Интерпретатор выполняет код и выводит результат.
+
+### Шаги
+
+1. Определите грамматику языка;
+2. Реализуйте лексер (токенизация);
+3. Реализуйте парсер (рекурсивный спуск → AST);
+4. Реализуйте интерпретатор (обход AST с окружением);
+5. Добавьте функции с аргументами;
+6. Добавьте области видимости (scopes);
+7. Дополнительно: замыкания, модули, обработка ошибок с позициями.
+
+### Что изучается
+
+Рекурсия, enum как AST, трейты для интерпретатора, HashMap для окружения, обработка ошибок, паттерны проектирования (visitor, interpreter).
+
+---
+
+## Проект 20: Бенчмаркер производительности
+
+**Уровень:** 🟣 Эксперт
+**Стек:** criterion, std, proc-macro
+**Время:** 5-8 часов
+
+### Описание
+
+Фреймворк для бенчмаркинга: декоратор `#[benchmark]` для функций, автоматическое измерение времени, статистика (среднее, медиана, std dev), вывод в терминал и JSON.
+
+### Шаги
+
+1. Реализуйте proc-macro `#[benchmark]` для атрибутной аннотации;
+2. Реализуйте механизм замера времени (`std::time::Instant`);
+3. Реализуйте повторные запуски для статистики;
+4. Реализуйте вывод результатов в терминал;
+5. Добавьте вывод в JSON;
+6. Дополнительно: сравнение двух версий функции, warm-up итерации.
+
+### Что изучается
+
+Процедурные макросы, proc-macro крейты, замер времени, статистика, serde (JSON).
+
+---
+
+## Порядок выполнения
+
+### Рекомендуемый порядок
+
+| Этап | Проекты | После Unit |
+|------|---------|------------|
+| 1 | Проект 4 (угадай число), Проект 15 (генератор паролей) | Unit 1 |
+| 2 | Проект 1 (grepsh), Проект 5 (файловый менеджер), Проект 14 (Game of Life) | Unit 2 |
+| 3 | Проект 3 (парсер), Проект 7 (minireq), Проект 12 (анализ логов), Проект 13 (CSV), Проект 17 (статистика) | Unit 3 |
+| 4 | Проект 2 (todo-api), Проект 9 (веб-сервер), Проект 6 (TUI TODO), Проект 16 (HTTP клиент с cookies) | Все units |
+| 5 | Проект 8 (Markdown→HTML), Проект 11 (key-value хранилище), Проект 19 (интерпретатор) | details.md |
+| 6 | Проект 10 (компилятор), Проект 18 (ORM), Проект 20 (бенчмаркер) | Все units + details.md |
+
+### Советы
+
+- Начинайте с малого — даже 50 строк кода лучше, чем 0;
+- Используйте `cargo test` после каждого проекта;
+- Читайте документацию крейтов на docs.rs;
+- Не бойтесь `cargo clippy` и `cargo fmt` — они помогают писать идиоматичный код;
+- Каждый проект можно расширять — добавляйте фичи по мере изучения.
+
+---
+
+## Бонус: идеи для экспериментов
+
+- **Эксперимент с unsafe**: напишите свой `Vec<T>` с нуля (аллокация через `alloc`, `ptr::write`, `ptr::read`)
+- **FFI**: вызовите C-функцию из Rust (например, `printf` из libc)
+- **WASM**: скомпилируйте Rust в WebAssembly и запустите в браузере
+- **Embedded**: напишите программу для Raspberry Pi Pico (через `cortex-m-rt` и `embedded-hal`)
+- **Derive макрос**: напишите свой `#[derive(Serialize)]` для JSON-сериализации
+- **Async runtime**: напишите мини async runtime с планировщиком задач
+
+---
+
+*Больше идей: https://github.com/practical-tutorials/project-based-learning#rust, https://github.com/kirillzhosul/awesome-rust-apps, https://rust-cli.github.io/book/*
