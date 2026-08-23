@@ -24,7 +24,7 @@
 
 | Язык | Прогресс | Юнитов |
 |------|----------|--------|
-| [🇯🇵 Японский](languages/japanese/index.md) | Hiragana/Katakana → JLPT N4 | 5 |
+| [🇯🇵 Японский](languages/japanese/index.md) | Hiragana/Katakana → JLPT N4 | 10 |
 | [🇨🇳 Китайский](languages/chinese/index.md) | HSK 1-2 | 5 |
 | [🇰🇷 Корейский](languages/korean/index.md) | TOPIK I | 5 |
 | [🇪🇸 Испанский](languages/spanish/index.md) | A1-A2 | 3 |
