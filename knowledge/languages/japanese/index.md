@@ -773,7 +773,7 @@
 | [Грамматическая шпаргалка](cheatsheet/index.md) | Справочник · [Полный справочник 90 конструкций](cheatsheet/full-grammar.md) |
 | [Частотный словарь](vocabulary/index.md) | Топ 500 + [501–1000 с приложениями](vocabulary/top-1000.md) |
 | [Тексты для чтения](reading/index.md) | 25 текстов: [N5](reading/n5-texts.md) и [N4](reading/n4-texts.md) |
-| [Аудирование](listening/index.md) | 10 скриптов по юнитам с вопросами и диктовкой |
+| [Аудирование](listening/index.md) | 10 скриптов по юнитам + [методика](listening/methodology.md), [20+ диалогов](listening/dialogues.md), [монологи](listening/monologues.md), [сокращения](listening/abbreviations.md), [план + Anki](listening/practice-plan.md) |
 | [Повторение 1–5](review/review-01.md) · [6–10](review/review-02.md) | Контрольные по двум половинам курса |
 | [Подготовка к JLPT](exam/index.md) | N5-N1 · [Пробник N4 с разбором](exam/n4-prep.md) |
 | [Кандзи по ключам](kanji/index.md) | Радикалы · [Компендиум 245 знаков](kanji/compendium-n5-n4.md) |
