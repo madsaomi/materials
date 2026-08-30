@@ -4,7 +4,7 @@
 Формат таблиц: | Word | IPA | Перевод | Пример |.
 
 Units 01-15 vocabulary: 50 words per unit, 750 total.
-Broader vocabulary: [501-1000 (B1-B2)](top-1000.md) · 1001-1500, 1501-2000 (planned).
+Broader vocabulary: [501-1000 (B1-B2)](top-1000.md) · [1001-1500 (B2)](1001-1500.md) · [1501-2000 (C1)](1501-2000.md).
 
 ---
 
