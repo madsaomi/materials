@@ -794,7 +794,7 @@ A: 谢谢！
 | [Частотный словарь](vocabulary/index.md) | Топ 500 + [401–500](vocabulary/401-500.md) + [501–1000](vocabulary/top-1000.md) + [1001–1500](vocabulary/1001-1500.md) — **Beyond 1000** |
 | [Тексты для чтения](reading/index.md) | Уровневые тексты HSK 1-4 |
 | [Аудирование](listening/index.md) | Скрипты по юнитам, тоны |
-| [Повторение 1–5](review/review-01.md) · [6–10](review/review-02.md) · [11–15](review/review-03.md) | Контрольные по блокам |
+| [Повторение 1–5](review/index.md) · [6–10](review/index.md) · [11–15](review/index.md) | Контрольные по блокам |
 | [Подготовка к HSK](exam/index.md) | HSK 1-6, пробник HSK 4 |
 | [Иероглифика по ключам](kanji/index.md) | Радикалы, порядок черт |
 | [Письмо](writing/index.md) | Прописи, упрощённые/традиционные |
