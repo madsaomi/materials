@@ -771,7 +771,7 @@
 |--------|----------|
 | [📘 Учебник — программа курса](textbook.md) | Методика, трекеры, вехи — начните отсюда |
 | [Грамматическая шпаргалка](cheatsheet/index.md) | Справочник · [Полный справочник 90 конструкций](cheatsheet/full-grammar.md) |
-| [Частотный словарь](vocabulary/index.md) | Топ 500 + [501–1000 с приложениями](vocabulary/top-1000.md) |
+| [Частотный словарь](vocabulary/index.md) | Топ 500 + [501–1000](vocabulary/top-1000.md) + [1001–1500](vocabulary/1001-1500.md) + [1501–2000](vocabulary/1501-2000.md) — **Beyond 1000** |
 | [Тексты для чтения](reading/index.md) | 25 текстов: [N5](reading/n5-texts.md) и [N4](reading/n4-texts.md) |
 | [Аудирование](listening/index.md) | 10 скриптов по юнитам + [методика](listening/methodology.md), [20+ диалогов](listening/dialogues.md), [монологи](listening/monologues.md), [сокращения](listening/abbreviations.md), [план + Anki](listening/practice-plan.md) |
 | [Повторение 1–5](review/review-01.md) · [6–10](review/review-02.md) | Контрольные по двум половинам курса |

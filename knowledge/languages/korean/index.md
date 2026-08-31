@@ -889,7 +889,7 @@ B: 네, 좀 있어요.
 |--------|----------|
 | [📘 Учебник — программа курса](textbook.md) | Методика, трекеры, вехи — начните отсюда |
 | [Грамматическая шпаргалка](cheatsheet/index.md) | Справочник TOPIK I-II |
-| [Частотный словарь](vocabulary/index.md) | Топ 500 + [401–500](vocabulary/401-500.md) + [501–1000](vocabulary/top-1000.md) + [1001–1500](vocabulary/1001-1500.md) — **Beyond 1000** |
+| [Частотный словарь](vocabulary/index.md) | Топ 500 + [401–500](vocabulary/401-500.md) + [501–1000](vocabulary/top-1000.md) + [1001–1500](vocabulary/1001-1500.md) + [1501–2000](vocabulary/1501-2000.md) — **Beyond 1000** |
 | [Тексты для чтения](reading/index.md) | Уровневые тексты TOPIK |
 | [Аудирование](listening/index.md) | Скрипты по юнитам, ассимиляция |
 | [Повторение 1–5](review/index.md) · [6–10](review/index.md) · [11–15](review/index.md) | Контрольные по блокам |
