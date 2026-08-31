@@ -8,14 +8,15 @@
 
 | Раздел | Темы/файлов | Формат | Объём (строк) | Уровни |
 |--------|-------------|--------|---------------|--------|
-| [🌍 Языки](#языки) | 4 языка + сравнение | Учебник 15 юнитов + словарь | >300 файлов, >5000 строк | A1 → C2, HSK 1-6, TOPIK, JLPT |
-| [🧩 Мнемоника](#мнемоника) | Память (автономный учебник) | 15 файлов, 10 модулей | 2431+ в index.md | Начальный → Чемпион |
-| [💻 Программирование](#программирование) | 4 языка (Go, Python, Rust, JS) | Теория + практика + проекты | >2000 строк в проектах | Основы → Продвинутый |
-| [🏛 Философия](#философия) | Восточная + Западная | Уроки с вопросами | >1000 строк | Уроки 1-3 |
-| [🧠 Психология](#психология) | Основы + личность + здоровье | Уроки с вопросами | 1000+ строк | Уроки 1-3 |
-| [🧘 Практики](#практики) | Медитация + другие | Теория + техники | 1000+ строк | 3 уровня |
-| [📚 Книги](#книги) | 4 раздела | Списки + заметки | 500+ строк | Чтение + Wishlist |
-| [🛠 Инструменты](#инструменты) | Гайды + Setup | Шпаргалки | 500+ строк | Практические гайды |
+| [🌍 Языки](#языки) | 4 языка + сравнение + планы | Учебник 15 юнитов + словарь 2000 | ~360 файлов, 160 880 строк | A1 → C2, HSK 1-6, TOPIK, JLPT |
+| [🧩 Мнемоника](#мнемоника) | Память (автономный учебник) | 15 файлов, 18 разделов | 28 593 строк | Начальный → Чемпион |
+| [💻 Программирование](#программирование) | 4 языка (Go, Python, Rust, JS) | Теория + практика + проекты | 44 036 строк | Основы → Продвинутый |
+| [🏛 Философия](#философия) | Восточная + Западная | Уроки с вопросами | 11 234 строк | Уроки 1-3 + продвинутые |
+| [🧠 Психология](#психология) | Основы + личность + здоровье | Уроки с вопросами | 4 275 строк | Уроки 1-3 |
+| [🧘 Практики](#практики) | Медитация + другие | Теория + техники | 8 406 строк | 3 уровня |
+| [📚 Книги](#книги) | 4 раздела | Списки + заметки | 4 859 строк | Чтение + Wishlist |
+| [🛠 Инструменты](#инструменты) | Гайды + Setup | Шпаргалки | 4 347 строк | Практические гайды |
+| **Всего** | **602 файла** | — | **269 410 строк** | Все разделы ≥ 1000 |
 
 ---
 
@@ -35,20 +36,20 @@
    - `reading.md` — чтение
    - `test.md` — тест
    - `vocabulary.md` — словарный запас
-5. **Словарный запас** (`vocabulary/`) — уровни 100, 500, 1000, **1500+** (Beyond 1000)
+5. **Словарный запас** (`vocabulary/`) — уровни 100, 500, 1000, **1500, 2000** (Beyond 1000)
 6. **Дополнительно** (если есть): культуру, экзамены, чтение, письмо, обзор, ошибки
 
 ### Состояние языков
 
 | Язык | Юниты | Учебник | Детали | Словарь | Примечание |
 |------|-------|---------|--------|---------|------------|
-| [🇯🇵 Японский](languages/japanese/) | 15 | 168 строк | 459 строк | 500 → 1000 → 1500+ | Эталонная структура |
-| [🇨🇳 Китайский](languages/chinese/) | 15 | 2995 строк | 1006 строк | 500 → 1000 → 1500+ | Расширенный учебник |
-| [🇰🇷 Корейский](languages/korean/) | 15 | 1510 строк | 1371 строк | 500 → 1000 → 1500+ | Полный курс |
-| [🇺🇸 Английский](languages/english/) | 3 (начало) | 132 строки | 148 строк | 70+ слов (юнит 01-03) | Новый раздел, структура как японский |
+| [🇯🇵 Японский](languages/japanese/) | 15 | 168 строк | 1412 строк | 500 → 1000 → 2000 | Эталонная структура; 44 504 строки |
+| [🇨🇳 Китайский](languages/chinese/) | 15 | 2995 строк | 5094 строк | 500 → 1000 → 2000 | Расширенный учебник; 45 769 строк |
+| [🇰🇷 Корейский](languages/korean/) | 15 | 1510 строк | 4309 строк | 500 → 1000 → 2000 | Полный курс; 44 959 строк |
+| [🇺🇸 Английский](languages/english/) | 15 | 132 строк | 1308 строк | 500 → 1000 → 2000 | Раздел по схеме японского; 23 320 строк |
 | ~~🇪🇸 Испанский~~ | ~~удалён~~ | ~~удалён~~ | ~~удалён~~ | ~~удалён~~ | Удалён по запросу |
 
-> 🔗 **Единый формат:** японский/китайский/корейский/английский — 15 юнитов (1-5 основы, 6-10 прогресс, 11-15 продвинутый) + словарь 500 → 1000 → **1500+** (Beyond 1000 для китайского; для остальных — базовый словарь с возможностью расширения).
+> 🔗 **Единый формат:** японский/китайский/корейский/английский — 15 юнитов (1-5 основы, 6-10 прогресс, 11-15 продвинутый) + словарь **500 → 1000 → 1500 → 2000** (Beyond 1000). Каждый подраздел базы ≥ 1000 строк.
 
 ---
 
@@ -173,20 +174,20 @@
 
 | Показатель | Значение |
 |------------|----------|
-| Всего `.md`-файлов | **598** |
-| Всего строк суммарно | **261 579** |
+| Всего `.md`-файлов | **602** |
+| Всего строк суммарно | **269 410** |
 | Вершина-индекс (`index.md`) | 160 строк + Часть 2 (данный файл ≥ 1000 строк) |
 | Топ-разделов | 8 |
 | Языков в каталоге B2 | 4 (яп, кит, кор, анг) |
 | Юнитов языковых | 60 (15 × 4) |
-| Папок с ≥ 1000 строками | 154 (см. B10) |
-| Крупнейший раздел | languages/ (59,5 % базы) |
+| Папок с ≥ 1000 строками | 150 (см. B10) |
+| Крупнейший раздел | languages/ (59,7 % базы) |
 
 ### B1.2 Сводная таблица ТОП-разделов
 
 | Раздел | Путь | Файлов | Строк суммарно | Доля базы |
 |--------|------|--------|----------------|-----------|
-| 🌍 Языки | `languages/` | 490 | 155 669 | 59,5 % |
+| 🌍 Языки | `languages/` | 490 | 160 880 | 59,7 % |
 | 🧩 Мнемоника | `mnemonics/` | 15 | 28 593 | 10,9 % |
 | 💻 Программирование | `programming/` | 48 | 44 036 | 16,8 % |
 | 🏛 Философия | `philosophy/` | 17 | 11 234 | 4,3 % |
@@ -196,16 +197,16 @@
 | 🛠 Инструменты | `tools/` | 5 | 4 347 | 1,7 % |
 | 🧭 Корневой индекс | `index.md` | 1 | ≥ 1000 | 0,4 % |
 
-> Сумма файлов разделов 597 + корневой `index.md` = 598 ✓. Сумма строк 261 419 + корень = 261 579 ✓.
+> Сумма файлов разделов 601 + корневой `index.md` = 602 ✓. Сумма строк 269 410 ✓.
 
 ### B1.3 Расклад по языкам (languages/)
 
 | Подраздел | Путь | Файлов | Строк |
 |-----------|------|--------|-------|
-| 🇯🇵 Японский | `languages/japanese/` | 140 | 43 331 |
-| 🇨🇳 Китайский | `languages/chinese/` | 109 | 45 237 |
-| 🇰🇷 Корейский | `languages/korean/` | 139 | 43 123 |
-| 🇺🇸 Английский | `languages/english/` | 97 | 21 650 |
+| 🇯🇵 Японский | `languages/japanese/` | 142 | 44 504 |
+| 🇨🇳 Китайский | `languages/chinese/` | 109 | 45 769 |
+| 🇰🇷 Корейский | `languages/korean/` | 139 | 44 959 |
+| 🇺🇸 Английский | `languages/english/` | 99 | 23 320 |
 | ⚖️ Сравнение | `languages/comparison/` | 2 | 1 322 |
 | 🗓 Планы изучения | `languages/study-plans/` | 3 | 1 006 |
 
@@ -215,7 +216,7 @@
 
 ### B2.1 🇯🇵 Японский — `languages/japanese/`
 
-Основа: `textbook.md` (167), `index.md` (787), `details.md` (458). Итого раздел: **140 файлов, 43 331 строка**.
+Основа: `textbook.md` (167), `index.md` (787), `details.md` (458). Итого раздел: **142 файла, 44 504 строки**.
 
 **D1-1. Юниты unit-01 … unit-15**
 
@@ -328,13 +329,13 @@
 | proverbs | memorization.md | 105 |
 | proverbs | usage.md | 95 |
 
-> **Итог по японскому:** основа 1 412 + юниты 23 413 + темы 18 506 = **43 331 строка** (140 файлов).
+> **Итог по японскому:** вся база 44 504 строки (**142 файла**); основа 1 412 + юниты (15 × ~1 400) + темы (listening 3 160, exam 1 766, culture 1 148, kanji 2 968, cheatsheet 1 158, proverbs 1 206, common-mistakes 1 603, review 1 342, reading 1 329, writing 1 251, vocabulary 2 748) + словарь 2000.
 
 ---
 
 ### B2.2 🇨🇳 Китайский — `languages/chinese/`
 
-Основа: `textbook.md` (2 995), `index.md` (1 093), `details.md` (1 006). Итого раздел: **109 файлов, 45 237 строк** — самый объёмный язык.
+Основа: `textbook.md` (2 995), `index.md` (1 093), `details.md` (1 006). Итого раздел: **109 файлов, 45 769 строк** — самый объёмный язык.
 
 **D1-1. Юниты unit-01 … unit-15**
 
@@ -415,13 +416,13 @@
 | cheatsheet | index.md | 1 038 |
 | kanji | index.md | 1 290 |
 
-> **Итог по китайскому:** основа 5 094 + юниты 23 085 + темы 17 058 = **45 237 строк** (109 файлов).
+> **Итог по китайскому:** вся база 45 769 строк (**109 файлов**) — самый объёмный язык.
 
 ---
 
 ### B2.3 🇰🇷 Корейский — `languages/korean/`
 
-Основа: `textbook.md` (1 510), `index.md` (1 428), `details.md` (1 371). Итого раздел: **139 файлов, 43 123 строки**.
+Основа: `textbook.md` (1 510), `index.md` (1 428), `details.md` (1 371). Итого раздел: **139 файлов, 44 959 строк**.
 
 **D1-1. Юниты unit-01 … unit-15**
 
@@ -532,13 +533,13 @@
 | common-mistakes | index.md | 1 423 |
 | hanja | index.md | 1 218 |
 
-> **Итог по корейскому:** основа 4 309 + юниты 22 421 + темы 16 393 = **43 123 строки** (139 файлов).
+> **Итог по корейскому:** вся база 44 959 строк (**139 файлов**); основа 4 309 + юниты (15 × ~1 400) + темы (listening 2 196, exam 2 090, reading 2 013, culture 1 722, cheatsheet 1 713, review 1 569, common-mistakes 1 423, hanja 1 218, writing 1 427, vocabulary 2 858) + словарь 2000.
 
 ---
 
 ### B2.4 🇺🇸 Английский — `languages/english/`
 
-Основа: `textbook.md` (460), `index.md` (293), `details.md` (555). Итого раздел: **97 файлов, 21 650 строк**. Структура идентична японской.
+Основа: `textbook.md` (460), `index.md` (293), `details.md` (555). Итого раздел: **99 файлов, 23 320 строк**. Структура идентична японской.
 
 **D1-1. Юниты unit-01 … unit-15**
 
@@ -598,7 +599,7 @@
 | vocabulary | collocations.md | 168 |
 | vocabulary | top-1000.md | 15 |
 
-> **Итог по английскому:** основа 1 308 + юниты 19 257 + темы 1 085 = **21 650 строк** (97 файлов).
+> **Итог по английскому:** вся база 23 320 строк (**99 файлов**); основа 1 308 + юниты (15 × ~1 400) + темы (vocabulary 2 755, details 410) + словарь 2000 (top-1000 + 1001-1500 + 1501-2000).
 
 ---
 
@@ -809,166 +810,162 @@
 
 ### B10.1 Карта «≥ 1000 строк»
 
-Ниже — **все 154 папки** базы, каждая из которых набирает **1000+ строк** содержимого (файлы считаются рекурсивно для каждой папки). Это проверка выполнения цели «весь раздел ≥ 1000 строк» по каждому уровню навигации.
+Ниже — **все 150 папок** базы, каждая из которых набирает **1000+ строк** содержимого (файлы считаются рекурсивно для каждой папки). Это проверка выполнения цели «весь раздел ≥ 1000 строк» по каждому уровню навигации.
 
 | Папка | Файлов | Строк |
 |-------|--------|-------|
-| books | 8 | 4 859 |
-| books/genre | 2 | 1 023 |
-| books/notes | 2 | 1 002 |
-| books/read | 3 | 1 665 |
-| books/wishlist | 1 | 1 169 |
-| languages | 490 | 155 669 |
-| languages/chinese | 109 | 45 237 |
-| languages/chinese/cheatsheet | 1 | 1 038 |
-| languages/chinese/common-mistakes | 1 | 4 618 |
-| languages/chinese/culture | 1 | 1 079 |
-| languages/chinese/exam | 1 | 1 064 |
-| languages/chinese/kanji | 1 | 1 290 |
-| languages/chinese/listening | 1 | 1 779 |
-| languages/chinese/reading | 1 | 1 446 |
-| languages/chinese/review | 1 | 1 282 |
-| languages/chinese/unit-01 | 6 | 1 513 |
-| languages/chinese/unit-02 | 6 | 1 512 |
-| languages/chinese/unit-03 | 6 | 1 359 |
-| languages/chinese/unit-04 | 6 | 1 074 |
-| languages/chinese/unit-05 | 6 | 1 265 |
-| languages/chinese/unit-06 | 6 | 1 643 |
-| languages/chinese/unit-07 | 6 | 1 689 |
-| languages/chinese/unit-08 | 6 | 1 830 |
-| languages/chinese/unit-09 | 6 | 1 859 |
-| languages/chinese/unit-10 | 6 | 1 761 |
-| languages/chinese/unit-11 | 6 | 1 618 |
-| languages/chinese/unit-12 | 6 | 1 480 |
-| languages/chinese/unit-13 | 6 | 1 538 |
-| languages/chinese/unit-14 | 6 | 1 463 |
-| languages/chinese/unit-15 | 6 | 1 481 |
-| languages/chinese/vocabulary | 7 | 2 320 |
-| languages/chinese/writing | 1 | 1 142 |
-| languages/comparison | 2 | 1 322 |
-| languages/english | 97 | 21 650 |
-| languages/english/unit-01 | 6 | 1 414 |
-| languages/english/unit-02 | 6 | 1 291 |
-| languages/english/unit-03 | 6 | 1 384 |
-| languages/english/unit-04 | 6 | 1 376 |
-| languages/english/unit-05 | 6 | 1 268 |
-| languages/english/unit-06 | 6 | 1 015 |
-| languages/english/unit-07 | 6 | 1 034 |
-| languages/english/unit-08 | 6 | 1 439 |
-| languages/english/unit-09 | 6 | 1 136 |
-| languages/english/unit-10 | 6 | 1 449 |
-| languages/english/unit-11 | 6 | 1 130 |
-| languages/english/unit-12 | 6 | 1 278 |
-| languages/english/unit-13 | 6 | 1 218 |
-| languages/english/unit-14 | 6 | 1 304 |
-| languages/english/unit-15 | 6 | 1 521 |
-| languages/english/vocabulary | 4 | 1 085 |
-| languages/japanese | 140 | 43 331 |
-| languages/japanese/cheatsheet | 2 | 1 158 |
-| languages/japanese/common-mistakes | 1 | 1 603 |
-| languages/japanese/culture | 1 | 1 148 |
-| languages/japanese/exam | 9 | 1 766 |
-| languages/japanese/kanji | 3 | 2 968 |
-| languages/japanese/listening | 10 | 3 160 |
-| languages/japanese/proverbs | 7 | 1 206 |
-| languages/japanese/reading | 3 | 1 329 |
-| languages/japanese/review | 7 | 1 342 |
-| languages/japanese/unit-01 | 6 | 1 522 |
-| languages/japanese/unit-02 | 6 | 1 565 |
-| languages/japanese/unit-03 | 6 | 1 531 |
-| languages/japanese/unit-04 | 6 | 1 592 |
-| languages/japanese/unit-05 | 6 | 1 499 |
-| languages/japanese/unit-06 | 6 | 1 662 |
-| languages/japanese/unit-07 | 6 | 1 632 |
-| languages/japanese/unit-08 | 6 | 1 559 |
-| languages/japanese/unit-09 | 6 | 1 383 |
-| languages/japanese/unit-10 | 6 | 1 407 |
-| languages/japanese/unit-11 | 6 | 1 203 |
-| languages/japanese/unit-12 | 6 | 1 271 |
-| languages/japanese/unit-13 | 6 | 1 240 |
-| languages/japanese/unit-14 | 6 | 1 306 |
-| languages/japanese/unit-15 | 6 | 3 041 |
-| languages/japanese/vocabulary | 2 | 1 575 |
-| languages/japanese/writing | 2 | 1 251 |
-| languages/korean | 139 | 43 123 |
-| languages/korean/cheatsheet | 7 | 1 713 |
-| languages/korean/common-mistakes | 1 | 1 423 |
-| languages/korean/culture | 8 | 1 722 |
-| languages/korean/exam | 10 | 1 205 |
-| languages/korean/hanja | 1 | 1 218 |
-| languages/korean/listening | 1 | 2 196 |
-| languages/korean/reading | 8 | 1 592 |
-| languages/korean/review | 1 | 1 569 |
-| languages/korean/unit-01 | 6 | 1 535 |
-| languages/korean/unit-02 | 6 | 1 383 |
-| languages/korean/unit-03 | 6 | 1 345 |
-| languages/korean/unit-04 | 6 | 1 455 |
-| languages/korean/unit-05 | 6 | 1 048 |
-| languages/korean/unit-06 | 6 | 1 682 |
-| languages/korean/unit-07 | 6 | 1 603 |
-| languages/korean/unit-08 | 6 | 1 520 |
-| languages/korean/unit-09 | 6 | 1 500 |
-| languages/korean/unit-10 | 6 | 1 419 |
-| languages/korean/unit-11 | 6 | 1 514 |
-| languages/korean/unit-12 | 6 | 1 588 |
-| languages/korean/unit-13 | 6 | 1 483 |
-| languages/korean/unit-14 | 6 | 1 671 |
-| languages/korean/unit-15 | 6 | 1 675 |
-| languages/korean/vocabulary | 8 | 2 328 |
-| languages/korean/writing | 1 | 1 427 |
-| languages/study-plans | 3 | 1 006 |
-| mnemonics | 15 | 28 593 |
-| philosophy | 17 | 11 234 |
-| philosophy/eastern | 9 | 5 480 |
-| philosophy/eastern/unit-01 | 1 | 1 013 |
-| philosophy/eastern/unit-02 | 1 | 1 002 |
-| philosophy/eastern/unit-03 | 1 | 1 012 |
-| philosophy/eastern/units | 3 | 1 130 |
-| philosophy/western | 8 | 5 754 |
-| philosophy/western/unit-01 | 1 | 1 039 |
-| philosophy/western/unit-02 | 1 | 1 110 |
-| philosophy/western/unit-03 | 1 | 1 003 |
-| philosophy/western/units | 2 | 1 116 |
-| practices | 9 | 8 406 |
-| practices/journaling | 1 | 1 256 |
-| practices/meditation | 6 | 4 323 |
-| practices/meditation/unit-01 | 1 | 1 009 |
-| practices/meditation/unit-02 | 2 | 1 094 |
-| practices/meditation/unit-03 | 1 | 1 062 |
-| practices/productivity | 1 | 1 154 |
-| practices/yoga | 1 | 1 673 |
-| programming | 48 | 44 036 |
-| programming/algorithms | 1 | 1 221 |
-| programming/go | 9 | 9 756 |
-| programming/go/projects | 1 | 2 013 |
-| programming/go/unit-01 | 2 | 2 080 |
-| programming/go/unit-02 | 2 | 2 170 |
-| programming/go/unit-03 | 2 | 1 675 |
-| programming/javascript | 9 | 8 613 |
-| programming/javascript/projects | 1 | 2 339 |
-| programming/javascript/unit-01 | 2 | 1 337 |
-| programming/javascript/unit-02 | 2 | 1 446 |
-| programming/javascript/unit-03 | 2 | 1 909 |
-| programming/patterns | 1 | 1 374 |
-| programming/python | 9 | 9 074 |
-| programming/python/projects | 1 | 2 244 |
-| programming/python/unit-01 | 2 | 1 781 |
-| programming/python/unit-02 | 2 | 1 631 |
-| programming/python/unit-03 | 2 | 1 734 |
-| programming/rust | 14 | 10 051 |
-| programming/rust/projects | 6 | 2 348 |
-| programming/rust/unit-01 | 2 | 1 372 |
-| programming/rust/unit-02 | 2 | 1 505 |
-| programming/rust/unit-03 | 2 | 1 560 |
-| programming/snippets | 5 | 3 947 |
-| psychology | 5 | 4 275 |
-| psychology/unit-01 | 1 | 1 009 |
-| psychology/unit-02 | 1 | 1 029 |
-| psychology/unit-03 | 1 | 1 202 |
-| tools | 5 | 4 347 |
-| tools/guides | 3 | 1 255 |
+| C:\Users\~\Desktop\materials\knowledge | 1 | 1038 |
+| books\genre | 2 | 1023 |
+| books\notes | 2 | 1002 |
+| books\read | 3 | 1665 |
+| books\wishlist | 1 | 1169 |
+| languages\chinese | 3 | 5094 |
+| languages\chinese\cheatsheet | 1 | 1038 |
+| languages\chinese\common-mistakes | 1 | 4618 |
+| languages\chinese\culture | 1 | 1079 |
+| languages\chinese\exam | 1 | 1064 |
+| languages\chinese\kanji | 1 | 1290 |
+| languages\chinese\listening | 1 | 1779 |
+| languages\chinese\reading | 1 | 1446 |
+| languages\chinese\review | 1 | 1282 |
+| languages\chinese\unit-01 | 6 | 1513 |
+| languages\chinese\unit-02 | 6 | 1512 |
+| languages\chinese\unit-03 | 6 | 1359 |
+| languages\chinese\unit-04 | 6 | 1074 |
+| languages\chinese\unit-05 | 6 | 1265 |
+| languages\chinese\unit-06 | 6 | 1643 |
+| languages\chinese\unit-07 | 6 | 1689 |
+| languages\chinese\unit-08 | 6 | 1830 |
+| languages\chinese\unit-09 | 6 | 1859 |
+| languages\chinese\unit-10 | 6 | 1761 |
+| languages\chinese\unit-11 | 6 | 1618 |
+| languages\chinese\unit-12 | 6 | 1480 |
+| languages\chinese\unit-13 | 6 | 1538 |
+| languages\chinese\unit-14 | 6 | 1463 |
+| languages\chinese\unit-15 | 6 | 1481 |
+| languages\chinese\vocabulary | 7 | 2852 |
+| languages\chinese\writing | 1 | 1142 |
+| languages\comparison | 2 | 1322 |
+| languages\english | 3 | 1308 |
+| languages\english\unit-01 | 6 | 1414 |
+| languages\english\unit-02 | 6 | 1291 |
+| languages\english\unit-03 | 6 | 1384 |
+| languages\english\unit-04 | 6 | 1376 |
+| languages\english\unit-05 | 6 | 1268 |
+| languages\english\unit-06 | 6 | 1015 |
+| languages\english\unit-07 | 6 | 1034 |
+| languages\english\unit-08 | 6 | 1439 |
+| languages\english\unit-09 | 6 | 1136 |
+| languages\english\unit-10 | 6 | 1449 |
+| languages\english\unit-11 | 6 | 1130 |
+| languages\english\unit-12 | 6 | 1278 |
+| languages\english\unit-13 | 6 | 1218 |
+| languages\english\unit-14 | 6 | 1304 |
+| languages\english\unit-15 | 6 | 1521 |
+| languages\english\vocabulary | 6 | 2755 |
+| languages\japanese | 3 | 1412 |
+| languages\japanese\cheatsheet | 2 | 1158 |
+| languages\japanese\common-mistakes | 1 | 1603 |
+| languages\japanese\culture | 1 | 1148 |
+| languages\japanese\exam | 9 | 1766 |
+| languages\japanese\kanji | 3 | 2968 |
+| languages\japanese\listening | 10 | 3160 |
+| languages\japanese\proverbs | 7 | 1206 |
+| languages\japanese\reading | 3 | 1329 |
+| languages\japanese\review | 7 | 1342 |
+| languages\japanese\unit-01 | 6 | 1522 |
+| languages\japanese\unit-02 | 6 | 1565 |
+| languages\japanese\unit-03 | 6 | 1531 |
+| languages\japanese\unit-04 | 6 | 1592 |
+| languages\japanese\unit-05 | 6 | 1499 |
+| languages\japanese\unit-06 | 6 | 1662 |
+| languages\japanese\unit-07 | 6 | 1632 |
+| languages\japanese\unit-08 | 6 | 1559 |
+| languages\japanese\unit-09 | 6 | 1383 |
+| languages\japanese\unit-10 | 6 | 1407 |
+| languages\japanese\unit-11 | 6 | 1203 |
+| languages\japanese\unit-12 | 6 | 1271 |
+| languages\japanese\unit-13 | 6 | 1240 |
+| languages\japanese\unit-14 | 6 | 1306 |
+| languages\japanese\unit-15 | 6 | 3041 |
+| languages\japanese\vocabulary | 4 | 2748 |
+| languages\japanese\writing | 2 | 1251 |
+| languages\korean | 3 | 4309 |
+| languages\korean\cheatsheet | 7 | 1713 |
+| languages\korean\common-mistakes | 1 | 1423 |
+| languages\korean\culture | 8 | 1722 |
+| languages\korean\exam | 10 | 2090 |
+| languages\korean\hanja | 1 | 1218 |
+| languages\korean\listening | 1 | 2196 |
+| languages\korean\reading | 8 | 2013 |
+| languages\korean\review | 1 | 1569 |
+| languages\korean\unit-01 | 6 | 1535 |
+| languages\korean\unit-02 | 6 | 1383 |
+| languages\korean\unit-03 | 6 | 1345 |
+| languages\korean\unit-04 | 6 | 1455 |
+| languages\korean\unit-05 | 6 | 1048 |
+| languages\korean\unit-06 | 6 | 1682 |
+| languages\korean\unit-07 | 6 | 1603 |
+| languages\korean\unit-08 | 6 | 1520 |
+| languages\korean\unit-09 | 6 | 1500 |
+| languages\korean\unit-10 | 6 | 1419 |
+| languages\korean\unit-11 | 6 | 1514 |
+| languages\korean\unit-12 | 6 | 1588 |
+| languages\korean\unit-13 | 6 | 1483 |
+| languages\korean\unit-14 | 6 | 1671 |
+| languages\korean\unit-15 | 6 | 1675 |
+| languages\korean\vocabulary | 8 | 2858 |
+| languages\korean\writing | 1 | 1427 |
+| languages\study-plans | 3 | 1006 |
+| mnemonics | 15 | 28593 |
+| philosophy\eastern | 3 | 1323 |
+| philosophy\eastern\unit-01 | 1 | 1013 |
+| philosophy\eastern\unit-02 | 1 | 1002 |
+| philosophy\eastern\unit-03 | 1 | 1012 |
+| philosophy\eastern\units | 3 | 1130 |
+| philosophy\western | 3 | 1486 |
+| philosophy\western\unit-01 | 1 | 1039 |
+| philosophy\western\unit-02 | 1 | 1110 |
+| philosophy\western\unit-03 | 1 | 1003 |
+| philosophy\western\units | 2 | 1116 |
+| practices\journaling | 1 | 1256 |
+| practices\meditation | 2 | 1158 |
+| practices\meditation\unit-01 | 1 | 1009 |
+| practices\meditation\unit-02 | 2 | 2025 |
+| practices\meditation\unit-03 | 1 | 1062 |
+| practices\productivity | 1 | 1154 |
+| practices\yoga | 1 | 1673 |
+| programming\algorithms | 1 | 1221 |
+| programming\go | 2 | 1818 |
+| programming\go\projects | 1 | 2013 |
+| programming\go\unit-01 | 2 | 2080 |
+| programming\go\unit-02 | 2 | 2170 |
+| programming\go\unit-03 | 2 | 1675 |
+| programming\javascript | 2 | 1582 |
+| programming\javascript\projects | 1 | 2339 |
+| programming\javascript\unit-01 | 2 | 1337 |
+| programming\javascript\unit-02 | 2 | 1446 |
+| programming\javascript\unit-03 | 2 | 1909 |
+| programming\patterns | 1 | 1374 |
+| programming\python | 2 | 1684 |
+| programming\python\projects | 1 | 2244 |
+| programming\python\unit-01 | 2 | 1781 |
+| programming\python\unit-02 | 2 | 1631 |
+| programming\python\unit-03 | 2 | 1734 |
+| programming\rust | 2 | 3266 |
+| programming\rust\projects | 6 | 2348 |
+| programming\rust\unit-01 | 2 | 1372 |
+| programming\rust\unit-02 | 2 | 1505 |
+| programming\rust\unit-03 | 2 | 1560 |
+| programming\snippets | 5 | 3947 |
+| psychology | 2 | 1035 |
+| psychology\unit-01 | 1 | 1009 |
+| psychology\unit-02 | 1 | 1029 |
+| psychology\unit-03 | 1 | 1202 |
+| tools | 2 | 3092 |
+| tools\guides | 3 | 2070 |
 
-> В таблице 154 папки (строки данных + заголовок). Все 154 папки → **≥ 1000 строк** каждая.
+> В таблице 150 папок (строки данных + заголовок). Все 150 папок → **≥ 1000 строк** каждая.
 
 ### B10.2 FAQ по базе и быстрая навигация
 
