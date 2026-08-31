@@ -1,6 +1,6 @@
 # Seoulmate — YouTube
 
-> 🔗 Внешний ресурс: <https://www.youtube.com/@seoulmatchannel>
+> 🔗 Внешний ресурс: <https://www.youtube.com/@seoulmateKR>
 
 - Средний уровень: жизнь в Корее, диалоги.
 - Бытовые разговоры на реальном корейском.

@@ -1,6 +1,6 @@
 # EnjoyKoreanStudy — YouTube
 
-> 🔗 Внешний ресурс: <https://www.youtube.com/@EnjoyKoreanStudy>
+> 🔗 Внешний ресурс: <https://www.youtube.com/@EnjoyLearnKorean>
 
 - Начальный–средний уровень: уроки аудирования.
 - Диалоги с субтитрами и разбором.

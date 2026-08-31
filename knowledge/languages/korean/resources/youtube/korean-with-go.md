@@ -1,6 +1,6 @@
 # Korean with GO! — YouTube
 
-> 🔗 Внешний ресурс: <https://www.youtube.com/@koreanwithgo>
+> 🔗 Внешний ресурс: <https://www.youtube.com/@GoBillyKorean>
 
 - Начальный уровень: произношение и разговорная речь.
 - Разбор произношения и интонации.
