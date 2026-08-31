@@ -1293,7 +1293,7 @@ a² + b² = c² → кот (a) и пёс (b) тянут канат (c) по ди
 
 ### Модуль 13: Скорость и соревнования — неделя 10
 
-*Теория: [classic-mnemonics.md §16, §19](classic-mnemonics.md#16-игральная-колода-52-карты) · Шпаргалка: [cheatsheet.md#техника-9-pao](cheatsheet.md#техника-9-pao) · Практика: Memory League (упомянут в [practice-workbook.md](practice-workbook.md#игры-и-приложения))*
+*Теория: [classic-mnemonics.md §16, §19](classic-mnemonics.md#16-игральная-колода-52-карты) · Шпаргалка: [cheatsheet.md#техника-9-pao-персона-действие-объект](cheatsheet.md#техника-9-pao-персона-действие-объект) · Практика: Memory League (упомянут в [practice-workbook.md](practice-workbook.md#игры-и-приложения-оффлайн-приоритет))*
 
 #### 13.1 Теория — дисциплины
 
