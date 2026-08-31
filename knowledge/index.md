@@ -819,7 +819,7 @@
 | books\notes | 2 | 1002 |
 | books\read | 3 | 1665 |
 | books\wishlist | 1 | 1169 |
-| languages\chinese | 109 | 45771 |
+| languages\chinese | 109 | 45772 |
 | languages\chinese\cheatsheet | 1 | 1038 |
 | languages\chinese\common-mistakes | 1 | 4618 |
 | languages\chinese\culture | 1 | 1079 |
