@@ -177,11 +177,11 @@ Review 1–4  → Склейка модулей в единую систему
 | План дня / чемодан | телесные пеги / римская комната | всегда с собой | [classic-mnemonics.md §8](classic-mnemonics.md#8-фиксированные-пеги-четыре-вида) | 3 мин |
 | Доклад / презентация 8–12 тезисов | дворец памяти | порядок + уверенность | [palaces.md](palaces.md) | 20 мин |
 | Экзамен: 30 билетов | 3–4 дворца по 10 билетов | изоляция тем | [classic-mnemonics.md §14](classic-mnemonics.md#14-экзамены-даты-формулы-термины) | 2–3 часа |
-| Телефон / PIN / дата | Major-система | цифры → слова | [classic-mnemonics.md §7](classic-mnemonics.md#7-major-система-цифры-в-слова) | 30 сек |
+| Телефон / PIN / дата | Major-система | цифры → слова | [classic-mnemonics.md §7](classic-mnemonics.md#7-major-система-цифры-становятся-словами) | 30 сек |
 | 8 имён на встрече | конвейер имя→примета→образ | имена — абстракция | [classic-mnemonics.md §10](classic-mnemonics.md#10-имена-и-лица) | 5 сек на имя |
 | Стих 8–16 строк | слоёный метод + сшивание | дословность блоками | [verbatim-mastery.md](verbatim-mastery.md) | 30–60 мин |
-| Колода 52 карты | PAO + дворец | скорость чемпионов | [classic-mnemonics.md §19](classic-mnemonics.md#19-система-pao-52-карты-за-один-образ) | недели подготовки |
-| Иностранное слово | keyword-метод | звук → якорь → сцена | [classic-mnemonics.md §15](classic-mnemonics.md#15-иностранные-словапринцип-без-привязки-к-языку) | 30 сек |
+| Колода 52 карты | PAO + дворец | скорость чемпионов | [classic-mnemonics.md §19](classic-mnemonics.md#19-система-pao) | недели подготовки |
+| Иностранное слово | keyword-метод | звук → якорь → сцена | [classic-mnemonics.md §15](classic-mnemonics.md#15-иностранные-словапринцип) | 30 сек |
 
 **Шпаргалка выбора за 10 секунд (вырезать):**
 
@@ -506,7 +506,7 @@ Review 1–4  → Склейка модулей в единую систему
 
 ### Модуль 3: Дворец памяти — неделя 2–3
 
-*Теория: [classic-mnemonics.md §5–6](classic-mnemonics.md#5-метод-локусовдворец-памяти) · Готовые дворцы: [palaces.md](palaces.md) · Тетрадь: [practice-workbook.md#модуль-3](practice-workbook.md#модуль-3дворец-памяти)*
+*Теория: [classic-mnemonics.md §5–6](classic-mnemonics.md#5-метод-локусов-дворец-памяти) · Готовые дворцы: [palaces.md](palaces.md) · Тетрадь: [practice-workbook.md#модуль-3](practice-workbook.md#модуль-3дворец-памяти)*
 
 #### 3.1 Теория — почему пространство сильнее списка
 
@@ -594,7 +594,7 @@ Review 1–4  → Склейка модулей в единую систему
 
 ### Модуль 4: Major-система (цифры → слова) — неделя 3–4
 
-*Теория: [classic-mnemonics.md §7](classic-mnemonics.md#7-major-система-цифры-в-слова) · Каталог: [chains-pegs.md](chains-pegs.md) · Тетрадь: [practice-workbook.md#модуль-4](practice-workbook.md#модуль-4major-система)*
+*Теория: [classic-mnemonics.md §7](classic-mnemonics.md#7-major-система-цифры-становятся-словами) · Каталог: [chains-pegs.md](chains-pegs.md) · Тетрадь: [practice-workbook.md#модуль-4](practice-workbook.md#модуль-4major-система)*
 
 #### 4.1 Теория — цифры становятся образами
 
@@ -1407,7 +1407,7 @@ a² + b² = c² → кот (a) и пёс (b) тянут канат (c) по ди
 
 ### Модуль 15: Режим мастера и преподавание — неделя 12
 
-*Теория: [classic-mnemonics.md §22–25](classic-mnemonics.md#22-десять-ошибок-новичков) · Тетрадь: [practice-workbook.md#модуль-17](practice-workbook.md#модуль-17обучение-других-протеже-эффект) · Наука: [how-memory-works.md](how-memory-works.md)*
+*Теория: [classic-mnemonics.md §22–25](classic-mnemonics.md#22-десять-ошибок-новичков) · Тетрадь: [practice-workbook.md#модуль-17](practice-workbook.md#модуль-17обучение-другихпротеже-эффект) · Наука: [how-memory-works.md](how-memory-works.md)*
 
 #### 15.1 Теория — протеже-эффект и режим
 
