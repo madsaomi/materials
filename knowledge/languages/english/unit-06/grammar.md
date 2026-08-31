@@ -1,6 +1,6 @@
 # Unit 06 — Grammar (A2-B1 Level)
 
-### 6.1. Weather Expressions
+## 6.1. Weather Expressions
 
 | Pattern | Example | Russian |
 |---------|---------|---------|
