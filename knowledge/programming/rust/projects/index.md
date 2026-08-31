@@ -552,4 +552,4 @@ CSV parsing, статистика, итераторы, clap, форматиро�
 
 ---
 
-*Больше идей: https://github.com/practical-tutorials/project-based-learning#rust, https://github.com/kirillzhosul/awesome-rust-apps, https://rust-cli.github.io/book/*
+*Больше идей: https://github.com/practical-tutorials/project-based-learning#rust, https://github.com/rust-unofficial/awesome-rust, https://rust-cli.github.io/book/*

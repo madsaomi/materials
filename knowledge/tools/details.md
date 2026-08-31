@@ -1783,7 +1783,7 @@ Merge создаёт merge-коммит; rebase перекладывает ко�
 - Vimtutor: запусти `vimtutor` в терминале
 - tmux man pages: `man tmux`
 - Docker: https://docs.docker.com
-- Poetry: https://python-poetry.org/doc
+- Poetry: https://python-poetry.org/docs
 - Oh-my-zsh: https://ohmyz.sh
 - Сеть Git(hub) — полезно: чит-лист, https://training.github.com
 
