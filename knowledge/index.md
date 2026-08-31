@@ -20,7 +20,7 @@
 
 ---
 
-## 🌍 Языки — Учебник с юнитами и словарём Beyond 1000
+## 🌍 Языки
 
 ### Структура каждого языка
 
@@ -53,7 +53,7 @@
 
 ---
 
-## 🧩 Мнемоника — Автономный учебник памяти
+## 🧩 Мнемоника
 
 Полностью автономный раздел — без привязки к другим секциям. Всё внутри `mnemonics/`.
 
@@ -180,7 +180,7 @@
 | Топ-разделов | 8 |
 | Языков в каталоге B2 | 4 (яп, кит, кор, анг) |
 | Юнитов языковых | 60 (15 × 4) |
-| Папок с ≥ 1000 строками | 149 (см. B10) |
+| Папок с ≥ 1000 строками | 150 (см. B10) |
 | Крупнейший раздел | languages/ (59,7 % базы) |
 
 ### B1.2 Сводная таблица ТОП-разделов
@@ -810,16 +810,16 @@
 
 ### B10.1 Карта «≥ 1000 строк»
 
-Ниже — **все 149 папок** базы, каждая из которых набирает **1000+ строк** содержимого (файлы считаются рекурсивно для каждой папки). Это проверка выполнения цели «весь раздел ≥ 1000 строк» по каждому уровню навигации.
+Ниже — **все 150 папок** базы, каждая из которых набирает **1000+ строк** содержимого (файлы считаются рекурсивно для каждой папки). Это проверка выполнения цели «весь раздел ≥ 1000 строк» по каждому уровню навигации.
 
 | Папка | Файлов | Строк |
 |-------|--------|-------|
-| C:\Users\~\Desktop\materials\knowledge | 1 | 1038 |
+| books | 8 | 4859 |
 | books\genre | 2 | 1023 |
 | books\notes | 2 | 1002 |
 | books\read | 3 | 1665 |
 | books\wishlist | 1 | 1169 |
-| languages\chinese | 3 | 5094 |
+| languages\chinese | 109 | 45769 |
 | languages\chinese\cheatsheet | 1 | 1038 |
 | languages\chinese\common-mistakes | 1 | 4618 |
 | languages\chinese\culture | 1 | 1079 |
@@ -846,7 +846,7 @@
 | languages\chinese\vocabulary | 7 | 2852 |
 | languages\chinese\writing | 1 | 1142 |
 | languages\comparison | 2 | 1322 |
-| languages\english | 3 | 1308 |
+| languages\english | 99 | 23320 |
 | languages\english\unit-01 | 6 | 1414 |
 | languages\english\unit-02 | 6 | 1291 |
 | languages\english\unit-03 | 6 | 1384 |
@@ -863,7 +863,7 @@
 | languages\english\unit-14 | 6 | 1304 |
 | languages\english\unit-15 | 6 | 1521 |
 | languages\english\vocabulary | 6 | 2755 |
-| languages\japanese | 3 | 1412 |
+| languages\japanese | 142 | 44504 |
 | languages\japanese\cheatsheet | 2 | 1158 |
 | languages\japanese\common-mistakes | 1 | 1603 |
 | languages\japanese\culture | 1 | 1148 |
@@ -890,7 +890,7 @@
 | languages\japanese\unit-15 | 6 | 3041 |
 | languages\japanese\vocabulary | 4 | 2748 |
 | languages\japanese\writing | 2 | 1251 |
-| languages\korean | 3 | 4309 |
+| languages\korean | 155 | 45123 |
 | languages\korean\cheatsheet | 7 | 1713 |
 | languages\korean\common-mistakes | 1 | 1423 |
 | languages\korean\culture | 8 | 1722 |
@@ -918,54 +918,54 @@
 | languages\korean\writing | 1 | 1427 |
 | languages\study-plans | 3 | 1006 |
 | mnemonics | 15 | 28593 |
-| philosophy\eastern | 3 | 1323 |
+| philosophy\eastern | 9 | 5480 |
 | philosophy\eastern\unit-01 | 1 | 1013 |
 | philosophy\eastern\unit-02 | 1 | 1002 |
 | philosophy\eastern\unit-03 | 1 | 1012 |
 | philosophy\eastern\units | 3 | 1130 |
-| philosophy\western | 3 | 1486 |
+| philosophy\western | 8 | 5754 |
 | philosophy\western\unit-01 | 1 | 1039 |
 | philosophy\western\unit-02 | 1 | 1110 |
 | philosophy\western\unit-03 | 1 | 1003 |
 | philosophy\western\units | 2 | 1116 |
 | practices\journaling | 1 | 1256 |
-| practices\meditation | 2 | 1158 |
+| practices\meditation | 6 | 5254 |
 | practices\meditation\unit-01 | 1 | 1009 |
 | practices\meditation\unit-02 | 2 | 2025 |
 | practices\meditation\unit-03 | 1 | 1062 |
 | practices\productivity | 1 | 1154 |
 | practices\yoga | 1 | 1673 |
 | programming\algorithms | 1 | 1221 |
-| programming\go | 2 | 1818 |
+| programming\go | 9 | 9756 |
 | programming\go\projects | 1 | 2013 |
 | programming\go\unit-01 | 2 | 2080 |
 | programming\go\unit-02 | 2 | 2170 |
 | programming\go\unit-03 | 2 | 1675 |
-| programming\javascript | 2 | 1582 |
+| programming\javascript | 9 | 8613 |
 | programming\javascript\projects | 1 | 2339 |
 | programming\javascript\unit-01 | 2 | 1337 |
 | programming\javascript\unit-02 | 2 | 1446 |
 | programming\javascript\unit-03 | 2 | 1909 |
 | programming\patterns | 1 | 1374 |
-| programming\python | 2 | 1684 |
+| programming\python | 9 | 9074 |
 | programming\python\projects | 1 | 2244 |
 | programming\python\unit-01 | 2 | 1781 |
 | programming\python\unit-02 | 2 | 1631 |
 | programming\python\unit-03 | 2 | 1734 |
-| programming\rust | 2 | 3266 |
+| programming\rust | 14 | 10051 |
 | programming\rust\projects | 6 | 2348 |
 | programming\rust\unit-01 | 2 | 1372 |
 | programming\rust\unit-02 | 2 | 1505 |
 | programming\rust\unit-03 | 2 | 1560 |
 | programming\snippets | 5 | 3947 |
-| psychology | 2 | 1035 |
+| psychology | 5 | 4275 |
 | psychology\unit-01 | 1 | 1009 |
 | psychology\unit-02 | 1 | 1029 |
 | psychology\unit-03 | 1 | 1202 |
-| tools | 2 | 3092 |
+| tools | 5 | 5162 |
 | tools\guides | 3 | 2070 |
 
-> В таблице 149 папок (строки данных + заголовок). Все 149 папок → **≥ 1000 строк** каждая.
+> В таблице 150 папок (строки данных + заголовок). Все 150 папок → **≥ 1000 строк** каждая.
 
 ### B10.2 FAQ по базе и быстрая навигация
 
