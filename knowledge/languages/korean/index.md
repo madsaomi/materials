@@ -897,6 +897,8 @@ B: 네, 좀 있어요.
 | [Повторение 1–5](review/index.md) · [6–10](review/index.md) · [11–15](review/index.md) | Контрольные по блокам |
 | [Подготовка к TOPIK](exam/index.md) | TOPIK I-II, пробник |
 | [Ханча](hanja/index.md) | Китайские иероглифы в корейском |
+| [Культура](culture/index.md) | Традиции, обычаи, праздники, этикет |
+| [Ресурсы](resources/index.md) | YouTube, подкасты, переводчики, новости, тексты |
 | [Письмо](writing/index.md) | Хангыль, почерк |
 | [Частые ошибки](common-mistakes/index.md) | 은/는 vs 이/가, банмаль |
 
