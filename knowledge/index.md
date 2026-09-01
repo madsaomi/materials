@@ -16,7 +16,7 @@
 | [🧘 Практики](#практики) | Медитация + другие | Теория + техники | 9 337 строк | 3 уровня |
 | [📚 Книги](#книги) | 4 раздела | Списки + заметки | 4 859 строк | Чтение + Wishlist |
 | [🛠 Инструменты](#инструменты) | Гайды + Setup | Шпаргалки | 5 162 строки | Практические гайды |
-| **Всего** | **619 файлов** | — | **268 786 строк** | Все разделы ≥ 1000 |
+| **Всего** | **619 файлов** | — | **269 617 строк** | Все разделы ≥ 1000 |
 
 ---
 
@@ -44,8 +44,8 @@
 | Язык | Юниты | Учебник | Детали | Словарь | Примечание |
 |------|-------|---------|--------|---------|------------|
 | [🇯🇵 Японский](languages/japanese/) | 15 | 168 строк | 1412 строк | 500 → 1000 → 1500 → 2000 | Эталонная структура; 44 506 строки |
-| [🇨🇳 Китайский](languages/chinese/) | 15 | 2995 строк | 5094 строк | 500 → 1000 → 1500 → 2000 | Расширенный учебник; 45 345 строк |
-| [🇰🇷 Корейский](languages/korean/) | 15 | 1510 строк | 4309 строк | 500 → 1000 → 1500 → 2000 | Полный курс; 44 757 строк |
+| [🇨🇳 Китайский](languages/chinese/) | 15 | 2995 строк | 5094 строк | 500 → 1000 → 1500 → 2000 | Расширенный учебник; 45 772 строк |
+| [🇰🇷 Корейский](languages/korean/) | 15 | 1510 строк | 4309 строк | 500 → 1000 → 1500 → 2000 | Полный курс; 45 161 строк |
 | [🇺🇸 Английский](languages/english/) | 15 | 132 строк | 1308 строк | 500 → 1000 → 1500 → 2000 | Раздел по схеме японского; 23 320 строк |
 | ~~🇪🇸 Испанский~~ | ~~удалён~~ | ~~удалён~~ | ~~удалён~~ | ~~удалён~~ | Удалён по запросу |
 
@@ -416,7 +416,7 @@
 | cheatsheet | index.md | 1 038 |
 | kanji | index.md | 1 290 |
 
-> **Итог по китайскому:** вся база 45 345 строк (**109 файлов**) — самый объёмный язык.
+> **Итог по китайскому:** вся база 45 772 строк (**109 файлов**) — самый объёмный язык.
 
 ---
 
@@ -533,7 +533,7 @@
 | common-mistakes | index.md | 1 423 |
 | hanja | index.md | 1 218 |
 
-> **Итог по корейскому:** вся база 44 757 строк (**156 файлов**, включая раздел `resources/`); основа 4 311 + юниты (15 × ~1 400) + темы (listening 2 196, exam 2 090, reading 2 013, culture 1 722, cheatsheet 1 713, review 1 569, common-mistakes 1 423, hanja 1 218, writing 1 427, vocabulary 2 454, resources 198) + словарь 2000.
+> **Итог по корейскому:** вся база 45 161 строка (**156 файлов**, включая раздел `resources/`); основа 4 311 + юниты (15 × ~1 400) + темы (listening 2 196, exam 2 090, reading 2 013, culture 1 722, cheatsheet 1 713, review 1 569, common-mistakes 1 423, hanja 1 218, writing 1 427, vocabulary 2 858, resources 198) + словарь 2000.
 
 ---
 
@@ -819,7 +819,7 @@
 | books\notes | 2 | 1002 |
 | books\read | 3 | 1665 |
 | books\wishlist | 1 | 1169 |
-| languages\chinese | 109 | 45345 |
+| languages\chinese | 109 | 45772 |
 | languages\chinese\cheatsheet | 1 | 1038 |
 | languages\chinese\common-mistakes | 1 | 4618 |
 | languages\chinese\culture | 1 | 1079 |
@@ -843,7 +843,7 @@
 | languages\chinese\unit-13 | 6 | 1538 |
 | languages\chinese\unit-14 | 6 | 1463 |
 | languages\chinese\unit-15 | 6 | 1481 |
-| languages\chinese\vocabulary | 7 | 2425 |
+| languages\chinese\vocabulary | 7 | 2852 |
 | languages\chinese\writing | 1 | 1142 |
 | languages\comparison | 2 | 1322 |
 | languages\english | 99 | 23320 |
@@ -890,7 +890,7 @@
 | languages\japanese\unit-15 | 6 | 3041 |
 | languages\japanese\vocabulary | 4 | 2748 |
 | languages\japanese\writing | 2 | 1251 |
-| languages\korean | 156 | 44757 |
+| languages\korean | 156 | 45161 |
 | languages\korean\cheatsheet | 7 | 1713 |
 | languages\korean\common-mistakes | 1 | 1423 |
 | languages\korean\culture | 8 | 1722 |
@@ -914,7 +914,7 @@
 | languages\korean\unit-13 | 6 | 1483 |
 | languages\korean\unit-14 | 6 | 1671 |
 | languages\korean\unit-15 | 6 | 1675 |
-| languages\korean\vocabulary | 8 | 2454 |
+| languages\korean\vocabulary | 8 | 2858 |
 | languages\korean\writing | 1 | 1427 |
 | languages\study-plans | 3 | 1006 |
 | mnemonics | 15 | 28593 |
