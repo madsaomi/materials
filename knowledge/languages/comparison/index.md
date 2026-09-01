@@ -181,55 +181,42 @@
 
 ## 12. 🗺️ Карта связей: юниты и словарь
 
-Каждый язык в базе устроен единообразно: index → textbook → юниты (unit-XX: грамматика + лексика + диалог + чтение + практика + тест) → словарь (частотные списки) → экзамен.
+Каждый язык в базе устроен единообразно: `core/` (index, textbook, details) → `units/` (`unit-01`…`unit-15`: грамматика, диалог, чтение, практика, тест, словарь) → `vocabulary/` (частотные списки и идиомы).
 
 ### 🇯🇵 Японский
 | Что искать | Где |
 |------------|-----|
-| Оглавление, быстрый старт | [index.md](../japanese/index.md) |
-| Учебник, методика, трекер | [textbook.md](../japanese/textbook.md) |
+| Оглавление, быстрый старт | [index.md](../japanese/core/index.md) |
+| Учебник, методика | [textbook.md](../japanese/core/textbook.md) |
+| Детали | [details.md](../japanese/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../japanese/vocabulary/index.md) → [top-1000.md](../japanese/vocabulary/top-1000.md) |
-| Кандзи (юниты, драйллы) | [kanji/index.md](../japanese/kanji/index.md), [kanji-drills.md](../japanese/kanji/kanji-drills.md) |
-| Письменность (кана-драйллы) | [writing/index.md](../japanese/writing/index.md), [kana-drills.md](../japanese/writing/kana-drills.md) |
-| Ошибки носителей русского | [common-mistakes/index.md](../japanese/common-mistakes/index.md) |
-| Шпаргалки | [cheatsheet/index.md](../japanese/cheatsheet/index.md), [full-grammar.md](../japanese/cheatsheet/full-grammar.md) |
-| Подготовка к JLPT | [exam/index.md](../japanese/exam/index.md), [n4-prep.md](../japanese/exam/n4-prep.md) |
-| Чтение по уровням | [reading/index.md](../japanese/reading/index.md), [n5-texts.md](../japanese/reading/n5-texts.md) |
-| Микро-детали произн. | [details.md](../japanese/details.md) |
-| Проклятые идиомы, культура | [proverbs/index.md](../japanese/proverbs/index.md), [culture/index.md](../japanese/culture/index.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../japanese/units/unit-01/vocabulary.md) |
 
 ### 🇰🇷 Корейский
 | Что искать | Где |
 |------------|-----|
-| Оглавление, полный конспект | [index.md](../korean/index.md) |
-| Учебник, методика | [textbook.md](../korean/textbook.md) |
-| Словарь юнитов (unit-01…03) | [unit-01/vocabulary.md](../korean/unit-01/vocabulary.md) и т.д. |
-| Ханча | [hanja/index.md](../korean/hanja/index.md) |
-| Ошибки носителей русского | [common-mistakes/index.md](../korean/common-mistakes/index.md) |
-| Шпаргалки | [cheatsheet/index.md](../korean/cheatsheet/index.md) |
-| TOPIK | [exam/index.md](../korean/exam/index.md) |
-| Аудирование, письмо, культура | [listening/index.md](../korean/listening/index.md), [writing/index.md](../korean/writing/index.md), [culture/index.md](../korean/culture/index.md) |
-| Микро-детали произн. | [details.md](../korean/details.md) |
+| Оглавление, полный конспект | [index.md](../korean/core/index.md) |
+| Учебник, методика | [textbook.md](../korean/core/textbook.md) |
+| Детали | [details.md](../korean/core/details.md) |
+| Частотный словарь | [vocabulary/index.md](../korean/vocabulary/index.md) → [top-1000.md](../korean/vocabulary/top-1000.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../korean/units/unit-01/vocabulary.md) |
 
 ### 🇨🇳 Китайский
 | Что искать | Где |
 |------------|-----|
-| Оглавление | [index.md](../chinese/index.md) |
-| Учебник | [textbook.md](../chinese/textbook.md) |
+| Оглавление | [index.md](../chinese/core/index.md) |
+| Учебник | [textbook.md](../chinese/core/textbook.md) |
+| Детали | [details.md](../chinese/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../chinese/vocabulary/index.md) → [top-1000.md](../chinese/vocabulary/top-1000.md) |
-| Иероглифы | [kanji/index.md](../chinese/kanji/index.md) |
-| Письменность | [writing/index.md](../chinese/writing/index.md) |
-| HSK | [exam/index.md](../chinese/exam/index.md) |
-| Ошибки, чтение, культура | [common-mistakes/index.md](../chinese/common-mistakes/index.md), [reading/index.md](../chinese/reading/index.md), [culture/index.md](../chinese/culture/index.md) |
-| Детали | [details.md](../chinese/details.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../chinese/units/unit-01/vocabulary.md) |
 
 ### 🇬🇧 Английский
 | Что искать | Где |
 |------------|-----|
-| Программа курса (15 блоков) | [index.md](../english/index.md) |
-| Учебник | [textbook.md](../english/textbook.md) |
+| Программа курса (15 блоков) | [index.md](../english/core/index.md) |
+| Учебник | [textbook.md](../english/core/textbook.md) |
+| Детали | [details.md](../english/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../english/vocabulary/index.md) → [top-1000.md](../english/vocabulary/top-1000.md) |
-| Словарь юнитов (unit-01…15) | [unit-01/vocabulary.md](../english/unit-01/vocabulary.md) и т.д. |
-| Детали | [details.md](../english/details.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../english/units/unit-01/vocabulary.md) |
 
 > 🔗 **Связки между языками**: кандзи → иероглифы [нять кандзи в китайском] и ханча [дубль]. Словари «top-1000» делаются по одному шаблону — сравнивай переводы и отмечай общие корни. Планы и рутины общие: [study-plans](../study-plans/index.md).
