@@ -5,7 +5,11 @@ import { marked } from 'marked';
 
 const KNOWLEDGE_DIR = path.resolve(process.cwd(), 'knowledge');
 
+let _cache = null;
+let _cacheMtime = 0;
+
 export function getAllDocs() {
+  if (_cache) return _cache;
   if (!fs.existsSync(KNOWLEDGE_DIR)) {
     return [];
   }
@@ -60,7 +64,10 @@ export function getAllDocs() {
     return results;
   }
 
-  return walk(KNOWLEDGE_DIR);
+  const result = walk(KNOWLEDGE_DIR);
+  _cache = result;
+  _cacheMtime = Date.now();
+  return result;
 }
 
 export function getDocBySlug(slug) {
