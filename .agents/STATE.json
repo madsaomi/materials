@@ -1,0 +1,22 @@
+{
+  "project": "materials",
+  "version": "1.0.0",
+  "last_updated": "2026-09-02",
+  "git_status": {
+    "branch": "main",
+    "ahead_by_commits": 8,
+    "working_tree": "clean"
+  },
+  "active_components": [
+    "knowledge/tools",
+    "knowledge/mnemonics",
+    "knowledge/languages",
+    "knowledge/psychology",
+    "knowledge/philosophy",
+    "knowledge/practices",
+    "knowledge/programming"
+  ],
+  "current_focus": "Multi-agent handoff and persistence system initialization (.agents/)",
+  "pending_tasks": [],
+  "notes": "Initialized `.agents/` directory with RULES.md, STATE.json, GLOSSARY.md, and history/agent-session-log.md."
+}
