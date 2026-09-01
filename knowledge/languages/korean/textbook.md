@@ -1217,7 +1217,7 @@
 | [Подготовка к TOPIK](exam/index.md) | TOPIK I-II, пробник | После Unit 10 |
 | [Микро-детали](details.md) | Произношение, грамматика | Углублённое изучение |
 | [Частые ошибки](common-mistakes/index.md) | 은/는 vs 이/가, банмаль | Параллельно с уроками |
-| [Мнемоники](../../mnemonics/hangul-korean.md) | Запоминание хангыля | Первые недели |
+| [Мнемоники](../../mnemonics/languages-integration/hangul-korean.md) | Запоминание хангыля | Первые недели |
 | [Повторение 1–5](review/index.md) | Контрольные | После Unit 5 |
 | [Повторение 6–10](review/index.md) | Контрольные | После Unit 10 |
 | [Повторение 11–15](review/index.md) | Контрольные | После Unit 15 |
@@ -1497,7 +1497,7 @@
 | Ханча | Иероглифы | hanja/index.md |
 | Письмо | Хангыль | writing/index.md |
 | Ошибки | Частые ошибки | common-mistakes/index.md |
-| Мнемоники | Запоминание | ../../mnemonics/hangul-korean.md |
+| Мнемоники | Запоминание | ../../mnemonics/languages-integration/hangul-korean.md |
 | Анки | Карточки | ankiweb.net |
 | Подкасты | TTMIK | hltworld.com |
 | Словари | Naver | dictionary.naver.com |

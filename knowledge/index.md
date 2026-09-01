@@ -61,21 +61,21 @@
 
 | Файл | Линий | Содержание | Роль |
 |------|-------|------------|------|
-| [`index.md`](mnemonics/index.md) | 2431 | Карта курса, 18 разделов, 30+ подразделов, научная база, 30-недельный план | **Мастер-индекс** |
-| [`textbook.md`](mnemonics/textbook.md) | 1879 | Программа 10 модулей, методика, 5 принципов, таблица прогрессии HSK-уровней памяти | **Учебник** |
-| [`classic-mnemonics.md`](mnemonics/classic-mnemonics.md) | 1826 | Теория (25 параграфов): образы, цепочки, дворцы, PAO, бинарные, рифмы, алфавит | **Классический курс** |
-| [`cheatsheet.md`](mnemonics/cheatsheet.md) | 2920 | Энциклопедия техник (10+ техник с матрицей решений) | **Шпаргалка** |
-| [`palaces.md`](mnemonics/palaces.md) | 1904 | 15 готовых дворцов памяти (маршруты, локусы) | **Дворцы** |
-| [`chains-pegs.md`](mnemonics/chains-pegs.md) | 1768 | Цепочки + пеги + Major 00-99 | **Цепи и пеги** |
-| [`practice-workbook.md`](mnemonics/practice-workbook.md) | 2117 | Упражнения, ответы, журнал прогресса | **Тетрадь** |
-| [`how-memory-works.md`](mnemonics/how-memory-works.md) | 1589 | Нейробиология памяти (гиппокамп, неокортекс, префронтальная кора) | **Наука** |
-| [`verbatim-mastery.md`](mnemonics/verbatim-mastery.md) | 1683 | Дословное запоминание: речи, стихи, экзамены | **Дословность** |
-| [`beyond-catalog.md`](mnemonics/beyond-catalog.md) | 1018 | Каталог Beyond 1000: Major 00-99 + PAO + бинарные + рифмы + алфавит | **Каталог** |
-| [`universal-vocabulary.md`](mnemonics/universal-vocabulary.md) | 1576 | Универсальная лексика для любого языка | **Лексика** |
-| [`kanji-stories.md`](mnemonics/kanji-stories.md) | 1669 | Кандзи через истории (японский) | **Кандзи** |
-| [`kanji-stories.md`](mnemonics/kanji-stories.md) — исправлено: [`hanzi-chinese.md`](mnemonics/hanzi-chinese.md) | 1669 | Ханцзы через истории (китайский) | **Ханцзы** |
-| [`kana-japanese.md`](mnemonics/kana-japanese.md) | 1749 | Кана через образы (японский) | **Кана** |
-| [`hangul-korean.md`](mnemonics/hangul-korean.md) | 2810 | Хангыль через образы (корейский) | **Хангыль** |
+| [`index.md`](mnemonics/foundations/index.md) | 2431 | Карта курса, 18 разделов, 30+ подразделов, научная база, 30-недельный план | **Мастер-индекс** |
+| [`textbook.md`](mnemonics/foundations/textbook.md) | 1879 | Программа 10 модулей, методика, 5 принципов, таблица прогрессии HSK-уровней памяти | **Учебник** |
+| [`classic-mnemonics.md`](mnemonics/core-techniques/classic-mnemonics.md) | 1826 | Теория (25 параграфов): образы, цепочки, дворцы, PAO, бинарные, рифмы, алфавит | **Классический курс** |
+| [`cheatsheet.md`](mnemonics/core-techniques/cheatsheet.md) | 2920 | Энциклопедия техник (10+ техник с матрицей решений) | **Шпаргалка** |
+| [`palaces.md`](mnemonics/core-techniques/palaces.md) | 1904 | 15 готовых дворцов памяти (маршруты, локусы) | **Дворцы** |
+| [`chains-pegs.md`](mnemonics/core-techniques/chains-pegs.md) | 1768 | Цепочки + пеги + Major 00-99 | **Цепи и пеги** |
+| [`practice-workbook.md`](mnemonics/practical-domains/practice-workbook.md) | 2117 | Упражнения, ответы, журнал прогресса | **Тетрадь** |
+| [`how-memory-works.md`](mnemonics/foundations/how-memory-works.md) | 1589 | Нейробиология памяти (гиппокамп, неокортекс, префронтальная кора) | **Наука** |
+| [`verbatim-mastery.md`](mnemonics/practical-domains/verbatim-mastery.md) | 1683 | Дословное запоминание: речи, стихи, экзамены | **Дословность** |
+| [`beyond-catalog.md`](mnemonics/practical-domains/beyond-catalog.md) | 1018 | Каталог Beyond 1000: Major 00-99 + PAO + бинарные + рифмы + алфавит | **Каталог** |
+| [`universal-vocabulary.md`](mnemonics/practical-domains/universal-vocabulary.md) | 1576 | Универсальная лексика для любого языка | **Лексика** |
+| [`kanji-stories.md`](mnemonics/languages-integration/kanji-stories.md) | 1669 | Кандзи через истории (японский) | **Кандзи** |
+| [`kanji-stories.md`](mnemonics/languages-integration/kanji-stories.md) — исправлено: [`hanzi-chinese.md`](mnemonics/languages-integration/hanzi-chinese.md) | 1669 | Ханцзы через истории (китайский) | **Ханцзы** |
+| [`kana-japanese.md`](mnemonics/languages-integration/kana-japanese.md) | 1749 | Кана через образы (японский) | **Кана** |
+| [`hangul-korean.md`](mnemonics/languages-integration/hangul-korean.md) | 2810 | Хангыль через образы (корейский) | **Хангыль** |
 
 > 🔗 **Структура учебника:** разделы I–XVIII с подразделами (16.1, 16.1.1, 16.2, 16.2.1 и т.д.); 30-недельный практический курс; научная база (нейробиология, теории кодирования); методика 5 принципов; таблица нормативов; словарь терминов; FAQ; чек-лист.
 
@@ -140,8 +140,8 @@
 
 ## 🔗 Связи между разделами
 
-- **Мнемоника → Языки:** [mnemonics/universal-vocabulary.md] (универсальный словарь) → языковые азбуки (яп/кор/кит)
-- **Мнемоника → Программирование:** [mnemonics/textbook.md] методика → [programming/]
+- **Мнемоника → Языки:** [mnemonics/practical-domains/universal-vocabulary.md] (универсальный словарь) → языковые азбуки (яп/кор/кит)
+- **Мнемоника → Программирование:** [mnemonics/foundations/textbook.md] методика → [programming/]
 - **Языки → Философия:** философские тексты в оригинале (японский, китайский, корейский, английский)
 - **Практики → Психология:** медитация как инструмент ментального здоровья
 - **Книги → Все разделы:** заметки по каждому разделу, wishlist для углубления
@@ -188,7 +188,7 @@
 | Раздел | Путь | Файлов | Строк суммарно | Доля базы |
 |--------|------|--------|----------------|-----------|
 | 🌍 Языки | `languages/` | 511 | 161 087 | 59,7 % |
-| 🧩 Мнемоника | `mnemonics/` | 15 | 28 593 | 10,6 % |
+| 🧩 Мнемоника | `mnemonics/` | 16 | 20 871 | 10,6 % |
 | 💻 Программирование | `programming/` | 48 | 44 036 | 16,3 % |
 | 🏛 Философия | `philosophy/` | 17 | 11 234 | 4,2 % |
 | 🧠 Психология | `psychology/` | 5 | 4 275 | 1,6 % |
@@ -668,7 +668,7 @@
 
 ## B4. Мнемоника — полная таблица 15 файлов
 
-Раздел `mnemonics/` — автономный учебник памяти. **15 файлов, 28 593 строки** — второй по объёму раздел базы.
+Раздел `mnemonics/` — автономный учебник памяти. **16 файлов, 20 871 строка** — второй по объёму раздел базы.
 
 | Файл | Строк | Роль |
 |------|-------|------|
@@ -993,10 +993,10 @@
 | languages/japanese/unit-15/grammar.md | 614 |
 | languages/chinese/unit-10/grammar.md | 549 |
 | languages/chinese/textbook.md | 2 995 |
-| mnemonics/cheatsheet.md | 2 919 |
-| mnemonics/index.md | 2 430 |
-| mnemonics/hangul-korean.md | 2 809 |
-| mnemonics/practice-workbook.md | 2 116 |
+| mnemonics/core-techniques/cheatsheet.md | 2 919 |
+| mnemonics/foundations/index.md | 2 430 |
+| mnemonics/languages-integration/hangul-korean.md | 2 809 |
+| mnemonics/practical-domains/practice-workbook.md | 2 116 |
 | tools/details.md | 1 802 |
 
 **Что проверять при авторевизии:**

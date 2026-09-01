@@ -624,10 +624,10 @@ SRS (Spaced Repetition System) — система интервальных по�
 ### Связь с базой мнемоник
 
 Перед созданием карточки в Anki загляните в:
-- [Истории для ханцзы](../../../mnemonics/hanzi-chinese.md) — готовые истории.
-- [Истории по канжи](../../../mnemonics/kanji-stories.md) — японские вариации (много общих символов).
-- [Шпаргалка мнемоник](../../../mnemonics/cheatsheet.md) — keyword-метод.
-- [Практика-воркбук](../../../mnemonics/practice-workbook.md) — шаблоны тренировок.
+- [Истории для ханцзы](../../../mnemonics/languages-integration/hanzi-chinese.md) — готовые истории.
+- [Истории по канжи](../../../mnemonics/languages-integration/kanji-stories.md) — японские вариации (много общих символов).
+- [Шпаргалка мнемоник](../../../mnemonics/core-techniques/cheatsheet.md) — keyword-метод.
+- [Практика-воркбук](../../../mnemonics/practical-domains/practice-workbook.md) — шаблоны тренировок.
 
 ### Правило «3–5–8»
 
@@ -657,7 +657,7 @@ SRS (Spaced Repetition System) — система интервальных по�
 
 ### Метод «палата памяти»
 
-Подробно о дворцах памяти: [Дворцы](../../../mnemonics/palaces.md). Для иероглифов закрепите по одному «месту» на ключ и раскладывайте туда производные.
+Подробно о дворцах памяти: [Дворцы](../../../mnemonics/core-techniques/palaces.md). Для иероглифов закрепите по одному «месту» на ключ и раскладывайте туда производные.
 
 ---
 
@@ -1265,15 +1265,15 @@ SRS (Spaced Repetition System) — система интервальных по�
 | Ресурс | Где |
 |--------|-----|
 | Общий конспект китайского | [index.md](../index.md) |
-| Мнемоники для ханцзы | [hanzi-chinese.md](../../../mnemonics/hanzi-chinese.md) |
-| Канжи-истории | [kanji-stories.md](../../../mnemonics/kanji-stories.md) |
-| Шпаргалка мнемоник | [cheatsheet.md](../../../mnemonics/cheatsheet.md) |
-| Универсальная лексика | [universal-vocabulary.md](../../../mnemonics/universal-vocabulary.md) |
+| Мнемоники для ханцзы | [hanzi-chinese.md](../../../mnemonics/languages-integration/hanzi-chinese.md) |
+| Канжи-истории | [kanji-stories.md](../../../mnemonics/languages-integration/kanji-stories.md) |
+| Шпаргалка мнемоник | [cheatsheet.md](../../../mnemonics/core-techniques/cheatsheet.md) |
+| Универсальная лексика | [universal-vocabulary.md](../../../mnemonics/practical-domains/universal-vocabulary.md) |
 | Практика письма | [writing/index.md](../writing/index.md) |
 | Частотный словарь | [vocabulary/index.md](../vocabulary/index.md) |
 | Подготовка к HSK | [exam/index.md](../exam/index.md) |
-| Дворцы памяти | [palaces.md](../../../mnemonics/palaces.md) |
-| Практика-воркбук | [practice-workbook.md](../../../mnemonics/practice-workbook.md) |
+| Дворцы памяти | [palaces.md](../../../mnemonics/core-techniques/palaces.md) |
+| Практика-воркбук | [practice-workbook.md](../../../mnemonics/practical-domains/practice-workbook.md) |
 
 ## 8.2 Внешние ресурсы
 
