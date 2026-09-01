@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllDocs, getDocBySlug } from '../../utils/knowledge';
+
+export function getStaticPaths() {
+  const docs = getAllDocs();
+  return docs.map(doc => ({
+    params: { slug: doc.slug },
+    props: { doc },
+  }));
+}
+
+const { slug } = Astro.params;
+const { doc } = Astro.props;
+const currentDoc = doc || getDocBySlug(slug);
+
+if (!currentDoc) {
+  return Astro.redirect('/404');
+}
+---
+
+<BaseLayout title={`${currentDoc.title} · Chishiki`}>
+  <article class="space-y-8">
+    <!-- Breadcrumb / Meta -->
+    <div class="flex items-center space-x-2 text-xs text-[#777] font-mono">
+      <a href="/" class="hover:text-[#111]">Home</a>
+      <span>/</span>
+      <span class="uppercase">{currentDoc.category}</span>
+      <span>/</span>
+      <span class="truncate text-[#333]">{currentDoc.title}</span>
+    </div>
+
+    <!-- Document Header -->
+    <header class="space-y-3 border-b border-[#e8e4de] pb-6">
+      <h1 class="text-3xl md:text-4xl font-serif text-[#2b2b2b] font-light leading-tight">
+        {currentDoc.title}
+      </h1>
+      <div class="text-xs text-[#888] font-mono">
+        Path: {currentDoc.relativePath}
+      </div>
+    </header>
+
+    <!-- Document Content Rendered HTML -->
+    <div class="prose max-w-none text-[#333] leading-relaxed space-y-4 text-sm md:text-base">
+      <Fragment set:html={currentDoc.html} />
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="pt-10 border-t border-[#e8e4de] flex justify-between items-center text-xs text-[#666]">
+      <a href="/" class="hover:text-[#111]">&larr; Return to Garden</a>
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hover:text-[#111]">Back to top &uarr;</a>
+    </div>
+  </article>
+
+  <style is:global>
+    /* Custom Markdown Prose Styling for Wabi-Sabi aesthetic */
+    article h1 { font-size: 2rem; font-weight: 300; font-family: 'Noto Serif JP', serif; margin-top: 2rem; margin-bottom: 1rem; color: #2b2b2b; }
+    article h2 { font-size: 1.5rem; font-weight: 400; font-family: 'Noto Serif JP', serif; margin-top: 1.75rem; margin-bottom: 0.75rem; color: #2b2b2b; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; }
+    article h3 { font-size: 1.25rem; font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+    article p { margin-bottom: 1.25rem; line-height: 1.8; color: #3b3b3b; }
+    article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    article ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    article li { margin-bottom: 0.35rem; }
+    article blockquote { border-left: 3px solid #d4cec4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555; background: #f4f1ea; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 4px 4px 0; }
+    article code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.875em; background: #f0ece6; padding: 0.2rem 0.4rem; border-radius: 3px; color: #2b2b2b; }
+    article pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1.5rem 0; font-size: 0.875rem; }
+    article pre code { background: transparent; padding: 0; color: inherit; }
+    article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+    article th, article td { border: 1px solid #e8e4de; padding: 0.75rem; text-align: left; }
+    article th { background: #f4f1ea; font-weight: 600; color: #2b2b2b; }
+    article a { color: #2b2b2b; text-decoration: underline; text-underline-offset: 3px; }
+    article a:hover { color: #000; }
+  </style>
+</BaseLayout>

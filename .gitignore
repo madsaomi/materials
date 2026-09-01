@@ -6,3 +6,9 @@
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# Dependencies & build outputs
+node_modules/
+site/node_modules/
+site/dist/
+site/.astro/
