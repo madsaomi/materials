@@ -3,7 +3,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
-const KNOWLEDGE_DIR = path.resolve(process.cwd(), '../knowledge');
+const KNOWLEDGE_DIR = path.resolve(process.cwd(), 'knowledge');
 
 export function getAllDocs() {
   if (!fs.existsSync(KNOWLEDGE_DIR)) {
@@ -40,7 +40,10 @@ export function getAllDocs() {
           }
         }
 
-        const category = slug.split('/')[0] || 'General';
+        const parts = slug.split('/');
+        let category = parts[0] || 'General';
+        if (category === 'languages' && parts[1]) category = `languages / ${parts[1]}`;
+        else if (category === 'mnemonics' && parts[1]) category = `mnemonics / ${parts[1]}`;
 
         results.push({
           slug,

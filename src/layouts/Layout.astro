@@ -1,0 +1,218 @@
+---
+import { getAllDocs } from '../utils/knowledge';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "Chishiki · Knowledge Base", description = "A minimalist Japanese-inspired knowledge repository." } = Astro.props;
+
+const docs = getAllDocs();
+
+function getCategory(slug: string) {
+  const parts = slug.split('/');
+  if (parts[0] === 'languages' && parts[1]) return `${parts[0]} / ${parts[1]}`;
+  if (parts[0] === 'mnemonics' && parts[1]) return `${parts[0]} / ${parts[1]}`;
+  return parts[0] || 'general';
+}
+
+const categories = docs.reduce((acc: Record<string, any[]>, doc) => {
+  const cat = getCategory(doc.slug);
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(doc);
+  return acc;
+}, {});
+
+const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+  <script is:inline>
+    (function() {
+      try {
+        const t = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (t === 'dark' || (!t && prefersDark)) document.documentElement.classList.add('dark');
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="h-full flex flex-col md:flex-row antialiased bg-paper dark:bg-[#1a1a1a] text-charcoal dark:text-[#e8e4de] selection:bg-[#e8e4de] dark:selection:bg-[#333] selection:text-[#111] dark:selection:text-[#fff]">
+
+  <!-- Mobile Header -->
+  <header class="md:hidden flex items-center justify-between px-6 py-4 bg-paper dark:bg-[#1a1a1a] border-b border-border dark:border-[#333] sticky top-0 z-30">
+    <a href="/" class="text-lg font-serif tracking-widest text-charcoal dark:text-[#e8e4de]">知 · Chishiki</a>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle-mobile" aria-label="Toggle theme" class="p-2 text-muted dark:text-[#999] hover:text-charcoal dark:hover:text-[#fff] transition-colors">
+        <span class="theme-icon-light">☀</span><span class="theme-icon-dark hidden">☾</span>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle Menu" class="p-2 text-muted dark:text-[#999] hover:text-charcoal dark:hover:text-[#fff]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 hidden md:hidden"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-80 bg-[#f4f1ea] dark:bg-[#1e1e1e] border-r border-border dark:border-[#333] flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+    <!-- Sidebar Header -->
+    <div class="px-6 py-6 border-b border-border dark:border-[#333] flex items-center justify-between">
+      <div>
+        <a href="/" class="text-xl font-serif tracking-widest text-charcoal dark:text-[#e8e4de] hover:opacity-80 transition-opacity">
+          知 <span class="text-xs uppercase tracking-widest text-muted dark:text-[#888] ml-2 font-sans">Chishiki</span>
+        </a>
+        <p class="text-xs text-muted dark:text-[#888] mt-1 tracking-wide">静寂と知恵の空間 — Wabi-Sabi</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-1.5 rounded border border-border dark:border-[#333] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] hover:border-muted transition-colors">
+          <span class="theme-icon-light text-sm">☀</span><span class="theme-icon-dark hidden text-sm">☾</span>
+        </button>
+        <button id="menu-close" class="md:hidden text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Box -->
+    <div class="p-4 border-b border-border dark:border-[#333]">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted dark:text-[#666]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </span>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search knowledge..." 
+          class="w-full pl-9 pr-4 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded focus:outline-none focus:border-muted dark:focus:border-[#555] text-charcoal dark:text-[#e8e4de] placeholder-[#999] dark:placeholder-[#666] transition-colors"
+        />
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+      <div id="search-results" class="hidden space-y-1">
+        <p class="text-[10px] font-semibold tracking-widest uppercase text-muted dark:text-[#888] px-2 mb-2">Search Results</p>
+        <div id="results-container"></div>
+      </div>
+
+      <div id="nav-categories" class="space-y-6">
+        {Object.entries(categories).map(([cat, items]) => (
+          <div>
+            <h3 class="text-[11px] font-semibold tracking-widest uppercase text-muted dark:text-[#888] px-2 mb-2 font-mono">
+              {cat}
+            </h3>
+            <ul class="space-y-0.5">
+              {items.slice(0, 8).map(doc => (
+                <li>
+                  <a 
+                    href={`/doc/${doc.slug}`}
+                    class="block px-2 py-1.5 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded transition-colors truncate"
+                    title={doc.title}
+                  >
+                    {doc.title}
+                  </a>
+                </li>
+              ))}
+              {items.length > 8 && <li class="px-2 py-1 text-[10px] text-muted dark:text-[#666]">+{items.length - 8} more</li>}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-4 border-t border-border dark:border-[#333] text-[11px] text-muted dark:text-[#888] flex justify-between items-center">
+      <span>{docs.length} items</span>
+      <a href="https://github.com" target="_blank" rel="noreferrer" class="hover:text-charcoal dark:hover:text-[#fff] transition-colors">GitHub</a>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-1 md:pl-80 flex flex-col min-h-full">
+    <main class="flex-1 px-6 md:px-16 py-10 max-w-4xl w-full mx-auto">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 text-center text-xs text-muted dark:text-[#666] border-t border-border dark:border-[#333]">
+      <p class="font-serif">知 — Chishiki Knowledge Repository · Built with Wabi-Sabi serenity</p>
+    </footer>
+  </div>
+
+  <!-- Client-side Script -->
+  <script define:vars={{ searchIndex }}>
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
+    const navCategories = document.getElementById('nav-categories');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    function openSidebar() { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); }
+    function closeSidebar() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
+    menuToggle?.addEventListener('click', openSidebar);
+    menuClose?.addEventListener('click', closeSidebar);
+    overlay?.addEventListener('click', closeSidebar);
+    document.querySelectorAll('#sidebar a').forEach(a => a.addEventListener('click', () => { if (window.innerWidth < 768) closeSidebar(); }));
+
+    // Theme toggle
+    function updateThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', isDark));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', !isDark));
+    }
+    updateThemeIcons();
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+      updateThemeIcons();
+    }
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+
+    // Lightweight search (title + slug only)
+    searchInput?.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      if (!query) {
+        searchResults.classList.add('hidden');
+        navCategories.classList.remove('hidden');
+        return;
+      }
+      navCategories.classList.add('hidden');
+      searchResults.classList.remove('hidden');
+      const matches = searchIndex.filter(d => d.title.toLowerCase().includes(query) || d.slug.toLowerCase().includes(query)).slice(0, 15);
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = '<p class="px-2 py-2 text-xs text-muted dark:text-[#888]">No matching thoughts found.</p>';
+        return;
+      }
+      resultsContainer.innerHTML = matches.map(m => `
+        <a href="/doc/${m.slug}" class="block px-2 py-2 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded transition-colors">
+          <div class="font-medium text-charcoal dark:text-[#e8e4de] truncate">${m.title}</div>
+          <div class="text-[10px] text-muted dark:text-[#666] truncate">${m.slug}</div>
+        </a>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

@@ -41,7 +41,7 @@ if (!currentDoc) {
     </header>
 
     <!-- Document Content Rendered HTML -->
-    <div class="prose max-w-none text-[#333] leading-relaxed space-y-4 text-sm md:text-base">
+    <div class="prose max-w-none text-[#333] dark:text-[#ccc] leading-relaxed space-y-4 text-sm md:text-base overflow-x-auto">
       <Fragment set:html={currentDoc.html} />
     </div>
 
@@ -53,22 +53,31 @@ if (!currentDoc) {
   </article>
 
   <style is:global>
-    /* Custom Markdown Prose Styling for Wabi-Sabi aesthetic */
     article h1 { font-size: 2rem; font-weight: 300; font-family: 'Noto Serif JP', serif; margin-top: 2rem; margin-bottom: 1rem; color: #2b2b2b; }
+    .dark article h1 { color: #e8e4de; }
     article h2 { font-size: 1.5rem; font-weight: 400; font-family: 'Noto Serif JP', serif; margin-top: 1.75rem; margin-bottom: 0.75rem; color: #2b2b2b; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; }
+    .dark article h2 { color: #e8e4de; border-color: #333; }
     article h3 { font-size: 1.25rem; font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+    .dark article h3 { color: #ccc; }
     article p { margin-bottom: 1.25rem; line-height: 1.8; color: #3b3b3b; }
+    .dark article p { color: #bbb; }
     article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
     article ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
     article li { margin-bottom: 0.35rem; }
     article blockquote { border-left: 3px solid #d4cec4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555; background: #f4f1ea; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 4px 4px 0; }
+    .dark article blockquote { border-color: #555; background: #252525; color: #aaa; }
     article code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.875em; background: #f0ece6; padding: 0.2rem 0.4rem; border-radius: 3px; color: #2b2b2b; }
+    .dark article code { background: #2a2a2a; color: #e8e4de; }
     article pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1.5rem 0; font-size: 0.875rem; }
     article pre code { background: transparent; padding: 0; color: inherit; }
-    article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+    article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; display: block; overflow-x: auto; white-space: nowrap; }
     article th, article td { border: 1px solid #e8e4de; padding: 0.75rem; text-align: left; }
+    .dark article th, .dark article td { border-color: #333; }
     article th { background: #f4f1ea; font-weight: 600; color: #2b2b2b; }
+    .dark article th { background: #252525; color: #e8e4de; }
     article a { color: #2b2b2b; text-decoration: underline; text-underline-offset: 3px; }
+    .dark article a { color: #e8e4de; }
     article a:hover { color: #000; }
+    .dark article a:hover { color: #fff; }
   </style>
 </Layout>
