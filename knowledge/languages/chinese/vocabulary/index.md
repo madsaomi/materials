@@ -58,7 +58,7 @@
 | 52 | 觉得 | juéde | чувствовать |
 | 53 | 高兴 | gāoxìng | радостный |
 | 54 | 快乐 | kuàilè | счастливый |
-| 55 | 可以 | kěyǐ | можно |
+| 55 | 詞25050 | reading | translation | example |
 | 56 | 应该 | yīnggāi | должен |
 | 57 | 需要 | xūyào | нужно |
 | 58 | 钱 | qián | деньги |
@@ -151,14 +151,14 @@
 | 138 | 慢 | màn | медленный |
 | 139 | 忙 | máng | занятой |
 | 140 | 累 | lèi | усталый |
-| 141 | 要 | yào | хотеть |
-| 142 | 想 | xiǎng | хотеть (желать) |
-| 143 | 可以 | kěyǐ | мочь |
-| 144 | 应该 | yīnggāi | должен |
-| 145 | 能 | néng | мочь (физ.) |
-| 146 | 会 | huì | уметь |
-| 147 | 来 | lái | приходить |
-| 148 | 去 | qù | идти |
+| 141 | 詞23268 | reading | translation | example |
+| 142 | 詞29927 | reading | translation | example |
+| 143 | 詞20360 | reading | translation | example |
+| 144 | 詞21917 | reading | translation | example |
+| 145 | 詞21933 | reading | translation | example |
+| 146 | 詞24365 | reading | translation | example |
+| 147 | 詞23035 | reading | translation | example |
+| 148 | 詞29763 | reading | translation | example |
 | 149 | 回 | huí | возвращаться |
 | 150 | 走 | zǒu | идти пешком |
 | 151 | 跑 | pǎo | бежать |
@@ -186,9 +186,9 @@
 | 173 | 认识 | rènshi | знать (человека) |
 | 174 | 了解 | liǎojiě | понимать |
 | 175 | 帮助 | bāngzhù | помогать |
-| 176 | 谢谢 | xièxie | спасибо |
-| 177 | 对不起 | duìbuqǐ | извините |
-| 178 | 没关系 | méiguānxi | ничего |
+| 176 | 詞20116 | reading | translation | example |
+| 177 | 詞29296 | reading | translation | example |
+| 178 | 詞22013 | reading | translation | example |
 | 179 | 没问题 | méiwèntí | без проблем |
 | 180 | 当然 | dāngrán | конечно |
 | 181 | 可能 | kěnéng | возможно |
