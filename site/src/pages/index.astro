@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../layouts/Layout.astro';
 import { getAllDocs } from '../utils/knowledge';
 
 const docs = getAllDocs();
@@ -15,7 +15,7 @@ const categories = docs.reduce((acc, doc) => {
 const categoryCount = Object.keys(categories).length;
 ---
 
-<BaseLayout title="知 · Chishiki Knowledge Base">
+<Layout title="知 · Chishiki Knowledge Base">
   <div class="space-y-12">
     <!-- Hero Section -->
     <section class="space-y-4 border-b border-[#e8e4de] pb-10">
@@ -78,4 +78,4 @@ const categoryCount = Object.keys(categories).length;
       </div>
     </section>
   </div>
-</BaseLayout>
+</Layout>

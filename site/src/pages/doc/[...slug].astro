@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getAllDocs, getDocBySlug } from '../../utils/knowledge';
 
 export function getStaticPaths() {
@@ -19,7 +19,7 @@ if (!currentDoc) {
 }
 ---
 
-<BaseLayout title={`${currentDoc.title} · Chishiki`}>
+<Layout title={`${currentDoc.title} · Chishiki`}>
   <article class="space-y-8">
     <!-- Breadcrumb / Meta -->
     <div class="flex items-center space-x-2 text-xs text-[#777] font-mono">
@@ -71,4 +71,4 @@ if (!currentDoc) {
     article a { color: #2b2b2b; text-decoration: underline; text-underline-offset: 3px; }
     article a:hover { color: #000; }
   </style>
-</BaseLayout>
+</Layout>
