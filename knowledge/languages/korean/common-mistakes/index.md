@@ -18,7 +18,7 @@
 6. [Subject/object particle confusion (이/가, 은/는, 류/을)](#6-subjectobject-particle-confusion-6-subjectobject-particle-confusion)
 7. [Honorific vs plain speech (존댓말/반말) errors](#7-honorific-vs-plain-speech-errors-7-honorific-vs-plain-speech-errors)
 8. [Word order (SOV vs SVO) interference from Russian](#8-word-order-sov-vs-svo-interference-8-word-order-interference)
-9. [-아/어요 vs -해요 confusion](#9-아어요-vs-해요-confusion-9-아어요-vs-해요-confusion)
+9. [-아/어요 vs -해요 confusion](#9--아어요-vs--해요-confusion-9--아어요-vs--해요-confusion)
 10. [~ㄴ 것 vs ~는 것](#10-ㄴ-것-vs-는-것-10-ㄴ-것-vs-는-것)
 11. [~고 vs ~랑/이랑/하고](#11-고-vs-랑이랑하고-11-고-vs-랑이랑하고)
 12. [15-unit-specific mistakes section](#12-15-unit-specific-mistakes-section-12-unit-specific-mistakes)
