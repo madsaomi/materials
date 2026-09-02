@@ -50,6 +50,9 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
 </head>
 <body class="h-full flex flex-col md:flex-row antialiased bg-paper dark:bg-[#1a1a1a] text-charcoal dark:text-[#e8e4de] selection:bg-[#e8e4de] dark:selection:bg-[#333] selection:text-[#111] dark:selection:text-[#fff]">
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="fixed top-0 left-0 h-[2px] bg-[#8c7853] dark:bg-[#e8e4de] z-50 transition-all duration-100" style="width: 0%"></div>
+
   <!-- Mobile Header -->
   <header class="md:hidden flex items-center justify-between px-6 py-4 bg-paper dark:bg-[#1a1a1a] border-b border-border dark:border-[#333] sticky top-0 z-30">
     <a href="/" class="text-lg font-serif tracking-widest text-charcoal dark:text-[#e8e4de]">知 · Chishiki</a>
@@ -212,6 +215,42 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
           <div class="text-[10px] text-muted dark:text-[#666] truncate">${m.slug}</div>
         </a>
       `).join('');
+    });
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const winScroll = window.scrollY || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const progress = document.getElementById('reading-progress');
+      if (progress) progress.style.width = scrolled + '%';
+    });
+
+    // Copy code buttons for pre blocks
+    document.querySelectorAll('pre').forEach((pre) => {
+      if (pre.querySelector('.copy-code-btn')) return;
+      const computedStyle = window.getComputedStyle(pre);
+      if (computedStyle.position === 'static') {
+        pre.style.position = 'relative';
+      }
+      const button = document.createElement('button');
+      button.className = 'copy-code-btn absolute top-2 right-2 px-2 py-1 text-[10px] font-mono bg-[#2a2a2a] text-[#aaa] hover:text-[#fff] hover:bg-[#333] border border-[#444] rounded opacity-0 group-hover:opacity-100 transition-opacity';
+      button.textContent = 'Copy';
+      button.setAttribute('aria-label', 'Copy code to clipboard');
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code');
+        const text = code ? code.innerText : pre.innerText;
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = 'Copied';
+          setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        } catch (err) {
+          button.textContent = 'Failed';
+          setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        }
+      });
+      pre.classList.add('group');
+      pre.appendChild(button);
     });
   </script>
 </body>

@@ -49,6 +49,22 @@ export function getAllDocs() {
         if (category === 'languages' && parts[1]) category = `languages / ${parts[1]}`;
         else if (category === 'mnemonics' && parts[1]) category = `mnemonics / ${parts[1]}`;
 
+        function slugify(text) {
+          return text
+            .toLowerCase()
+            .replace(/[^\w\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+        }
+
+        const toc = [];
+        let html = marked.parse(content);
+        html = html.replace(/<h([23])>(.*?)<\/h([23])>/g, (match, p1, p2) => {
+          const plainText = p2.replace(/<[^>]*>/g, '');
+          const id = slugify(plainText);
+          toc.push({ level: parseInt(p1, 10), text: plainText, id });
+          return `<h${p1} id="${id}">${p2}</h${p1}>`;
+        });
+
         results.push({
           slug,
           title,
@@ -56,7 +72,8 @@ export function getAllDocs() {
           relativePath,
           data,
           content,
-          html: marked.parse(content)
+          html,
+          toc
         });
       }
     });
