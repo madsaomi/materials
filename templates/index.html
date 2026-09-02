@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}知 · Chishiki Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="space-y-12">
+  <!-- Hero Section -->
+  <section class="space-y-4 border-b border-[#e8e4de] dark:border-[#333] pb-10">
+    <div class="inline-block px-3 py-1 bg-[#eae5dd] dark:bg-[#252525] text-[#555] dark:text-[#aaa] text-[11px] tracking-widest uppercase font-mono rounded">
+      Knowledge Repository
+    </div>
+    <h1 class="text-3xl md:text-5xl font-serif text-[#2b2b2b] dark:text-[#e8e4de] tracking-tight font-light">
+      知恵の庭
+    </h1>
+    <p class="text-base text-[#555] dark:text-[#aaa] max-w-2xl leading-relaxed">
+      A tranquil sanctuary for structured thought, language acquisition, mnemonics, and programming craft. Designed with Wabi-Sabi simplicity and effortless navigation.
+    </p>
+  </section>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="washi-card p-6 rounded shadow-sm">
+      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">{{ docs|length }}</div>
+      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Total Documents</div>
+    </div>
+    <div class="washi-card p-6 rounded shadow-sm">
+      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">{{ categories|length }}</div>
+      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Core Domains</div>
+    </div>
+    <div class="washi-card p-6 rounded shadow-sm col-span-2 md:col-span-1">
+      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">靜寂</div>
+      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Serenity & Focus</div>
+    </div>
+  </div>
+
+  <!-- Categories Directory -->
+  <section class="space-y-6">
+    <h2 class="text-xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">Domains of Study</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for cat, items in categories.items() %}
+        <div class="washi-card p-6 rounded shadow-sm hover:border-[#ccc] dark:hover:border-[#444] transition-colors flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono tracking-widest uppercase text-[#777] dark:text-[#888]">{{ cat }}</span>
+              <span class="text-xs text-[#999] dark:text-[#666] bg-[#f7f5f0] dark:bg-[#1a1a1a] px-2 py-0.5 rounded">{{ items|length }} docs</span>
+            </div>
+            <h3 class="text-lg font-serif text-[#2b2b2b] dark:text-[#e8e4de] capitalize">{{ cat }}</h3>
+            <ul class="space-y-1 pt-2 border-t border-[#f0ece6] dark:border-[#333]">
+              {% for doc in items[:4] %}
+                <li>
+                  <a href="{{ url_for('doc_detail', slug=doc.slug) }}" class="text-xs text-[#555] dark:text-[#aaa] hover:text-[#111] dark:hover:text-[#fff] hover:underline truncate block py-0.5">
+                    {{ doc.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-[#f0ece6] dark:border-[#333] flex justify-end">
+            <a href="{{ url_for('doc_detail', slug=items[0].slug) }}" class="text-xs text-[#333] dark:text-[#aaa] font-medium hover:opacity-75 transition-opacity inline-flex items-center gap-1">
+              Explore {{ cat }} <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

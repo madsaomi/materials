@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ current_doc.title }} · Chishiki{% endblock %}
+
+{% block content %}
+<div class="xl:flex xl:gap-16 xl:items-start max-w-7xl mx-auto w-full">
+  <article class="space-y-8 flex-1 min-w-0 max-w-4xl">
+    <!-- Breadcrumb / Meta -->
+    <nav aria-label="Breadcrumb" class="flex items-center space-x-2 text-xs text-[#777] dark:text-[#888] font-mono overflow-x-auto py-1">
+      <a href="/" class="hover:text-[#111] dark:hover:text-[#fff] transition-colors">Home</a>
+      <span>/</span>
+      {% for crumb in breadcrumbs %}
+        {% if loop.index0 > 0 %}
+          <span>/</span>
+        {% endif %}
+        {% if crumb.isLast %}
+          <span class="truncate text-[#333] dark:text-[#e8e4de]" title="{{ crumb.title }}">{{ crumb.title }}</span>
+        {% else %}
+          <a href="{{ crumb.url }}" class="hover:text-[#111] dark:hover:text-[#fff] transition-colors truncate" title="{{ crumb.title }}">{{ crumb.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
+     <!-- Document Header -->
+    <header class="space-y-3 border-b border-[#e8e4de] dark:border-[#333] pb-6 flex items-start justify-between gap-4">
+      <div class="space-y-3 min-w-0">
+        <h1 id="doc-title" class="text-3xl md:text-4xl font-serif text-[#2b2b2b] dark:text-[#e8e4de] font-light leading-tight">
+          {{ current_doc.title }}
+        </h1>
+        <div class="flex items-center gap-4 text-xs text-[#888] font-mono flex-wrap">
+          <span>Path: {{ current_doc.relativePath }}</span>
+          <span>⏱ {{ current_doc.readingTime }} min read</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button 
+          id="font-toggle"
+          aria-label="Toggle Font (Serif vs Sans)"
+          class="text-xs font-mono px-3 py-1.5 rounded border border-[#e8e4de] dark:border-[#333] text-[#777] dark:text-[#888] hover:text-[#111] dark:hover:text-[#fff] hover:border-[#aaa] transition-colors flex items-center gap-1.5 bg-[#f9f8f6] dark:bg-[#222]"
+          title="Switch font between Serif and Sans"
+        >
+          <span id="font-toggle-label">Serif</span>
+        </button>
+        <button 
+          id="zen-mode-toggle"
+          aria-label="Toggle Zen Mode"
+          class="text-xs font-mono px-3 py-1.5 rounded border border-[#e8e4de] dark:border-[#333] text-[#777] dark:text-[#888] hover:text-[#111] dark:hover:text-[#fff] hover:border-[#aaa] transition-colors flex items-center gap-1.5 bg-[#f9f8f6] dark:bg-[#222]"
+        >
+          <span>禪</span>
+          <span class="hidden sm:inline">Zen Mode</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Document Content Rendered HTML -->
+    <div class="prose max-w-none text-[#333] dark:text-[#ccc] leading-relaxed space-y-4 text-sm md:text-base overflow-x-auto">
+      {{ current_doc.html | safe }}
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="pt-10 border-t border-[#e8e4de] dark:border-[#333] flex justify-between items-center text-xs text-[#666]">
+      <a href="/" class="hover:text-[#111] dark:hover:text-[#fff]">&larr; Return to Garden</a>
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="hover:text-[#111] dark:hover:text-[#fff]">Back to top &uarr;</a>
+    </div>
+  </article>
+
+  <!-- Table of Contents Sidebar (Desktop) -->
+  {% if current_doc.toc and current_doc.toc|length > 0 %}
+    <aside class="hidden xl:block w-64 shrink-0 order-last zen-toc">
+      <div class="sticky top-24 space-y-3 bg-[#f4f1ea] dark:bg-[#1e1e1e] p-4 rounded-lg border border-[#e8e4de] dark:border-[#333] max-h-[calc(100vh-8rem)] overflow-y-auto">
+        <h3 class="text-xs font-semibold tracking-widest uppercase text-muted dark:text-[#888] font-mono">
+          Table of Contents
+        </h3>
+        <nav class="space-y-1 text-xs">
+          {% for heading in current_doc.toc %}
+            <a 
+              href="#{{ heading.id }}"
+              class="block py-1 text-[#555] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] transition-colors truncate {% if heading.level == 3 %}pl-3 text-[11px]{% else %}font-medium{% endif %}"
+              title="{{ heading.text }}"
+            >
+              {{ heading.text }}
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+  {% endif %}
+</div>
+
+<style>
+  article h1 { font-size: 2rem; font-weight: 300; font-family: var(--doc-font, 'Noto Serif JP'), serif; margin-top: 2rem; margin-bottom: 1rem; color: #2b2b2b; scroll-margin-top: 5rem; }
+  .dark article h1 { color: #e8e4de; }
+  article h2 { font-size: 1.5rem; font-weight: 400; font-family: var(--doc-font, 'Noto Serif JP'), serif; margin-top: 1.75rem; margin-bottom: 0.75rem; color: #2b2b2b; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; scroll-margin-top: 5rem; }
+  .dark article h2 { color: #e8e4de; border-color: #333; }
+  article h3 { font-size: 1.25rem; font-weight: 500; font-family: var(--doc-font, 'Noto Serif JP'), serif; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #333; scroll-margin-top: 5rem; }
+  .dark article h3 { color: #ccc; }
+  article p { font-family: var(--doc-font, 'Noto Serif JP'), serif; margin-bottom: 1.25rem; line-height: 1.8; color: #3b3b3b; }
+  .dark article p { color: #bbb; }
+  article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; font-family: var(--doc-font, 'Noto Serif JP'), serif; }
+  article ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; font-family: var(--doc-font, 'Noto Serif JP'), serif; }
+  article li { margin-bottom: 0.35rem; }
+  article blockquote { border-left: 3px solid #d4cec4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555; background: #f4f1ea; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 4px 4px 0; font-family: var(--doc-font, 'Noto Serif JP'), serif; }
+  .dark article blockquote { border-color: #555; background: #252525; color: #aaa; }
+  article code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.875em; background: #f0ece6; padding: 0.2rem 0.4rem; border-radius: 3px; color: #2b2b2b; }
+  .dark article code { background: #2a2a2a; color: #e8e4de; }
+  article pre { background: #1e1e1e !important; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1.5rem 0; font-size: 0.875rem; position: relative; }
+  article pre code { background: transparent !important; padding: 0; color: inherit; }
+  article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; display: block; overflow-x: auto; white-space: nowrap; font-family: var(--doc-font, 'Noto Serif JP'), serif; }
+  article th, article td { border: 1px solid #e8e4de; padding: 0.75rem; text-align: left; }
+  .dark article th, .dark article td { border-color: #333; }
+  article th { background: #f4f1ea; font-weight: 600; color: #2b2b2b; }
+  .dark article th { background: #252525; color: #e8e4de; }
+  article a { color: #2b2b2b; text-decoration: underline; text-underline-offset: 3px; }
+  .dark article a { color: #e8e4de; }
+  article a:hover { color: #000; }
+  .dark article a:hover { color: #fff; }
+</style>
+
+<script>
+  const fontToggle = document.getElementById('font-toggle');
+  const fontToggleLabel = document.getElementById('font-toggle-label');
+
+  function setFont(fontType) {
+    const isSans = fontType === 'sans';
+    const fontFamily = isSans ? "'Inter', sans-serif" : "'Noto Serif JP', serif";
+    document.documentElement.style.setProperty('--doc-font', fontFamily);
+    if (fontToggleLabel) {
+      fontToggleLabel.textContent = isSans ? 'Sans' : 'Serif';
+    }
+    try {
+      localStorage.setItem('docFont', fontType);
+    } catch(e) {}
+  }
+
+  try {
+    const savedFont = localStorage.getItem('docFont') || 'serif';
+    setFont(savedFont);
+  } catch(e) {
+    setFont('serif');
+  }
+
+  fontToggle?.addEventListener('click', () => {
+    const current = localStorage.getItem('docFont') || 'serif';
+    setFont(current === 'serif' ? 'sans' : 'serif');
+  });
+</script>
+{% endblock %}
