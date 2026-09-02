@@ -82,6 +82,9 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug, category: d.c
         <p class="text-xs text-muted dark:text-[#888] mt-1 tracking-wide">静寂と知恵の空間 — Wabi-Sabi</p>
       </div>
       <div class="flex items-center gap-2">
+        <button id="sidebar-collapse-btn" aria-label="Toggle Sidebar Collapse" title="Collapse/Expand Sidebar" class="hidden md:flex p-1.5 rounded border border-border dark:border-[#333] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] hover:border-muted transition-colors text-xs font-mono">
+          <span id="collapse-icon">«</span>
+        </button>
         <button id="theme-toggle" aria-label="Toggle theme" class="p-1.5 rounded border border-border dark:border-[#333] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] hover:border-muted transition-colors">
           <span class="theme-icon-light text-sm">☀</span><span class="theme-icon-dark hidden text-sm">☾</span>
         </button>
@@ -213,6 +216,13 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug, category: d.c
     body.zen-mode main {
       max-width: 44rem !important;
     }
+    body.sidebar-collapsed #sidebar {
+      transform: translateX(-100%) !important;
+      pointer-events: none;
+    }
+    body.sidebar-collapsed #main-wrapper {
+      padding-left: 0 !important;
+    }
   </style>
 
   <!-- Client-side Script -->
@@ -280,7 +290,30 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug, category: d.c
       window.location.href = `/doc/${target.slug}`;
     });
 
-    // Zen Mode
+    const sidebarCollapseBtn = document.getElementById('sidebar-collapse-btn');
+    const collapseIcon = document.getElementById('collapse-icon');
+
+    function setSidebarCollapsed(collapsed) {
+      body.classList.toggle('sidebar-collapsed', collapsed);
+      try { localStorage.setItem('sidebarCollapsed', collapsed ? 'true' : 'false'); } catch(e) {}
+      if (collapseIcon) {
+        collapseIcon.textContent = collapsed ? '»' : '«';
+      }
+      if (sidebarCollapseBtn) {
+        sidebarCollapseBtn.setAttribute('title', collapsed ? 'Expand Sidebar' : 'Collapse Sidebar');
+      }
+    }
+
+    try {
+      if (localStorage.getItem('sidebarCollapsed') === 'true') {
+        setSidebarCollapsed(true);
+      }
+    } catch(e) {}
+
+    sidebarCollapseBtn?.addEventListener('click', () => {
+      const isCollapsed = body.classList.contains('sidebar-collapsed');
+      setSidebarCollapsed(!isCollapsed);
+    });
     const zenToggle = document.getElementById('zen-mode-toggle');
     const body = document.body;
 
