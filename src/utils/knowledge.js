@@ -6,7 +6,13 @@ import { marked } from 'marked';
 const KNOWLEDGE_DIR = path.resolve(process.cwd(), 'knowledge');
 
 let _cache = null;
-let _cacheMtime = 0;
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf\uac00-\ud7af]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 export function getAllDocs() {
   if (_cache) return _cache;
@@ -21,7 +27,7 @@ export function getAllDocs() {
     list.forEach(file => {
       const filePath = path.join(dir, file);
       const stat = fs.statSync(filePath);
-      const relativePath = path.join(base, file);
+      const relativePath = path.join(base, file).replace(/\\/g, '/');
       
       if (stat && stat.isDirectory()) {
         results = results.concat(walk(filePath, relativePath));
@@ -29,10 +35,8 @@ export function getAllDocs() {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         const { data, content } = matter(fileContent);
         
-        // Generate slug (e.g., "languages/korean/core/index" -> "languages/korean/core/index")
-        const slug = relativePath.replace(/\.md$/, '').replace(/\\/g, '/');
+        const slug = relativePath.replace(/\.md$/, '');
         
-        // Infer title from frontmatter, first H1, or filename
         let title = data.title;
         if (!title) {
           const h1Match = content.match(/^#\s+(.+)$/m);
@@ -49,20 +53,35 @@ export function getAllDocs() {
         if (category === 'languages' && parts[1]) category = `languages / ${parts[1]}`;
         else if (category === 'mnemonics' && parts[1]) category = `mnemonics / ${parts[1]}`;
 
-        function slugify(text) {
-          return text
-            .toLowerCase()
-            .replace(/[^\w\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-        }
-
+        // Parse markdown, extract ToC, strip first H1
+        const tokens = marked.lexer(content);
         const toc = [];
-        let html = marked.parse(content);
-        html = html.replace(/<h([23])>(.*?)<\/h([23])>/g, (match, p1, p2) => {
-          const plainText = p2.replace(/<[^>]*>/g, '');
-          const id = slugify(plainText);
-          toc.push({ level: parseInt(p1, 10), text: plainText, id });
-          return `<h${p1} id="${id}">${p2}</h${p1}>`;
+        let h1Found = false;
+        let cleanContent = content;
+
+        tokens.forEach(token => {
+          if (token.type === 'heading') {
+            if (token.depth === 1 && !h1Found) {
+              h1Found = true;
+              cleanContent = content.replace(/^#\s+.+$/m, '').trim();
+            } else if (token.depth >= 2 && token.depth <= 3) {
+              const id = slugify(token.text);
+              toc.push({ level: token.depth, text: token.text, id });
+            }
+          }
+        });
+
+        const html = marked.parse(cleanContent);
+
+        // Inject IDs into h2/h3 in generated HTML
+        let htmlWithIds = html;
+        toc.forEach(t => {
+          const tag = `h${t.level}`;
+          const escaped = t.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          htmlWithIds = htmlWithIds.replace(
+            new RegExp(`<${tag}>([^<]*)<\\/${tag}>`),
+            `<${tag} id="${t.id}">$1</${tag}>`
+          );
         });
 
         results.push({
@@ -71,9 +90,9 @@ export function getAllDocs() {
           category,
           relativePath,
           data,
-          content,
-          html,
-          toc
+          content: cleanContent,
+          toc,
+          html: htmlWithIds
         });
       }
     });
@@ -83,7 +102,6 @@ export function getAllDocs() {
 
   const result = walk(KNOWLEDGE_DIR);
   _cache = result;
-  _cacheMtime = Date.now();
   return result;
 }
 

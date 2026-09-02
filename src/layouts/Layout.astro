@@ -295,12 +295,9 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
     // Copy code buttons for pre blocks
     document.querySelectorAll('pre').forEach((pre) => {
       if (pre.querySelector('.copy-code-btn')) return;
-      const computedStyle = window.getComputedStyle(pre);
-      if (computedStyle.position === 'static') {
-        pre.style.position = 'relative';
-      }
+      pre.style.position = 'relative';
       const button = document.createElement('button');
-      button.className = 'copy-code-btn absolute top-2 right-2 px-2 py-1 text-[10px] font-mono bg-[#2a2a2a] text-[#aaa] hover:text-[#fff] hover:bg-[#333] border border-[#444] rounded opacity-0 group-hover:opacity-100 transition-opacity';
+      button.className = 'copy-code-btn absolute top-2 right-2 px-2 py-1 text-[10px] font-mono bg-[#2a2a2a] text-[#aaa] hover:text-[#fff] hover:bg-[#333] border border-[#444] rounded sm:opacity-0 sm:group-hover:opacity-100 transition-opacity';
       button.textContent = 'Copy';
       button.setAttribute('aria-label', 'Copy code to clipboard');
       button.addEventListener('click', async () => {
