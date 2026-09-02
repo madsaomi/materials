@@ -7,11 +7,10 @@ dist/
 node_modules/
 
 # obsidian local workspace settings
-.obsidian/workspace.json
-.obsidian/cache
-.obsidian/workspace
-# (или вся папка .obsidian целиком, если не нужна вообще)
 .obsidian/
+
+# vscode user settings
+.vscode/
 
 # logs
 npm-debug.log*
