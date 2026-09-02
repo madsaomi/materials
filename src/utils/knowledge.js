@@ -84,6 +84,11 @@ export function getAllDocs() {
           );
         });
 
+        // Reading time calculation
+        const plainText = cleanContent.replace(/[#*`_\[\]()>-]/g, '');
+        const words = plainText.trim().split(/\s+/).length;
+        const readingTime = Math.max(1, Math.ceil(words / 200));
+
         results.push({
           slug,
           title,
@@ -92,7 +97,8 @@ export function getAllDocs() {
           data,
           content: cleanContent,
           toc,
-          html: htmlWithIds
+          html: htmlWithIds,
+          readingTime
         });
       }
     });

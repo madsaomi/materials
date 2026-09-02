@@ -25,7 +25,7 @@ const categories = docs.reduce((acc: Record<string, any[]>, doc) => {
   return acc;
 }, {});
 
-const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
+const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug, category: d.category }));
 ---
 
 <!DOCTYPE html>
@@ -171,6 +171,31 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
     </footer>
   </div>
 
+  <!-- Cmd+K / Ctrl+K Search Modal -->
+  <div id="search-modal" class="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-black/40 backdrop-blur-sm hidden">
+    <div id="search-modal-box" class="w-full max-w-xl bg-paper dark:bg-[#222] border border-border dark:border-[#333] rounded-lg shadow-2xl overflow-hidden flex flex-col">
+      <div class="p-4 border-b border-border dark:border-[#333] flex items-center gap-3">
+        <svg class="w-5 h-5 text-muted dark:text-[#888] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input 
+          type="text" 
+          id="modal-search-input" 
+          placeholder="Search all knowledge docs (Type to filter...)" 
+          class="w-full bg-transparent text-sm text-charcoal dark:text-[#e8e4de] focus:outline-none placeholder-muted dark:placeholder-[#666]"
+        />
+        <button id="modal-close-btn" class="text-xs font-mono px-2 py-1 bg-[#eae5dd] dark:bg-[#333] text-muted dark:text-[#aaa] rounded hover:text-charcoal dark:hover:text-[#fff]">ESC</button>
+      </div>
+      <div id="modal-results-container" class="max-h-96 overflow-y-auto p-2 space-y-1">
+        <div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">Type a query to search across all documents...</div>
+      </div>
+      <div class="px-4 py-2.5 bg-[#f4f1ea] dark:bg-[#1a1a1a] border-t border-border dark:border-[#333] text-[10px] text-muted dark:text-[#888] flex justify-between items-center font-mono">
+        <span>Use ↑↓ to navigate, Enter to select</span>
+        <span>Cmd+K / Ctrl+K</span>
+      </div>
+    </div>
+  </div>
+
   <style>
     body.zen-mode #sidebar {
       transform: translateX(-100%) !important;
@@ -314,6 +339,100 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
       });
       pre.classList.add('group');
       pre.appendChild(button);
+    });
+
+    // Cmd+K / Ctrl+K Search Modal Logic
+    const searchModal = document.getElementById('search-modal');
+    const modalSearchInput = document.getElementById('modal-search-input');
+    const modalResultsContainer = document.getElementById('modal-results-container');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    function openSearchModal() {
+      searchModal.classList.remove('hidden');
+      modalSearchInput.focus();
+      modalSearchInput.value = '';
+      renderModalResults('');
+    }
+
+    function closeSearchModal() {
+      searchModal.classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (searchModal.classList.contains('hidden')) {
+          openSearchModal();
+        } else {
+          closeSearchModal();
+        }
+      }
+      if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
+        closeSearchModal();
+      }
+    });
+
+    modalCloseBtn?.addEventListener('click', closeSearchModal);
+    searchModal?.addEventListener('click', (e) => {
+      if (e.target === searchModal) closeSearchModal();
+    });
+
+    // Also trigger modal when clicking search box or sidebar search input
+    searchInput?.addEventListener('focus', (e) => {
+      e.target.blur();
+      openSearchModal();
+    });
+
+    function renderModalResults(query) {
+      const q = query.toLowerCase().trim();
+      const matches = searchIndex.filter(d => !q || d.title.toLowerCase().includes(q) || d.slug.toLowerCase().includes(q) || d.category.toLowerCase().includes(q)).slice(0, 20);
+      
+      if (matches.length === 0) {
+        modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">No matching documents found.</div>';
+        return;
+      }
+
+      modalResultsContainer.innerHTML = matches.map((m, idx) => `
+        <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-charcoal dark:text-[#e8e4de]">${m.title}</span>
+            <span class="text-[10px] font-mono text-muted dark:text-[#888]">${m.category}</span>
+          </div>
+          <div class="text-[10px] font-mono text-muted dark:text-[#666] truncate mt-0.5">${m.slug}</div>
+        </a>
+      `).join('');
+    }
+
+    modalSearchInput?.addEventListener('input', (e) => {
+      renderModalResults(e.target.value);
+    });
+
+    modalSearchInput?.addEventListener('keydown', (e) => {
+      const items = modalResultsContainer.querySelectorAll('.search-result-item');
+      if (items.length === 0) return;
+      const currentActive = modalResultsContainer.querySelector('.search-result-item.bg-\\[\\#eae5dd\\], .search-result-item.dark\\:bg-\\[\\#2a2a2a\\]');
+      let currentIndex = Array.from(items).indexOf(currentActive);
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % items.length;
+        items.forEach(el => el.classList.remove('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]'));
+        items[currentIndex].classList.add('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
+        items[currentIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        items.forEach(el => el.classList.remove('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]'));
+        items[currentIndex].classList.add('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
+        items[currentIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (currentActive) {
+          window.location.href = currentActive.href;
+        } else if (items.length > 0) {
+          window.location.href = items[0].href;
+        }
+      }
     });
   </script>
 </body>
