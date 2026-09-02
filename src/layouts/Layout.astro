@@ -95,18 +95,28 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
 
     <!-- Search Box -->
     <div class="p-4 border-b border-border dark:border-[#333]">
-      <div class="relative">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted dark:text-[#666]">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </span>
-        <input 
-          type="text" 
-          id="search-input" 
-          placeholder="Search knowledge..." 
-          class="w-full pl-9 pr-4 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded focus:outline-none focus:border-muted dark:focus:border-[#555] text-charcoal dark:text-[#e8e4de] placeholder-[#999] dark:placeholder-[#666] transition-colors"
-        />
+      <div class="flex items-center gap-2">
+        <div class="relative flex-1">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted dark:text-[#666]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search knowledge..." 
+            class="w-full pl-9 pr-4 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded focus:outline-none focus:border-muted dark:focus:border-[#555] text-charcoal dark:text-[#e8e4de] placeholder-[#999] dark:placeholder-[#666] transition-colors"
+          />
+        </div>
+        <button 
+          id="random-note-btn" 
+          title="Random Note (🎲)" 
+          aria-label="Random Note"
+          class="px-2.5 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded hover:border-muted dark:hover:border-[#555] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-colors flex items-center justify-center shrink-0"
+        >
+          🎲
+        </button>
       </div>
     </div>
 
@@ -150,7 +160,7 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
   </aside>
 
   <!-- Main Content Wrapper -->
-  <div class="flex-1 md:pl-80 flex flex-col min-h-full">
+  <div id="main-wrapper" class="flex-1 md:pl-80 flex flex-col min-h-full transition-all duration-300">
     <main class="flex-1 px-6 md:px-16 py-10 max-w-4xl w-full mx-auto">
       <slot />
     </main>
@@ -160,6 +170,25 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
       <p class="font-serif">知 — Chishiki Knowledge Repository · Built with Wabi-Sabi serenity</p>
     </footer>
   </div>
+
+  <style>
+    body.zen-mode #sidebar {
+      transform: translateX(-100%) !important;
+      pointer-events: none;
+    }
+    body.zen-mode #overlay {
+      display: none !important;
+    }
+    body.zen-mode #main-wrapper {
+      padding-left: 0 !important;
+    }
+    body.zen-mode .zen-toc {
+      display: none !important;
+    }
+    body.zen-mode main {
+      max-width: 44rem !important;
+    }
+  </style>
 
   <!-- Client-side Script -->
   <script define:vars={{ searchIndex }}>
@@ -217,7 +246,44 @@ const searchIndex = docs.map(d => ({ title: d.title, slug: d.slug }));
       `).join('');
     });
 
-    // Reading progress bar
+    // Random Note
+    const randomNoteBtn = document.getElementById('random-note-btn');
+    randomNoteBtn?.addEventListener('click', () => {
+      if (!searchIndex || searchIndex.length === 0) return;
+      const randomIndex = Math.floor(Math.random() * searchIndex.length);
+      const target = searchIndex[randomIndex];
+      window.location.href = `/doc/${target.slug}`;
+    });
+
+    // Zen Mode
+    const zenToggle = document.getElementById('zen-mode-toggle');
+    const body = document.body;
+
+    function setZenMode(active) {
+      body.classList.toggle('zen-mode', active);
+      try { localStorage.setItem('zenMode', active ? 'true' : 'false'); } catch(e) {}
+      if (zenToggle) {
+        zenToggle.innerHTML = active ? '<span>✕</span><span class="hidden sm:inline">Exit Zen</span>' : '<span>禪</span><span class="hidden sm:inline">Zen Mode</span>';
+        zenToggle.setAttribute('aria-label', active ? 'Exit Zen Mode' : 'Toggle Zen Mode');
+      }
+    }
+
+    try {
+      if (localStorage.getItem('zenMode') === 'true') {
+        setZenMode(true);
+      }
+    } catch(e) {}
+
+    zenToggle?.addEventListener('click', () => {
+      const isActive = body.classList.contains('zen-mode');
+      setZenMode(!isActive);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('zen-mode')) {
+        setZenMode(false);
+      }
+    });
     window.addEventListener('scroll', () => {
       const winScroll = window.scrollY || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
