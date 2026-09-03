@@ -197,7 +197,7 @@
 | Учебник, методика | [textbook.md](../japanese/core/textbook.md) |
 | Детали | [details.md](../japanese/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../japanese/vocabulary/index.md) → [top-1000.md](../japanese/vocabulary/top-1000.md) |
-| Юниты (01-15) | [units/unit-01/vocabulary.md](../japanese/units/unit-01/vocabulary.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../japanese/units/unit-01/vocabulary/words.md) |
 
 ### 🇰🇷 Корейский
 
@@ -207,7 +207,7 @@
 | Учебник, методика | [textbook.md](../korean/core/textbook.md) |
 | Детали | [details.md](../korean/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../korean/vocabulary/index.md) → [top-1000.md](../korean/vocabulary/top-1000.md) |
-| Юниты (01-15) | [units/unit-01/vocabulary.md](../korean/units/unit-01/vocabulary.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../korean/units/unit-01/vocabulary/words.md) |
 
 ### 🇨🇳 Китайский
 
@@ -217,7 +217,7 @@
 | Учебник | [textbook.md](../chinese/core/textbook.md) |
 | Детали | [details.md](../chinese/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../chinese/vocabulary/index.md) → [top-1000.md](../chinese/vocabulary/top-1000.md) |
-| Юниты (01-15) | [units/unit-01/vocabulary.md](../chinese/units/unit-01/vocabulary.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../chinese/units/unit-01/vocabulary/words.md) |
 
 ### 🇬🇧 Английский
 
@@ -227,6 +227,6 @@
 | Учебник | [textbook.md](../english/core/textbook.md) |
 | Детали | [details.md](../english/core/details.md) |
 | Частотный словарь | [vocabulary/index.md](../english/vocabulary/index.md) → [top-1000.md](../english/vocabulary/top-1000.md) |
-| Юниты (01-15) | [units/unit-01/vocabulary.md](../english/units/unit-01/vocabulary.md) |
+| Юниты (01-15) | [units/unit-01/vocabulary.md](../english/units/unit-01/vocabulary/words.md) |
 
 > 🔗 **Связки между языками**: кандзи → иероглифы [нять кандзи в китайском] и ханча [дубль]. Словари «top-1000» делаются по одному шаблону — сравнивай переводы и отмечай общие корни. Планы и рутины общие: [study-plans](../study-plans/index.md).

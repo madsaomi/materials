@@ -327,4 +327,4 @@
 | я хочу услуг | другой | 〜てもらいたい | 見てもらいたい。 |
 | друг сделал благо | мне | 〜てくれる | 助けてくれた。 |
 
-> Практикуйтесь: [Workbook Unit 8](practice.md) → [Тест Unit 8](test.md)
+> Практикуйтесь: [Workbook Unit 8](../practice/exercises.md) → [Тест Unit 8](../test.md)

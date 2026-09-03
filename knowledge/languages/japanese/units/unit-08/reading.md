@@ -276,4 +276,4 @@
 4. あげました (я → для подруги)
 </details>
 
-> 🔗 Далее: [Практика Unit 8](practice.md) · [Тест Unit 8](test.md)
+> 🔗 Далее: [Практика Unit 8](practice/exercises.md) · [Тест Unit 8](test.md)

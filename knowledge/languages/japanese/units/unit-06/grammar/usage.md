@@ -1,4 +1,4 @@
-# Unit-06 — Grammar Usage & Nuances
+# Unit-06 — Grammar Usage & Nuances (Japanese)
 
 ## 1. Common Usage Patterns
 

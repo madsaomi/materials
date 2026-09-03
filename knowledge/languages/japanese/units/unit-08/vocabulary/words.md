@@ -210,4 +210,4 @@
 
 ---
 
-> 🔗 Смотрите также: [Грамматика Unit 8](grammar.md) — あげる・くれる・もらう, [Диалог Unit 8](dialogue.md), [Частотный словарь](../vocabulary/index.md)
+> 🔗 Смотрите также: [Грамматика Unit 8](../grammar/core.md) — あげる・くれる・もらう, [Диалог Unit 8](../dialogue.md), [Частотный словарь](../../../vocabulary/index.md)

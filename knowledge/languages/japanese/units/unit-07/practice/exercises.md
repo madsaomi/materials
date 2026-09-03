@@ -289,4 +289,4 @@
 
 </details>
 
-→ Далее: [Чтение Unit 7](reading.md) · [Тест](test.md)
+→ Далее: [Чтение Unit 7](../reading.md) · [Тест](../test.md)

@@ -208,4 +208,4 @@ A. 弾けます ＿　B. 弾ける ＿　C. です ＿　D. 下手　＿
 
 </details>
 
-> 🔗 Тест пройден? Повторите: [Практика Unit 7](practice.md) · [Грамматика Unit 7](grammar.md)
+> 🔗 Тест пройден? Повторите: [Практика Unit 7](practice/exercises.md) · [Грамматика Unit 7](grammar/core.md)

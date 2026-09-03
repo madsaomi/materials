@@ -5,7 +5,7 @@ import frontmatter
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
-from flask import Flask, render_template, abort, redirect, url_for, jsonify, request
+from flask import Flask, render_template, abort, url_for, jsonify
 
 app = Flask(__name__)
 KNOWLEDGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'knowledge'))
@@ -15,12 +15,7 @@ def slugify(text):
     text = re.sub(r'[^\w\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf\uac00-\ud7af]+', '-', text)
     return re.sub(r'^-+|-+$', '', text)
 
-class PygmentsMarkdownExtension(markdown.Extension):
-    def extendMarkdown(self, md):
-        # We can use standard markdown fenced code blocks or custom processing
-        pass
-
-def parse_markdown(content):
+def parse_markdown(content, slug=''):
     # Custom markdown parser that handles code blocks with Pygments and extracts ToC
     # Using python-markdown with extensions
     # For code highlighting, python-markdown has codehilite or we can preprocess fenced code blocks
@@ -76,6 +71,29 @@ def parse_markdown(content):
         return highlighted
 
     html = re.sub(r'<pre><code(?:\s+class="language-([^"]+)")?>(.*?)<\/code><\/pre>', replace_code_block, html, flags=re.DOTALL)
+
+    # Rewrite relative ".md" links to site routes so in-site navigation works.
+    # "[x](../index.md)" from slug "a/b/c" becomes "/doc/a/index.md" -> "/doc/a/index".
+    if slug:
+        srcdir = '/'.join(slug.split('/')[:-1])
+
+        def rewrite_link(m):
+            quote, href = m.group(1), m.group(2)
+            if href.startswith(('http://', 'https://', 'mailto:', '#', '/')):
+                return m.group(0)
+            if '#' in href:
+                path, anchor = href.split('#', 1)
+                anchor = '#' + anchor
+            else:
+                path, anchor = href, ''
+            if not path.endswith('.md'):
+                return m.group(0)
+            target = os.path.normpath(os.path.join(srcdir, path)).replace(os.sep, '/')
+            if target.endswith('.md'):
+                target = target[:-3]
+            return 'href=%s/doc/%s%s' % (quote, target, anchor)
+
+        html = re.sub(r'href=(["\'])([^"\']+)\1', rewrite_link, html)
 
     return html, toc
 
@@ -138,7 +156,7 @@ def get_all_docs():
                 elif category == 'mnemonics' and len(parts) > 1:
                     category = f"mnemonics / {parts[1]}"
 
-                html, toc = parse_markdown(content)
+                html, toc = parse_markdown(content, slug)
 
                 # Reading time
                 plain_text = re.sub(r'[#*`_\[\]()>-]', '', content)

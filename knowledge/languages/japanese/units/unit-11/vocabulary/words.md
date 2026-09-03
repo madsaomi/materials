@@ -220,4 +220,4 @@
 
 ---
 
-*Словарь юнита 11. Связан: [диалог](dialogue.md) · [грамматика](grammar.md) · [практика](practice.md)*
+*Словарь юнита 11. Связан: [диалог](../dialogue.md) · [грамматика](../grammar/core.md) · [практика](../practice/exercises.md)*

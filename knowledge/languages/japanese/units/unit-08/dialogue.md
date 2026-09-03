@@ -192,4 +192,4 @@
 | 〜てあげる | сделать для другого | 荷物を持ってあげる。 |
 | 〜てもらって安心 | спокойствие от получения помощи | 手伝ってもらって安心した。 |
 
-> 🔗 Практика: [Workbook Unit 8](practice.md) · [Грамматика Unit 8](grammar.md) · [Тест Unit 8](test.md)
+> 🔗 Практика: [Workbook Unit 8](practice/exercises.md) · [Грамматика Unit 8](grammar/core.md) · [Тест Unit 8](test.md)
