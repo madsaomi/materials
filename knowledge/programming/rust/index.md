@@ -1899,7 +1899,7 @@ cargo clean                   # удалить build/ артефакты
 - **[r/rust](https://www.reddit.com/r/rust/)** и **This Week in Rust** — новости сообщества
 - **[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)** — стиль написания библиотек
 - **[Rust Performance Book](https://nnethercote.github.io/perf-book/)** — оптимизация производительности
-- **[Rust Security Response](https://security.rust-lang.org/)** — политика безопасности
+- **[Rust Security Response](https://www.rust-lang.org/policies/security)** — политика безопасности
 
 ---
 

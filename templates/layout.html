@@ -203,7 +203,14 @@
     let searchIndex = [];
     fetch('/api/search.json')
       .then(r => r.json())
-      .then(data => { searchIndex = data; })
+      .then(data => {
+        searchIndex = data;
+        const modal = document.getElementById('search-modal');
+        const input = document.getElementById('modal-search-input');
+        if (modal && !modal.classList.contains('hidden') && input) {
+          renderModalResults(input.value);
+        }
+      })
       .catch(() => { searchIndex = []; });
 
     const searchInput = document.getElementById('search-input');
@@ -398,15 +405,19 @@
 
     function renderModalResults(query) {
       const q = query.toLowerCase().trim();
+      if (searchIndex.length === 0) {
+        modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">Loading search index...</div>';
+        return;
+      }
       const matches = searchIndex.filter(d => !q || d.title.toLowerCase().includes(q) || d.slug.toLowerCase().includes(q) || d.category.toLowerCase().includes(q)).slice(0, 20);
-      
+
       if (matches.length === 0) {
         modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">No matching documents found.</div>';
         return;
       }
 
       modalResultsContainer.innerHTML = matches.map((m, idx) => `
-        <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}">
+        <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}"${idx === 0 ? ' data-active="true"' : ''}>
           <div class="flex items-center justify-between">
             <span class="text-xs font-medium text-charcoal dark:text-[#e8e4de]">${m.title}</span>
             <span class="text-[10px] font-mono text-muted dark:text-[#888]">${m.category}</span>
@@ -420,24 +431,30 @@
       renderModalResults(e.target.value);
     });
 
+    function setActiveItem(items, index) {
+      items.forEach(el => {
+        el.classList.remove('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
+        el.removeAttribute('data-active');
+      });
+      items[index].classList.add('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
+      items[index].setAttribute('data-active', 'true');
+      items[index].scrollIntoView({ block: 'nearest' });
+    }
+
     modalSearchInput?.addEventListener('keydown', (e) => {
       const items = modalResultsContainer.querySelectorAll('.search-result-item');
       if (items.length === 0) return;
-      const currentActive = modalResultsContainer.querySelector('.search-result-item.bg-\\[\\#eae5dd\\], .search-result-item.dark\\:bg-\\[\\#2a2a2a\\]');
-      let currentIndex = Array.from(items).indexOf(currentActive);
+      const currentActive = modalResultsContainer.querySelector('.search-result-item[data-active="true"]');
+      let currentIndex = Math.max(0, Array.from(items).indexOf(currentActive));
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         currentIndex = (currentIndex + 1) % items.length;
-        items.forEach(el => el.classList.remove('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]'));
-        items[currentIndex].classList.add('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
-        items[currentIndex].scrollIntoView({ block: 'nearest' });
+        setActiveItem(items, currentIndex);
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         currentIndex = (currentIndex - 1 + items.length) % items.length;
-        items.forEach(el => el.classList.remove('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]'));
-        items[currentIndex].classList.add('bg-[#eae5dd]', 'dark:bg-[#2a2a2a]');
-        items[currentIndex].scrollIntoView({ block: 'nearest' });
+        setActiveItem(items, currentIndex);
       } else if (e.key === 'Enter') {
         e.preventDefault();
         if (currentActive) {
