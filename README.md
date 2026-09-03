@@ -1,67 +1,46 @@
-# 知 · Chishiki Knowledge Base
+# 知 · Chishiki Knowledge Repository
 
-A minimalist, modern, Japanese Wabi-Sabi aesthetic knowledge base built with Astro, reading markdown files directly from the parent `knowledge/` directory.
+A minimalist, Japanese-inspired Wabi-Sabi digital garden and knowledge repository, powered by **Python Flask**, Jinja2, and Python-Markdown.
 
-## 🌿 Design & Philosophy
-- **Aesthetic**: Wabi-Sabi simplicity featuring warm washi paper backgrounds (`#f7f5f0`), charcoal typography (`#2b2b2b`), generous whitespace, and subtle ink borders.
-- **Features**: Recursive file tree navigation, instant client-side fuzzy search, mobile responsive drawer, and clean markdown rendering.
+## 🌿 Features
 
----
-
-## 🚀 Running Locally
-
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Start the local development server:
-   ```bash
-   npm run dev
-   ```
-   Open your browser at `http://localhost:4321`.
-
-3. Build for production:
-   ```bash
-   npm run build
-   ```
-
-4. Preview the production build:
-   ```bash
-   npm run preview
-   ```
+- **Tranquil Wabi-Sabi Aesthetic**: Clean typography (*Noto Serif JP* & *Inter*), warm paper tones (`#f7f5f0`), and seamless dark mode support.
+- **Python Flask Backend**: Fast, lightweight SSR server scanning 600+ structured markdown notes on the fly.
+- **Dynamic Table of Contents (ToC)**: Auto-extracted from document headings for effortless navigation.
+- **Quick Search (`Cmd+K` / `Ctrl+K`)**: Instant keyboard-navigable modal search across all documents.
+- **Zen Mode (Focus)**: Distraction-free reading mode hiding sidebars and auxiliary navigation.
+- **Font & Theme Controls**: Toggle between Serif/Sans typography and Light/Dark modes with `localStorage` persistence.
+- **Syntax Highlighting**: Monokai-styled syntax highlighting for code blocks across languages and snippets.
 
 ---
 
-## ☁️ Deployment Instructions
+## 🚀 Getting Started
 
-### Deploying to Vercel
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-1. Push your repository to GitHub.
-2. Import the project into Vercel.
-3. Configure project settings:
-   - **Root Directory**: `site`
-   - **Framework Preset**: Astro
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Click **Deploy**. Vercel will automatically build and serve your static Japanese minimalist site.
+### 2. Run the Flask Server
+```bash
+python app.py
+```
 
-### Deploying to Railway
-
-1. Install the Railway CLI or connect your GitHub repository in the Railway dashboard.
-2. Set the root directory / working directory to `site/`.
-3. Railway will detect Node.js and use the following build & start commands:
-   - **Build Command**: `npm run build`
-   - **Start Command**: `npx serve dist` (or output static files via static hosting / Node server).
-   *(Alternatively, use Railway Static Hosting pointed to the `site/dist` directory).*
+### 3. Open in Browser
+Navigate to **`http://localhost:5000`**
 
 ---
 
-## 🧞 Commands Reference
+## 📂 Project Structure
 
-| Command | Action |
-| :--- | :--- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Start development server at `localhost:4321` |
-| `npm run build` | Build static production site to `site/dist/` |
-| `npm run preview` | Preview production build locally |
+```text
+materials/
+├── app.py               # Flask application & Markdown parser
+├── requirements.txt     # Python dependencies
+├── knowledge/           # Isolated structured notes (.md)
+├── static/              # Stylesheets & static assets
+└── templates/           # Jinja2 templates (layout, index, doc, 404)
+```
+
+## 📜 License
+MIT
