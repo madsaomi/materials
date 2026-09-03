@@ -42,6 +42,7 @@
 | Deal. Same time next week? | Договорились. В то же время на следующей неделе? |
 
 ### Разбор
+
 - **What did you think of...?** — Как тебе...? (стандартный вопрос о впечатлении).
 - **The acting was brilliant** — игра актёров. В русском «игра» обо мне не всегда понятно, в английском — конкретно *acting*.
 - **That twist made the whole film for me** — идиома: поворот сюжета «сделал» весь фильм (сделал его удачным).
@@ -96,6 +97,7 @@
 | Definitely. The value of the collection has been growing year by year. | Точно. Ценность коллекции растёт год от года. |
 
 ### Разбор
+
 - **It's the most popular museum** — превосходная степень (см. grammar.md №12).
 - **I've been reading ... for ages** — Present Perfect Continuous; *for ages* — «целую вечность», разговорное усиление.
 - **The paintings that show light and water** — относительное придаточное с **that**.
@@ -156,6 +158,7 @@
 | Same. Let's go to the foyer for that coffee. | Согласен. Пойдём в фойе за тем самым кофе. |
 
 ### Разбор
+
 - **Can you tell me where...** — вежливая просьба направление; порядок слов в косвенном вопросе прямой: *where the royal circle is* (не *is the royal circle*).
 - **I've been looking forward to this production** — Present Perfect Continuous + устойчивое выражение *look forward to* («ждать с нетерпением»).
 - **The stage was designed to ...** — Passive Past Simple.
@@ -211,6 +214,7 @@
 | Let's draft the schedule now so nothing is forgotten. | Давай сейчас составим расписание, чтобы ничего не забыть. |
 
 ### Разбор
+
 - **To be in charge of** — «отвечать за», устойчивое выражение.
 - **One of them was directed by a local filmmaker** — Passive Past Simple.
 - **They've been rehearsing a new comedy for the last two months** — Present Perfect Continuous + *for the last two months*.
@@ -265,6 +269,7 @@
 | Then it's a sign! Take the book, and see you on Sunday. | Тогда это знак! Бери книгу и увидимся в воскресенье. |
 
 ### Разбор
+
 - **What about ...?** — «как насчёт...?», предложение варианта.
 - **The biography ... we discussed** — относительное местоимение опущено (объект, см. grammar.md №2).
 - **The chapters that describe his life** — придаточное с **that**.

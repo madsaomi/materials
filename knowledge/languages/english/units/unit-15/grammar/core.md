@@ -15,6 +15,7 @@
 | We/They | We are friends. | They aren't at home. | Are they here? |
 
 Правила:
+
 - Сокращения: I'm, You're, He's, She's, It's, We're, They're.
 - Отрицание: isn't, aren't.
 - Вопросы: глагол ставится в начало.
@@ -27,6 +28,7 @@
 | Present Continuous | am/is/are + V-ing | действие прямо сейчас, временное | I am working now. She is reading. |
 
 Маркеры времени:
+
 - Present Simple: always, usually, often, sometimes, never, every day.
 - Present Continuous: now, at the moment, today, these days.
 
@@ -98,6 +100,7 @@ Past Continuous используется для фона: While I was walking, I
 | Present Simple (с расписанием) | расписания транспорта/уроков | The train leaves at 8. |
 
 Разница:
+
 - I will call you back. (спонтанно решил сейчас)
 - I am going to visit my mother. (запланировал заранее)
 
@@ -111,6 +114,7 @@ Past Continuous используется для фона: While I was walking, I
 | 3 (третий) | If + Past Perfect, would have + V3 | сожаление о прошлом | If I had studied, I would have passed. |
 
 Запятая ставится, когда предложение начинается с If:
+
 - If it rains, I will stay. (запятая есть)
 - I will stay if it rains. (запятой нет)
 
@@ -128,6 +132,7 @@ Past Continuous используется для фона: While I was walking, I
 | Модальные + Passive | modal + be + V3 | The room must be cleaned. |
 
 Правила:
+
 - Passive — когда важен объект действия, а не кто его делает.
 - Агент действия вводится предлогом by: The cake was made by my mother.
 
@@ -145,10 +150,12 @@ Past Continuous используется для фона: While I was walking, I
 | would | вежливое предложение/просьба | Would you like tea? |
 
 Разница must / have to:
+
 - must — внутреннее убеждение, правило: You must stop smoking.
 - have to — внешняя обязанность: I have to work tomorrow.
 
 Отрицание mustn't (запрещено) vs don't have to (не нужно):
+
 - You mustn't park here. (запрещено)
 - You don't have to come. (не обязательно)
 
@@ -161,6 +168,7 @@ Past Continuous используется для фона: While I was walking, I
 | — (ноль) | общие понятия, множественные без ограничения | Cats like milk. |
 
 Ошибки русских:
+
 - Говорят без артикля там, где нужен a/an: I have *a* dog.
 - Путают a/an: a university (звук «ю» — согласный), an hour (h не читается).
 
@@ -175,6 +183,7 @@ Past Continuous используется для фона: While I was walking, I
 | in | in June, in 2026, in the morning | in the room, in London |
 
 Разница:
+
 - on the bus/train/plane (в транспорте, где можно ходить), но in the car (в маленьком авто).
 - at home, at school, at work — фиксированные сочетания.
 
@@ -210,6 +219,7 @@ WH-слова: what (что), where (где), when (когда), why (почем
 | Исключения | good/bad/far | good — better — the best; bad — worse — the worst; far — farther/further |
 
 Конструкции:
+
 - as ... as: He is as tall as me.
 - not as ... as: This book is not as interesting.
 - the ... the ...: The sooner, the better. (Чем раньше, тем лучше.)

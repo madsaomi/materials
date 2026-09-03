@@ -390,6 +390,7 @@ fn spawn_animal(t: std::sync::Arc<dyn Animal + Send + Sync>) {
 ### Object Safety
 
 Трейт не является object-safe, если содержит:
+
 - Методы, возвращающие `Self` (разный размер для разных типов)
 - Методы с обобщёнными типовыми параметрами
 - Методы, требующие `Self: Sized`

@@ -23,22 +23,31 @@
 
 11. The artist ___ painted this picture lived in Paris.
     A) who B) which C) where → ___
+
 12. The museum ___ we saw the Rosetta Stone is in London.
     A) who B) where C) whose → ___
+
 13. ___ art is a window into history.
     A) An B) The C) — → ___
+
 14. ___ music in the film was composed by a famous musician.
     A) The B) A C) — → ___
+
 15. "Hamlet" ___ by Shakespeare.
     A) was written B) wrote C) is writing → ___
+
 16. Мона Лиза ___ written by da Vinci? — No, it ___ painted by him!
     A) was / is B) was / was C) is / was → ___
+
 17. The exhibition ___ every summer.
     A) is held B) held C) has held → ___
+
 18. She ___ the piano for ten years.
     A) is playing B) has been playing C) plays now → ___
+
 19. I enjoy ___ to live concerts.
     A) go B) to go C) going → ___
+
 20. This gallery is ___ popular ___ the National Museum.
     A) most / than B) more / than C) more / as → ___
 

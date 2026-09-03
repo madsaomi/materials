@@ -15,6 +15,7 @@ Winter is the coldest season. In some places, it snows a lot. The temperature is
 Every season is special in its own way. People have different favorite seasons, but all of them are part of the beautiful cycle of nature.
 
 ### Вопросы к тексту:
+
 1. How many seasons are there in many parts of the world?
 2. What happens in spring?
 3. What is the weather like in summer?
@@ -23,6 +24,7 @@ Every season is special in its own way. People have different favorite seasons, 
 6. What do you like to do in each season?
 
 ### Слова из текста:
+
 - bloom — цвести
 - leaves — листья
 - wake up — просыпаться
@@ -52,6 +54,7 @@ In the desert, like the Sahara, there is almost no rain. Days are extremely hot 
 Every place has its own weather. That is why weather forecasts are so important for people all over the world. They help us plan our days and our journeys.
 
 ### Вопросы к тексту:
+
 1. Why do British people always carry umbrellas?
 2. What are the two main seasons in the tropics?
 3. Why are desert nights cold?
@@ -59,6 +62,7 @@ Every place has its own weather. That is why weather forecasts are so important 
 5. What do weather forecasts help people to do?
 
 ### Слова из текста:
+
 - distinct — отчётливый, отдельный
 - drops below zero — опускается ниже нуля
 - incredibly — невероятно
@@ -86,6 +90,7 @@ In the afternoon, the weather changed. Dark clouds came quickly, and soon it sta
 The rain stopped after an hour. The sun appeared again, and a beautiful rainbow crossed the sky. I was wet and tired, but I felt very happy. The forest is a wonderful place, and I will never forget my trip there.
 
 ### Вопросы к тексту:
+
 1. Why did the author go to the forest?
 2. What did the author hear in the forest?
 3. What did the author see in the clear water?
@@ -94,6 +99,7 @@ The rain stopped after an hour. The sun appeared again, and a beautiful rainbow 
 6. Would you like to visit a deep forest? Why?
 
 ### Слова из текста:
+
 - deep forest — густой/глухой лес
 - breathe — дышать
 - fresh air — свежий воздух
@@ -122,6 +128,7 @@ But the ocean can be dangerous too. Hurricanes are born over warm ocean water. T
 We need to protect the ocean. Pollution and plastic are big problems for sea animals. If we take care of the ocean, it will continue to give us food, oxygen, and beauty for many years.
 
 ### Вопросы к тексту:
+
 1. Where does most of the Earth's water live?
 2. Which animal is the largest in the world?
 3. How does the ocean influence the weather?
@@ -129,6 +136,7 @@ We need to protect the ocean. Pollution and plastic are big problems for sea ani
 5. Why do we need to protect the ocean?
 
 ### Слова из текста:
+
 - cover — покрывать
 - creatures — существа
 - whales / dolphins / sharks — киты, дельфины, акулы

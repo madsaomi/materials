@@ -19,12 +19,14 @@ Present Simple используем, когда говорим о регуляр
 | He / She / It | V + s/es | She manages a team. | Она управляет командой. |
 
 ### Ключевые примеры
+
 - I **work** as a manager. (Я работаю менеджером.)
 - She **teaches** English. (Она преподаёт английский.)
 - My father **works** at a factory. (Мой отец работает на заводе.)
 - The meeting **starts** at nine. (Совещание начинается в девять.) — расписание
 
 ---
+
 ---
 
 ## 2.2. Правила окончания -s / -es
@@ -37,6 +39,7 @@ Present Simple используем, когда говорим о регуляр
 | -y → -ys (после гласной) | play → plays, say → says |
 
 ### Произношение окончания
+
 | Звук | Когда | Пример |
 |------|-------|--------|
 | /s/ | после глухих звуков | works /wɜːks/, reports /rɪˈpɔːts/ |
@@ -46,6 +49,7 @@ Present Simple используем, когда говорим о регуляр
 *Практика:* проговорите вслух — *thinks, reads, finishes, fixes, goes*.
 
 ---
+
 ---
 
 ## 2.3. Отрицания и вопросы в Present Simple (do / does)
@@ -58,16 +62,19 @@ Present Simple используем, когда говорим о регуляр
 | Вопрос | Does + He/She + V? | Does he travel a lot? |
 
 ⚠️ Главные ловушки:
+
 - После **doesn't** и **Does...?** глагол стоит без окончания -s: *She **doesn't manage***, не *doesn't manages*.
 - Краткие ответы: *Yes, I do. / No, I don't.*; *Yes, she does. / No, she doesn't.*
 
 ### Примеры
+
 - He **doesn't work** at weekends. (Он не работает по выходным.)
 - **Do you** work overtime? (Ты работаешь сверхурочно?)
 - **Does she** check the emails in the morning? (Она проверяет письма утром?)
 - We **don't meet** deadlines. (Мы не укладываемся в сроки.)
 
 ---
+
 ---
 
 ## 2.4. Вопросы о занятости (What do you do?)
@@ -84,6 +91,7 @@ Present Simple используем, когда говорим о регуляр
 | Have you ever worked abroad? | Вы когда-нибудь работали за границей? | Yes, I have. / No, I haven't. |
 
 ### Схема порядка слов
+
 ```
 Where  + do/does + подлежащее + смысловой глагол + ... ?
 Where  + does   + she      + work            + ... ?
@@ -93,6 +101,7 @@ What   + do     + you      + do              + ... ?
 ⚠️ Перевод «Кем вы работаете?» на английский — **What do you do?** или **What is your job?**, а не «Who are you?».
 
 ---
+
 ---
 
 ## 2.5. Наречия частотности (adverbs of frequency)
@@ -109,6 +118,7 @@ What   + do     + you      + do              + ... ?
 | never | никогда | I never work on Saturdays. |
 
 ### Позиция в предложении
+
 | Тип предложения | Правило | Пример |
 |-----------------|---------|--------|
 | Основной глагол | before V | She **often checks** her email. |
@@ -118,6 +128,7 @@ What   + do     + you      + do              + ... ?
 *Последовательность:* always (100%) → usually → often → sometimes → rarely → never (0%).
 
 ---
+
 ---
 
 ## 2.6. Пассивный залог — Present Simple (начало)
@@ -133,6 +144,7 @@ What   + do     + you      + do              + ... ?
 | The CEO makes all decisions. | All decisions **are made** by the CEO. |
 
 ### Когда исполнитель неважен
+
 - The report **is written** every month. (Отчёт пишется каждый месяц.)
 - Reports **are sent** every Monday. (Отчёты отправляются каждый понедельник.)
 - The salary **is paid** at the end of the month. (Зарплата выплачивается в конце месяца.)
@@ -140,6 +152,7 @@ What   + do     + you      + do              + ... ?
 *Правило–подсказка:* если можно опустить исполнителя (не говорим «кем»), это обычно пассив.
 
 ---
+
 ---
 
 ## 2.7. Пассивный залог — Past Simple
@@ -157,6 +170,7 @@ What   + do     + you      + do              + ... ?
 ⚠️ was — ед. число, were — мн. число: *The report was sent* / *The reports were sent*.
 
 ---
+
 ---
 
 ## 2.8. used to — о бывшей работе
@@ -171,6 +185,7 @@ What   + do     + you      + do              + ... ?
 | Вопрос | Did ... use to + V? | **Did you use to** work in sales? | Раньше ты работал в продажах? |
 
 ### Примеры
+
 - She **used to work** in an office, now she is a freelancer. (Раньше она работала в офисе, теперь она фрилансер.)
 - My grandfather **used to be** a firefighter. (Мой дедушка раньше был пожарным.)
 - I **didn't use to have** a laptop at work. (Раньше у меня не было ноутбука на работе.)
@@ -178,6 +193,7 @@ What   + do     + you      + do              + ... ?
 ⚠️ Не путать с **be used to + V-ing** («привык к чему-либо»): *I am used to working long hours* — я привык работать допоздна.
 
 ---
+
 ---
 
 ## 2.9. Present Simple vs Present Continuous на работе
@@ -190,6 +206,7 @@ What   + do     + you      + do              + ... ?
 | Present Continuous | временная ситуация | I am covering for Anna this week. | На этой неделе я заменяю Анну. |
 
 ### Слова-маркеры
+
 | Present Simple | Present Continuous |
 |----------------|-------------------|
 | always, usually, often | now, right now |
@@ -199,6 +216,7 @@ What   + do     + you      + do              + ... ?
 *Пример сравнения:* **He works** at the office (он вообще там работает) ≠ **He is working** at home today (сегодня работает из дома).
 
 ---
+
 ---
 
 ## 2.10. Модальные глаголы долженствования: must, have to, should
@@ -210,10 +228,12 @@ What   + do     + you      + do              + ... ?
 | should | следует, стоит (совет) | You **should** update your resume. | Тебе стоит обновить резюме. |
 
 ### Разница must и have to
+
 - **must** — внутреннее или жёсткое правило: *Employees must wear a badge.* (Сотрудники обязаны носить бейдж.)
 - **have to** — внешняя необходимость/обязанность: *I have to come early tomorrow.* (Мне придётся прийти рано.)
 
 ### Отрицания
+
 - mustn't — нельзя
 - don't have to — нет необходимости (можно не)
 - shouldn't — не стоит
@@ -221,11 +241,13 @@ What   + do     + you      + do              + ... ?
 *Пример:* You **don't have to** come on Saturday (не обязательно), but you **mustn't** be late (нельзя опаздывать).
 
 ---
+
 ---
 
 ## 2.11. Предлоги: место и время работы
 
 ### Место
+
 | Предлог | Когда | Пример |
 |---------|-------|--------|
 | at + место работы | в (организации) | She works **at** a school. |
@@ -234,6 +256,7 @@ What   + do     + you      + do              + ... ?
 | from home | из дома | I work **from home** on Fridays. |
 
 ### Время (повторение из блока 08)
+
 | Предлог | Когда | Пример |
 |---------|-------|--------|
 | at + точное время | at 9 o'clock, at noon | The meeting is **at** 2 p.m. |
@@ -243,6 +266,7 @@ What   + do     + you      + do              + ... ?
 ⚠️ Типичная ошибка: «Я на работе» — **I am at work** (не *on work*).
 
 ---
+
 ---
 
 ## 2.12. Типичные ловушки русскоязычных (workplace mistakes)

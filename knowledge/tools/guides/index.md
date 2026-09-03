@@ -748,7 +748,6 @@ dd if=/dev/zero of=test bs=64k count=16k conv=fdatasync; rm test
 
 *Гайды — шпаргалки. Август 2026. PR welcome.*
 
-
 ---
 
 ## 🎨 FFmpeg & ImageMagick

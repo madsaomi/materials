@@ -58,6 +58,7 @@
 4. The director invites many actors. → Many actors ...
 
 **Ответы:**
+
 1. The gallery **is opened** at nine.
 2. Tickets **are sold** at the box office.
 3. English **is spoken** here.
@@ -75,6 +76,7 @@
 4. Two composers wrote the music. → The music ... (write→written)
 
 **Ответы:**
+
 1. "Hamlet" **was written** by Shakespeare.
 2. This thriller **was directed** by Alfred Hitchcock.
 3. The film **was made** in 1995.
@@ -92,6 +94,7 @@
 4. The play ___ (perform) by the school theatre group tomorrow?
 
 **Ответы:**
+
 1. was painted
 2. is held
 3. were made
@@ -112,6 +115,7 @@
 5. He ___ (write) his novel all day — he needs a break.
 
 **Ответы:**
+
 1. has been learning
 2. have been rehearsing
 3. How long have you been watching...?
@@ -132,6 +136,7 @@
 6. They enjoy ___ (watch) documentaries about art.
 
 **Ответы:**
+
 1. listening (enjoy + -ing)
 2. painting (love + -ing)
 3. going (like + -ing; допустимо like to go)
@@ -152,6 +157,7 @@
 5. This portrait is ___ (beautiful) the landscape, in my opinion.
 
 **Ответы:**
+
 1. more interesting than
 2. not as popular as
 3. more complicated than
@@ -171,6 +177,7 @@
 5. That was ___ (bad) performance of the season.
 
 **Ответы:**
+
 1. the most famous
 2. the funniest
 3. the oldest
@@ -208,6 +215,7 @@
 6. For the carnival she made a witch ___ by herself.
 
 **Ответы:**
+
 1. trailer
 2. rehearsal
 3. subtitles
@@ -229,6 +237,7 @@
 6. Хэллоуин празднуют 31 октября. (is celebrated)
 
 **Ответы:**
+
 1. The film was directed by a young director.
 2. The opera was written by Mozart in 1786.
 3. I have been watching this series since May.

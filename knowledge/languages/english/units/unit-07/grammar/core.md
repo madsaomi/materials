@@ -27,6 +27,7 @@
 
 ### Формула
 **Subject + be + предлог места + место**
+
 - The bank **is on the corner**. (Банк на углу.)
 - The school **is opposite** the park. (Школа напротив парка.)
 
@@ -50,6 +51,7 @@
 | towards | по направлению к | Walk towards the station. | Иди по направлению к вокзалу. |
 
 ### Важно
+
 - **Go to** (идти к) — направление к цели: *Go to the museum.*
 - **Live in** (жить в) — находиться внутри: *I live in Moscow.*
 - **Arrive at/in** (прибывать) — **at** для точек (at the station), **in** для городов (in Moscow).
@@ -67,6 +69,7 @@
 | bicycle | get **on** | get **off** |
 
 ### Примеры
+
 - Get **on** the bus. (Садись в автобус.)
 - Get **off** at the next stop. (Выходи на следующей остановке.)
 - Get **into** the taxi. (Садись в такси — внутрь.)
@@ -84,6 +87,7 @@
 | Отрицание | **Don't + base verb** | Don't turn right. | Не поворачивайте направо. |
 
 ### Полезные фразы-команды
+
 - **Go** straight ahead. (Идите прямо.)
 - **Turn** left at the traffic light. (Поверните налево на светофоре.)
 - **Continue** along the street. (Продолжайте идти вдоль улицы.)
@@ -92,10 +96,12 @@
 
 ### Вежливая форма
 Добавьте **please** или конструкцию **can you**:
+
 - Turn left, **please**. (Поверните налево, пожалуйста.)
 - **Can you** tell me the way? (Не могли бы вы подсказать дорогу?)
 
 ### Порядок шагов для маршрута
+
 1. Go straight ahead. → 2. Turn right at the bank. → 3. Take the second street on your left.
 
 ---
@@ -127,6 +133,7 @@
 
 ### Формула
 **How far + be + место?**
+
 - **How far is** the museum? (Как далеко до музея?)
 
 ---
@@ -143,6 +150,7 @@
 
 ### Формула
 **How long does it take?** + **It takes + время**
+
 - **How long does it take** to get to the airport? (Сколько времени ехать до аэропорта?)
 - **It takes** me half an hour to get to work. (Мне нужен час, чтобы добраться до работы / дорога занимает у меня полчаса.)
 
@@ -159,12 +167,14 @@
 | Вопрос | **Can + подлежащее + base verb?** | Can you help me? | Можешь мне помочь? |
 
 ### Примеры
+
 - You **can** buy a ticket here. (Ты можешь купить билет здесь.)
 - He **can't** find the station. (Он не может найти вокзал.)
 - **Can** I have a map, please? (Можно мне карту, пожалуйста?)
 - We **can walk** — it's not far. (Мы можем пойти пешком — это недалеко.)
 
 ### can для предложений и просьб
+
 - **Can** I help you? (Могу я вам помочь?)
 - **Can** we take a taxi? (Мы можем взять такси?)
 
@@ -179,6 +189,7 @@
 | in | внутри машины/такси | in a car, in a taxi | в машине, в такси |
 
 ### Примеры
+
 - I go to work **by** metro. (Я езжу на работу на метро.)
 - We travel **by** plane. (Мы путешествуем на самолёте.)
 - He always walks **on** foot. (Он всегда ходит пешком.)
@@ -198,6 +209,7 @@
 | There are | множественное число | There are two parks in the city. | В городе два парка. |
 
 ### Отрицание и вопросы
+
 - **There isn't** a museum here. (Здесь нет музея.)
 - **Are there** any shops on this street? (Есть ли магазины на этой улице?)
 

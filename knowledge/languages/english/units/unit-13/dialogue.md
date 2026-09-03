@@ -28,6 +28,7 @@
 **М:** Тогда давай закажем. Я зарегистрируюсь и куплю её прямо сейчас.
 
 ### Разбор
+
 - **I want to buy** — конструкция *want + to + инфинитив* (модуль 13.10).
 - **Which one should I take?** — модальный *should* для совета/вопроса (13.2).
 - **Do you prefer...?** — Present Simple для предпочтения (13.1). *prefer* — state verb.
@@ -61,6 +62,7 @@
 **А:** Спасибо! Попробую прямо сейчас.
 
 ### Разбор
+
 - **What should I do?** — вопрос-совет через *should* (13.2).
 - **You might have a virus** — модальный *might* = «возможно, есть».
 - **You should run an antivirus scan** — совет (13.2).
@@ -96,6 +98,7 @@
 **Н:** Круто. Удачи с твоим каналом!
 
 ### Разбор
+
 - **went viral** — *viral* в прошедшем времени (словарь, сленг).
 - **How often do you post?** — вопрос о частоте (13.6).
 - **How many followers do you have?** — *How many* с исчисляемыми (13.6).
@@ -131,6 +134,7 @@
 **О:** Тогда проблема в твоём ноутбуке. Попробуй забыть сеть и войти снова.
 
 ### Разбор
+
 - **I can't connect to the Wi-Fi** — *connect to* (предлог, 13.11).
 - **You should restart the router** — совет (13.2).
 - **turn it on / turn it on again** — разделяемый фразовый глагол (13.7), местоимение внутрь: *turn it on*.
@@ -165,6 +169,7 @@
 **С:** Тогда удачи. Напишу тебе в понедельник.
 
 ### Разбор
+
 - **I'm going to try** — *going to* для плана (будущее).
 - **I'm turning off all notifications** — Present Continuous для планов (13.1).
 - **How many hours do you usually use...?** — *How many* (13.6) + Present Simple.

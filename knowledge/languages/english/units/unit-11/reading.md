@@ -30,6 +30,7 @@ I spent four days in London. I didn't visit everything, of course, but I really 
 | to go back one day | вернуться когда-нибудь |
 
 ### Вопросы к тексту
+
 1. When did the writer go to London? (Last summer.)
 2. How did she/he get to the city centre? (By train.)
 3. Which museums did she/he visit? (The British Museum.)
@@ -74,6 +75,7 @@ Finally, arrive at the airport early — usually two or three hours before depar
 | well-prepared | хорошо подготовленный |
 
 ### Вопросы к тексту
+
 1. Why does the author advise checking your passport first? (It must be valid after your return, otherwise some countries won't let you enter.)
 2. How can you save money on tickets? (Buy them early / in advance.)
 3. What should you ask about when booking a hotel? (Whether breakfast is included and whether the room has air conditioning.)
@@ -114,6 +116,7 @@ Now, when people ask me, "Have you ever been to Paris?", I always answer, "Yes, 
 | definitely | точно, однозначно |
 
 ### Вопросы к тексту
+
 1. Had the writer been to Paris before this trip? (No, he/she had never been.)
 2. Why was he/she tired when he/she arrived? (The flight was delayed for three hours.)
 3. What did he/she do after checking in at the hotel? (Went straight to sleep.)
@@ -127,6 +130,7 @@ Now, when people ask me, "Have you ever been to Paris?", I always answer, "Yes, 
 ## Задание после чтения
 
 Прочитайте все три текста ещё раз и отметьте галочкой:
+
 - [ ] Я нашёл в текстах ВСЁ из списка: flight, passport control, luggage, museum, insurance, visa, check-in, delay, landmark, unforgettable.
 - [ ] Я прочитал тексты вслух 2 раза.
 - [ ] Я могу пересказать текст 1 своими словами за минуту.

@@ -24,6 +24,7 @@ Later, the young nation grew quickly. Pioneers moved west across the continent, 
 | influence | влияние |
 
 ### Вопросы к тексту
+
 1. Where was the first permanent American colony founded, and in what year?
 2. How many colonies were there by 1775?
 3. When was the Declaration of Independence signed?
@@ -33,6 +34,7 @@ Later, the young nation grew quickly. Pioneers moved west across the continent, 
 7. How many states does the USA have today?
 
 ### Ответы (кратко)
+
 1. At Jamestown, Virginia, in 1607. 2. Thirteen. 3. On the 4th of July, 1776. 4. Thomas Jefferson. 5. In 1783. 6. George Washington. 7. Fifty.
 
 ---
@@ -61,6 +63,7 @@ Today London is a huge and modern city. About nine million people live there. Yo
 | most visited | самый посещаемый |
 
 ### Вопросы к тексту
+
 1. Which river does London stand on?
 2. When did the Romans found London?
 3. Who built the Tower of London?
@@ -70,11 +73,13 @@ Today London is a huge and modern city. About nine million people live there. Yo
 7. How many languages are spoken in London today?
 
 ### Вопрос с выбором True/False
+
 - London was founded by the Vikings. → False
 - Big Ben was completed in 1859. → True
 - The British Museum is paid. → False
 
 ### Ответы (кратко)
+
 1. On the Thames. 2. Around 43 AD. 3. William the Conqueror. 4. In 1859. 5. Sir Christopher Wren. 6. Yes, it is free. 7. More than three hundred.
 
 ---
@@ -103,6 +108,7 @@ Today Australia is a rich, modern nation with friendly people. Its largest citie
 | nowhere else | нигде больше |
 
 ### Вопросы к тексту
+
 1. Is Australia a continent or an island? (Both!)
 2. Where do most Australians live?
 3. Who came to Australia first?
@@ -112,12 +118,14 @@ Today Australia is a rich, modern nation with friendly people. Its largest citie
 7. Why are animals like the platypus unusual?
 
 ### Вопрос с выбором True/False
+
 - Most Australians live in the Outback. → False
 - The first British colony in Australia was founded in 1788. → True
 - Canberra is larger than Sydney. → False
 - The platypus lives only in Australia. → True
 
 ### Ответы (кратко)
+
 1. It is both. 2. Along the coasts. 3. The Aborigines. 4. In 1788; it was a place for convicts from Britain. 5. It brought many new people to the country. 6. Canberra. 7. They live nowhere else in the world.
 
 ---
@@ -144,6 +152,7 @@ Two official languages are spoken in Canada: English and French. Some cities, li
 | ally | союзник |
 
 ### Вопросы к тексту
+
 1. What is the population of Canada?
 2. Why is Canada described as "very empty"?
 3. What is the largest province in Canada?
@@ -152,6 +161,7 @@ Two official languages are spoken in Canada: English and French. Some cities, li
 6. Is Canada a member of the Commonwealth?
 
 ### Ответы (кратко)
+
 1. About 38 million people. 2. Because the population is small compared to the huge area. 3. Ontario. 4. The Rocky Mountains. 5. English and French. 6. Yes.
 
 ---

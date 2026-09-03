@@ -17,6 +17,7 @@ Today, the Internet is everywhere. We use it for work, shopping, education, and 
 But the Internet also has a dark side. Hackers can steal personal data, and misinformation spreads fast online. That is why digital literacy and online security are so important in the modern world.
 
 ### Вопросы к тексту 1
+
 1. When did the Internet start as a network? What was it called?
 2. Who used the Internet at first?
 3. Who created the World Wide Web and when?
@@ -25,6 +26,7 @@ But the Internet also has a dark side. Hackers can steal personal data, and misi
 6. Why is digital literacy important nowadays?
 
 ### Активная лексика текста 1
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | global network | /ˈɡləʊbəl ˈnetwɜːk/ | глобальная сеть |
@@ -54,6 +56,7 @@ Third, if an e-mail looks suspicious, don't click on any links in it. Check the 
 Finally, it is very important to back up your files. If your data is stolen or deleted, you will still have copies. Cybersecurity is not about being paranoid; it is about being careful with your digital life.
 
 ### Вопросы к тексту 2
+
 1. What is phishing? Give an example.
 2. How can malware get into your computer?
 3. Why should you use a different password for every account?
@@ -62,6 +65,7 @@ Finally, it is very important to back up your files. If your data is stolen or d
 6. What is the main idea of the last sentence?
 
 ### Активная лексика текста 2
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | cybercrime | /ˈsaɪbəkraɪm/ | киберпреступность |
@@ -91,6 +95,7 @@ At first, it was difficult, but by Sunday evening I felt calm and free. I found 
 On Monday, I turned on my phone again. Hundreds of notifications appeared on the screen. But none of them were really urgent. I realised that I don't need to be online all the time. Now I limit my screen time to two hours a day, and I feel much better.
 
 ### Вопросы к тексту 3
+
 1. Why did the author decide to try a digital detox?
 2. How did the author feel on the first morning?
 3. What did the author start to notice without the phone?
@@ -99,6 +104,7 @@ On Monday, I turned on my phone again. Hundreds of notifications appeared on the
 6. Would you like to try a digital detox? Why or why not?
 
 ### Активная лексика текста 3
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | digital detox | /ˈdɪdʒɪtəl ˈdiːtɒks/ | цифровой детокс |
@@ -118,11 +124,13 @@ On Monday, I turned on my phone again. Hundreds of notifications appeared on the
 ## Обобщающее задание по чтению
 
 Ответь на вопросы по всем трём текстам:
+
 1. Назови два положительных и два отрицательных аспекта интернета (по тексту 1).
 2. Перечисли три правила кибербезопасности из текста 2.
 3. Что понял автор текста 3 после эксперимента?
 
 ### Примерные ответы на обобщающее задание
+
 1. Плюсы: доступ к информации, общение с людьми на расстоянии, работа/образование/покупки. Минусы: кража данных хакерами, распространение дезинформации.
 2. Сильные и разные пароли; обновление программного обеспечения; не нажимать на подозрительные ссылки; делать резервные копии.
 3. Он понял, что не нужно быть онлайн всё время, и решил ограничить время за экраном.

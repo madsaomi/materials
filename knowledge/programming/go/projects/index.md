@@ -2006,6 +2006,7 @@ go run client/client.go
 | Продвинутый | Docker-контейнеры, gRPC | syscall, namespaces, protobuf |
 
 **Советы:**
+
 1. Всегда используйте `go mod init` и `go mod tidy`
 2. Обрабатывайте ошибки явно — не игнорируйте `err`
 3. Используйте `context.Context` для отмены и таймаутов

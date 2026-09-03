@@ -21,6 +21,7 @@ My name is Tom. I am 28 years old. I am a teacher. I have a family. My father is
 | happy | /ˈhæpi/ | широкое /æ/ |
 
 **Вопросы к тексту:**
+
 1. What is Tom's name? — Tom.
 2. How old is Tom? — He is 28.
 3. What does Tom do? — He is a teacher.
@@ -53,6 +54,7 @@ I get up at seven in the morning. First, I drink a cup of tea and eat bread with
 | interesting | /ˈɪntrəstɪŋ/ | ударение на 1-й, /ə/ в середине |
 
 **Вопросы к тексту:**
+
 1. What time does the person get up? — At seven.
 2. What does he drink in the morning? — A cup of tea.
 3. How does he go to work? — By bus.
@@ -86,6 +88,7 @@ English words sound different from how they look. The letter "a" can be /eɪ/ in
 | little | /ˈlɪtl/ | тёмный /l/ в конце |
 
 **Вопросы к тексту:**
+
 1. What sound can the letter "a" give? — /eɪ/ and /æ/.
 2. What sound do "ee" usually give? — /iː/.
 3. Give two readings of "ea". — /iː/ (tea) and /e/ (read in the past).

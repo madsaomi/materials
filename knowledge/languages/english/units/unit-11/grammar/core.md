@@ -16,6 +16,7 @@
 | Вопрос | Did + подлежащее + V? | **Did** you enjoy the trip? (Тебе понравилась поездка?) |
 
 Правила написания -ed:
+
 - visit → visited (просто +ed);
 - live → lived (немая e отбрасывается);
 - stop → stopped (удвоение согласной);
@@ -45,6 +46,7 @@
 | know | knew | знать |
 
 ### Примеры
+
 - I **got up** at five and **drove** to the airport. (Я встал в пять и поехал в аэропорт.)
 - The flight **was** delayed, so we **missed** our connection. (Рейс задержали, и мы опоздали на пересадку.)
 - We **didn't** book anything in advance. (Мы ничего не бронировали заранее.)
@@ -78,6 +80,7 @@ Present Perfect рассказывает об **опыте** в жизни: ва
 | Отрицание | I **have never been** to Japan. (Я никогда не был в Японии.) |
 
 ### Слова-маркеры опыта
+
 - ever — когда-нибудь (только в вопросах): Have you **ever** tried street food in Bangkok?
 - never — никогда: I've **never** been on a cruise.
 - once / twice / three times — один / два / три раза: We've been to the beach **twice** this week.
@@ -97,6 +100,7 @@ Present Perfect рассказывает об **опыте** в жизни: ва
 | She **has gone to** Italy. | Уехала в Италию и сейчас там (в пути/не вернулась) | She has gone to Italy for a week. | Она уехала в Италию на неделю. |
 
 Практическое правило:
+
 - Хотим сказать «бывал/не был вообще» → **have been to**;
 - Рассказываем о конкретной поездке «тогда, в тот год» → **went to**;
 - Говорим, что человек сейчас уехал и ещё не вернулся → **has gone to**.
@@ -127,6 +131,7 @@ Present Perfect рассказывает об **опыте** в жизни: ва
 | on | транспорт (плоскость), проспекты, этажи | He is **on** the plane. The shop is **on** the fifth floor. |
 
 Глагол arrive требует своей логики:
+
 - arrive **in** + страна/город: We arrived **in** Rome.
 - arrive **at** + точка: We arrived **at** the hotel / the airport.
 - arrive **home** — без предлога.

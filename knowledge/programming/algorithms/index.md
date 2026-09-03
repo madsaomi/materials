@@ -1213,6 +1213,7 @@ def get_path(previous, end):
 | Counting | O(n + k) | O(n + k) | O(n + k) | O(k) | Да |
 
 **Выбор сортировки:**
+
 - **Маленькие данные (<50):** Insertion sort
 - **Универсальный:** Quick sort (средний случай)
 - **Стабильная:** Merge sort

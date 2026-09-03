@@ -3,6 +3,7 @@
 Грамматика блока «Культура и искусство»: относительные придаточные, артикли с неисчисляемыми, страдательный залог, Present Perfect Continuous, like/love/hate + -ing, сравнения.
 
 **Содержание:**
+
 1. Relative clauses: who / which / that
 2. Опущение who / which / that
 3. Определяющие и неопределяющие придаточные (запятые)
@@ -32,11 +33,13 @@
 | whose | принадлежность | This is the poet **whose** book I read. | Это поэт, **чью** книгу я читал (чей). |
 
 ### Как выбрать?
+
 - Перед местоимением — **человек**? → who (реже that).
 - Перед местоимением — **предмет/идея/явление**? → which.
 - Не уверены или разговорная речь? → that подойдёт в обоих случаях.
 
 ### Примеры
+
 - The singer **who** performed last night is from Canada. — Певец, который выступал вчера, из Канады.
 - The song **which** she wrote became a hit. — Песня, которую она написала, стала хитом.
 - I know a museum **where** you can see ancient statues. — Я знаю музей, где можно увидеть древние статуи.
@@ -55,6 +58,7 @@
 | подлежащее | The actor **who** played the villain was great. | ~~The actor played the villain~~ ✗ нельзя опустить | Актёр, который играл злодея, был отличным. |
 
 ### Правило-подсказка
+
 - После местоимения сразу идёт **глагол** → это подлежащее → **не опускаем** (who/which нужны: *the actor who played*).
 - После местоимения идёт **существительное/местоимение** (I, she, we...) → это объект → **можно опустить** (*the film I watched*).
 
@@ -68,10 +72,12 @@
 | Неопределяющее (non-defining) | Добавляет дополнительную информацию; можно убрать без потери смысла | С запятыми | The Louvre, **which is in Paris**, is very popular. |
 
 ### Примеры
+
 - Defining: Books **that are written for children** are usually short. — Книги, которые написаны для детей, обычно короткие. (Речь о конкретной группе книг.)
 - Non-defining: My brother, **who plays the guitar**, is a teacher. — Мой брат, который играет на гитаре, учитель. (Информация дополнительная.)
 
 ### Обратите внимание
+
 - В неопределяющих придаточных **нельзя** использовать that — только who/which.
 - В письменной речи неопределяющее придаточное всегда выделяется запятыми.
 
@@ -90,6 +96,7 @@
 | С названием вида искусства | I love **jazz** and **classical music**. | Я люблю джаз и классическую музыку. |
 
 ### Ошибки русских
+
 - ✗ ~~an art~~ — art неисчисляемое: нет a/an.
 - ✗ ~~musics~~ — формы множественного числа нет.
 - ✓ I listen to **music**. — Я слушаю музыку. (общий смысл, без артикля)
@@ -112,6 +119,7 @@
 | cinema (как явление) | a film / a movie | фильм |
 
 ### Примеры
+
 - She played **a wonderful piece of music** on the piano. — Она сыграла на пианино чудесное произведение.
 - The gallery owns over 500 **works of art**. — В галерее более 500 произведений искусства.
 - We read **a poem** by Robert Frost. — Мы читали стихотворение Роберта Фроста.
@@ -132,10 +140,12 @@
 | The museum opens the hall at nine. | The hall **is opened** at nine. | Зал открывается в девять. |
 
 ### Когда пассив менять активный?
+
 - Кто делает действие, неважно или неизвестно: *This music **is played** all over the world.*
 - Хотим подчеркнуть само действие/результат: *The exhibition **is held** every year.*
 
 ### by / with
+
 - **by** — автор действия: The portrait **was painted by Repin**. — Портерт написан Репиным.
 - **with** — инструмент: The picture **was drawn with a pencil**. — Рисунок сделан карандашом.
 
@@ -154,6 +164,7 @@
 | Critics praised the play. | The play **was praised** by critics. | Пьеса была высоко оценена критиками. |
 
 ### Топ-5 примеров на тему искусства
+
 - The Sistine Chapel ceiling **was painted** by Michelangelo. — Потолок Сикстинской капеллы написан Микеланджело.
 - «Gone with the Wind» **was made** in 1939. — «Унесённые ветром» были сняты в 1939-м.
 - Hamlet **was written** around 1600. — Гамлет написан около 1600 года.
@@ -161,6 +172,7 @@
 - This opera **was first performed** in 1786. — Эта опера впервые была исполнена в 1786-м.
 
 ### Как образовать V3 неправильных глаголов (новые слова)
+
 | Глагол | V2 | V3 | Перевод |
 |--------|----|----|---------|
 | write | wrote | written | писать |
@@ -208,11 +220,13 @@
 | They have been ... | They **have been rehearsing** all day. | Они репетируют весь день. |
 
 ### Отрицание и вопрос
+
 - She **has not been practising** the violin lately. — Она в последнее время не занималась на скрипке.
 - **Have you been reading** anything interesting? — Ты читала что-нибудь интересное?
 - How long **have you been playing** the guitar? — Как долго ты играешь на гитаре?
 
 ### Выбор между Present Perfect и Present Perfect Continuous
+
 | Ситуация | Время | Пример |
 |----------|-------|--------|
 | Важен результат действия | Present Perfect | I **have written** ten pages of my story. (написал — есть результат) |
@@ -232,7 +246,8 @@
 | enjoy + -ing | They **enjoy listening** to jazz. | Им нравится слушать джаз. |
 | prefer + -ing | I **prefer reading** to watching TV. | Я предпочитаю читать, а не смотреть ТВ. |
 
-### -ing или to? 
+### -ing или to?
+
 - В большинстве случаев **оба варианта допустимы** и смысл почти не меняется: *I like watching films* = *I like to watch films*.
 - **enjoy** — только **-ing**: ~~enjoy to watch~~ ✗.
 - Для разовых/будущих действий после would like/love — только **to**: I **would like to see** this play. — Я хотел бы посмотреть эту пьесу.
@@ -242,6 +257,7 @@
 ## 11. Сравнения: more ... than, (not) as ... as
 
 ### Сравнительная степень
+
 | Способ | Формула | Пример | Перевод |
 |--------|---------|--------|---------|
 | Короткие слова (-er) | прилаг. + -er | This film is **funnier** than the first one. | Этот фильм смешнее первого. |
@@ -249,10 +265,12 @@
 | Сравнение действий | **more** + наречие/сущ. | She sings **more beautifully** than I do. | Она поёт красивее, чем я. |
 
 ### Одинаковость и неравенство
+
 - **as ... as** — так же: This book is **as popular as** the previous one. — Эта книга так же популярна, как предыдущая.
 - **not as ... as** — не так ... как: The sequel is **not as good as** the original. — Сиквел не такой хороший, как оригинал.
 
 ### Запомни исключения (неправильные степени)
+
 | Положительная | Сравнительная | Превосходная |
 |---------------|---------------|--------------|
 | good / well | better | the best |
@@ -262,6 +280,7 @@
 | far | farther / further | the farthest / furthest |
 
 ### Примеры
+
 - The first act **was more exciting than** the second. — Первый акт был более захватывающим, чем второй.
 - Modern art is **not as simple as** it seems. — Современное искусство не такое простое, как кажется.
 - She dances **better than** her brother. — Она танцует лучше брата.
@@ -271,6 +290,7 @@
 ## 12. Превосходная степень: the most ..., the best ...
 
 ### Формула
+
 | Способ | Формула | Пример | Перевод |
 |--------|---------|--------|---------|
 | Короткие слова (-est) | **the** + прилаг. + **-est** | the **oldest** theatre | самый старый театр |
@@ -278,16 +298,19 @@
 | Наречия | **the most** + наречие | the **most vividly** | наиболее ярко |
 
 ### Примеры
+
 - The British Museum is **the most visited** museum in London. — Британский музей — самый посещаемый музей Лондона.
 - «Abbey Road» is one of **the most popular** albums ever. — «Abbey Road» — один из самых популярных альбомов.
 - This is **the funniest** film I have ever seen. — Это самый смешной фильм, который я когда-либо видел.
 - Venice hosts **the most famous** carnival in Italy. — Венеция проводит самый знаменитый карнавал в Италии.
 
 ### Структура с ever seen / ever heard
+
 - The most beautiful song **I have ever heard**. — Самая красивая песня, которую я когда-либо слышал.
 - The best play **I have ever watched**. — Лучшая пьеса, которую я когда-либо смотрел.
 
 ### Итоговая схема степеней сравнения
+
 | Степень | Прилагательное | Пример |
 |---------|----------------|--------|
 | Положительная (как есть) | interesting | The film is interesting. |

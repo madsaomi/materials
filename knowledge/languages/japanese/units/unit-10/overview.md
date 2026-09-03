@@ -1,12 +1,14 @@
 # Unit-10 — Overview (Japanese)
 
 ## Learning Objectives
+
 - Master core grammatical structures and patterns introduced in this unit.
 - Expand active vocabulary with essential words and idiomatic expressions.
 - Practice conversational phrases through interactive dialogues.
 - Develop reading comprehension and test readiness.
 
 ## Navigation
+
 - [Dialogue](dialogue.md)
 - [Core Grammar](grammar/core.md)
 - [Grammar Usage Notes](grammar/usage.md)

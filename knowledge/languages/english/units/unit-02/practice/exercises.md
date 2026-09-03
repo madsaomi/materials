@@ -14,6 +14,7 @@
 10. He ___ (go/come) to work at 9.
 
 ### Ответы:
+
 1. eat — I eat breakfast at 8 o'clock.
 2. wake up — She wakes up at 6:30.
 3. read — We read books in the library.
@@ -61,6 +62,7 @@
 10. This ___ my book.
 
 ### Ответы:
+
 1. am — I am a student.
 2. is — She is my sister.
 3. are — We are friends.
@@ -85,6 +87,7 @@
 7. You're welcome. → You are welcome.
 
 ### Ответы:
+
 1. I am ready.
 2. She is happy.
 3. We are students.
@@ -103,6 +106,7 @@
 6. They are from Moscow. → They are not from Moscow.
 
 ### Ответы (краткая форма):
+
 1. I'm not tired.
 2. You aren't late.
 3. He isn't a teacher.
@@ -121,6 +125,7 @@
 5. We are in the classroom. → ___ we in the classroom?
 
 ### Короткие ответы:
+
 1. Is Anna your friend? — Yes, she is. / No, she isn't.
 2. Are you from Russia? — Yes, I am. / No, I'm not.
 3. Are they busy? — Yes, they are. / No, they aren't.
@@ -137,6 +142,7 @@
 6. ___ is my key? — It's on the table.
 
 ### Ответы:
+
 1. What — What is your name?
 2. Where — Where are you from?
 3. Who — Who is that man?
@@ -156,6 +162,7 @@
 8. Mr Green is a teacher. ___ pupils like him.
 
 ### Ответы:
+
 1. My — My name is Anna.
 2. His — His car is red.
 3. Her — Her sister is a nurse.
@@ -176,6 +183,7 @@
 7. We have ___ umbrella.
 
 ### Ответы:
+
 1. a — This is a book.
 2. an — I have an apple.
 3. an — She is an engineer.
@@ -200,6 +208,7 @@
 10. wife → ___
 
 ### Ответы:
+
 1. books
 2. cities
 3. boxes
@@ -221,6 +230,7 @@
 6. happy / they / are → ___
 
 ### Ответы:
+
 1. Tom is my friend.
 2. I am a student.
 3. Where are you from?
@@ -258,6 +268,7 @@
 5. Спрашиваем, как дела: A) How are you? B) What time is it? C) Where is it?
 
 ### Ответы:
+
 1. B) Good morning
 2. A) Good night
 3. B) You're welcome
@@ -276,6 +287,7 @@
 8. Ты голоден? → ___
 
 ### Ответы:
+
 1. My name is Anna. (My name's Anna.)
 2. I am from Russia. (I'm from Russia.)
 3. Who is that man?

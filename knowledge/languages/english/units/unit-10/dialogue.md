@@ -67,6 +67,7 @@
 *have a seat* — присаживайтесь.
 
 Грамматика:
+
 - **What do you do?** — вопрос о профессии (Present Simple + do).
 - **I work as a marketing manager** — после *as* профессия с артиклем.
 - **I want to try / to become** — конструкция *want to + V*.
@@ -77,6 +78,7 @@
 (*I always meet deadlines* — это звучит убедительнее, чем просто «я ответственный»).
 
 ---
+
 ---
 
 ## Диалог 2: Планирование проекта (Project Planning)
@@ -129,6 +131,7 @@
 *budget* — бюджет; *to approve* — утверждать; *slides* — слайды; *to delegate tasks* — делегировать задачи.
 
 Грамматика (все конструкции из этого юнита):
+
 - **I'm preparing... now** — Present Continuous (процесс сейчас).
 - **Do we meet the deadline?** — Present Simple вопрос.
 - **The budget was approved yesterday** — Passive Past Simple (was + V3: approved).
@@ -139,6 +142,7 @@
 уложиться в срок. Не путайте с *to meet somebody* — встречать кого-то.
 
 ---
+
 ---
 
 ## Диалог 3: Обед с коллегой (Lunch with a Colleague)
@@ -191,6 +195,7 @@
 повышение; *strong candidate* — сильный кандидат; *leadership course* — курс лидерства.
 
 Грамматика:
+
 - **I used to work as a designer** — `used to` для бывшей работы (см. 2.8).
 - **Didn't you like being a designer?** — отрицательный вопрос + герундий *being*.
 - **I'm taking a leadership course now** — Present Continuous (действие в процессе, временное).
@@ -200,6 +205,7 @@
 Есть шутливый финал: оба спешат обратно в офис — типичная «обеденная» тема для коллег.
 
 ---
+
 ---
 
 ## Диалог 4: Разговор с начальником о дедлайне (Call from the Boss)
@@ -250,6 +256,7 @@
 предложение (проекта); *to be informed* — быть проинформированным.
 
 Грамматика (богатый пассив!):
+
 - **It wasn't in my inbox** — Past Simple отрицание to be.
 - **I was going to send it** — `was going to` (собиралась, конструкция from блок 08).
 - **The training was planned** / **the proposal was approved** — **Passive Past Simple** (was + V3).
@@ -258,6 +265,7 @@
 - **You earned it** — you earned it: «ты это заслужила», идиома одобрения.
 
 ---
+
 ---
 
 ## Мини-разбор: фразы, которые пригодятся всегда

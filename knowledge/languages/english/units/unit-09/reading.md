@@ -15,6 +15,7 @@ Sleep also plays a big role. Adults need seven to nine hours of sleep every nigh
 In short, a healthy lifestyle is a combination of good food, regular exercise, enough sleep and a positive attitude. It isn't about being perfect — it's about making small, smart choices every day.
 
 ### Вопросы к тексту 1
+
 1. How often should you exercise, according to the text?
 2. What should you eat to keep a healthy diet?
 3. Why is skipping breakfast a bad idea?
@@ -23,6 +24,7 @@ In short, a healthy lifestyle is a combination of good food, regular exercise, e
 6. What is a healthy lifestyle, in short?
 
 ### Лексика из текста 1
+
 | Слово | Перевод |
 |-------|---------|
 | habit | привычка |
@@ -49,6 +51,7 @@ At the hospital, a doctor examined Mark's ankle and ordered an X-ray. Fortunatel
 Mark was disappointed because his team had an important match the following week. However, he understood that his health was more important than one game. He decided to follow the doctor's advice and started doing light exercises for his upper body to stay fit while his ankle healed.
 
 ### Вопросы к тексту 2
+
 1. What was Mark preparing for?
 2. What happened to Mark during the training?
 3. Who helped Mark after the injury?
@@ -57,6 +60,7 @@ Mark was disappointed because his team had an important match the following week
 6. What did Mark decide to do while his ankle healed?
 
 ### Лексика из текста 2
+
 | Слово | Перевод |
 |-------|---------|
 | tournament | турнир |
@@ -85,6 +89,7 @@ Of course, she has had some problems. Last winter she broke her finger during a 
 Now Elena helps beginners in her local running club. She teaches them how to breathe correctly and how to pace themselves. "Have a plan, but be flexible. And remember: everyone who finishes a marathon is a winner."
 
 ### Вопросы к тексту 3
+
 1. When did Elena run her first half-marathon?
 2. How many full marathons has she run?
 3. Why does Elena run?
@@ -94,6 +99,7 @@ Now Elena helps beginners in her local running club. She teaches them how to bre
 7. What does Elena teach to beginners?
 
 ### Лексика из текста 3
+
 | Слово | Перевод |
 |-------|---------|
 | athlete | спортсмен |

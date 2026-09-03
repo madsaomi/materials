@@ -9,6 +9,7 @@ I study English every day. I read books and write exercises. I listen to English
 In the afternoon, I work in a café. I serve coffee and food. I meet interesting people there. I finish work at 5 o'clock. I go home and relax. I watch TV or read a book. I go to bed at 11 o'clock.
 
 ### Вопросы к тексту 1:
+
 1. What time does Anna wake up?
 2. What does she do first in the morning?
 3. How does she go to the university?
@@ -18,6 +19,7 @@ In the afternoon, I work in a café. I serve coffee and food. I meet interesting
 7. What does she do in the evening?
 
 ### Слова из текста 1:
+
 - wake up — просыпаться
 - brush teeth — чистить зубы
 - take a shower — принимать душ
@@ -32,6 +34,7 @@ In the afternoon, I work in a café. I serve coffee and food. I meet interesting
 - go to bed — ложиться спать
 
 ### Ответы к тексту 1:
+
 1. She wakes up at 7 o'clock.
 2. She brushes her teeth and takes a shower.
 3. She goes to the university by bus.
@@ -53,6 +56,7 @@ My parents are not from London. They are from a small village near Oxford. My fa
 My best friends are Tom and Emma. Tom is a teacher, and Emma is a programmer. They are from my university. We are not colleagues — we are just great friends. On weekends we are usually together. We play football, have picnics and talk about everything. They are wonderful people, and I am happy that they are my friends.
 
 ### Вопросы к тексту 2:
+
 1. How old is David?
 2. Where is David from?
 3. What is Sarah's job?
@@ -63,6 +67,7 @@ My best friends are Tom and Emma. Tom is a teacher, and Emma is a programmer. Th
 8. Why is David happy about his friends?
 
 ### Слова из текста 2:
+
 - twenty-nine — двадцать девять
 - wife — жена
 - son — сын
@@ -83,6 +88,7 @@ My best friends are Tom and Emma. Tom is a teacher, and Emma is a programmer. Th
 - wonderful — замечательный
 
 ### Ответы к тексту 2:
+
 1. David is twenty-nine years old.
 2. He is from Oxford.
 3. Sarah is a doctor.
@@ -123,6 +129,7 @@ Mike smiles. "Hello, Susan! Nice to meet you. Where exactly are you from?"
 "Ha, that is what friends are for. Welcome to our school!" says Mike.
 
 ### Вопросы к тексту 3:
+
 1. Why is Mr Green happy on Monday morning?
 2. Where is Susan from?
 3. Who is the class captain?
@@ -133,6 +140,7 @@ Mike smiles. "Hello, Susan! Nice to meet you. Where exactly are you from?"
 8. Why does Mike say the school team needs Susan?
 
 ### Слова из текста 3:
+
 - pupil — ученик, ученица
 - classroom — класс (комната)
 - teacher — учитель
@@ -155,6 +163,7 @@ Mike smiles. "Hello, Susan! Nice to meet you. Where exactly are you from?"
 - friendly — дружелюбный
 
 ### Ответы к тексту 3:
+
 1. Because a new student is coming to his class.
 2. Susan is from Canada (from Toronto).
 3. The class captain is Mike.

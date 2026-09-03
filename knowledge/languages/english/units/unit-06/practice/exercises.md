@@ -57,7 +57,7 @@
 1. Summer is ___ (hot) than spring. → hotter
 2. Winter is the ___ (cold) season. → coldest
 3. The river is ___ (long) than the stream. → longer
-4. The ocean is ___ (big) than the sea. → bigger (more) 
+4. The ocean is ___ (big) than the sea. → bigger (more)
 5. Everest is the ___ (high) mountain. → highest
 6. Autumn is ___ (beautiful) than winter. → more beautiful
 7. This is the ___ (good) weather today. → best

@@ -13,6 +13,7 @@ Every morning I leave my house at 8 o'clock. There is a bus stop in front of my 
 Sometimes there is a traffic jam, and the bus is late. On sunny days I prefer to walk or ride my bicycle. It is good for my health and it is faster, because I don't wait for the bus. When I am in a hurry, I take a taxi, but it is expensive.
 
 ### Вопросы на понимание
+
 1. Where does Kate work?
 2. What is in front of Kate's building?
 3. Which bus does Kate take?
@@ -22,6 +23,7 @@ Sometimes there is a traffic jam, and the bus is late. On sunny days I prefer to
 7. When does Kate take a taxi?
 
 ### Ключевая лексика текста
+
 | Word | Перевод |
 |------|---------|
 | way | путь, дорога |
@@ -52,6 +54,7 @@ The metro is usually fast and convenient, but at rush hour it is very crowded. P
 You can buy a single ticket or a monthly pass. A monthly pass is cheaper if you travel every day. Many people use a transport card that works for the metro, buses and trams.
 
 ### Вопросы на понимание
+
 1. Why is the Moscow Metro famous?
 2. How many stations does it have?
 3. Why do tourists come to see the stations?
@@ -59,6 +62,7 @@ You can buy a single ticket or a monthly pass. A monthly pass is cheaper if you 
 5. What is better if you travel every day — a single ticket or a monthly pass?
 
 ### Ключевая лексика текста
+
 | Word | Перевод |
 |------|---------|
 | subway system | система метро |
@@ -83,6 +87,7 @@ If you don't want to walk, you can take bus number 7 or 12. The buses stop in fr
 The museum is open from 10 am to 6 pm every day. On Mondays there is a discount on tickets, but the museum is very busy. A single ticket costs 300 rubles, and students pay half price.
 
 ### Вопросы на понимание
+
 1. Where is the City Museum?
 2. What do you do after you cross the bridge?
 3. Which buses go to the museum?
@@ -90,6 +95,7 @@ The museum is open from 10 am to 6 pm every day. On Mondays there is a discount 
 5. When do students pay less for a ticket?
 
 ### Ключевая лексика текста
+
 | Word | Перевод |
 |------|---------|
 | museum | музей |

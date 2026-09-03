@@ -533,6 +533,7 @@ Hello, goodbye, please, thank you, yes, no, water, food, house, car, bus, school
 ## 8. Ресурсы для изучения
 
 ### Приложения
+
 - Duolingo — базовый курс
 - Elsa Speak — произношение
 - Memrise — словарный запас
@@ -540,11 +541,13 @@ Hello, goodbye, please, thank you, yes, no, water, food, house, car, bus, school
 - BBC Learning English — аудио и видео
 
 ### Книги
+
 - English Grammar in Use — Raymond Murphy
 - Oxford Word Skills
 - Cambridge English Grammar — полный справочник
 
 ### Подкасты и видео
+
 - BBC Learning English — ежедневные уроки
 - ESL Pod — диалоги для изучающих
 - 6 Minute English — короткие темы

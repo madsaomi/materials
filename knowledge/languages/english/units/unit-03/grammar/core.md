@@ -224,6 +224,7 @@ Did + you + go + to school?
 | How many (apples) | количество исчисляемого | A few. / Three. / Many. |
 
 ### Разбор
+
 - **How much is this?** — «Сколько это стоит?» (личное местоимение this в значении «это»).
 - **How much does it cost?** — то же, с глаголом cost (стоить).
 - **How much + неисчисляемое** — о количестве: *How much milk do you need?*
@@ -265,6 +266,7 @@ Did + you + go + to school?
 | Is there / Are there | вопрос | Is there a fitting room? |
 
 ### Схема
+
 ```
 There is/are + предмет + место
 There is  + a supermarket + near the station.

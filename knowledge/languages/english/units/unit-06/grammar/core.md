@@ -40,6 +40,7 @@ We use the Present Continuous to describe what the weather is doing **right now*
 | The clouds are moving. | Облака движутся. |
 
 **Form:** subject + am/is/are + verb-ing.
+
 - It **is raining** now.
 - The birds **are singing**.
 
@@ -57,6 +58,7 @@ We use the Present Continuous to describe what the weather is doing **right now*
 | always, often, usually, sometimes, never, every day, on Sundays, in summer | now, right now, at the moment, currently, today, this week, look!, listen! |
 
 **Examples:**
+
 - It **always rains** in November. (обычно)
 - It **is raining** at the moment. (сейчас)
 
@@ -71,6 +73,7 @@ We use **there is / there are** to say that something exists.
 | There is + uncountable noun | неисчисляемые | There is snow on the ground. |
 
 **Negative and Questions:**
+
 - There **isn't** a river near the village.
 - There **aren't** any bears here.
 - **Is there** a beach nearby? — Yes, there is.
@@ -94,6 +97,7 @@ We use comparatives to compare two things and superlatives to compare three or m
 | bad | worse | the worst |
 
 **Examples:**
+
 - Summer is **hotter than** spring.
 - Winter is **the coldest** season.
 - The Volga is **longer than** the Dnieper.
@@ -112,6 +116,7 @@ We use comparatives to compare two things and superlatives to compare three or m
 | until | up to a time | until spring, until next month |
 
 **Examples:**
+
 - I love walking **in** spring.
 - The snow falls **in** winter.
 - We worked **on** a rainy day.
@@ -129,6 +134,7 @@ We use **will** to make predictions about the future weather.
 | Will...? | Will it be sunny on Sunday? | Будет ли солнечно в воскресенье? |
 
 **Examples:**
+
 - The forecast says it **will be** sunny tomorrow.
 - It **will rain** in the afternoon.
 - It **won't be** cold tonight.
@@ -176,6 +182,7 @@ We use **will** to make predictions about the future weather.
 | the ___ is full of ... | the forest is full of animals |
 
 **Formation of weather adjectives from nouns:**
+
 - cloud → cloudy
 - rain → rainy
 - sun → sunny

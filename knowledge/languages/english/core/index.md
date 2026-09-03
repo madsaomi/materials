@@ -3,6 +3,7 @@
 ## Программа курса: 15 блоков
 
 ### Блок 01. Фонетика и произношение (15 часов)
+
 - Алфавит, звуки (phonemes), транскрипция IPA
 - Гласные: короткие (a, e, i, o, u) и длинные (ee, ai, oa, oo)
 - Согласные: p, b, t, d, k, g, f, v, th, s, z, sh, ch, m, n, l, r, w, y
@@ -10,6 +11,7 @@
 - Практика: минимальные пары (ship/sheep, bit/beat)
 
 ### Блок 02. Приветствия и базовая грамматика
+
 - Приветствия: Hello, Hi, Good morning, How are you?
 - Представление: My name is..., I'm from..., I'm...
 - Глагол to be: I am, You are, He/She is
@@ -17,71 +19,84 @@
 - Простые вопросы с вопросительными словами (What, Where, Who)
 
 ### Блок 03. Числа, счётные слова, покупки
+
 - Числа 1-100, порядковые (first, second, third...)
 - Счётные слова для предметов (a/an, some, many, few)
 - Покупки: How much is this?, I'd like..., Can I have...?
 - Цвета, размеры, описания предметов
 
 ### Блок 04. Семья и отношения
+
 - Члены семьи: father, mother, brother, sister, grandparents
 - Прилагательные для описания людей: tall, short, kind, funny
 - Глаголы: love, like, enjoy, prefer
 - Описание семьи и отношений
 
 ### Блок 05. Еда и напитки
+
 - Еда: breakfast, lunch, dinner; foods and drinks vocabulary
 - Заказ в ресторане: I'd like..., Can I have the menu?, The bill please
 - Вкусы: sweet, sour, salty, bitter, spicy
 - Культурные различия в питании
 
 ### Блок 06. Погода и природа
+
 - Погода: sunny, rainy, cloudy, snowy, windy
 - Времена года: spring, summer, autumn/fall, winter
 - Природа: mountains, rivers, forests, animals
 - Описание окружающей среды
 
 ### Блок 07. Город и транспорт
+
 - Город: buildings, streets, shops, schools
 - Транспорт: bus, train, subway, taxi, car, bicycle
 - Направления: left, right, straight ahead, near, far
 - Как добраться до места назначения
 
 ### Блок 08. Время и расписание
+
 - Время: hours, minutes, days of week, months
 - Расписание: plans, appointments, future tense (will, going to)
 - Планирование дня и недели
 
 ### Блок 09. Спорт и здоровье
+
 - Спорт: running, swimming, football, basketball, tennis
 - Здоровье: doctor, hospital, medicine, symptoms
 - Описание физического состояния
 
 ### Блок 10. Работа и профессии
+
 - Профессии: teacher, doctor, engineer, manager, worker
 - Офисная лексика: meeting, report, project, deadline
 - Карьера: goals, skills, resume, interview
 
 ### Блок 11. Путешествия и туризм
+
 - Путешествия: flight, hotel, reservation, passport
 - Туризм: sightseeing, museum, guide, map
 - Описание поездок и впечатлений
 
 ### Блок 12. Культура и искусство
+
 - Искусство: painting, music, film, theatre, literature
 - Культура: traditions, festivals, customs
 - Философия культуры англоязычных стран
 
 ### Блок 13. Технологии и интернет
+
 - Компьютеры: computer, software, internet, application
 - Интернет-сленг: meme, viral, stream, post
 - Цифровая культура и коммуникация
 
 ### Блок 14. История и география англоязычных стран
+
 - История: UK, USA, Canada, Australia, New Zealand
 - География: major cities, rivers, mountains
 - Современные международные отношения
 
 ### Блок 15. Итоговый экзамен и мастерство
+
 - Повторение всех блоков
 - Пробные тесты по грамматике, словарному запасу, чтению
 - Устный экзамен и презентация
@@ -250,8 +265,10 @@
 
 - Используй Anki из раздела «Другое/Инструменты» для интервального повторения карточек
   с новой лексикой. Ежедневная сессия 10–15 минут заменяет забывание.
+
 - Мнемотехника из раздела «Память/Мнемоника» помогает запоминать трудные слова:
   тридицать регулярных неправильных глаголов — отлично поддаются визуальным ассоциациям.
+
 - Связывай новые английские слова с уже известными образами из мнемотехнических цепочек
   родного языка — так запоминание становится в 2–3 раза быстрее.
 

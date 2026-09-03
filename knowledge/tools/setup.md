@@ -45,7 +45,7 @@ knowledge/
 | **Templater** | Шаблоны для новых заметок |
 | **Quick Add** | Быстрое добавление записей |
 | **Excalidraw** | Рисование диаграмм и схем |
-| **Kanban** | Доски для планирования | 
+| **Kanban** | Доски для планирования |
 | **Calendar** | Ежедневные заметки |
 | **Spaced Repetition** | SRS повторение (Anki в Obsidian) |
 | **Obsidian Git** | Автоматический commit/push по расписанию |
@@ -56,6 +56,7 @@ knowledge/
 ### 1.4 Шаблоны
 
 **Шаблон для заметки о книге (Templater):**
+
 ```markdown
 ---
 created: <% tp.date.now() %>
@@ -69,17 +70,15 @@ tags: book
 
 ## О чём книга
 
-
 ## Ключевые идеи
 
-
 ## Цитаты
-
 
 ## Рецензия
 ```
 
 **Шаблон для языковой заметки:**
+
 ```markdown
 ---
 created: <% tp.date.now() %>
@@ -165,6 +164,7 @@ git push
 ```
 
 **Cron (ежедневно в 20:00):**
+
 ```cron
 0 20 * * * /path/to/daily-sync.sh
 ```
@@ -206,6 +206,7 @@ git checkout -- path/to/file.md
 ### 4.2 Теги
 
 Рекомендуемая система тегов:
+
 - `#language/japanese`, `#language/chinese`, `#language/korean`
 - `#programming/python`, `#programming/go`, `#programming/javascript`
 - `#philosophy/eastern`, `#philosophy/western`
@@ -216,6 +217,7 @@ git checkout -- path/to/file.md
 ### 4.3 MOC (Map of Content)
 
 Главная `knowledge/index.md` — точка входа:
+
 ```markdown
 # База знаний
 
@@ -326,6 +328,7 @@ tar -czf knowledge-backup-$(date +%Y%m%d).tar.gz knowledge/
 | **Linux (Ubuntu/Debian)** | ISO → USB (Rufus / balenaEtcher) | LUKS-шифрование на этапе разметки диска. Выбрать демон-сетевой (networkd) |
 
 Первое после установки системы:
+
 1. Обновить систему (Windows Update / `sudo apt update && sudo apt upgrade -y`)
 2. Включить шифрование диска (BitLocker / FileVault / LUKS)
 3. Настроить учётку (без microsoft-зависимостей, если можно)
@@ -416,18 +419,22 @@ ssh -T git@github.com
 Рекомендации по управлению версиями:
 
 - **Python**: никогда не ставить глобально пакеты через pip. Всегда виртуальное окружение:
+
   ```bash
   python -m venv .venv
   source .venv/bin/activate      # Linux/macOS
   .venv\Scripts\activate         # Windows (PowerShell)
   pip install -U pip
   ```
+
 - **Node**: использовать `nvm` (node version manager) — переключение версий:
+
   ```bash
   nvm install --lts
   nvm use --lts
   npm i -g pnpm   # pnpm быстрее npm
   ```
+
 - **Rust**: обновление через `rustup update` (не вручную!)
 - **Go**: менеджер версий не обязателен — `go install golang.org/dl/go1.22.0@latest` если нужно несколько версий
 
@@ -479,6 +486,7 @@ winget install jqlang.jq BurntSushi.ripgrep.MSVC sharkdp.fd cli.github.cli xterm
 ### 9.1 Настройка репозитория на GitHub
 
 **Через CLI (`gh`):**
+
 ```bash
 mkdir my-project && cd my-project
 git init
@@ -489,6 +497,7 @@ gh repo create my-project --public --source . --push
 ```
 
 **Через веб-интерфейс:**
+
 1. New repository → имя, описание, License/README/.gitignore сразу при создании
 2. `git remote add origin git@github.com:USER/my-project.git`
 3. `git add -A && git commit -m "init" && git push -u origin main`
@@ -504,14 +513,19 @@ gh repo create my-project --public --source . --push
 
 ## Установка
 ```bash
+
 # команды, чтобы поставить
 pnpm install
+
 ```
 
 ## Использование
 ```bash
+
 pnpm dev
+
 # открыть http://localhost:3000
+
 ```
 
 ## Структура
@@ -664,6 +678,7 @@ ssh user@server "sudo systemctl restart app"
 Anki = карточки с интервальным повторением (SRS). Ставится на все ОС, синхронизация через AnkiWeb.
 
 **Важные настройки (Tools → Preferences):**
+
 - **Daily new cards limit**: 20 для языка — много, 10 — норм, 5 — спокойный темп
 - **Maximum reviews/day**: 200 (чтобы не копить долги)
 - Включить **FSRS-планировщик** (новый алгоритм интервалов, точнее классического)
@@ -694,11 +709,13 @@ Anki = карточки с интервальным повторением (SRS)
 | Maximum interval | 365 дней | не уводить в бесконечность |
 
 Расписание при новых карточках:
+
 - Начальный интервал: **1 день** (покажи завтра)
 - После успеха: 1 → 3 → 8 → 20 → 50 → 90 → 180 → 365 (примерно)
 - FSRS подстраивает интервалы под твою статистику автоматически
 
 Правила здоровой работы:
+
 - Интервалы **не трогать** каждый день; конфигурация меняется редко
 - Если тонешь в долгах — снижай *new cards*, а не убегай от реviews
 - Пропущенный день ≠ катастрофа: FSRS сам «скостит» просроченное
@@ -718,11 +735,13 @@ Anki = карточки с интервальным повторением (SRS)
 ### 10.4 LingQ / Immersion
 
 **LingQ** — платформа иммерсийного чтения/аудирования:
+
 - Импортируешь тексты (статьи, субтитры, книги), читаешь и кликаешь незнакомые слова
 - Слова становятся «линками» — LingQ ведёт словарь, показывает их по мере накопления
 - Режим **SRS** в LingQ можно отключить, если карточки делаешь в Anki
 
 **Immersion (AJATT-подход):**
+
 ```
 Иммерсия = простое потребление понятного контента
   1. Контент (YouTube, Netflix, манга) — бо́льшая часть
@@ -731,6 +750,7 @@ Anki = карточки с интервальным повторением (SRS)
 ```
 
 Советы:
+
 - **Anki** — только узнавание (распознавание) слова, а не «сделай перевод»
 - Майнкрафт правил: 70% иммерсии на уровень чуть выше текущего, чтобы непрестанно пересекаться с уже знакомым?
 - 🔁 Связь: новые слова из LingQ → экспорт в Anki (через AnkiConnect или вручную) → контекст остаётся в заметках базы
@@ -798,6 +818,7 @@ tags:
 ```
 
 Принципы:
+
 - Все шаблоны в одной папке `_templates/`, чтобы базу не мусорить
 - Frontmatter обязателен: по нему строятся Dataview-запросы
 - Global-hotkey «Empty note» (Ctrl+N) — простая заметка без шаблона
@@ -847,6 +868,7 @@ tags:
 ### 12.1 Резервные копии
 
 База в Git = бэкап **истории** (все версии файлов). Но Git не спасает от:
+
 - потери всех веток сразу (rar-фейл локального диска)
 - удаления приватного репозитория
 - ошибочного `git push --force`
@@ -891,6 +913,7 @@ rsync -av --delete ~/knowledge/ /backup/knowledge/
 | Linux | **LUKS** | при установке ОС; включить уже после — сложнее |
 
 Правила:
+
 - Включить **сразу** после установки системы
 - Ключ/пароль от шифрования — записать в менеджер паролей или бумагу (не в файл репо!)
 - BitLocker recovery key — сохранить в аккаунте Microsoft **и** отдельно
@@ -904,6 +927,7 @@ rsync -av --delete ~/knowledge/ /backup/knowledge/
 | Если всё в экосистеме Apple | Sierra в iCloud Keychain | встроено, не нужен VPN-пароль для всего |
 
 Практика:
+
 - Уникальный пароль на каждую площадку (менеджер сам предлагает 20+ символов)
 - Master-пароль — самый длинный и запоминаемый, менять не нужно часто
 - Менеджер хранит: логины, ключи API, бэкап-пароль, recovery keys
@@ -921,11 +945,13 @@ rsync -av --delete ~/knowledge/ /backup/knowledge/
 ### 12.6 VPN 🛡️
 
 Зачем нужен именно тебе:
+
 - публичный Wi-Fi (кофейни, поезда) — защита от перехвата
 - обход геоблокировки при иммерсии (когда хочется смотреть контент из другой страны — анон VPN-провайдеры хорошо справляются)
 - скрытие IP от универсальной рекламы
 
 Выбор:
+
 | Фактор | Критерий |
 |--------|----------|
 | Логи | не хранить логи — принципальный пункт |
@@ -987,6 +1013,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ### 13.3 cron / планировщик задач ⏰
 
 **Linux/macOS — cron:**
+
 ```cron
 # минута час день месяц день_недели  команда
 0 20 * * * ~/.local/bin/daily-sync.sh      # каждый день в 20:00
@@ -995,6 +1022,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
 **Windows — Планировщик задач (Task Scheduler):**
+
 1. Создать задачу → запускать по расписанию
 2. Действие: `powershell.exe -File C:\scripts\daily-sync.ps1`
 3. Триггер: ежедневно в 20:00
@@ -1069,6 +1097,7 @@ gh --version
 ```
 
 Что считается «ок»:
+
 - Go: `go version` показывает версию без предупреждений
 - Python ≥ 3.11 (3.12 — текущий LTS-уровень)
 - Node ≥ 20 (LTS)
@@ -1115,6 +1144,7 @@ node -e "console.log('ok')"
 Проблема: `Ctrl+P` в Obsidian открывает не палитру, а встроенный поиск (или наоборот).
 
 Решение:
+
 - Палитра команд: Настройки → Горячие клавиши → найти команды
 - Конфликт обычно с VSCode-плагином или системой; поменять хоткей на свой
 - Проверить, не перехватывает ли системный «универсальный» хоткей (например, в Windows некоторые глобальные комбинации зарезервированы)
@@ -1124,6 +1154,7 @@ node -e "console.log('ok')"
 Симптом: `python`, `code` или `winget` не находится.
 
 Диагностика:
+
 ```bash
 # что прописано в PATH (Windows)
 echo $env:PATH
@@ -1135,6 +1166,7 @@ which python      # macOS/Linux
 ```
 
 Решение:
+
 - Windows: «Переменные среды» → добавить путь; **после правки перезапустить терминал**
 - macOS: добавить `export PATH="$HOME/...:$PATH"` в `~/.zshrc`
 - Python на Windows: галка «Add Python to PATH» при установке; если пропустил — использовать полный путь `C:\Users\<user>\AppData\Local\Programs\Python\Python312\python.exe`
@@ -1146,6 +1178,7 @@ which python      # macOS/Linux
 Симптом: всё работает в браузере, но `curl`/`git`/`npm` не тянут.
 
 Диагностика:
+
 ```bash
 curl -v https://example.com
 git config --global --get http.proxy
@@ -1154,6 +1187,7 @@ $env:HTTP_PROXY       # Windows
 ```
 
 Решение:
+
 - Если корпоративный/локальный прокси: прописать в конфиге пакетного менеджера (`.npmrc` — `proxy=`, `HOME/.gitconfig` — `[http] proxy=`)
 - Если прокси не должен быть: очистить переменные `HTTP_PROXY`/`HTTPS_PROXY`, отключить системный прокси в настройках
 - Git: `git config --global --unset http.proxy` (и ловить ошибку `SSL certificate problem` — см. ниже, но лучше не «выключать проверку», а починить сертификаты)
@@ -1163,6 +1197,7 @@ $env:HTTP_PROXY       # Windows
 Проблема: `npm install` падает, или `pip install` ставит старые версии.
 
 Решение:
+
 ```bash
 # Node — обнулить и поставить заново
 rm -rf node_modules package-lock.json

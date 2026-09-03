@@ -42,6 +42,7 @@
 5. I'd like a ___ , please. Here is your receipt.
 
 **Ключ:** 1) seven, thirteen, twenty-two, forty-five, one hundred.
+
 2) 1. much 2. discount (или receipt/change по контексту — правильный ответ: reduction) 3. size 4. cash 5. bag (или receipt — оба допустимы по смыслу).
 
 ---
@@ -133,6 +134,7 @@
 4. ___ night
 
 **Ключ:** 1) seven o'clock, half past eight, a quarter past ten, a quarter to twelve.
+
 2) свободный ответ с will/going to/Continuous. 3) 1. on 2. at 3. in 4. at.
 
 ---
@@ -167,6 +169,7 @@
 **Задание 2.** Заполни резюме: I am a ___ (профессия) with 5 years of ___ (опыт). My strongest ___ (навыки) are teamwork and English. I would like to get a ___ (повышение).
 
 **Ключ:** 1) teacher–teaches students, doctor–treats patients, engineer–designs buildings, manager–leads a team, worker–operates machines.
+
 2) model: I am an engineer with 5 years of experience. My strongest skills are teamwork and English. I would like to get a promotion.
 
 ---
@@ -193,6 +196,7 @@
 **Задание 4.** География: напиши 2 факта о любой англоязычной стране (UK, USA, Canada, Australia, New Zealand).
 
 **Ключ:** 1) passport; pass; pieces; departure.
+
 2) 1. tradition 2. festival 3. painting 4. ceremony 5. heritage.
 3) The video went viral, and millions of users watched it.
 4) свободный ответ (по материалу блока 14).

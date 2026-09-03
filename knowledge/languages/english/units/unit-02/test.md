@@ -84,6 +84,7 @@
 | 9 | A | 18 | (перевод) | 27 | B | 36 | A | 45 | B |
 
 ### Ответы на перевод (задания 16-20):
+
 - 16: I eat breakfast.
 - 17: She reads a book.
 - 18: We play football.

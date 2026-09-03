@@ -59,6 +59,7 @@ exactly why I am learning this unit now!
 о технологиях и учит английский, чтобы стать тимлидом.
 
 ---
+
 ---
 
 ## Текст 2: Как устроиться на работу (How to Get a Job)
@@ -123,6 +124,7 @@ conditions. Remember — the first offer is often not the last one!
 интервью; 6) не спешить принимать оффер и вежливо обсуждать условия.
 
 ---
+
 ---
 
 ## Текст 3: Смена карьеры (Changing Careers: From Teacher to Project Manager)

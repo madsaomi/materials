@@ -196,6 +196,7 @@ A(는/이가) B보다 더 + Прилагательное
 <summary>Ответы</summary>
 
 ### Задание 1
+
 1. 사과가 바나나보다 비싸요. (Sagwaga bananaboda bissayo.)
 2. 서울이 부산보다 커요. (Seouri Busanboda keoyo.)
 3. 이 것이 저것보다 좋아요. (I geos-i jeogeotboda joayo.)
@@ -204,6 +205,7 @@ A(는/이가) B보다 더 + Прилагательное
 6. 나는 너보다 키가 커요. (Neoneun neoboda ki-ga keoyo.)
 
 ### Задание 2
+
 1. 사과가 바나나보다 더 비싸요.
 2. 서울이 부산보다 더 커요.
 3. 이 영화가 저 영화보다 더 재미있어요.
@@ -211,6 +213,7 @@ A(는/이가) B보다 더 + Прилагательное
 5. 여름이 겨울보다 더 더워요.
 
 ### Задание 3
+
 1. 제일 비싸요 (jeol bissayo)
 2. 제일 맛있어요 (jeol masisseoyo)
 3. 제일 커요 (jeol keoyo)
@@ -218,6 +221,7 @@ A(는/이가) B보다 더 + Прилагательное
 5. 제일 재미있어요 (jeol jaemiisseoyo)
 
 ### Задание 4
+
 1. 사과가 바나나보다 비싸요. (Sagwaga bananaboda bissayo.)
 2. 이 영화가 저 영화보다 재미있어요. (I yeonghwa-ga jeo yeonghwa-boda jaemiisseoyo.)
 3. 이게 제일 비싼 식당이에요. (Ige jeol bissan sigdang-ieyo.)
@@ -226,6 +230,7 @@ A(는/이가) B보다 더 + Прилагательное
 6. 이게 제일 쉬운 시험이에요. (Ige jeol swiun siheom-ieyo.)
 
 ### Задание 5
+
 1. 어려워요 (eoryeowoyo)
 2. 비싸요 (bissayo)
 3. 커요 (keoyo)

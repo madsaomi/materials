@@ -601,6 +601,7 @@ func main() {
 ```
 
 Как это устроено:
+
 - `hub.run()` — единственный владелец `clients`, поэтому гонок нет в принципе;
 - клиент пишет в **свой** `outbox`, а writer-горутина отправляет в сокет;
 - `leave`-канал с чистой ликвидацией: закрываем `outbox`, удаляем из карты.
@@ -610,6 +611,7 @@ func main() {
 ## 3. Типичные ошибки
 
 **1. Присыпать конец main `time.Sleep` вместо синхронизации.**
+
 ```go
 go work()          // программа может завершиться мгновенно
 time.Sleep(1 * time.Second) // ненадёжно!
@@ -617,12 +619,14 @@ time.Sleep(1 * time.Second) // ненадёжно!
 ```
 
 **2. `WaitGroup.Add` внутри горутины.**
+
 ```go
 wg.Add(1)          // должно быть ДО go
 go func() { defer wg.Done(); work() }()
 ```
 
 **3. Гонка данных при инкременте счётчика.**
+
 ```go
 counter++ // из 100 горутин → потери апдейтов
 // Правильно: sync.Mutex, atomic
@@ -630,6 +634,7 @@ counter++ // из 100 горутин → потери апдейтов
 ```
 
 **4. Захват переменной цикла замыканием.**
+
 ```go
 for _, u := range urls {
     go func() { fetch(u) }() // все возьмут последний u
@@ -638,6 +643,7 @@ for _, u := range urls {
 ```
 
 **5. Отправка в канал, который закрывает другой отправитель → panic.**
+
 ```go
 go func() { ch <- 1 }()
 go func() { ch <- 2; close(ch) }() // первая отправка упадёт в закрытый
@@ -648,6 +654,7 @@ go func() { ch <- 2; close(ch) }() // первая отправка упадёт
 тогда `range` висит вечно.
 
 **7. `select` с блокирующим default пропускает события.**
+
 ```go
 select {
 case v := <-ch:  // при default выбирается мгновенно, чансы упустить — 1/N
@@ -657,30 +664,35 @@ default:
 ```
 
 **8. Забыть `defer resp.Body.Close()` — утечка соединений.**
+
 ```go
 resp, _ := http.Get(url)
 defer resp.Body.Close() // обязательно! иначе пул соединений исчерпается
 ```
 
 **9. Игнорирование `err` при JSON-Decode.**
+
 ```go
 json.NewDecoder(r.Body).Decode(&req) // пустой body → zero-value, молча
 if err := ...; err != nil { http.Error(w, "bad request", 400); return }
 ```
 
 **10. `WriteHeader` после `Write` — молча игнорируется/даёт лишнее.**
+
 ```go
 w.Write([]byte("ok"))
 w.WriteHeader(201) // код НЕ применится
 ```
 
 **11. Копирование `sync.Mutex`.**
+
 ```go
 func f(m sync.Mutex) { ... } // копия: защита теряется
 // Правильно: f(m *sync.Mutex)
 ```
 
 **12. Опустошение `default` в `select` внутри цикла — печатает «спин» на 100% CPU.**
+
 ```go
 for {
     select {
@@ -691,12 +703,14 @@ for {
 ```
 
 **13. Отправка в небуферизированный канал из main без получателя → дедлок-паника**
+
 ```go
 ch := make(chan int)
 ch <- 1 // fatal error: all goroutines are asleep - deadlock!
 ```
 
 **14. `close` канала дважды.**
+
 ```go
 close(ch)
 close(ch) // panic: close of closed channel
@@ -704,6 +718,7 @@ close(ch) // panic: close of closed channel
 ```
 
 **15. Не закрывать канал результата в пайплайне — потребитель ждёт вечно.**
+
 ```go
 func stage(in <-chan int) <-chan int {
     out := make(chan int)
@@ -716,6 +731,7 @@ func stage(in <-chan int) <-chan int {
 ```
 
 **16. HTTP `ListenAndServe` без обработки ошибки.**
+
 ```go
 log.Fatal(http.ListenAndServe(":8080", mux)) // видим порт занят/нет прав
 ```

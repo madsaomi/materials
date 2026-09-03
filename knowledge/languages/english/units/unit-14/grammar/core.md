@@ -52,6 +52,7 @@
 | write | wrote | писать |
 
 ### Примеры
+
 - The colonists **fought** for their freedom. (Колонисты сражались за свою свободу.)
 - Parliament **made** new laws in the 19th century. (Парламент принял новые законы в XIX веке.)
 - James Cook **sailed** to Australia in 1770. (Джеймс Кук приплыл в Австралию в 1770 году.)
@@ -76,9 +77,11 @@
 | While he **was preparing** the speech, the telephone rang. | Пока он готовил речь, зазвонил телефон. |
 
 ### Оба действия одновременно (while + оба Past Continuous)
+
 - While the explorers **were crossing** the desert, their guides **were preparing** food for the evening.
 
 ### Past Continuous — фон и описание
+
 - In 1776 the colonies **were growing** quickly. (В 1776 году колонии быстро росли — фоновая характеристика.)
 
 ---
@@ -109,6 +112,7 @@
 | Географические регионы: the South, the North, the West | They travelled to the West in search of gold. |
 
 ### Запомните!
+
 - **The USA** и **the UK** всегда с артиклем the.
 - Исключение: **the Hague**, но **Paris**, **Sydney** — без артикля.
 - С прилагательными и маленькими известными словами: **dos shore** не употребляйте the в выражениях «by sea», «at sea».
@@ -136,9 +140,11 @@
 | They will build a new museum. | A new museum **will be built**. |
 
 ### Частые глаголы в пассиве об истории
+
 - was founded (было основано), was built (было построено), was signed (было подписано), was declared (было объявлено), was discovered (было открыто), was settled (было заселено), was established (было учреждено), was destroyed (было разрушено).
 
 ### Кто совершил действие — by
+
 - The Declaration of Independence was written **by** Thomas Jefferson.
 - The city was founded **by** convict settlers.
 
@@ -212,6 +218,7 @@
 | New York is **more populous than** Wellington. | Нью-Йорк более населён, чем Веллингтон. |
 
 ### as ... as / not as ... as
+
 - The Thames is **not as long as** the Mississippi. (Темза не такая длинная, как Миссисипи.)
 - Canada is **as big as**... (на самом деле нет!) — сравнивайте корректно: Canada is nearly **as big as** Russia's neighbour.
 
@@ -232,6 +239,7 @@
 | a great deal of | много (неисчисл., формально) | A great deal of money was spent on the railway. |
 
 ### Ошибки русских учеников
+
 - ❌ much people → ✅ many people
 - ❌ many water/informacja → ✅ a lot of water, a lot of information
 - ❌ a few water → ✅ a little water
@@ -278,6 +286,7 @@
 - Every summer they **would visit** the coast.
 
 ### Важно!
+
 - **used to** можно употреблять со состояниями (used to live, used to be).
 - **would** нельзя с состояниями: ❌ I would live — ✅ I used to live.
 
@@ -294,6 +303,7 @@
 | irregular | France → French, Greece → Greek, Netherlands → Dutch, New Zealand → New Zealander | The French culture |
 
 ### Жители страны (существительное)
+
 - the + nationality: **the Americans**, **the Canadians**, **the Australians**.
 - Особые формы: the British, the English, the French, the Dutch.
 
@@ -319,6 +329,7 @@
 | to / from | движение | fly to Australia, come from New Zealand |
 
 ### Примеры
+
 - Sydney is **on** the east coast **of** Australia.
 - Ottawa lies **on** the Ottawa River.
 - Houses in San Francisco stand **on** steep hills.

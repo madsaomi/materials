@@ -123,6 +123,7 @@
 ## Часть 15: Материалы и цвета — сопоставьте
 
 Сопоставьте:
+
 71. leather — a) хлопок → b
 72. silk — b) кожа → a (71→b: leather is кожа — b is кожа; please check note)
 73. cotton — c) шёлк → a

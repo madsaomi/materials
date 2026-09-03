@@ -13,6 +13,7 @@ Some people are vegetarians. They don't eat meat. Some people are vegans. They d
 Eating healthy doesn't mean you can't enjoy your food. You can still have desserts and snacks in moderation. The key is balance and variety.
 
 ### Вопросы к тексту 1:
+
 1. Why is eating healthy important?
 2. How many portions of fruits and vegetables should we eat?
 3. What should a good breakfast include?
@@ -22,6 +23,7 @@ Eating healthy doesn't mean you can't enjoy your food. You can still have desser
 7. What is the key to a healthy diet?
 
 ### Слова из текста 1:
+
 - balanced — сбалансированный
 - portion — порция
 - grain — зерно
@@ -52,6 +54,7 @@ In Italy, you do not order a cappuccino after dinner — Italians drink coffee l
 When you travel, it is useful to know these little rules. They help you feel comfortable and show respect for the local culture.
 
 ### Вопросы к тексту 2:
+
 1. What do American customers usually do after a meal?
 2. What does «Itadakimasu» mean?
 3. Why shouldn't you stick chopsticks upright in a bowl of rice?
@@ -62,6 +65,7 @@ When you travel, it is useful to know these little rules. They help you feel com
 8. Why is it useful to know local food rules when you travel?
 
 ### Слова из текста 2:
+
 - customs — обычаи
 - tip — чаевые
 - per cent — процент
@@ -90,6 +94,7 @@ Mexican food is spicy and colourful — tacos, burritos, and guacamole, and peop
 Food brings people together. When you try a new cuisine, you learn something new about a country. Travelling is not only about places — it is also about taste.
 
 ### Вопросы к тексту 3:
+
 1. What is Italian cuisine famous for?
 2. How does a traditional Italian meal start?
 3. What is French cuisine known for?
@@ -99,6 +104,7 @@ Food brings people together. When you try a new cuisine, you learn something new
 7. What does the author say about food and travelling?
 
 ### Слова из текста 3:
+
 - cuisine — кухня (национальная)
 - climate — климат
 - famous for — известный чем-то
@@ -117,6 +123,7 @@ Food brings people together. When you try a new cuisine, you learn something new
 ## Ключи к вопросам (краткие ответы)
 
 ### Текст 1 — A Healthy Diet
+
 1. It gives us energy and keeps our bodies healthy.
 2. Five portions a day.
 3. Whole grain cereal, milk, fruit, and maybe some eggs.
@@ -126,6 +133,7 @@ Food brings people together. When you try a new cuisine, you learn something new
 7. Balance and variety.
 
 ### Текст 2 — Eating Out Around the World
+
 1. They leave a tip of 15–20 per cent.
 2. «I receive this food».
 3. Because it is not polite.
@@ -136,6 +144,7 @@ Food brings people together. When you try a new cuisine, you learn something new
 8. It helps you feel comfortable and show respect for the local culture.
 
 ### Текст 3 — Cuisines of the World
+
 1. Pasta, pizza, and risotto.
 2. With antipasti (appetizers).
 3. Sauces, cheese, and pastries.

@@ -20,6 +20,7 @@
 10. We declared nothing at ___.
 
 ### Ответы
+
 1. passport · 2. gate · 3. security check · 4. delay · 5. suitcase · 6. boarding pass · 7. hotel · 8. ticket · 9. map · 10. customs
 
 ---
@@ -40,6 +41,7 @@
 10. The trip (cost) ___ a lot of money.
 
 ### Ответы
+
 1. went · 2. booked · 3. took off · 4. slept · 5. visited · 6. lost · 7. told · 8. bought · 9. drove · 10. cost
 
 ---
@@ -60,6 +62,7 @@
 10. The plane ___ on time last Monday. (landed / has landed)
 
 ### Ответы
+
 1. went · 2. Have you ever been · 3. saw · 4. has packed · 5. missed · 6. Have you ever travelled · 7. has never travelled · 8. arrived · 9. have just bought · 10. landed
 
 ---
@@ -78,6 +81,7 @@
 8. She wants to visit Rome but she ___ ___ there yet. (hasn't been / hasn't gone)
 
 ### Ответы
+
 1. has gone (уехала и не вернулась) · 2. have been (опыт) · 3. went (конкретное прошлое) · 4. has gone (уехал) · 5. went (регулярно в прошлом) · 6. been (опыт) · 7. have gone (ушли на площадь, их нет) · 8. hasn't been (никогда там не была)
 
 ---
@@ -96,6 +100,7 @@
 8. He works ___ a travel agency.
 
 ### Ответы
+
 1. in, on · 2. at · 3. on · 4. on · 5. in, in · 6. in, at · 7. on · 8. at
 
 ---
@@ -114,6 +119,7 @@
 8. He took the suitcase ___ of the car.
 
 ### Ответы
+
 1. to · 2. into · 3. through · 4. across · 5. from... to · 6. along · 7. towards · 8. out
 
 ---
@@ -152,6 +158,7 @@
 8. Он уехал в Лондон и ещё не вернулся.
 
 ### Ответы
+
 1. I have been to Egypt twice.
 2. We didn't miss our flight.
 3. Have you ever been to Paris?
@@ -175,6 +182,7 @@
 6. ___? — We saw the Colosseum and the Forum.
 
 ### Ответы
+
 1. Where did you go? · 2. How did you get there? · 3. How long did you stay? · 4. Did you enjoy the trip? / How was the trip? · 5. Have you ever been to Japan? · 6. What did you see?
 
 ---
@@ -193,6 +201,7 @@
 8. I have never went on a cruise.
 
 ### Ответы
+
 1. went (She went to Barcelona last week.)
 2. I went to Berlin in 2020. (Past Simple с датой)
 3. We travelled on foot around the city.
@@ -237,6 +246,7 @@ A (приветствие) → B (просьба данных) → E (паспо
 > Last summer I went to Saint Petersburg. I got there by train. We stayed at a hotel near the Nevsky Prospect. Every day we went sightseeing: we visited the Hermitage, walked around the Summer Garden and took a boat trip along the canals. The weather was beautiful, and the architecture was amazing. I really enjoyed the trip. I would love to go back again one day.
 
 ### Чек-лист для самопроверки
+
 - [ ] Использованы Past Simple и Past Continuous.
 - [ ] Есть хотя бы один вопрос (а для рассказа — 2–3).
 - [ ] Предлоги by/on/in использованы верно.

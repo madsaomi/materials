@@ -209,6 +209,7 @@ at noon     |   in summer |   on my birthday
 | Краткий ответ | Yes, I will. / No, I won't. | Да. / Нет. |
 
 ### Примеры
+
 - The meeting **will finish** at 5. (Собрание закончится в 5.)
 - I'm hungry. I **'ll make** a snack. (Я голоден. Я сделаю перекус.) — спонтанно
 - **Will** you **help** me later? (Ты поможешь мне позже?)
@@ -246,6 +247,7 @@ at noon     |   in summer |   on my birthday
 | Вопрос | **Are** you going to go? | Ты собираешься идти? |
 
 ### Примеры
+
 - I **'m going to** see the doctor at 4 p.m. (Я записан к врачу на 4.) — план
 - Look at the clouds! It **'s going to** rain. (Посмотри на облака! Сейчас пойдёт дождь.) — доказательство
 - **Are** we **going to** meet on Friday? (Мы встретимся в пятницу?)
@@ -307,6 +309,7 @@ at noon     |   in summer |   on my birthday
 | Вопрос | **Are** you **coming** on Sunday? | Ты придёшь в воскресенье? |
 
 ### Примеры
+
 - We **'re having** dinner at 7:30. (Мы ужинаем в 7:30.)
 - The train **is leaving** at 9 a.m. (Поезд отправляется в 9 утра.)
 - I **'m seeing** the dentist on Thursday. (Я иду к стоматологу в четверг.)
@@ -374,6 +377,7 @@ at noon     |   in summer |   on my birthday
 | until + время | I work until 6. | Я работаю до 6. |
 
 ### Примеры диалоговых фраз
+
 - **Are you free** on Monday? (Ты свободен в понедельник?)
 - Let's **meet at** the café **at** 4. (Давай встретимся в кафе в 4.)
 - I **can't** — I have an appointment. (Не могу — у меня встреча.)

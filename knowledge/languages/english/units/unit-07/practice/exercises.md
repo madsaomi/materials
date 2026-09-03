@@ -35,6 +35,7 @@
 ## Упражнение 3: Составьте маршрут (поставьте команды в правильный порядок)
 
 Расставьте шаги, чтобы получился маршрут от вокзала до музея:
+
 1. Turn left at the traffic light.
 2. Go straight for two blocks.
 3. Walk out of the station.
@@ -54,6 +55,7 @@
 6. Сколько времени занимает поездка до аэропорта?
 
 **Ответы:**
+
 1. Get on the bus.
 2. Get off at the next stop.
 3. The museum is opposite the park.
@@ -149,6 +151,7 @@
 5. bus / the / at / stop / Get off / next.
 
 **Ответы:**
+
 1. I go to work by metro.
 2. The journey takes half an hour.
 3. The museum is opposite the park.

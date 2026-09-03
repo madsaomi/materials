@@ -20,6 +20,7 @@
 | 2:50 | ___ |
 
 ### Ответы:
+
 1. 2:00 — two o'clock
 2. 2:15 — a quarter past two
 3. 2:30 — half past two
@@ -45,6 +46,7 @@
 10. Let's meet ___ noon.
 
 ### Ответы:
+
 1. in June
 2. at 7 o'clock
 3. on Monday
@@ -70,6 +72,7 @@
 6. I feel tired. I think I ___ (will / am going to) go to bed.
 
 ### Ответы:
+
 1. is going to (очевидные признаки — тучи)
 2. am going to (решено заранее)
 3. will (спонтанное решение)
@@ -88,6 +91,7 @@
 5. Поезд отправляется в 8 утра.
 
 ### Ответы:
+
 1. What time is it?
 2. It's half past two.
 3. I have a meeting at 5 o'clock.
@@ -111,6 +115,7 @@
 | 7 | воскресенье | ___ |
 
 ### Ответы:
+
 1. Monday
 2. Tuesday
 3. Wednesday
@@ -133,6 +138,7 @@
 6. J_n_ (июнь)
 
 ### Ответы:
+
 1. January
 2. February
 3. March
@@ -154,6 +160,7 @@
 6. 7:55 → ___
 
 ### Ответы:
+
 1. nine o'clock
 2. a quarter past nine
 3. half past nine
@@ -174,6 +181,7 @@
 5. There is a one-hour ___ because of the weather.
 
 ### Ответы:
+
 1. appointment
 2. deadline
 3. schedule
@@ -192,6 +200,7 @@
 4. They leave tomorrow. → They ___ tomorrow.
 
 ### Ответы:
+
 1. I'm meeting my friend at 6.
 2. We're having dinner at 7:30.
 3. She's arriving at noon.
@@ -210,6 +219,7 @@
 5. train / when / does / leave / the?
 
 ### Ответы:
+
 1. What time is it?
 2. Are you free on Monday?
 3. When is the meeting?
@@ -229,6 +239,7 @@
 5. He work from 9 to 5.
 
 ### Ответы:
+
 1. The meeting is **on** Monday. (on + день)
 2. I wake up **at** 7 o'clock. (at + точное время)
 3. I'm going to **go** to the cinema. (going to + глагол без окончания, к тому же went — это Past)
@@ -248,6 +259,7 @@
 5. They / watch TV / rarely.
 
 ### Ответы:
+
 1. I am never late.
 2. She always wakes up at 6.
 3. We usually go to the gym on Saturday.

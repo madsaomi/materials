@@ -7,11 +7,11 @@
 
 ## Упражнение 1. Вставьте профессию по смыслу (teacher, doctor, engineer, manager, worker)
 
-1. My sister treats patients at the hospital, she is a ___. 
-2. I help children to learn, I am a ___. 
-3. He designs bridges and machines, he is an ___. 
-4. She leads the team and makes decisions, she is a ___. 
-5. These people build houses in a factory, they are ___. 
+1. My sister treats patients at the hospital, she is a ___.
+2. I help children to learn, I am a ___.
+3. He designs bridges and machines, he is an ___.
+4. She leads the team and makes decisions, she is a ___.
+5. These people build houses in a factory, they are ___.
 
 <details><summary>Ответы</summary>
 
@@ -27,14 +27,14 @@
 
 ## Упражнение 2. Напишите 3-ю форму в Present Simple (окончание -s/-es/-ies)
 
-1. I work → She ___. 
-2. They teach → He ___. 
-3. We study → It ___. 
-4. You play → He ___. 
-5. They fix → She ___. 
-6. I go → He ___. 
-7. They finish → She ___. 
-8. We manage → He ___. 
+1. I work → She ___.
+2. They teach → He ___.
+3. We study → It ___.
+4. You play → He ___.
+5. They fix → She ___.
+6. I go → He ___.
+7. They finish → She ___.
+8. We manage → He ___.
 
 <details><summary>Ответы</summary>
 
@@ -81,19 +81,19 @@
 
 Перепишите, начиная с подчёркнутого слова.
 
-1. I work as an accountant. (What...) 
-2. She works in London. (Where...) 
-3. He starts work at nine. (When...) 
-4. They work from home. (Do...) 
-5. Anna manages the project. (Does...) 
+1. I work as an accountant. (What...)
+2. She works in London. (Where...)
+3. He starts work at nine. (When...)
+4. They work from home. (Do...)
+5. Anna manages the project. (Does...)
 
 <details><summary>Ответы</summary>
 
-1. What do you do? 
-2. Where does she work? 
-3. When does he start work? 
-4. Do they work from home? 
-5. Does Anna manage the project? 
+1. What do you do?
+2. Where does she work?
+3. When does he start work?
+4. Do they work from home?
+5. Does Anna manage the project?
 
 </details>
 
@@ -139,8 +139,10 @@
 
 1. Now Anna is a designer, but before that she was a teacher.
    → Anna ___ a teacher.
+
 2. Now I don't work from home, but before I did.
    → I ___ from home.
+
 3. Now Mark wakes up late, but before he woke up early.
    → Mark ___ up early.
 
@@ -197,10 +199,10 @@
 
 ## Упражнение 10. Исправьте ошибки
 
-1. I work engineer. 
-2. He doesn't works in an office. 
-3. The report is wrote. 
-4. I used to worked in sales. 
+1. I work engineer.
+2. He doesn't works in an office.
+3. The report is wrote.
+4. I used to worked in sales.
 5. What are you working? (вопрос о профессии)
 6. My boss said I must to finish today.
 

@@ -10,6 +10,7 @@
 4. Итоговая оценка и сертификат — в конце файла, по таблице шкалы.
 
 Распределение по секциям:
+
 - **Секция A — Лексика:** 10 вопросов (блоки 1–14).
 - **Секция B — Грамматика:** 20 вопросов.
 - **Секция C — Чтение:** 10 вопросов (2 текста).
@@ -197,26 +198,31 @@ My grandfather still keeps a vintage radio from the 1950s on his bookshelf. When
 Now my grandfather uses the internet just like the rest of us. He has a tablet, watches videos and even sends photos to his friends. But the radio still stands in its place. «It reminds me of my youth,» he smiles. «Some things you don't throw away.»
 
 **31.** What did the narrator think about the radio in his childhood?
+
    - A) It was a beautiful antiques
    - B) It was just an old box
    - C) It was too expensive
 
 **32.** What did the family do around the radio every evening?
+
    - A) They sang songs
    - B) They listened to the news and shows
    - C) They watched films
 
 **33.** What does the grandfather use today?
+
    - A) Only the radio
    - B) The internet and a tablet
    - C) A new TV
 
 **34.** Why does the grandfather keep the radio?
+
    - A) It is worth a lot of money
    - B) It reminds him of his youth
    - C) It still works well
 
 **35.** The phrase «you don't throw away» means ...
+
    - A) you keep the thing
    - B) you give the thing away
    - C) you repair the thing
@@ -228,26 +234,31 @@ Venice is one of the most unusual cities in the world because it was built on mo
 Every year millions of tourists visit Venice, and this is both a blessing and a problem. The city earns a lot of money from tourism, but the crowds are so big that some residents are leaving to find quieter places. Another serious threat is rising sea levels: during severe floods, water enters houses and damages ancient buildings. Engineers are working on huge underwater barriers to protect the famous city, but the project is slow and very expensive. Nobody knows how long Venice can survive this way, but the world hopes it stays above the water.
 
 **36.** Why is Venice unusual among world cities?
+
    - A) It has no streets at all in the centre
    - B) It was built on many small islands with canals instead of streets
    - C) It has too many bridges
 
 **37.** What do people use instead of buses in Venice?
+
    - A) Vaporettos (boats)
    - B) Trolleybuses
    - C) Bicycles
 
 **38.** Why are some residents leaving Venice?
+
    - A) Because cars are forbidden
    - B) Because the crowds of tourists are too big
    - C) Because the buildings are old
 
 **39.** What serious problem is mentioned in the text?
+
    - A) Rising sea levels and floods
    - B) Too many canals
    - C) The city is burning
 
 **40.** How are engineers trying to protect the city?
+
    - A) By making tourists stay away
    - B) By building huge underwater barriers
    - C) By moving residents to the mainland

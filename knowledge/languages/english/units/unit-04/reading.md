@@ -1,4 +1,5 @@
 # Unit 04 — Reading (A2 Level)
+
 # Тексты о семье, большой семье и семейных традициях
 
 ## Текст 1: The Smith Family (Семья Смитов)
@@ -41,22 +42,31 @@ The Smith family is happy. They support each other in good times and bad times. 
 
 1. Where does the Smith family live?
    *(Где живёт семья Смитов?)*
+
 2. How many people are there in the family?
    *(Сколько человек в семье?)*
+
 3. What does John do?
    *(Кем работает Джон?)*
+
 4. How old is Mary?
    *(Сколько лет Мэри?)*
+
 5. Who is the eldest child?
    *(Кто старший ребёнок?)*
+
 6. What is Tom going to do next year?
    *(Что Том собирается делать в следующем году?)*
+
 7. What does Anna love doing?
    *(Что Анна любит делать?)*
+
 8. How old is Jack?
    *(Сколько лет Джеку?)*
+
 9. When do the grandparents visit the family?
    *(Когда бабушка и дедушка навещают семью?)*
+
 10. What kind of family are the Smiths?
     *(Какая это семья?)*
 
@@ -109,18 +119,25 @@ Sometimes the house gets noisy and crowded, but I wouldn't change anything. In a
 
 1. How many children do the writer's parents have?
    *(Сколько детей у родителей автора?)*
+
 2. Which child is the writer?
    *(Каким по счёту ребёнком является автор?)*
+
 3. Where do the grandparents live?
    *(Где живут бабушка и дедушка?)*
+
 4. What does the grandmother bake every morning?
    *(Что бабушка печёт каждое утро?)*
+
 5. What does the grandfather keep?
    *(Что держит дедушка?)*
+
 6. How many relatives usually come to the birthday parties?
    *(Сколько родственников обычно приходит на дни рождения?)*
+
 7. What does the grandmother say about a home without children?
    *(Что говорит бабушка о доме без детей?)*
+
 8. Why does the writer like having a big family?
    *(Почему автору нравится иметь большую семью?)*
 
@@ -171,16 +188,22 @@ These traditions may seem simple, but they connect us. They teach children to re
 
 1. What is the most important tradition in the writer's family?
    *(Какая самая важная традиция в семье автора?)*
+
 2. What do they do at Sunday dinner?
    *(Что они делают на воскресном ужине?)*
+
 3. What presents do they give on birthdays?
    *(Какие подарки они дарят на дни рождения?)*
+
 4. What does the mother bake for the birthday person?
    *(Что мама печёт для именинника?)*
+
 5. Where does the extended family gather at New Year?
    *(Где собирается семья в Новый год?)*
+
 6. What do these traditions teach children?
    *(Чему эти традиции учат детей?)*
+
 7. What does the writer hope for the future?
    *(На что надеется автор в будущем?)*
 

@@ -33,6 +33,7 @@
 6. (We / never / win / this tournament) — ___
 
 **Ответы:**
+
 1. I have never broken a bone.
 2. She has already run a marathon.
 3. Have they ever had surgery?
@@ -51,6 +52,7 @@
 3. Have you ever had an operation? → No, I ___ (never / have) surgery.
 
 **Ответы:**
+
 1. have played
 2. has never gone
 3. have never had
@@ -69,6 +71,7 @@
 6. He (rarely) misses a practice. → ___
 
 **Ответы:**
+
 1. I sometimes feel tired after training.
 2. He always listens to his coach.
 3. She never eats fast food.
@@ -101,6 +104,7 @@
 5. В холодильнике есть немного сока.
 
 **Ответы:**
+
 1. I swim twice a week.
 2. Have you ever sprained your ankle?
 3. You should drink more water.
@@ -165,6 +169,7 @@
 6. We ___ (already / win) three matches this season.
 
 **Ответы:**
+
 1. swam
 2. have never swum
 3. broke
@@ -186,6 +191,7 @@
 6. I have headache.
 
 **Ответы:**
+
 1. You should rest now.
 2. I don't have any water.
 3. He has a headache.
@@ -205,6 +211,7 @@
 4. never / He / smoked / has / . → ___
 
 **Ответы:**
+
 1. I go running twice a week.
 2. Have you ever hurt your back?
 3. You should drink more water.

@@ -251,6 +251,7 @@
 <summary>Ответы</summary>
 
 ### Задание 1
+
 1. 가면 (gamyeon)
 2. 있으면 (isseumyeon)
 3. 오면 (omyeon)
@@ -258,6 +259,7 @@
 5. 있으면 (isseumyeon)
 
 ### Задание 2
+
 1. 가 본 적이 있어요 (ga bon jeogi isseoyo)
 2. 먹어 본 적이 있어요 (meogeo bon jeogi isseoyo)
 3. 타 본 적이 있어요 (ta bon jeogi isseoyo)
@@ -266,6 +268,7 @@
 6. 본 적이 있어요 (bon jeogi isseoyo)
 
 ### Задание 3
+
 1. 가기로 했어요 (gagiro haesseoyo)
 2. 공부하기로 했어요 (gongbuhagiro haesseoyo)
 3. 사기로 했어요 (sagiro haesseoyo)
@@ -274,6 +277,7 @@
 6. 찾기로 했어요 (chatgiro haesseoyo)
 
 ### Задание 4
+
 1. 저는 서울에 가 본 적이 있어요. (Jeoneun Seoul-e ga bon jeogi isseoyo.)
 2. 저는 한국에 가기로 했어요. (Jeoneun hanguk-e gagiro haesseoyo.)
 3. 시간이 있으면 박물관에 가요. (Sigani isseumyeon bangmulgwane gayo.)
@@ -282,6 +286,7 @@
 6. 날씨가 좋으면 해변에 가요. (Nalssiga joeumyeon haebyeone gayo.)
 
 ### Задание 5
+
 1. 가 본 적이 있어요 (опыт: бывал)
 2. 가기로 했어요 (решение: решил пойти)
 3. 가 본 적이 있어요? (вопрос о опыте)
@@ -289,6 +294,7 @@
 5. 가기로 했어요 (решение: решил пойти)
 
 ### Задание 6
+
 1. 서울에 가 본 적이 있어요. (Я бывал(а) в Сеуле.)
 2. 내일 만나기로 했어요. (Решил(а) встретиться завтра.)
 3. 시간이 있으면 영화를 봐요. (Если есть время, смотрим фильм.)
@@ -595,6 +601,7 @@
 <summary>Ответы</summary>
 
 ### Задание 7
+
 1. 갈 거예요 (gal geoyeyo)
 2. 복을 거예요 — «볼 거예요» (bol geoyeyo)
 3. 먹을 거예요 (meogeul geoyeyo)
@@ -602,18 +609,21 @@
 5. 예약할 거예요 (yeyakhal geoyeyo)
 
 ### Задание 8
+
 1. 도와 주세요. (dowa juseyo)
 2. 설명해 주세요. (seolmyeong-hae juseyo)
 3. 보여 주세요. (boyeo juseyo)
 4. 공항까지 데려다 주세요. (gonghang-kkaji deryeoda juseyo)
 
 ### Задание 9
+
 1. 입어 보세요 (ibeo boseyo)
 2. 먹어 보세요 (meogeo boseyo)
 3. 타 보세요 (ta boseyo)
 4. 봐 보세요 (bwa boseyo)
 
 ### Задание 10
+
 1. 서울에 가고 싶어요 (хочу поехать)
 2. 표를 살 수 있어요 (могу купить)
 3. 산을 보고 싶어요 (хочу увидеть)

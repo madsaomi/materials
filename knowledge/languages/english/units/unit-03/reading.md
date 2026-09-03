@@ -13,6 +13,7 @@ Tom thinks Russian food is more delicious than English food. Anna thinks English
 "Maybe. But Moscow is more historic," says Anna.
 
 ### Вопросы к тексту:
+
 1. Where does Tom live?
 2. Which city is bigger?
 3. Which city is more expensive?
@@ -21,6 +22,7 @@ Tom thinks Russian food is more delicious than English food. Anna thinks English
 6. Which city is colder in winter?
 
 ### Слова из текста:
+
 - compare — сравнивать
 - international — международный
 - weather — погода
@@ -57,6 +59,7 @@ After the supermarket, they go to a clothes shop because Kate needs a new jacket
 At the end of the day, they are tired but very happy. Kate has a new jacket, and her mum has a basket full of food. They didn't spend too much money, which is good.
 
 ### Вопросы к тексту (Answer the questions):
+
 1. When do Kate and her mum go shopping?
 2. Where do they buy food?
 3. How many kilos of apples do they buy?
@@ -67,6 +70,7 @@ At the end of the day, they are tired but very happy. Kate has a new jacket, and
 8. Are they happy at the end of the day?
 
 ### Лексика / Vocabulary:
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | to do the shopping | /duː ðə ˈʃɒpɪŋ/ | делать покупки |
@@ -101,6 +105,7 @@ The shoes arrived four days later. Mark tried them on. They fitted really well, 
 Online shopping saves time, but Mark says you must check the sizes carefully because you can't try things on before buying.
 
 ### Вопросы к тексту (Answer the questions):
+
 1. Why does Mark prefer to shop online?
 2. What did Mark want to buy?
 3. Which shop had the best price? Why?
@@ -110,6 +115,7 @@ Online shopping saves time, but Mark says you must check the sizes carefully bec
 7. What is the problem with online shopping according to Mark?
 
 ### Лексика / Vocabulary:
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | shop online | /ʃɒp ˌɒnˈlaɪn/ | покупать онлайн |
@@ -152,6 +158,7 @@ Alex liked a brown sweater in the shop. It cost the same — sixty dollars. "Act
 Alex left the shop happy. He learned an important lesson: always check the size before you buy, and keep the receipt!
 
 ### Вопросы к тексту (Answer the questions):
+
 1. What did Alex buy last Monday?
 2. How much did he pay?
 3. Why did he want to return them?
@@ -161,6 +168,7 @@ Alex left the shop happy. He learned an important lesson: always check the size 
 7. What lesson did Alex learn?
 
 ### Лексика / Vocabulary:
+
 | Word | IPA | Перевод |
 |------|-----|---------|
 | a pair of trousers | /ə peə əv ˈtraʊzəz/ | пара брюк |

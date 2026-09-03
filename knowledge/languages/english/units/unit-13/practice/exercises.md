@@ -69,6 +69,7 @@
 8. Someone repaired my laptop last week.
 
 **→ Ответ:**
+
 1. The data is stored in the cloud.
 2. The app can be downloaded for free.
 3. The passwords were stolen last year.
@@ -92,6 +93,7 @@
 6. (How much / the subscription / cost) ?
 
 **→ Ответ:**
+
 1. How often do you check your phone?
 2. How many apps does he have?
 3. How much time does she spend online?
@@ -207,6 +209,7 @@
 8. Я люблю смотреть игровые стримы.
 
 **→ Ответ:**
+
 1. I use this app every day.
 2. You must create a strong password.
 3. If you click on this link, you get a virus.
@@ -241,7 +244,7 @@
 
 Расставьте реплики краткого диалога в правильном порядке.
 
-A) "Yes, you should restart it." 
+A) "Yes, you should restart it."
 B) "My computer is really slow today."
 C) "What should I do?"
 D) "Try turning it off for a minute."

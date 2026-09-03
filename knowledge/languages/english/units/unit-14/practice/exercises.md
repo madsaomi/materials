@@ -19,19 +19,25 @@
 
 1. While they ______ (cross) the desert, the storm ______ (begin).
 → were crossing / began
+
 2. I ______ (read) about the Revolution when the phone ______ (ring).
 → was reading / rang
+
 3. The settlers ______ (build) houses while women ______ (prepare) dinner.
 → built (быстрое) / were preparing — оба длительных: were building / were preparing
+
 4. What ______ you ______ (do) at six o'clock yesterday evening? → were / doing
 5. When the ship ______ (arrive), it ______ (start) to rain. → arrived / started
 6. The guide ______ (speak) English while the tourists ______ (take) photos.
 → was speaking / were taking
+
 7. History ______ (change) while people ______ (watch). → changed / were watching
 8. They ______ (not listen) when the professor ______ (explain) the battle.
 → weren't listening / explained
+
 9. ______ it ______ (rain) when Columbus ______ (reach) the island?
 → Was / raining / reached
+
 10. The Vikings ______ (leave) before we ______ (arrive). → had left / arrived
 
 ---

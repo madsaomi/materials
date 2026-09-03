@@ -14,10 +14,12 @@ Present Simple описывает **регулярные действия, пр�
 | Present Continuous | am/is/are + V-ing | сейчас, временно | I am writing a post right now. (Я сейчас пишу пост.) |
 
 **Слова-маркеры:**
+
 - Present Simple: usually, always, often, sometimes, every day, never
 - Present Continuous: now, at the moment, right now, these days, currently
 
 ### Примеры в тех-контексте
+
 - I **use** my laptop every day. (Я пользуюсь ноутбуком каждый день.)
 - I **am using** the laptop at the moment. (Я сейчас пользуюсь ноутбуком.)
 - She **posts** videos twice a week. (Она выкладывает видео два раза в неделю — привычка.)
@@ -40,15 +42,18 @@ Present Simple описывает **регулярные действия, пр�
 | should | совет, рекомендация | следует, стоит | You should change your password. (Тебе следует сменить пароль.) |
 
 ### Правила употребления
+
 - После модальных глаголов (must, should) идёт **голая** форма глагола: *You must go*, *You should update*. Без to и без -s.
 - **have to** — обычный глагол: *He has to update* (в 3-ем лице -s), *Do you have to...?*
 
 ### Отрицание
+
 - **mustn't** = нельзя, запрещено: You **mustn't** share your password. (Нельзя делиться паролем.)
 - **don't have to** = не обязательно: You **don't have to** pay for the app. (Тебе не обязательно платить за приложение.)
 - **shouldn't** = не следует: You **shouldn't** click on unknown links. (Не следует кликать по незнакомым ссылкам.)
 
 ### Примеры (кибербезопасность)
+
 - You **must** install a firewall. (Ты должен установить брандмауэр.)
 - We **have to** scan the computer for viruses. (Нам приходится сканировать компьютер на вирусы.)
 - You **should** back up your files. (Тебе стоит делать резервные копии файлов.)
@@ -87,6 +92,7 @@ Present Simple описывает **регулярные действия, пр�
 > ⚠️ В части с **if** никогда не ставим will: *If you will update* — ❌ → *If you update* — ✅.
 
 **Сравнение Zero vs First:**
+
 - Zero = всегда верно: *If the screen freezes, I restart it.* (Всегда/обычно.)
 - First = конкретное будущее: *If the screen freezes tomorrow, I will call IT.* (В будущем.)
 
@@ -102,6 +108,7 @@ Present Simple описывает **регулярные действия, пр�
 | The user downloads the app. | The app **is downloaded** (by the user). |
 
 ### Времена в пассиве
+
 | Время | Формула | Пример |
 |-------|---------|--------|
 | Present Simple Passive | am/is/are + V3 | The file **is saved** automatically. (Файл сохраняется автоматически.) |
@@ -110,6 +117,7 @@ Present Simple описывает **регулярные действия, пр�
 | Modal Passive | modal + be + V3 | The app **can be downloaded** for free. (Приложение можно скачать бесплатно.) |
 
 ### Примеры в tech-контексте
+
 - The information **is stored** in the cloud. (Информация хранится в облаке.)
 - Passwords **should not be shared**. (Пароли не следует передавать.)
 - The video **was watched** by millions. (Видео посмотрели миллионы.)
@@ -132,14 +140,17 @@ Present Simple описывает **регулярные действия, пр�
 **Слова для ответа:** always, usually, often, sometimes, rarely, never, every day/week, once a day, twice a week, three times a month.
 
 ### How many — «сколько» (с исчисляемыми)
+
 - How **many** apps do you have on your phone? (Сколько приложений у тебя на телефоне?)
 - How **many** followers does she have? (Сколько у неё подписчиков?)
 
 ### How much — «сколько» (с неисчисляемыми / о деньгах)
+
 - How **much** time do you spend online? (Сколько времени ты проводишь онлайн?)
 - How **much** does the subscription cost? (Сколько стоит подписка?)
 
 ### Примеры
+
 - How many hours do you use the internet? — About five.
 - How much data does streaming use? — A lot.
 
@@ -179,6 +190,7 @@ Present Simple описывает **регулярные действия, пр�
 | do | выполнять действие, работу | do a search, do your homework, do research online |
 
 ### Примеры
+
 - I made a new video for my channel. (Я создал новое видео для канала.)
 - Do a quick search online. (Сделай быстрый поиск в интернете.)
 - Make a backup before you update. (Сделай резервную копию перед обновлением.)
@@ -196,6 +208,7 @@ Present Simple описывает **регулярные действия, пр�
 | Превосходная | the fastest / the most powerful | It is the fastest computer. |
 
 ### Исключения
+
 - good → better → the best
 - bad → worse → the worst
 - This is the **best** app for editing photos. (Это лучшее приложение для редактирования фото.)
@@ -216,6 +229,7 @@ Present Simple описывает **регулярные действия, пр�
 | hope to buy | keep scrolling |
 
 ### Примеры
+
 - I want **to download** this app. (Я хочу скачать это приложение.)
 - I enjoy **watching** gaming streams. (Мне нравится смотреть игровые стримы.)
 - You should avoid **clicking** on suspicious links. (Тебе следует избегать кликов по подозрительным ссылкам.)
@@ -235,6 +249,7 @@ Present Simple описывает **регулярные действия, пр�
 | for | для | Subscribe for updates. |
 
 ### Примеры
+
 - He has an account **on** Instagram. (У него есть аккаунт в Instagram.)
 - She watches films **on** Netflix. (Она смотрит фильмы на Netflix.)
 - The file is saved **in** the folder. (Файл сохранён в папке.)

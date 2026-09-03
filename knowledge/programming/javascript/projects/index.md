@@ -2332,6 +2332,7 @@ document.addEventListener("DOMContentLoaded", () => new SnakeGame("game-canvas")
 | Средний+ | React-компоненты, Kanban, Змейка | React, Drag-and-Drop, Game loop |
 
 **Советы:**
+
 1. Используйте `const` по умолчанию, `let` когда нужно переназначение
 2. Всегда обрабатывайте ошибки в `async/await` (try/catch)
 3. Избегайте утечек памяти: отписывайтесь от событий

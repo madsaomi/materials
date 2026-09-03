@@ -58,6 +58,7 @@
 ## Упражнение 6: Порядковые числительные
 
 Запишите порядковое от числа в скобках:
+
 1. This is my (3) ___ attempt. → third
 2. She is (1) ___ in the queue. → first
 3. It's the (5) ___ of May. → fifth
@@ -124,6 +125,7 @@
 ## Упражнение 13: Задача на цены и сдачу
 
 Прочитайте и решите (напишите ответы по-английски):
+
 1. A T-shirt costs £15. You pay with a £20 note. What is your change? → five pounds
 2. A dress costs £40. There is a 50% discount. What is the new price? → twenty pounds
 3. You buy an apple for £1, bread for £2, and milk for £3. What is the total? → six pounds
@@ -142,6 +144,7 @@
 ( ) Customer: Yes, please. And here is your change? No — that's all, thanks.
 
 ### Ответы (правильный порядок):
+
 1. Assistant: Can I help you?
 2. Customer: Yes, please. How much is that bag?
 3. Assistant: It's ten pounds. Would you like a receipt?
@@ -163,6 +166,7 @@
 ## Упражнение 16: Материалы и цвета — сопоставьте
 
 Сопоставьте слово с переводом:
+
 1. cotton — a) шерсть
 2. silk — b) кожа
 3. wool — c) хлопок

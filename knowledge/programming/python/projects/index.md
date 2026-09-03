@@ -37,19 +37,16 @@ from pathlib import Path
 
 TASKS_FILE = Path(__file__).parent / "tasks.json"
 
-
 def load_tasks() -> list[dict]:
     if TASKS_FILE.exists():
         return json.loads(TASKS_FILE.read_text(encoding="utf-8"))
     return []
-
 
 def save_tasks(tasks: list[dict]) -> None:
     TASKS_FILE.write_text(
         json.dumps(tasks, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-
 
 def add_task(title: str, priority: str = "medium") -> dict:
     tasks = load_tasks()
@@ -64,13 +61,11 @@ def add_task(title: str, priority: str = "medium") -> dict:
     save_tasks(tasks)
     return task
 
-
 def list_tasks(show_done: bool = True) -> list[dict]:
     tasks = load_tasks()
     if not show_done:
         tasks = [t for t in tasks if not t["done"]]
     return tasks
-
 
 def complete_task(task_id: int) -> bool:
     tasks = load_tasks()
@@ -81,7 +76,6 @@ def complete_task(task_id: int) -> bool:
             return True
     return False
 
-
 def delete_task(task_id: int) -> bool:
     tasks = load_tasks()
     new_tasks = [t for t in tasks if t["id"] != task_id]
@@ -89,7 +83,6 @@ def delete_task(task_id: int) -> bool:
         save_tasks(new_tasks)
         return True
     return False
-
 
 def main():
     parser = argparse.ArgumentParser(description="Todo CLI")
@@ -133,7 +126,6 @@ def main():
             print(f"Задача #{args.id} не найдена")
     else:
         parser.print_help()
-
 
 if __name__ == "__main__":
     main()
@@ -190,14 +182,12 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-
 @dataclass
 class Article:
     title: str
     link: str
     summary: str
     date: str
-
 
 class NewsScraper:
     def __init__(self, base_url: str, delay: float = 1.0):
@@ -272,7 +262,6 @@ class NewsScraper:
             writer.writerows(asdict(a) for a in articles)
         print(f"Сохранено {len(articles)} статей в {filename}")
 
-
 # Пример использования
 if __name__ == "__main__":
     scraper = NewsScraper("https://example-news.com", delay=1.5)
@@ -346,14 +335,12 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
 
-
 class Genre(str, Enum):
     fiction = "fiction"
     non_fiction = "non_fiction"
     science = "science"
     technology = "technology"
     history = "history"
-
 
 class BookDB(Base):
     __tablename__ = "books"
@@ -366,14 +353,12 @@ class BookDB(Base):
     pages = Column(Integer, default=0)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-
 class BookCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=200, examples=["Война и мир"])
     author: str = Field(..., min_length=1, max_length=100, examples=["Лев Толстой"])
     genre: Genre = Genre.fiction
     price: float = Field(..., gt=0, examples=[599.99])
     pages: int = Field(default=0, ge=0)
-
 
 class BookUpdate(BaseModel):
     title: str | None = None
@@ -382,13 +367,11 @@ class BookUpdate(BaseModel):
     price: float | None = None
     pages: int | None = None
 
-
 class BookResponse(BookCreate):
     id: int
     created_at: datetime
 
     model_config = {"from_attributes": True}
-
 
 class PaginatedResponse(BaseModel):
     items: list[BookResponse]
@@ -404,10 +387,8 @@ class PaginatedResponse(BaseModel):
 
 from .models import engine, Base
 
-
 def init_db():
     Base.metadata.create_all(bind=engine)
-
 
 def get_db():
     db = SessionLocal()
@@ -440,7 +421,6 @@ app = FastAPI(
 app.on_event("startup")
 def startup():
     init_db()
-
 
 @app.get("/books", response_model=PaginatedResponse)
 def list_books(
@@ -476,7 +456,6 @@ def list_books(
         pages=pages,
     )
 
-
 @app.post("/books", response_model=BookResponse, status_code=201)
 def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db_book = BookDB(**book.model_dump())
@@ -485,14 +464,12 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db.refresh(db_book)
     return BookResponse.model_validate(db_book)
 
-
 @app.get("/books/{book_id}", response_model=BookResponse)
 def get_book(book_id: int, db: Session = Depends(get_db)):
     book = db.query(BookDB).filter(BookDB.id == book_id).first()
     if not book:
         raise HTTPException(status_code=404, detail="Книга не найдена")
     return BookResponse.model_validate(book)
-
 
 @app.put("/books/{book_id}", response_model=BookResponse)
 def update_book(book_id: int, updates: BookUpdate, db: Session = Depends(get_db)):
@@ -507,7 +484,6 @@ def update_book(book_id: int, updates: BookUpdate, db: Session = Depends(get_db)
     db.refresh(book)
     return BookResponse.model_validate(book)
 
-
 @app.delete("/books/{book_id}", status_code=204)
 def delete_book(book_id: int, db: Session = Depends(get_db)):
     book = db.query(BookDB).filter(BookDB.id == book_id).first()
@@ -515,7 +491,6 @@ def delete_book(book_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Книга не найдена")
     db.delete(book)
     db.commit()
-
 
 @app.get("/genres", response_model=list[str])
 def list_genres():
@@ -577,7 +552,6 @@ plt.style.use("seaborn-v0_8-whitegrid")
 
 CHARTS_DIR = Path("charts")
 CHARTS_DIR.mkdir(exist_ok=True)
-
 
 class DataVisualizer:
     """Генератор графиков из данных."""
@@ -683,7 +657,6 @@ class DataVisualizer:
         plt.close(fig)
         return path
 
-
 # Пример: данные о продажах
 if __name__ == "__main__":
     sales_data = [
@@ -763,7 +736,6 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime
 
-
 @dataclass
 class Note:
     id: int
@@ -771,7 +743,6 @@ class Note:
     title: str
     content: str
     created: str
-
 
 class NoteDB:
     def __init__(self, db_path: str = "notes.db"):
@@ -838,7 +809,6 @@ class NoteDB:
             ).fetchall()
             return [Note(**dict(r)) for r in rows]
 
-
 # bot.py
 """Telegram-бот заметок."""
 
@@ -859,7 +829,6 @@ logger = logging.getLogger(__name__)
 
 db = NoteDB()
 
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Приветствие."""
     await update.message.reply_text(
@@ -870,7 +839,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/search <запрос> — поиск\n"
         "/help — помощь"
     )
-
 
 async def add_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Добавить заметку: /add Заголовок | Содержимое."""
@@ -889,7 +857,6 @@ async def add_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"Заметка #{note.id} добавлена:\n"
         f" *{note.title}*\n{note.content}"
     )
-
 
 async def list_notes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Показать список заметок."""
@@ -913,7 +880,6 @@ async def list_notes(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
 
-
 async def view_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Просмотр заметки по callback."""
     query = update.callback_query
@@ -934,7 +900,6 @@ async def view_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=InlineKeyboardMarkup(keyboard),
         )
 
-
 async def delete_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Удалить заметку."""
     query = update.callback_query
@@ -947,7 +912,6 @@ async def delete_note(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(f"Заметка #{note_id} удалена.")
     else:
         await query.edit_message_text("Не удалось удалить.")
-
 
 async def search_notes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Поиск: /search запрос."""
@@ -966,7 +930,6 @@ async def search_notes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lines = [f"#{n.id} *{n.title}* — {n.content[:50]}..." for n in notes]
     await update.message.reply_text("\n".join(lines))
 
-
 def main():
     config = Config.from_env()
     app = Application.builder().token(config.token).build()
@@ -979,7 +942,6 @@ def main():
     app.add_handler(CallbackQueryHandler(delete_note, pattern=r"^del:\d+$"))
 
     app.run_polling()
-
 
 if __name__ == "__main__":
     main()
@@ -1025,14 +987,12 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-
 @dataclass
 class FileInfo:
     path: Path
     size: int
     extension: str
     md5: str
-
 
 class FileManager:
     def __init__(self, root: str = "."):
@@ -1144,14 +1104,12 @@ class FileManager:
                 h.update(chunk)
         return h.hexdigest()
 
-
 def format_size(size: int) -> str:
     for unit in ["B", "KB", "MB", "GB"]:
         if size < 1024:
             return f"{size:.1f} {unit}"
         size /= 1024
     return f"{size:.1f} TB"
-
 
 if __name__ == "__main__":
     import sys
@@ -1217,7 +1175,6 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-
 # Common Log Format / Apache Combined
 LOG_PATTERN = re.compile(
     r'(?P<ip>[\d.:a-f]+)\s+-\s+(?P<user>\S+)\s+'
@@ -1234,7 +1191,6 @@ STATUS_DESCRIPTIONS = {
     503: "Service Unavailable",
 }
 
-
 @dataclass
 class LogEntry:
     ip: str
@@ -1247,7 +1203,6 @@ class LogEntry:
     size: int
     referrer: str
     user_agent: str
-
 
 class LogAnalyzer:
     def __init__(self):
@@ -1327,15 +1282,12 @@ class LogAnalyzer:
             "methods": self.method_distribution(),
         }
 
-
 console = Console()
-
 
 @click.group()
 def cli():
     """Анализатор веб-логов."""
     pass
-
 
 @cli.command()
 @click.argument("logfile")
@@ -1360,7 +1312,6 @@ def summary(logfile: str):
 
     console.print(table)
 
-
 @cli.command()
 @click.argument("logfile")
 @click.option("-n", "--top", default=10, help="Количество записей")
@@ -1378,7 +1329,6 @@ def ips(logfile: str, top: int):
 
     console.print(table)
 
-
 @cli.command()
 @click.argument("logfile")
 def errors(logfile: str):
@@ -1392,7 +1342,6 @@ def errors(logfile: str):
         count = by_hour.get(hour, 0)
         bar = "█" * min(count, 50)
         console.print(f"  {hour:02d}:00  {bar} {count}")
-
 
 if __name__ == "__main__":
     cli()
@@ -1437,7 +1386,6 @@ import aiosqlite
 from dataclasses import dataclass
 from datetime import datetime
 
-
 @dataclass
 class Poll:
     id: int
@@ -1446,7 +1394,6 @@ class Poll:
     options: list[str]
     created: str
     is_active: bool = True
-
 
 class PollStorage:
     def __init__(self, db: str = "polls.db"):
@@ -1533,7 +1480,6 @@ class PollStorage:
             "total_votes": total,
         }
 
-
 # bot.py
 """Telegram-бот для опросов."""
 
@@ -1550,7 +1496,6 @@ from storage import PollStorage
 
 storage = PollStorage()
 
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Бот опросов\n\n"
@@ -1558,7 +1503,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/results ID — результаты опроса\n"
         "/my — мои опросы"
     )
-
 
 async def create_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = " ".join(context.args) if context.args else ""
@@ -1598,7 +1542,6 @@ async def create_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
 
-
 async def handle_vote(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
@@ -1624,7 +1567,6 @@ async def handle_vote(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await query.answer("Вы уже голосовали!", show_alert=True)
 
-
 async def results(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Формат: /results ID")
@@ -1646,7 +1588,6 @@ async def results(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(text)
 
-
 def main():
     import os
     app = Application.builder().token(os.environ["BOT_TOKEN"]).build()
@@ -1657,7 +1598,6 @@ def main():
     app.add_handler(CallbackQueryHandler(handle_vote, pattern=r"^vote:"))
 
     app.run_polling()
-
 
 if __name__ == "__main__":
     main()
@@ -1712,9 +1652,7 @@ from rich.panel import Panel
 from rich.syntax import Syntax
 from rich.table import Table
 
-
 console = Console()
-
 
 @dataclass
 class RequestConfig:
@@ -1728,7 +1666,6 @@ class RequestConfig:
     follow_redirects: bool = True
     verify_ssl: bool = True
     cookies: dict[str, str] = field(default_factory=dict)
-
 
 class HTTPClient:
     def __init__(self, config: RequestConfig):
@@ -1764,7 +1701,6 @@ class HTTPClient:
         elapsed = time.perf_counter() - start
         response.elapsed_ms = elapsed * 1000
         return response
-
 
 def format_response(response: httpx.Response, verbose: bool = False) -> Panel:
     """Форматировать ответ для вывода."""
@@ -1803,7 +1739,6 @@ def format_response(response: httpx.Response, verbose: bool = False) -> Panel:
             title=f"[bold]{response.status_code}[/bold]",
             subtitle=f"{response.elapsed_ms:.0f}ms",
         )
-
 
 @click.command()
 @click.argument("url")
@@ -1867,7 +1802,6 @@ def main(url, method, data, header, auth, insecure, verbose, output,
         panel = format_response(response, verbose)
         console.print(panel)
 
-
 if __name__ == "__main__":
     main()
 ```
@@ -1920,7 +1854,6 @@ from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
-
 def generate_password(
     length: int = 16,
     use_uppercase: bool = True,
@@ -1966,7 +1899,6 @@ def generate_password(
     secrets.SystemRandom().shuffle(password_list)
     return "".join(password_list)
 
-
 def derive_key(master_password: str, salt: bytes | None = None) -> tuple[bytes, bytes]:
     """Вывести ключ шифрования из мастер-пароля (PBKDF2)."""
     if salt is None:
@@ -1980,7 +1912,6 @@ def derive_key(master_password: str, salt: bytes | None = None) -> tuple[bytes, 
     )
     key = b64encode(kdf.derive(master_password.encode()))
     return key, salt
-
 
 class SecretEncryptor:
     """Шифрование/дешифрование секретов через Fernet."""
@@ -1997,7 +1928,6 @@ class SecretEncryptor:
         """Расшифровать строку."""
         return self.fernet.decrypt(ciphertext.encode()).decode()
 
-
 # storage.py
 """Хранилище зашифрованных секретов."""
 
@@ -2008,7 +1938,6 @@ from pathlib import Path
 
 from crypto import SecretEncryptor
 
-
 @dataclass
 class Secret:
     name: str
@@ -2018,7 +1947,6 @@ class Secret:
     notes: str = ""
     created: str = ""
     updated: str = ""
-
 
 class SecretStore:
     def __init__(self, path: str = ".secrets.json"):
@@ -2097,7 +2025,6 @@ class SecretStore:
             encoding="utf-8",
         )
 
-
 # cli.py
 """CLI для менеджера секретов."""
 
@@ -2112,13 +2039,11 @@ from storage import SecretStore, Secret
 console = Console()
 store = SecretStore()
 
-
 @click.group()
 @click.option("--file", "-f", default=".secrets.json", help="Путь к хранилищу")
 def cli(file):
     """Менеджер секретов — шифрованное хранение паролей."""
     store.path = file
-
 
 @cli.command()
 def init():
@@ -2136,7 +2061,6 @@ def init():
 
     store.init(master)
     console.print("[green]Хранилище создано[/green]")
-
 
 @cli.command()
 @click.option("--name", "-n", required=True, help="Название")
@@ -2162,7 +2086,6 @@ def genpass(name, length):
     ))
     console.print(f"[green]Секрет '{name}' сохранён[/green]")
 
-
 @cli.command()
 @click.argument("name")
 def get(name):
@@ -2186,7 +2109,6 @@ def get(name):
     table.add_row("Notes", secret.notes)
     console.print(table)
 
-
 @cli.command()
 def list():
     """Показать все секреты."""
@@ -2204,14 +2126,12 @@ def list():
     for name in sorted(names):
         console.print(f"  • {name}")
 
-
 @cli.command()
 @click.option("--length", "-l", default=16, help="Длина пароля")
 def randpass(length):
     """Случайный пароль (без сохранения)."""
     password = generate_password(length)
     console.print(f"[cyan]{password}[/cyan]")
-
 
 if __name__ == "__main__":
     cli()
@@ -2237,6 +2157,7 @@ if __name__ == "__main__":
 | Продвинутый | Клон curl, Менеджер секретов | Шифрование, HTTP, архитектура |
 
 **Советы:**
+
 1. Начинай с README — опиши назначение и структуру
 2. Используй type hints и dataclass/pydantic
 3. Добавляй тесты (pytest) параллельно с разработкой
