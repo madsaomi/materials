@@ -11,9 +11,12 @@ app = Flask(__name__)
 KNOWLEDGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'knowledge'))
 
 def slugify(text):
+    # GitHub-style heading anchors: lowercase, drop punctuation
+    # (dots, colons, emoji, dashes), spaces -> hyphens. Matches
+    # Obsidian/GitHub so existing [#links] keep working.
     text = text.lower()
-    text = re.sub(r'[^\w\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf\uac00-\ud7af]+', '-', text)
-    return re.sub(r'^-+|-+$', '', text)
+    text = re.sub(r'[^\w\s\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af-]', '', text)
+    return re.sub(r'\s+', '-', text)
 
 def parse_markdown(content, slug=''):
     # Custom markdown parser that handles code blocks with Pygments and extracts ToC
@@ -33,8 +36,8 @@ def parse_markdown(content, slug=''):
             text = match.group(2).strip()
             if level == 1 and not h1_found:
                 h1_found = True
-                continue # skip first h1
-            elif level >= 2 and level <= 3:
+                continue # skip first h1 (rendered as page header)
+            elif 1 <= level <= 3:
                 hid = slugify(text)
                 toc.append({'level': level, 'text': text, 'id': hid})
                 clean_lines.append(f'<h{level} id="{hid}">{text}</h{level}>')

@@ -898,7 +898,7 @@ A: 谢谢！
 **Полезные ресурсы:**
 
 - [Пиньинь и тональная сеть](details.md) — подробная фонетика
-- [Мнемоники для тонов](../../../mnemonics/core-techniques/cheatsheet.md#тональные-приёмы) — ассоциативные приёмы
+- [Мнемоники для тонов](../../../mnemonics/core-techniques/cheatsheet.md) — ассоциативные приёмы
 - YouTube-канал: «Yoyo Chinese», «Chinese with Yoyo» — лучшая тональная тренировка
 
 ---
