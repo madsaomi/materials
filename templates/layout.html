@@ -200,11 +200,11 @@
 
   <!-- Client-side Script -->
   <script>
-    const searchIndex = [
-      {% for d in docs %}
-      { title: {{ d.title | tojson }}, slug: {{ d.slug | tojson }}, category: {{ d.category | tojson }} },
-      {% endfor %}
-    ];
+    let searchIndex = [];
+    fetch('/api/search.json')
+      .then(r => r.json())
+      .then(data => { searchIndex = data; })
+      .catch(() => { searchIndex = []; });
 
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');

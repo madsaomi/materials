@@ -79,7 +79,29 @@ def parse_markdown(content):
 
     return html, toc
 
+_docs_cache = None
+_cache_mtime = 0.0
+
+
+def _knowledge_mtime():
+    latest = 0.0
+    for root, dirs, files in os.walk(KNOWLEDGE_DIR):
+        for f in files:
+            if f.endswith('.md'):
+                try:
+                    m = os.path.getmtime(os.path.join(root, f))
+                    if m > latest:
+                        latest = m
+                except OSError:
+                    pass
+    return latest
+
+
 def get_all_docs():
+    global _docs_cache, _cache_mtime
+    current_mtime = _knowledge_mtime()
+    if _docs_cache is not None and current_mtime <= _cache_mtime:
+        return _docs_cache
     docs = []
     if not os.path.exists(KNOWLEDGE_DIR):
         return docs
@@ -133,17 +155,24 @@ def get_all_docs():
                     'html': html,
                     'readingTime': reading_time
                 })
+    _docs_cache = docs
+    _cache_mtime = _knowledge_mtime()
     return docs
 
-@app.route('/')
-def index():
-    docs = get_all_docs()
+def build_categories(docs):
     categories = {}
     for doc in docs:
         cat = doc['category']
         if cat not in categories:
             categories[cat] = []
         categories[cat].append(doc)
+    return categories
+
+
+@app.route('/')
+def index():
+    docs = get_all_docs()
+    categories = build_categories(docs)
     return render_template('index.html', docs=docs, categories=categories)
 
 @app.route('/doc/<path:slug>')
@@ -153,36 +182,48 @@ def doc_detail(slug):
     if not current_doc:
         abort(404)
 
+    slug_set = {d['slug']: d for d in docs}
     path_segments = slug.split('/')
     breadcrumbs = []
     for i in range(len(path_segments)):
         partial_slug = '/'.join(path_segments[:i+1])
         segment = path_segments[i]
         title = segment.replace('-', ' ').title()
-        
-        url = f"/doc/{partial_slug}"
-        exact_doc = next((d for d in docs if d['slug'] == partial_slug), None)
-        index_doc = next((d for d in docs if d['slug'] == f"{partial_slug}/index"), None)
-        
+
+        url = None
+        exact_doc = slug_set.get(partial_slug)
+        index_doc = slug_set.get(f"{partial_slug}/index")
+
         if exact_doc:
             url = f"/doc/{exact_doc['slug']}"
             title = exact_doc['title']
         elif index_doc:
             url = f"/doc/{index_doc['slug']}"
             title = index_doc['title']
-            
+
         breadcrumbs.append({
             'title': title,
-            'url': url,
+            'url': url,  # None => rendered as plain text, never a 404 link
             'isLast': i == len(path_segments) - 1
         })
 
-    return render_template('doc.html', current_doc=current_doc, breadcrumbs=breadcrumbs, docs=docs)
+    categories = build_categories(docs)
+    return render_template('doc.html', current_doc=current_doc, breadcrumbs=breadcrumbs, docs=docs, categories=categories)
+
+@app.route('/api/search.json')
+def search_json():
+    docs = get_all_docs()
+    return jsonify([
+        {'title': d['title'], 'slug': d['slug'], 'category': d['category']}
+        for d in docs
+    ])
+
 
 @app.errorhandler(404)
 def page_not_found(e):
     docs = get_all_docs()
-    return render_template('404.html', docs=docs), 404
+    categories = build_categories(docs)
+    return render_template('404.html', docs=docs, categories=categories), 404
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -1,27 +1,20 @@
-# build output
-dist/
-# generated types
-.astro/
-
-# dependencies
-node_modules/
-
 # obsidian local workspace settings
 .obsidian/
 
 # vscode user settings
 .vscode/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
 
 # environment variables
 .env
 .env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
 
 # macOS-specific files
 .DS_Store

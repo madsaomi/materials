@@ -15,8 +15,10 @@
         {% endif %}
         {% if crumb.isLast %}
           <span class="truncate text-[#333] dark:text-[#e8e4de]" title="{{ crumb.title }}">{{ crumb.title }}</span>
-        {% else %}
+        {% elif crumb.url %}
           <a href="{{ crumb.url }}" class="hover:text-[#111] dark:hover:text-[#fff] transition-colors truncate" title="{{ crumb.title }}">{{ crumb.title }}</a>
+        {% else %}
+          <span class="truncate text-[#777] dark:text-[#888]" title="{{ crumb.title }}">{{ crumb.title }}</span>
         {% endif %}
       {% endfor %}
     </nav>
