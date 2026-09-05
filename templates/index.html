@@ -1,63 +1,157 @@
 {% extends "layout.html" %}
 
-{% block title %}知 · Chishiki Knowledge Base{% endblock %}
+{% block title %}知恵の庭 · Chishiki Knowledge Sanctuary{% endblock %}
 
 {% block content %}
-<div class="space-y-12">
-  <!-- Hero Section -->
-  <section class="space-y-4 border-b border-[#e8e4de] dark:border-[#333] pb-10">
-    <div class="inline-block px-3 py-1 bg-[#eae5dd] dark:bg-[#252525] text-[#555] dark:text-[#aaa] text-[11px] tracking-widest uppercase font-mono rounded">
-      Knowledge Repository
+<div class="space-y-10">
+
+  <!-- Hero Section — Frosted Glass with Calligraphy Watermark -->
+  <section class="washi-card relative overflow-hidden p-8 sm:p-10 md:p-12">
+    <div class="hero-watermark">庭</div>
+    
+    <div class="relative z-10 space-y-4 max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 text-charcoal dark:text-[#e8e4de] text-[11px] tracking-widest uppercase font-mono rounded-full glass-btn">
+        <span class="stamp-seal" style="width: 18px; height: 18px; font-size: 10px;">知</span>
+        <span>Knowledge Sanctuary · 静寂の庭</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-charcoal dark:text-[#e8e4de] tracking-tight font-light leading-tight">
+        知恵の庭 <span class="text-lg sm:text-xl md:text-2xl font-sans text-muted dark:text-[#888] font-normal block sm:inline sm:ml-3">Chishiki Sanctuary</span>
+      </h1>
+
+      <p class="text-sm md:text-base text-[#555] dark:text-[#aaa] leading-relaxed max-w-2xl font-serif">
+        A quiet sanctuary for structured thought, language acquisition, mnemonics, and software craftsmanship. Over 640 interconnected notes preserved through frosted glass serenity.
+      </p>
+
+      <!-- Quick Action Buttons — Glass -->
+      <div class="pt-2 flex items-center gap-3 flex-wrap">
+        <button 
+          type="button" 
+          onclick="if(window.openSearchModal) openSearchModal();" 
+          class="px-4 py-2.5 bg-[#2b2b2b] dark:bg-[#e8e4de] text-[#f7f5f0] dark:text-[#1a1a1a] rounded-xl text-xs font-mono tracking-wider flex items-center gap-2 hover:opacity-90 transition-all cursor-pointer"
+          style="box-shadow: 0 4px 16px -4px rgba(0,0,0,0.2);"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span>Search Sanctuary</span>
+          <kbd class="px-1.5 py-0.5 bg-black/20 dark:bg-black/10 rounded text-[10px]">⌘K</kbd>
+        </button>
+
+        <button 
+          type="button"
+          id="hero-random-btn"
+          class="px-4 py-2.5 rounded-xl text-xs font-mono text-charcoal dark:text-[#e8e4de] transition-all flex items-center gap-2 cursor-pointer glass-btn"
+        >
+          <span>🎲 Random Thought</span>
+        </button>
+      </div>
+
+      <!-- Philosophical Banner — Glass -->
+      <div class="wabi-quote-banner mt-6 max-w-2xl">
+        <p class="text-xs italic text-[#666] dark:text-[#aaa] font-serif leading-relaxed">
+          «Несовершенное, незавершённое и непостоянное — истинная природа знания. В тишине между мыслями расцветает понимание.»
+        </p>
+      </div>
     </div>
-    <h1 class="text-3xl md:text-5xl font-serif text-[#2b2b2b] dark:text-[#e8e4de] tracking-tight font-light">
-      知恵の庭
-    </h1>
-    <p class="text-base text-[#555] dark:text-[#aaa] max-w-2xl leading-relaxed">
-      A tranquil sanctuary for structured thought, language acquisition, mnemonics, and programming craft. Designed with Wabi-Sabi simplicity and effortless navigation.
-    </p>
   </section>
 
-  <!-- Stats Grid -->
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="washi-card p-6 rounded shadow-sm">
-      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">{{ docs|length }}</div>
-      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Total Documents</div>
+  <!-- Sculpted Metrics Grid — Frosted Glass -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="washi-card washi-card-accent p-6 flex items-center gap-4">
+      <div class="stamp-kanji">書</div>
+      <div>
+        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">{{ docs|length }}</div>
+        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Notes & Documents</div>
+      </div>
     </div>
-    <div class="washi-card p-6 rounded shadow-sm">
-      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">{{ categories|length }}</div>
-      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Core Domains</div>
+
+    <div class="washi-card washi-card-accent p-6 flex items-center gap-4">
+      <div class="stamp-kanji">門</div>
+      <div>
+        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">{{ categories|length }}</div>
+        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Knowledge Domains</div>
+      </div>
     </div>
-    <div class="washi-card p-6 rounded shadow-sm col-span-2 md:col-span-1">
-      <div class="text-2xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">靜寂</div>
-      <div class="text-xs text-[#777] dark:text-[#888] mt-1 tracking-wide uppercase font-mono">Serenity & Focus</div>
+
+    <div class="washi-card washi-card-accent p-6 flex items-center gap-4 sm:col-span-2 lg:col-span-1">
+      <div class="stamp-kanji">寂</div>
+      <div>
+        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">100% Offline</div>
+        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Pure Python & CSS</div>
+      </div>
     </div>
   </div>
 
-  <!-- Categories Directory -->
+  <!-- Knowledge Domains Directory — Frosted Glass Cards -->
   <section class="space-y-6">
-    <h2 class="text-xl font-serif text-[#2b2b2b] dark:text-[#e8e4de]">Domains of Study</h2>
+    <div class="flex items-center justify-between pb-3" style="border-bottom: var(--glass-border);">
+      <div>
+        <h2 class="text-xl md:text-2xl font-serif text-charcoal dark:text-[#e8e4de]">Domains of Study · 学びの領域</h2>
+        <p class="text-xs text-muted dark:text-[#888] font-mono mt-1">Explore structured notes across categories</p>
+      </div>
+      <span class="text-xs font-mono text-muted dark:text-[#888]">{{ categories|length }} active categories</span>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {% for cat, items in categories.items() %}
-        <div class="washi-card p-6 rounded shadow-sm hover:border-[#ccc] dark:hover:border-[#444] transition-colors flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono tracking-widest uppercase text-[#777] dark:text-[#888]">{{ cat }}</span>
-              <span class="text-xs text-[#999] dark:text-[#666] bg-[#f7f5f0] dark:bg-[#1a1a1a] px-2 py-0.5 rounded">{{ items|length }} docs</span>
+        {% set stamp_char = '書' %}
+        {% if 'language' in cat|lower %}
+          {% set stamp_char = '語' %}
+        {% elif 'mnemonic' in cat|lower %}
+          {% set stamp_char = '記' %}
+        {% elif 'program' in cat|lower or 'code' in cat|lower or 'web' in cat|lower or 'git' in cat|lower or 'sql' in cat|lower or 'python' in cat|lower or 'rust' in cat|lower %}
+          {% set stamp_char = '術' %}
+        {% elif 'philosophy' in cat|lower or 'thought' in cat|lower or 'mind' in cat|lower %}
+          {% set stamp_char = '考' %}
+        {% endif %}
+
+        <div class="washi-card p-6 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <!-- Card Header -->
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="stamp-kanji">{{ stamp_char }}</div>
+                <div>
+                  <h3 class="text-base md:text-lg font-serif text-charcoal dark:text-[#e8e4de] capitalize group-hover:text-[#8c7853] dark:group-hover:text-[#fff] transition-colors">
+                    {{ cat }}
+                  </h3>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-muted dark:text-[#888]">
+                    {{ cat.split('/')[0] }}
+                  </span>
+                </div>
+              </div>
+              <span class="pill-badge">{{ items|length }} notes</span>
             </div>
-            <h3 class="text-lg font-serif text-[#2b2b2b] dark:text-[#e8e4de] capitalize">{{ cat }}</h3>
-            <ul class="space-y-1 pt-2 border-t border-[#f0ece6] dark:border-[#333]">
+
+            <!-- Note previews list -->
+            <ul class="space-y-1.5 pt-3" style="border-top: var(--glass-border);">
               {% for doc in items[:4] %}
                 <li>
-                  <a href="{{ url_for('doc_detail', slug=doc.slug) }}" class="text-xs text-[#555] dark:text-[#aaa] hover:text-[#111] dark:hover:text-[#fff] hover:underline truncate block py-0.5">
-                    {{ doc.title }}
+                  <a 
+                    href="{{ url_for('doc_detail', slug=doc.slug) }}" 
+                    class="text-xs text-[#555] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] truncate block py-0.5 hover:translate-x-0.5 transition-transform flex items-center gap-1.5"
+                    title="{{ doc.title }}"
+                  >
+                    <span class="text-muted dark:text-[#666] text-[10px]">›</span>
+                    <span class="truncate">{{ doc.title }}</span>
                   </a>
                 </li>
               {% endfor %}
             </ul>
           </div>
-          <div class="pt-4 mt-4 border-t border-[#f0ece6] dark:border-[#333] flex justify-end">
-            <a href="{{ url_for('doc_detail', slug=items[0].slug) }}" class="text-xs text-[#333] dark:text-[#aaa] font-medium hover:opacity-75 transition-opacity inline-flex items-center gap-1">
-              Explore {{ cat }} <span>&rarr;</span>
+
+          <!-- Card Footer -->
+          <div class="pt-4 mt-4 flex items-center justify-between" style="border-top: var(--glass-border);">
+            <span class="text-[10px] font-mono text-muted dark:text-[#666]">
+              {% if items|length > 4 %}+{{ items|length - 4 }} more{% else %}Complete{% endif %}
+            </span>
+            <a 
+              href="{{ url_for('doc_detail', slug=items[0].slug) }}" 
+              class="text-xs text-charcoal dark:text-[#e8e4de] font-medium hover:text-[#8c7853] dark:hover:text-[#fff] inline-flex items-center gap-1 font-mono transition-colors"
+            >
+              <span>Explore</span>
+              <span>&rarr;</span>
             </a>
           </div>
         </div>
@@ -65,4 +159,15 @@
     </div>
   </section>
 </div>
+
+<script>
+  document.getElementById('hero-random-btn')?.addEventListener('click', () => {
+    if (window.searchIndex && window.searchIndex.length > 0) {
+      const idx = Math.floor(Math.random() * window.searchIndex.length);
+      window.location.href = `/doc/${window.searchIndex[idx].slug}`;
+    } else {
+      document.getElementById('random-note-btn')?.click();
+    }
+  });
+</script>
 {% endblock %}

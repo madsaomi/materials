@@ -1,36 +1,58 @@
 {
   "project": "materials",
-  "version": "2.0.0",
-  "last_updated": "2026-09-03",
-  "stack": "Python Flask + Jinja2 + python-markdown + Pygments (no Node.js)",
+  "version": "2.2.0",
+  "last_updated": "2026-09-05",
+  "stack": "Python Flask + Jinja2 + python-markdown + Pygments + Vanilla CSS Wabi-Sabi (no Node.js, no external CDN dependencies, 100% offline)",
   "knowledge": {
     "files": 642,
     "lines": 173380,
     "internal_duplicates": 0,
     "broken_internal_links": 0,
-    "duplicate_titles": 0
+    "duplicate_titles": 0,
+    "duplicate_heading_ids": 0,
+    "code_comments_in_toc": 0
   },
   "git_status": {
     "branch": "main",
-    "working_tree": "clean"
+    "working_tree": "modified"
   },
   "active_components": [
-    "knowledge/tools",
-    "knowledge/mnemonics",
-    "knowledge/languages",
-    "knowledge/psychology",
-    "knowledge/philosophy",
-    "knowledge/practices",
-    "knowledge/programming",
     "app.py",
-    "templates/",
-    "static/"
+    "static/css/style.css",
+    "templates/layout.html",
+    "templates/doc.html",
+    "templates/index.html",
+    "templates/404.html",
+    ".agents/",
+    "knowledge/"
   ],
-  "current_focus": "Flask knowledge base: zero broken links, normalized markdown, unique titles",
+  "environment": {
+    "python_executable": ".\\venv\\Scripts\\python.exe",
+    "pip_executable": ".\\venv\\Scripts\\pip.exe",
+    "dev_command": ".\\venv\\Scripts\\python.exe app.py",
+    "prod_command": "gunicorn app:app",
+    "default_port": 5000
+  },
+  "entrypoints": {
+    "agent_readme": ".agents/README.md",
+    "active_plan": ".agents/ACTIVE_PLAN.md",
+    "architecture_doc": ".agents/ARCHITECTURE.md",
+    "rules_doc": ".agents/RULES.md",
+    "glossary_doc": ".agents/GLOSSARY.md",
+    "session_log": ".agents/history/agent-session-log.md"
+  },
+  "invariants": {
+    "no_nodejs": true,
+    "no_tailwind_build": true,
+    "no_astro": true,
+    "offline_only": true,
+    "windows_console_cjk_safe": true,
+    "relative_md_internal_links": true
+  },
+  "current_focus": "Session 005 complete: Glassmorphism Design Overhaul is fully implemented across CSS and Jinja2 templates.",
   "pending_tasks": [
     "Expand 60 thin usage.md stubs with per-unit content",
-    "Audit #anchor validity for in-page links",
     "Production deploy (gunicorn + hosting)"
   ],
-  "notes": "Migrated from Astro/Node to pure Python Flask. All 642 docs render 200, search via /api/search.json, Wabi-Sabi aesthetic preserved."
+  "notes": "Systematized multi-agent protocol: .agents/ACTIVE_PLAN.md tracks active steps in parallel ([x], [/], [ ]), history in .agents/history/agent-session-log.md is strictly append-only (no overwriting), and root rules (AGENTS.md, CLAUDE.md, .cursorrules) enforce cross-IDE and cross-provider compliance."
 }

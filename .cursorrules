@@ -1,0 +1,22 @@
+# .cursorrules — Cursor IDE Rules for materials
+
+You are an AI assistant working on the "materials" repository. You must follow these inviolable rules:
+
+1. READ STATE & LIVE PLAN FIRST:
+   - Before answering or making any changes, inspect `.agents/STATE.json` and `.agents/ACTIVE_PLAN.md`.
+   - If an ongoing task is in progress (marked with `[/]`), resume from that exact point.
+   - Maintain the 3-state checklist in `.agents/ACTIVE_PLAN.md` (`[x]`, `[/]`, `[ ]`) as you work.
+
+2. STRICT APPEND-ONLY SESSION LOGGING:
+   - NEVER overwrite or truncate past sessions in `.agents/history/agent-session-log.md`.
+   - When concluding your work, append a new session (`## Session XXX - <Date>`) with all actions taken and verification results.
+
+3. ARCHITECTURAL INVARIANTS:
+   - Pure Python Flask + Jinja2 + Vanilla CSS (`static/css/style.css`).
+   - ZERO Node.js / NPM / Astro / Tailwind build tools. Never introduce package.json or node_modules.
+   - 100% offline self-containment. No external CDNs.
+   - Windows CP1251 Console: Never print() CJK characters directly in the console (UnicodeEncodeError). Write verification output to files.
+   - Internal links: Relative Obsidian `.md` links (e.g. `../grammar/core.md`). Flask rewrites them to `/doc/...`.
+
+4. VERIFICATION BEFORE HANDOFF:
+   - Test client check: GET `/` (200), GET `/api/search.json` (200, 642 entries), sample `/doc/<slug>` (200, 0 leftover `.md` hrefs).

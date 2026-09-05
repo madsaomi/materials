@@ -55,6 +55,21 @@ Before committing site changes, verify with the Flask test client:
   resolve relative links against slug set, excluding fenced code blocks)
 - all 642 doc titles unique
 
+## Multi-Agent Protocol & Live Planning
+
+All agents working on this project (across any IDE, tool, or LLM provider) must adhere to the multi-agent persistence system in `.agents/`:
+
+1. **Before starting work:**
+   - Inspect `.agents/STATE.json` for repository version, active focus, and pending tasks.
+   - Inspect `.agents/ACTIVE_PLAN.md` to see if there is an in-progress task from a previous agent.
+   - Review operational rules in `.agents/RULES.md`.
+2. **During work (Live Planning):**
+   - Maintain the live checklist in `.agents/ACTIVE_PLAN.md` using 3 states: `[x]` (done), `[/]` (in progress right now), `[ ]` (remaining).
+   - Any agent can immediately resume from a `[/]` or `[ ]` step without repeating completed work.
+3. **Session Logging (Strictly Append-Only):**
+   - **NEVER overwrite, edit, or truncate past history** in `.agents/history/agent-session-log.md`.
+   - Always append your session (`## Session XXX - <Date>`) with actions taken, tests verified, and handoff notes for the next agent.
+
 ## Docs
 
 - Flask: https://flask.palletsprojects.com/

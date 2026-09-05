@@ -5,28 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}知 · Chishiki Knowledge Base{% endblock %}</title>
   <meta name="description" content="{% block description %}A minimalist Japanese-inspired knowledge repository.{% endblock %}" />
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('favicon_svg') }}">
+  <link rel="alternate icon" type="image/x-icon" href="{{ url_for('favicon') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
   <script>
     (function() {
       try {
         const t = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (t === 'dark' || (!t && prefersDark)) document.documentElement.classList.add('dark');
+
+        const f = localStorage.getItem('docFont') || 'serif';
+        const fontFamily = f === 'sans' ? "'Inter', sans-serif" : "'Noto Serif JP', serif";
+        document.documentElement.style.setProperty('--doc-font', fontFamily);
       } catch(e) {}
     })();
   </script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3.0.0-glass">
 </head>
-<body class="h-full flex flex-col md:flex-row antialiased bg-paper dark:bg-[#1a1a1a] text-charcoal dark:text-[#e8e4de] selection:bg-[#e8e4de] dark:selection:bg-[#333] selection:text-[#111] dark:selection:text-[#fff]">
+<body class="h-full flex flex-col md:flex-row antialiased text-charcoal dark:text-[#e8e4de]">
 
   <!-- Reading Progress Bar -->
-  <div id="reading-progress" class="fixed top-0 left-0 h-[2px] bg-[#8c7853] dark:bg-[#e8e4de] z-50 transition-all duration-100" style="width: 0%"></div>
+  <div id="reading-progress" class="fixed top-0 left-0 h-[2px] z-50 transition-all duration-100" style="width: 0%"></div>
 
-  <!-- Mobile Header -->
-  <header class="md:hidden flex items-center justify-between px-6 py-4 bg-paper dark:bg-[#1a1a1a] border-b border-border dark:border-[#333] sticky top-0 z-30">
-    <a href="/" class="text-lg font-serif tracking-widest text-charcoal dark:text-[#e8e4de]">知 · Chishiki</a>
+  <!-- Mobile Header — Frosted Glass -->
+  <header class="md:hidden flex items-center justify-between px-6 py-4 sticky top-0 z-30" style="background-color: var(--bg-sidebar); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)); border-bottom: var(--glass-border);">
+    <a href="/" class="flex items-center gap-2 text-lg font-serif tracking-widest text-charcoal dark:text-[#e8e4de]">
+      <span class="stamp-seal">知</span>
+      <span>Chishiki</span>
+    </a>
     <div class="flex items-center gap-2">
       <button id="theme-toggle-mobile" aria-label="Toggle theme" class="p-2 text-muted dark:text-[#999] hover:text-charcoal dark:hover:text-[#fff] transition-colors">
         <span class="theme-icon-light">☀</span><span class="theme-icon-dark hidden">☾</span>
@@ -40,23 +50,27 @@
   </header>
 
   <!-- Overlay -->
-  <div id="overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 hidden md:hidden"></div>
+  <div id="overlay" class="fixed inset-0 z-30 hidden md:hidden" style="background-color: rgba(0,0,0,0.3); backdrop-filter: blur(8px) saturate(1.2); -webkit-backdrop-filter: blur(8px) saturate(1.2);"></div>
 
-  <!-- Sidebar Navigation -->
-  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-80 bg-[#f4f1ea] dark:bg-[#1e1e1e] border-r border-border dark:border-[#333] flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+  <!-- Sidebar Navigation — Frosted Glass Panel -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-80 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out" style="background-color: var(--bg-sidebar); backdrop-filter: blur(var(--glass-blur-heavy)) saturate(var(--glass-saturation)); -webkit-backdrop-filter: blur(var(--glass-blur-heavy)) saturate(var(--glass-saturation)); border-right: var(--glass-border); box-shadow: var(--glass-inner-glow), 4px 0 24px -8px rgba(0,0,0,0.08);">
     <!-- Sidebar Header -->
-    <div class="px-6 py-6 border-b border-border dark:border-[#333] flex items-center justify-between">
+    <div class="px-6 py-6 flex items-center justify-between" style="border-bottom: var(--glass-border);">
       <div>
-        <a href="/" class="text-xl font-serif tracking-widest text-charcoal dark:text-[#e8e4de] hover:opacity-80 transition-opacity">
-          知 <span class="text-xs uppercase tracking-widest text-muted dark:text-[#888] ml-2 font-sans">Chishiki</span>
+        <a href="/" class="flex items-center gap-2.5 text-xl font-serif tracking-widest text-charcoal dark:text-[#e8e4de] hover:opacity-85 transition-opacity">
+          <span class="stamp-seal">知</span>
+          <div>
+            <span class="text-lg font-serif">Chishiki</span>
+            <span class="text-[10px] uppercase tracking-widest text-muted dark:text-[#888] ml-1.5 font-sans">Garden</span>
+          </div>
         </a>
-        <p class="text-xs text-muted dark:text-[#888] mt-1 tracking-wide">静寂と知恵の空間 — Wabi-Sabi</p>
+        <p class="text-xs text-muted dark:text-[#888] mt-1 tracking-wide">静寂と知恵の空間 — Glassmorphism</p>
       </div>
       <div class="flex items-center gap-2">
-        <button id="sidebar-collapse-btn" aria-label="Toggle Sidebar Collapse" title="Collapse/Expand Sidebar" class="hidden md:flex p-1.5 rounded border border-border dark:border-[#333] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] hover:border-muted transition-colors text-xs font-mono">
+        <button id="sidebar-collapse-btn" aria-label="Toggle Sidebar Collapse" title="Collapse/Expand Sidebar" class="hidden md:flex p-1.5 rounded-lg text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-colors text-xs font-mono glass-btn">
           <span id="collapse-icon">«</span>
         </button>
-        <button id="theme-toggle" aria-label="Toggle theme" class="p-1.5 rounded border border-border dark:border-[#333] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] hover:border-muted transition-colors">
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-1.5 rounded-lg text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-colors glass-btn">
           <span class="theme-icon-light text-sm">☀</span><span class="theme-icon-dark hidden text-sm">☾</span>
         </button>
         <button id="menu-close" class="md:hidden text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff]">
@@ -67,27 +81,30 @@
       </div>
     </div>
 
-    <!-- Search Box -->
-    <div class="p-4 border-b border-border dark:border-[#333]">
+    <!-- Search Box — Glass Input -->
+    <div class="p-4" style="border-bottom: var(--glass-border);">
       <div class="flex items-center gap-2">
         <div class="relative flex-1">
-          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted dark:text-[#666]">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </span>
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Search knowledge..." 
-            class="w-full pl-9 pr-4 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded focus:outline-none focus:border-muted dark:focus:border-[#555] text-charcoal dark:text-[#e8e4de] placeholder-[#999] dark:placeholder-[#666] transition-colors"
-          />
+          <button 
+            type="button"
+            id="sidebar-search-btn" 
+            aria-label="Search knowledge (Cmd+K)"
+            class="w-full pl-9 pr-3 py-2 text-xs rounded-lg text-left text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-all flex items-center justify-between group glass-btn"
+          >
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted dark:text-[#666] group-hover:text-charcoal dark:group-hover:text-[#fff] transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </span>
+            <span>Search...</span>
+            <kbd class="text-[10px] font-mono px-1.5 py-0.5 rounded text-[#666] dark:text-[#aaa]" style="background-color: var(--bg-card); border: var(--glass-border);">⌘K</kbd>
+          </button>
         </div>
         <button 
           id="random-note-btn" 
           title="Random Note (🎲)" 
           aria-label="Random Note"
-          class="px-2.5 py-2 text-xs bg-washi dark:bg-[#252525] border border-border dark:border-[#333] rounded hover:border-muted dark:hover:border-[#555] text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-colors flex items-center justify-center shrink-0"
+          class="px-2.5 py-2 text-xs rounded-lg text-muted dark:text-[#888] hover:text-charcoal dark:hover:text-[#fff] transition-all flex items-center justify-center shrink-0 glass-btn"
         >
           🎲
         </button>
@@ -96,10 +113,6 @@
 
     <!-- Navigation Links -->
     <nav class="flex-1 overflow-y-auto px-4 py-4 space-y-6">
-      <div id="search-results" class="hidden space-y-1">
-        <p class="text-[10px] font-semibold tracking-widest uppercase text-muted dark:text-[#888] px-2 mb-2">Search Results</p>
-        <div id="results-container"></div>
-      </div>
 
       <div id="nav-categories" class="space-y-6">
         {% for cat, items in categories.items() %}
@@ -112,7 +125,7 @@
                 <li>
                   <a 
                     href="{{ url_for('doc_detail', slug=doc.slug) }}"
-                    class="block px-2 py-1.5 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded transition-colors truncate"
+                    class="block px-2 py-1.5 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded-lg transition-colors truncate {% if current_doc and current_doc.slug == doc.slug %}sidebar-active-doc{% endif %}"
                     title="{{ doc.title }}"
                   >
                     {{ doc.title }}
@@ -129,7 +142,7 @@
     </nav>
 
     <!-- Sidebar Footer -->
-    <div class="p-4 border-t border-border dark:border-[#333] text-[11px] text-muted dark:text-[#888] flex justify-between items-center">
+    <div class="p-4 text-[11px] text-muted dark:text-[#888] flex justify-between items-center" style="border-top: var(--glass-border);">
       <span>{{ docs|length }} items</span>
       <a href="https://github.com" target="_blank" rel="noreferrer" class="hover:text-charcoal dark:hover:text-[#fff] transition-colors">GitHub</a>
     </div>
@@ -141,33 +154,45 @@
       {% block content %}{% endblock %}
     </main>
     
-    <!-- Footer -->
-    <footer class="py-8 px-6 text-center text-xs text-muted dark:text-[#666] border-t border-border dark:border-[#333]">
-      <p class="font-serif">知 — Chishiki Knowledge Repository · Built with Wabi-Sabi serenity</p>
+    <!-- Footer — Frosted Glass -->
+    <footer class="py-8 px-6 text-center text-xs text-muted dark:text-[#666]" style="border-top: var(--glass-border); background-color: var(--bg-card); backdrop-filter: blur(var(--glass-blur-light)); -webkit-backdrop-filter: blur(var(--glass-blur-light));">
+      <p class="font-serif">知 — Chishiki Knowledge Repository · Frosted Glass Edition</p>
     </footer>
   </div>
 
-  <!-- Cmd+K / Ctrl+K Search Modal -->
-  <div id="search-modal" class="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-black/40 backdrop-blur-sm hidden">
-    <div id="search-modal-box" class="w-full max-w-xl bg-paper dark:bg-[#222] border border-border dark:border-[#333] rounded-lg shadow-2xl overflow-hidden flex flex-col">
-      <div class="p-4 border-b border-border dark:border-[#333] flex items-center gap-3">
-        <svg class="w-5 h-5 text-muted dark:text-[#888] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Cmd+K / Ctrl+K Search Modal — Frosted Glass -->
+  <div id="search-modal" class="hidden" style="display: none !important;">
+    <div id="search-modal-box">
+      <div class="p-4 flex items-center gap-3" style="border-bottom: var(--glass-border);">
+        <svg class="w-5 h-5 text-muted shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
         <input 
           type="text" 
           id="modal-search-input" 
-          placeholder="Search all knowledge docs (Type to filter...)" 
-          class="w-full bg-transparent text-sm text-charcoal dark:text-[#e8e4de] focus:outline-none placeholder-muted dark:placeholder-[#666]"
+          placeholder="Search all knowledge notes (Type to filter...)" 
+          autocomplete="off"
+          class="w-full bg-transparent text-sm text-charcoal focus:outline-none placeholder-muted"
         />
-        <button id="modal-close-btn" class="text-xs font-mono px-2 py-1 bg-[#eae5dd] dark:bg-[#333] text-muted dark:text-[#aaa] rounded hover:text-charcoal dark:hover:text-[#fff]">ESC</button>
+        <button id="modal-close-btn" type="button" aria-label="Close search" class="text-xs font-mono px-2 py-1 rounded-lg text-muted hover:text-charcoal dark:hover:text-[#fff] cursor-pointer glass-btn">ESC</button>
       </div>
+
+      <!-- Domain Filter Pills -->
+      <div id="search-filter-bar" class="search-domain-filters">
+        <button type="button" class="search-filter-pill active" data-domain="all">All (全)</button>
+        <button type="button" class="search-filter-pill" data-domain="languages">Languages (語)</button>
+        <button type="button" class="search-filter-pill" data-domain="mnemonics">Mnemonics (記)</button>
+        <button type="button" class="search-filter-pill" data-domain="programming">Code & Tech (術)</button>
+        <button type="button" class="search-filter-pill" data-domain="philosophy">Philosophy (考)</button>
+        <button type="button" class="search-filter-pill" data-domain="other">Other (書)</button>
+      </div>
+
       <div id="modal-results-container" class="max-h-96 overflow-y-auto p-2 space-y-1">
-        <div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">Type a query to search across all documents...</div>
+        <div class="px-3 py-6 text-center text-xs text-muted">Type a query to search across all documents...</div>
       </div>
-      <div class="px-4 py-2.5 bg-[#f4f1ea] dark:bg-[#1a1a1a] border-t border-border dark:border-[#333] text-[10px] text-muted dark:text-[#888] flex justify-between items-center font-mono">
+      <div class="px-4 py-2.5 text-[10px] text-muted flex justify-between items-center font-mono" style="border-top: var(--glass-border);">
         <span>Use ↑↓ to navigate, Enter to select</span>
-        <span>Cmd+K / Ctrl+K</span>
+        <span>Cmd+K / Ctrl+K / ESC</span>
       </div>
     </div>
   </div>
@@ -260,7 +285,7 @@
         return;
       }
       resultsContainer.innerHTML = matches.map(m => `
-        <a href="/doc/${m.slug}" class="block px-2 py-2 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded transition-colors">
+        <a href="/doc/${m.slug}" class="block px-2 py-2 text-xs text-[#444] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] rounded-lg transition-colors">
           <div class="font-medium text-charcoal dark:text-[#e8e4de] truncate">${m.title}</div>
           <div class="text-[10px] text-muted dark:text-[#666] truncate">${m.slug}</div>
         </a>
@@ -343,7 +368,7 @@
       if (pre.querySelector('.copy-code-btn')) return;
       pre.style.position = 'relative';
       const button = document.createElement('button');
-      button.className = 'copy-code-btn absolute top-2 right-2 px-2 py-1 text-[10px] font-mono bg-[#2a2a2a] text-[#aaa] hover:text-[#fff] hover:bg-[#333] border border-[#444] rounded sm:opacity-0 sm:group-hover:opacity-100 transition-opacity';
+      button.className = 'copy-code-btn absolute top-2 right-2 px-2 py-1 text-[10px] font-mono sm:opacity-0 sm:group-hover:opacity-100 transition-opacity';
       button.textContent = 'Copy';
       button.setAttribute('aria-label', 'Copy code to clipboard');
       button.addEventListener('click', async () => {
@@ -369,60 +394,155 @@
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
     function openSearchModal() {
+      if (!searchModal) return;
+      searchModal.style.setProperty('display', 'flex', 'important');
       searchModal.classList.remove('hidden');
-      modalSearchInput.focus();
-      modalSearchInput.value = '';
+      searchModal.classList.add('open');
+      if (modalSearchInput) {
+        modalSearchInput.value = '';
+        setTimeout(() => modalSearchInput.focus(), 20);
+      }
       renderModalResults('');
     }
 
     function closeSearchModal() {
+      if (!searchModal) return;
+      searchModal.style.setProperty('display', 'none', 'important');
+      searchModal.classList.remove('open');
       searchModal.classList.add('hidden');
     }
 
     document.addEventListener('keydown', (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      const isCmdK = (e.metaKey || e.ctrlKey) && (e.key.toLowerCase() === 'k' || e.code === 'KeyK');
+      if (isCmdK) {
         e.preventDefault();
-        if (searchModal.classList.contains('hidden')) {
-          openSearchModal();
-        } else {
+        const isOpen = searchModal && (searchModal.classList.contains('open') || searchModal.style.display === 'flex');
+        if (isOpen) {
           closeSearchModal();
+        } else {
+          openSearchModal();
         }
+        return;
       }
-      if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        openSearchModal();
+        return;
+      }
+      if (e.key === 'Escape') {
         closeSearchModal();
       }
     });
 
-    modalCloseBtn?.addEventListener('click', closeSearchModal);
-    searchModal?.addEventListener('click', (e) => {
-      if (e.target === searchModal) closeSearchModal();
+    modalCloseBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeSearchModal();
     });
 
-    searchInput?.addEventListener('focus', (e) => {
-      e.target.blur();
+    searchModal?.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        closeSearchModal();
+      }
+    });
+
+    document.getElementById('sidebar-search-btn')?.addEventListener('click', (e) => {
+      e.preventDefault();
       openSearchModal();
     });
 
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function highlightMatch(text, words) {
+      let safeText = escapeHtml(text || '');
+      if (!words || words.length === 0) return safeText;
+      words.forEach(w => {
+        if (!w) return;
+        const escaped = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        safeText = safeText.replace(new RegExp(`(${escaped})`, 'gi'), '<mark class="search-highlight">$1</mark>');
+      });
+      return safeText;
+    }
+
+    let activeSearchDomain = 'all';
+
+    document.querySelectorAll('.search-filter-pill').forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.search-filter-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeSearchDomain = pill.getAttribute('data-domain') || 'all';
+        renderModalResults(modalSearchInput ? modalSearchInput.value : '');
+        if (modalSearchInput) modalSearchInput.focus();
+      });
+    });
+
+    function matchesDomain(d, domain) {
+      if (domain === 'all') return true;
+      const slug = (d.slug || '').toLowerCase();
+      const cat = (d.category || '').toLowerCase();
+      if (domain === 'languages') return slug.startsWith('languages') || cat.includes('language');
+      if (domain === 'mnemonics') return slug.startsWith('mnemonics') || cat.includes('mnemonic');
+      if (domain === 'programming') return slug.startsWith('programming') || cat.includes('programming') || cat.includes('code');
+      if (domain === 'philosophy') return slug.startsWith('philosophy') || cat.includes('philosophy');
+      if (domain === 'other') {
+        return !slug.startsWith('languages') && !slug.startsWith('mnemonics') && !slug.startsWith('programming') && !slug.startsWith('philosophy');
+      }
+      return true;
+    }
+
     function renderModalResults(query) {
-      const q = query.toLowerCase().trim();
-      if (searchIndex.length === 0) {
+      const q = (query || '').toLowerCase().trim();
+      if (!searchIndex || searchIndex.length === 0) {
         modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">Loading search index...</div>';
         return;
       }
-      const matches = searchIndex.filter(d => !q || d.title.toLowerCase().includes(q) || d.slug.toLowerCase().includes(q) || d.category.toLowerCase().includes(q)).slice(0, 20);
+
+      const domainFiltered = searchIndex.filter(d => matchesDomain(d, activeSearchDomain));
+
+      if (!q) {
+        if (activeSearchDomain === 'all') {
+          modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">Type a query or select a domain above to search notes...</div>';
+          return;
+        } else {
+          // Show top results for the selected domain
+          const sample = domainFiltered.slice(0, 20);
+          modalResultsContainer.innerHTML = sample.map((m, idx) => `
+            <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded-lg hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}"${idx === 0 ? ' data-active="true"' : ''}>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-charcoal dark:text-[#e8e4de]">${escapeHtml(m.title)}</span>
+                <span class="text-[10px] font-mono text-muted dark:text-[#888]">${escapeHtml(m.category)}</span>
+              </div>
+              <div class="text-[10px] font-mono text-muted dark:text-[#666] truncate mt-0.5">${escapeHtml(m.slug)}</div>
+            </a>
+          `).join('');
+          return;
+        }
+      }
+
+      const queryWords = q.split(/\s+/).filter(Boolean);
+      const matches = domainFiltered.filter(d => {
+        const title = (d.title || '').toLowerCase();
+        const slug = (d.slug || '').toLowerCase();
+        const category = (d.category || '').toLowerCase();
+        return queryWords.every(w => title.includes(w) || slug.includes(w) || category.includes(w));
+      }).slice(0, 30);
 
       if (matches.length === 0) {
-        modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">No matching documents found.</div>';
+        modalResultsContainer.innerHTML = '<div class="px-3 py-6 text-center text-xs text-muted dark:text-[#888]">No matching thoughts found in this domain.</div>';
         return;
       }
 
       modalResultsContainer.innerHTML = matches.map((m, idx) => `
-        <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}"${idx === 0 ? ' data-active="true"' : ''}>
+        <a href="/doc/${m.slug}" class="search-result-item block px-3 py-2.5 rounded-lg hover:bg-[#eae5dd] dark:hover:bg-[#2a2a2a] transition-colors ${idx === 0 ? 'bg-[#eae5dd] dark:bg-[#2a2a2a]' : ''}" data-index="${idx}"${idx === 0 ? ' data-active="true"' : ''}>
           <div class="flex items-center justify-between">
-            <span class="text-xs font-medium text-charcoal dark:text-[#e8e4de]">${m.title}</span>
-            <span class="text-[10px] font-mono text-muted dark:text-[#888]">${m.category}</span>
+            <span class="text-xs font-medium text-charcoal dark:text-[#e8e4de]">${highlightMatch(m.title, queryWords)}</span>
+            <span class="text-[10px] font-mono text-muted dark:text-[#888]">${highlightMatch(m.category, queryWords)}</span>
           </div>
-          <div class="text-[10px] font-mono text-muted dark:text-[#666] truncate mt-0.5">${m.slug}</div>
+          <div class="text-[10px] font-mono text-muted dark:text-[#666] truncate mt-0.5">${highlightMatch(m.slug, queryWords)}</div>
         </a>
       `).join('');
     }
@@ -442,6 +562,11 @@
     }
 
     modalSearchInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeSearchModal();
+        return;
+      }
       const items = modalResultsContainer.querySelectorAll('.search-result-item');
       if (items.length === 0) return;
       const currentActive = modalResultsContainer.querySelector('.search-result-item[data-active="true"]');
@@ -464,6 +589,42 @@
         }
       }
     });
+
+    // Global Modal Access
+    window.openSearchModal = openSearchModal;
+    window.closeSearchModal = closeSearchModal;
+
+    // Toast Notification System
+    window.showToast = function(message, duration = 2500) {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+      }
+      const toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.innerHTML = `<span style="color: #48bb78; font-weight: bold;">✔</span> <span>${escapeHtml(message)}</span>`;
+      container.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add('show'));
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, duration);
+    };
+
+    document.getElementById('zen-exit-floating')?.addEventListener('click', () => {
+      setZenMode(false);
+    });
   </script>
+
+  <!-- Floating Zen Mode Exit Button — Glass Pill -->
+  <button id="zen-exit-floating" aria-label="Exit Zen Mode" title="Exit Zen Mode (Esc)" class="items-center gap-2 px-4 py-2 text-xs font-mono text-charcoal dark:text-[#e8e4de] rounded-full hover:opacity-85 transition-opacity" style="background-color: var(--bg-card); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)); border: var(--glass-border); box-shadow: var(--card-shadow);">
+    <span>✕</span>
+    <span>Exit Zen Mode (Esc)</span>
+  </button>
+
+  <!-- Toast Container -->
+  <div id="toast-container" aria-live="polite"></div>
 </body>
 </html>

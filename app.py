@@ -1,14 +1,17 @@
 import os
 import re
+import html as html_mod
 import markdown
 import frontmatter
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
-from flask import Flask, render_template, abort, url_for, jsonify
+from flask import Flask, render_template, abort, url_for, jsonify, send_from_directory
 
 app = Flask(__name__)
-KNOWLEDGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'knowledge'))
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+KNOWLEDGE_DIR = os.path.join(BASE_DIR, 'knowledge')
+PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 
 def slugify(text):
     # GitHub-style heading anchors: lowercase, drop punctuation
@@ -16,32 +19,46 @@ def slugify(text):
     # Obsidian/GitHub so existing [#links] keep working.
     text = text.lower()
     text = re.sub(r'[^\w\s\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af-]', '', text)
-    return re.sub(r'\s+', '-', text)
+    text = re.sub(r'[\s_]+', '-', text)
+    text = re.sub(r'-+', '-', text).strip('-')
+    return text or 'section'
 
 def parse_markdown(content, slug=''):
     # Custom markdown parser that handles code blocks with Pygments and extracts ToC
-    # Using python-markdown with extensions
-    # For code highlighting, python-markdown has codehilite or we can preprocess fenced code blocks
-    
-    # Let's extract headings for ToC first
     lines = content.split('\n')
     toc = []
     clean_lines = []
     h1_found = False
+    in_code_block = False
+    used_heading_ids = {}
     
     for line in lines:
-        match = re.match(r'^(#{1,3})\s+(.+)$', line)
-        if match:
-            level = len(match.group(1))
-            text = match.group(2).strip()
-            if level == 1 and not h1_found:
-                h1_found = True
-                continue # skip first h1 (rendered as page header)
-            elif 1 <= level <= 3:
-                hid = slugify(text)
-                toc.append({'level': level, 'text': text, 'id': hid})
-                clean_lines.append(f'<h{level} id="{hid}">{text}</h{level}>')
-                continue
+        stripped = line.strip()
+        # Track fenced code blocks so code comments are never mistaken for headings
+        if stripped.startswith(('```', '~~~')):
+            in_code_block = not in_code_block
+            clean_lines.append(line)
+            continue
+
+        if not in_code_block:
+            match = re.match(r'^(#{1,3})\s+(.+)$', line)
+            if match:
+                level = len(match.group(1))
+                text = match.group(2).strip()
+                if level == 1 and not h1_found:
+                    h1_found = True
+                    continue # skip first h1 (rendered as page header)
+                elif 1 <= level <= 3:
+                    base_id = slugify(text)
+                    if base_id in used_heading_ids:
+                        used_heading_ids[base_id] += 1
+                        hid = f"{base_id}-{used_heading_ids[base_id]}"
+                    else:
+                        used_heading_ids[base_id] = 0
+                        hid = base_id
+                    toc.append({'level': level, 'text': text, 'id': hid})
+                    clean_lines.append(f'<h{level} id="{hid}">{text}</h{level}>')
+                    continue
         clean_lines.append(line)
     
     body_content = '\n'.join(clean_lines)
@@ -50,17 +67,12 @@ def parse_markdown(content, slug=''):
     md = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'attr_list'])
     html = md.convert(body_content)
     
-    # Highlight code blocks using pygments if any remain unhighlighted or wrap them
-    # Actually python-markdown fenced_code with codehilite or manual pygments substitution:
-    # Let's do a simple pygments pass on code blocks or use HtmlFormatter
     formatter = HtmlFormatter(style='monokai', cssclass='highlight')
     
     # Find <pre><code class="language-xyz">...</code></pre> or similar
     def replace_code_block(m):
         lang = m.group(1) or ''
         code_text = m.group(2)
-        # unescape html entities if needed
-        import html as html_mod
         code_text = html_mod.unescape(code_text)
         try:
             lexer = get_lexer_by_name(lang) if lang else guess_lexer(code_text)
@@ -76,7 +88,6 @@ def parse_markdown(content, slug=''):
     html = re.sub(r'<pre><code(?:\s+class="language-([^"]+)")?>(.*?)<\/code><\/pre>', replace_code_block, html, flags=re.DOTALL)
 
     # Rewrite relative ".md" links to site routes so in-site navigation works.
-    # "[x](../index.md)" from slug "a/b/c" becomes "/doc/a/index.md" -> "/doc/a/index".
     if slug:
         srcdir = '/'.join(slug.split('/')[:-1])
 
@@ -229,7 +240,34 @@ def doc_detail(slug):
         })
 
     categories = build_categories(docs)
-    return render_template('doc.html', current_doc=current_doc, breadcrumbs=breadcrumbs, docs=docs, categories=categories)
+    cat_docs = categories.get(current_doc['category'], [])
+    prev_doc = None
+    next_doc = None
+    for idx, d in enumerate(cat_docs):
+        if d['slug'] == current_doc['slug']:
+            if idx > 0:
+                prev_doc = cat_docs[idx - 1]
+            if idx < len(cat_docs) - 1:
+                next_doc = cat_docs[idx + 1]
+            break
+
+    return render_template(
+        'doc.html',
+        current_doc=current_doc,
+        breadcrumbs=breadcrumbs,
+        docs=docs,
+        categories=categories,
+        prev_doc=prev_doc,
+        next_doc=next_doc
+    )
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(PUBLIC_DIR, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/favicon.svg')
+def favicon_svg():
+    return send_from_directory(PUBLIC_DIR, 'favicon.svg', mimetype='image/svg+xml')
 
 @app.route('/api/search.json')
 def search_json():
