@@ -1,0 +1,6 @@
+# Exported Anki decks
+exports/
+
+# OS files
+.DS_Store
+Thumbs.db
