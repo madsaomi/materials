@@ -44,4 +44,4 @@ This lexicon covers modern terms that dominate contemporary tech culture, remote
 **Alex:** Agreed, 100%!
 
 ---
-[← Back to Main Vocabulary](index.md) · [Modern SRS & FSRS Tooling](../study-plans/modern-tooling.md)
+[← Back to Main Vocabulary](index.md) · [Modern SRS & FSRS Tooling](../../study-plans/modern-tooling.md)

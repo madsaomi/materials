@@ -1,46 +1,103 @@
-# 知 · Chishiki Knowledge Repository
+# 知 · Chishiki
 
-A minimalist, Japanese-inspired Wabi-Sabi digital garden and knowledge repository, powered by **Python Flask**, Jinja2, and Python-Markdown.
+Личная библиотека заметок: редактируете Markdown в Obsidian, читаете на сайте.
+Flask + Jinja2 + Python-Markdown + Pygments, обычные CSS и JavaScript.
+Без Node.js, сборки фронтенда и внешних шрифтов. Интерфейс работает офлайн.
 
-## 🌿 Features
+## Локальный запуск
 
-- **Tranquil Wabi-Sabi Aesthetic**: Clean typography (*Noto Serif JP* & *Inter*), warm paper tones (`#f7f5f0`), and seamless dark mode support.
-- **Python Flask Backend**: Fast, lightweight SSR server scanning 600+ structured markdown notes on the fly.
-- **Dynamic Table of Contents (ToC)**: Auto-extracted from document headings for effortless navigation.
-- **Quick Search (`Cmd+K` / `Ctrl+K`)**: Instant keyboard-navigable modal search across all documents.
-- **Zen Mode (Focus)**: Distraction-free reading mode hiding sidebars and auxiliary navigation.
-- **Font & Theme Controls**: Toggle between Serif/Sans typography and Light/Dark modes with `localStorage` persistence.
-- **Syntax Highlighting**: Monokai-styled syntax highlighting for code blocks across languages and snippets.
-
----
-
-## 🚀 Getting Started
-
-### 1. Install Dependencies
-```bash
-pip install -r requirements.txt
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe app.py
 ```
 
-### 2. Run the Flask Server
-```bash
-python app.py
+Откройте http://127.0.0.1:5000. Если виртуальное окружение ещё не создано,
+сначала выполните `python -m venv venv`.
+
+## Как работать с заметками
+
+1. Откройте папку `knowledge/` как хранилище в Obsidian.
+2. Создайте или отредактируйте `.md`-файл и сохраните его.
+3. Обновите страницу локального сайта: добавления, правки, переименования и удаления
+   обнаруживаются автоматически. Парсинг выполняется только для изменённых файлов.
+4. Для опубликованного сайта сделайте commit и push в подключённую ветку GitHub.
+   После успешного развёртывания Railway обновите страницу сайта.
+
+Сайт не редактирует файлы и не записывает изменения обратно в Obsidian.
+Кэш сайта не равен синхронизации с Git: удалённому серверу нужен новый деплой.
+
+Внутренние ссылки: `[Заметка](../folder/note.md)` и `[Раздел](note.md#заголовок)`.
+Сайт сохраняет пути файлов и преобразует эти ссылки в адреса страниц.
+Obsidian-ссылки вида `[[Заметка]]`, плагины Dataview и другие расширения Obsidian
+не исполняются на сайте. Для переносимости используйте обычный Markdown.
+
+В репозитории сохранены две коллекции: `knowledge/` и вложенная `knowledge/knowledge/`.
+Они отображаются в общих тематических разделах. Одинаковые названия не удаляются:
+карточки и поиск показывают путь к файлу, карточки также отмечают хранилище.
+
+## Интерфейс
+
+- Liquid Glass: лавандово-персиковый фон, локальная абстрактная композиция,
+  преломление и блики на панелях; плотная матовая поверхность для чтения.
+- Светлая и тёмная темы; на телефоне стекло упрощается до размытия для плавности.
+- Полный каталог с коллекциями, сортировкой и страницами по 24 заметки.
+- Переключение между карточками и компактным списком; выбор сохраняется в браузере.
+- Поиск по названию, пути и категории: `Ctrl+K`, `Cmd+K` или `/`.
+- Оглавление, режим чтения с выходом по `Esc`, переключение шрифта.
+- Копирование ссылок и кода, адаптивная версия для телефона.
+- Системные шрифты, поддержка уменьшенного движения и клавиатурной навигации.
+
+## Размещение на Railway
+
+Настройки сервера подготовлены в `gunicorn.conf.py`.
+Развёртывание в аккаунте Railway пока не выполнено.
+
+1. Отправьте этот проект вместе с `knowledge/` в GitHub.
+2. В Railway создайте проект через **Deploy from GitHub repo**, выберите репозиторий.
+3. Корень сервиса — корень этого проекта, где лежат `app.py` и `requirements.txt`.
+4. В настройках сервиса задайте **Start Command**: `gunicorn app:app`.
+   Конфигурация читает порт из `PORT`,
+   запускает один процесс с двумя потоками и даёт до 120 секунд на обработку запроса.
+   Первая загрузка всей библиотеки может занимать десятки секунд. В настройках Railway
+   задайте **Healthcheck Path**: `/` и **Healthcheck Timeout**: `180` секунд.
+5. В настройках сети создайте адрес через **Generate Domain**.
+6. Подключите нужную ветку и оставьте автоматические развёртывания включёнными.
+   Если задаёте фильтр отслеживаемых файлов, включите `knowledge/**` наряду с кодом,
+   шаблонами и статикой: изменение заметок тоже должно запускать деплой.
+
+Отдельная база данных и постоянный диск для заметок не нужны: файлы входят в репозиторий.
+Публичный адрес открывает доступ к заметкам всем, кто его знает; вход по паролю не реализован.
+Gunicorn запускается на Linux-хостинге; локально на Windows используйте Flask.
+Сортировка «По изменению файла» использует время файловой системы, а не дату commit;
+при новом развёртывании эти времена могут измениться.
+
+По документации Railway, проверенной 28 сентября 2026 года, пробный период даёт $5
+на срок до 30 дней, затем Free предоставляет $1 кредита в месяц. Это ограниченный
+бюджет, а не гарантия бесплатной круглосуточной работы. Перед размещением проверьте
+текущие условия: https://docs.railway.com/pricing/free-trial.
+
+Официальное руководство Flask: https://docs.railway.com/guides/flask.
+Настройки указываются в панели Railway: по актуальной документации новые сервисы
+больше не подключают `railway.json` / `railway.toml`:
+https://docs.railway.com/config-as-code.
+
+## Проверка
+
+```powershell
+.\venv\Scripts\python.exe -B verify.py
 ```
 
-### 3. Open in Browser
-Navigate to **`http://localhost:5000`**
+Проверяются основные маршруты, все категории, страницы каталога, локальные ресурсы,
+ссылки во всех документах, уникальность HTML-якорей и обновление кэша при изменениях файлов.
+Количество документов сверяется с файлами на диске (сейчас 1217), а не с устаревшим числом 642.
+Повторяющиеся названия между коллекциями выводятся в отчёте и не считаются потерей данных.
+Подробный UTF-8-отчёт сохраняется в `%TEMP%/chishiki-audit.json`.
 
----
+## Структура
 
-## 📂 Project Structure
-
-```text
-materials/
-├── app.py               # Flask application & Markdown parser
-├── requirements.txt     # Python dependencies
-├── knowledge/           # Isolated structured notes (.md)
-├── static/              # Stylesheets & static assets
-└── templates/           # Jinja2 templates (layout, index, doc, 404)
-```
-
-## 📜 License
-MIT
+- `app.py` — чтение заметок, категории, маршруты, кэш, поиск.
+- `templates/` — страницы и общие компоненты.
+- `static/css/style.css` — весь дизайн и адаптивное оформление.
+- `static/js/site.js` — поиск, тема и инструменты чтения.
+- `knowledge/` — ваши материалы.
+- `.agents/` — правила и журнал работы над проектом.

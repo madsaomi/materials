@@ -1,12 +1,15 @@
 import os
 import re
 import html as html_mod
+import math
+import threading
+from urllib.parse import quote as urlquote, unquote
 import markdown
 import frontmatter
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
-from flask import Flask, render_template, abort, url_for, jsonify, send_from_directory
+from flask import Flask, render_template, abort, url_for, jsonify, send_from_directory, request
 
 app = Flask(__name__)
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -31,7 +34,7 @@ def parse_markdown(content, slug=''):
     h1_found = False
     in_code_block = False
     used_heading_ids = {}
-    
+
     for line in lines:
         stripped = line.strip()
         # Track fenced code blocks so code comments are never mistaken for headings
@@ -60,15 +63,15 @@ def parse_markdown(content, slug=''):
                     clean_lines.append(f'<h{level} id="{hid}">{text}</h{level}>')
                     continue
         clean_lines.append(line)
-    
+
     body_content = '\n'.join(clean_lines)
-    
+
     # Use python-markdown for HTML conversion
     md = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'attr_list'])
     html = md.convert(body_content)
-    
+
     formatter = HtmlFormatter(style='monokai', cssclass='highlight')
-    
+
     # Find <pre><code class="language-xyz">...</code></pre> or similar
     def replace_code_block(m):
         lang = m.group(1) or ''
@@ -105,90 +108,136 @@ def parse_markdown(content, slug=''):
             target = os.path.normpath(os.path.join(srcdir, path)).replace(os.sep, '/')
             if target.endswith('.md'):
                 target = target[:-3]
-            return 'href=%s/doc/%s%s' % (quote, target, anchor)
+            target = urlquote(unquote(target), safe='/')
+            return 'href=%s/doc/%s%s%s' % (quote, target, anchor, quote)
 
         html = re.sub(r'href=(["\'])([^"\']+)\1', rewrite_link, html)
 
     return html, toc
 
 _docs_cache = None
-_cache_mtime = 0.0
+_cache_signature = None
+_file_cache = {}
+_cache_lock = threading.RLock()
 
 
-def _knowledge_mtime():
-    latest = 0.0
+def _knowledge_snapshot():
+    snapshot = []
     for root, dirs, files in os.walk(KNOWLEDGE_DIR):
-        for f in files:
+        dirs[:] = sorted(d for d in dirs if not d.startswith('.'))
+        for f in sorted(files):
             if f.endswith('.md'):
                 try:
-                    m = os.path.getmtime(os.path.join(root, f))
-                    if m > latest:
-                        latest = m
+                    path = os.path.join(root, f)
+                    stat = os.stat(path)
+                    snapshot.append((path, stat.st_mtime_ns, stat.st_size))
                 except OSError:
                     pass
-    return latest
+    return tuple(snapshot)
+
+
+def category_for_slug(slug):
+    parts = slug.split('/')
+    if parts[0] == 'knowledge':
+        parts = parts[1:]
+    if len(parts) < 2:
+        return 'overview'
+    if parts[0] in ('languages', 'mnemonics') and len(parts) > 2:
+        return f'{parts[0]} / {parts[1]}'
+    return parts[0]
+
+
+LABELS = {
+    'overview': 'Обзор библиотеки', 'languages': 'Языки',
+    'chinese': 'Китайский', 'english': 'Английский', 'japanese': 'Японский',
+    'korean': 'Корейский', 'comparison': 'Сравнение языков', 'study-plans': 'Учебные планы',
+    'mnemonics': 'Память и мнемотехника', 'core-techniques': 'Техники запоминания',
+    'foundations': 'Основы памяти', 'languages-integration': 'Запоминание языков',
+    'practical-domains': 'Практика памяти', 'books': 'Книги', 'philosophy': 'Философия',
+    'practices': 'Практики', 'programming': 'Программирование',
+    'psychology': 'Психология', 'tools': 'Инструменты', 'meditation': 'Медитация',
+    'mnemonics / psychology': 'Психология памяти',
+}
+
+
+@app.template_filter('category_label')
+def category_label(category):
+    return LABELS.get(category, LABELS.get(category.split(' / ')[-1], category.replace('-', ' ').capitalize()))
+
+
+@app.template_filter('category_symbol')
+def category_symbol(category):
+    return {'japanese': '日', 'chinese': '中', 'korean': '한', 'english': 'Aa',
+            'programming': '</>', 'philosophy': 'φ', 'books': '文',
+            'mnemonics': '記'}.get(category.split(' / ')[-1], '記' if category.startswith('mnemonics') else '知')
 
 
 def get_all_docs():
-    global _docs_cache, _cache_mtime
-    current_mtime = _knowledge_mtime()
-    if _docs_cache is not None and current_mtime <= _cache_mtime:
+    with _cache_lock:
+        return _load_docs()
+
+
+def _load_docs():
+    global _docs_cache, _cache_signature, _file_cache
+    snapshot = _knowledge_snapshot()
+    if _docs_cache is not None and snapshot == _cache_signature:
         return _docs_cache
     docs = []
-    if not os.path.exists(KNOWLEDGE_DIR):
-        return docs
-    
-    for root, dirs, files in os.walk(KNOWLEDGE_DIR):
-        for file in files:
-            if file.endswith('.md'):
-                file_path = os.path.join(root, file)
-                rel_path = os.path.relpath(file_path, KNOWLEDGE_DIR)
-                slug = rel_path[:-3].replace('\\', '/')
-                
-                try:
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        post = frontmatter.load(f)
-                        data = post.metadata
-                        content = post.content
-                except Exception:
-                    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                        content = f.read()
-                        data = {}
+    next_file_cache = {}
+    for file_path, mtime, size in snapshot:
+        file = os.path.basename(file_path)
+        cached = _file_cache.get(file_path)
+        if cached and cached[0] == (mtime, size):
+            docs.append(cached[1])
+            next_file_cache[file_path] = cached
+            continue
+        rel_path = os.path.relpath(file_path, KNOWLEDGE_DIR)
+        slug = rel_path[:-3].replace('\\', '/')
 
-                title = data.get('title')
-                if not title:
-                    h1_match = re.search(r'^#\s+(.+)$', content, re.M)
-                    if h1_match:
-                        title = h1_match.group(1).strip()
-                    else:
-                        title = os.path.splitext(file)[0].replace('-', ' ').title()
+        try:
+            with open(file_path, 'r', encoding='utf-8-sig') as f:
+                post = frontmatter.load(f)
+                data = post.metadata
+                content = post.content
+        except Exception:
+            with open(file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
+                content = f.read()
+                data = {}
 
-                parts = slug.split('/')
-                category = parts[0] if parts else 'General'
-                if category == 'languages' and len(parts) > 1:
-                    category = f"languages / {parts[1]}"
-                elif category == 'mnemonics' and len(parts) > 1:
-                    category = f"mnemonics / {parts[1]}"
+        title = data.get('title')
+        if not title:
+            h1_match = re.search(r'^#\s+(.+)$', content, re.M)
+            if h1_match:
+                title = h1_match.group(1).strip()
+            else:
+                title = os.path.splitext(file)[0].replace('-', ' ').title()
 
-                html, toc = parse_markdown(content, slug)
+        category = category_for_slug(slug)
 
-                # Reading time
-                plain_text = re.sub(r'[#*`_\[\]()>-]', '', content)
-                words = len(plain_text.split())
-                reading_time = max(1, round(words / 200))
+        html, toc = parse_markdown(content, slug)
 
-                docs.append({
-                    'slug': slug,
-                    'title': title,
-                    'category': category,
-                    'relativePath': rel_path.replace('\\', '/'),
-                    'data': data,
-                    'toc': toc,
-                    'html': html,
-                    'readingTime': reading_time
-                })
+        # Reading time
+        plain_text = re.sub(r'[#*`_\[\]()>-]', '', content)
+        words = len(plain_text.split())
+        reading_time = max(1, round(words / 200))
+
+        docs.append({
+            'slug': slug,
+            'title': title,
+            'category': category,
+            'relativePath': rel_path.replace('\\', '/'),
+            'data': data,
+            'toc': toc,
+            'html': html,
+            'readingTime': reading_time,
+            'modified': mtime,
+            'collection': 'Дополнительное хранилище' if slug.startswith('knowledge/') else 'Основная библиотека',
+            'excerpt': re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html_mod.unescape(html)))[:180],
+        })
+        next_file_cache[file_path] = ((mtime, size), docs[-1])
     _docs_cache = docs
-    _cache_mtime = _knowledge_mtime()
+    _file_cache = next_file_cache
+    _cache_signature = snapshot
     return docs
 
 def build_categories(docs):
@@ -198,14 +247,28 @@ def build_categories(docs):
         if cat not in categories:
             categories[cat] = []
         categories[cat].append(doc)
-    return categories
+    return dict(sorted(categories.items(), key=lambda item: category_label(item[0]).casefold()))
 
 
 @app.route('/')
 def index():
     docs = get_all_docs()
     categories = build_categories(docs)
-    return render_template('index.html', docs=docs, categories=categories)
+    selected = request.args.get('category', '')
+    if selected and selected not in categories:
+        abort(404)
+    sort = request.args.get('sort', 'title')
+    if sort not in ('title', 'recent'):
+        sort = 'title'
+    filtered = categories.get(selected, docs)
+    ordered = sorted(filtered, key=(lambda d: (-d['modified'], d['slug'])) if sort == 'recent'
+                     else (lambda d: (d['title'].casefold(), d['slug'])))
+    page = max(1, request.args.get('page', 1, type=int))
+    pages = max(1, math.ceil(len(ordered) / 24))
+    page = min(page, pages)
+    return render_template('index.html', docs=docs, categories=categories,
+                           selected_category=selected, sort=sort, page=page, pages=pages,
+                           visible_docs=ordered[(page-1)*24:page*24], filtered_count=len(ordered))
 
 @app.route('/doc/<path:slug>')
 def doc_detail(slug):
@@ -220,11 +283,13 @@ def doc_detail(slug):
     for i in range(len(path_segments)):
         partial_slug = '/'.join(path_segments[:i+1])
         segment = path_segments[i]
-        title = segment.replace('-', ' ').title()
+        title = LABELS.get(segment, segment.replace('-', ' ').title())
 
         url = None
         exact_doc = slug_set.get(partial_slug)
         index_doc = slug_set.get(f"{partial_slug}/index")
+        if index_doc and index_doc['slug'] == slug and i < len(path_segments) - 1:
+            continue
 
         if exact_doc:
             url = f"/doc/{exact_doc['slug']}"
@@ -240,7 +305,8 @@ def doc_detail(slug):
         })
 
     categories = build_categories(docs)
-    cat_docs = categories.get(current_doc['category'], [])
+    cat_docs = sorted((d for d in categories.get(current_doc['category'], [])
+                       if d['collection'] == current_doc['collection']), key=lambda d: d['slug'])
     prev_doc = None
     next_doc = None
     for idx, d in enumerate(cat_docs):
@@ -273,7 +339,8 @@ def favicon_svg():
 def search_json():
     docs = get_all_docs()
     return jsonify([
-        {'title': d['title'], 'slug': d['slug'], 'category': d['category']}
+        {'title': d['title'], 'slug': d['slug'], 'category': d['category'],
+         'categoryLabel': category_label(d['category']), 'collection': d['collection']}
         for d in docs
     ])
 

@@ -1,173 +1,47 @@
-{% extends "layout.html" %}
-
-{% block title %}知恵の庭 · Chishiki Knowledge Sanctuary{% endblock %}
-
+{% extends 'layout.html' %}
+{% from 'macros.html' import icon %}
 {% block content %}
-<div class="space-y-10">
-
-  <!-- Hero Section — Frosted Glass with Calligraphy Watermark -->
-  <section class="washi-card relative overflow-hidden p-8 sm:p-10 md:p-12">
-    <div class="hero-watermark">庭</div>
-    
-    <div class="relative z-10 space-y-4 max-w-3xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1 text-charcoal dark:text-[#e8e4de] text-[11px] tracking-widest uppercase font-mono rounded-full glass-btn">
-        <span class="stamp-seal" style="width: 18px; height: 18px; font-size: 10px;">知</span>
-        <span>Knowledge Sanctuary · 静寂の庭</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-charcoal dark:text-[#e8e4de] tracking-tight font-light leading-tight">
-        知恵の庭 <span class="text-lg sm:text-xl md:text-2xl font-sans text-muted dark:text-[#888] font-normal block sm:inline sm:ml-3">Chishiki Sanctuary</span>
-      </h1>
-
-      <p class="text-sm md:text-base text-[#555] dark:text-[#aaa] leading-relaxed max-w-2xl font-serif">
-        A quiet sanctuary for structured thought, language acquisition, mnemonics, and software craftsmanship. Over 640 interconnected notes preserved through frosted glass serenity.
-      </p>
-
-      <!-- Quick Action Buttons — Glass -->
-      <div class="pt-2 flex items-center gap-3 flex-wrap">
-        <button 
-          type="button" 
-          onclick="if(window.openSearchModal) openSearchModal();" 
-          class="px-4 py-2.5 bg-[#2b2b2b] dark:bg-[#e8e4de] text-[#f7f5f0] dark:text-[#1a1a1a] rounded-xl text-xs font-mono tracking-wider flex items-center gap-2 hover:opacity-90 transition-all cursor-pointer"
-          style="box-shadow: 0 4px 16px -4px rgba(0,0,0,0.2);"
-        >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <span>Search Sanctuary</span>
-          <kbd class="px-1.5 py-0.5 bg-black/20 dark:bg-black/10 rounded text-[10px]">⌘K</kbd>
-        </button>
-
-        <button 
-          type="button"
-          id="hero-random-btn"
-          class="px-4 py-2.5 rounded-xl text-xs font-mono text-charcoal dark:text-[#e8e4de] transition-all flex items-center gap-2 cursor-pointer glass-btn"
-        >
-          <span>🎲 Random Thought</span>
-        </button>
-      </div>
-
-      <!-- Philosophical Banner — Glass -->
-      <div class="wabi-quote-banner mt-6 max-w-2xl">
-        <p class="text-xs italic text-[#666] dark:text-[#aaa] font-serif leading-relaxed">
-          «Несовершенное, незавершённое и непостоянное — истинная природа знания. В тишине между мыслями расцветает понимание.»
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sculpted Metrics Grid — Frosted Glass -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-    <div class="washi-card washi-card-accent p-6 flex items-center gap-4">
-      <div class="stamp-kanji">書</div>
-      <div>
-        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">{{ docs|length }}</div>
-        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Notes & Documents</div>
-      </div>
-    </div>
-
-    <div class="washi-card washi-card-accent p-6 flex items-center gap-4">
-      <div class="stamp-kanji">門</div>
-      <div>
-        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">{{ categories|length }}</div>
-        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Knowledge Domains</div>
-      </div>
-    </div>
-
-    <div class="washi-card washi-card-accent p-6 flex items-center gap-4 sm:col-span-2 lg:col-span-1">
-      <div class="stamp-kanji">寂</div>
-      <div>
-        <div class="text-2xl font-serif text-charcoal dark:text-[#e8e4de]">100% Offline</div>
-        <div class="text-xs text-muted dark:text-[#888] font-mono uppercase tracking-wider mt-0.5">Pure Python & CSS</div>
-      </div>
-    </div>
+<section class="library-hero {% if selected_category %}collection-hero{% endif %}">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="status-dot"></span> CHISHIKI / ЛИЧНАЯ БИБЛИОТЕКА</div>
+    {% if selected_category %}<h1>{{ selected_category|category_label }}</h1>{% else %}<h1>Место для<br><em>любопытства.</em></h1>{% endif %}
+    <p>{{ 'Знакомые идеи и новые открытия — в одной коллекции.' if selected_category else 'Изучать языки. Находить связи. Сохранять то, что вдохновляет.' }}</p>
+    <div class="hero-actions"><button class="hero-search" data-search>{{ icon('search', 18) }} Найти что-нибудь интересное <kbd>⌘ / Ctrl K</kbd></button><button class="hero-random" id="random-note" title="Открыть случайную заметку" aria-label="Открыть случайную заметку">{{ icon('shuffle', 20) }}</button></div>
+    <div class="hero-stats"><span><strong>{{ docs|length }}</strong> заметок</span><i></i><span><strong>{{ categories|length }}</strong> коллекций</span><span class="hero-note">Одна идея ведёт к другой ↗</span></div>
   </div>
-
-  <!-- Knowledge Domains Directory — Frosted Glass Cards -->
-  <section class="space-y-6">
-    <div class="flex items-center justify-between pb-3" style="border-bottom: var(--glass-border);">
-      <div>
-        <h2 class="text-xl md:text-2xl font-serif text-charcoal dark:text-[#e8e4de]">Domains of Study · 学びの領域</h2>
-        <p class="text-xs text-muted dark:text-[#888] font-mono mt-1">Explore structured notes across categories</p>
-      </div>
-      <span class="text-xs font-mono text-muted dark:text-[#888]">{{ categories|length }} active categories</span>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {% for cat, items in categories.items() %}
-        {% set stamp_char = '書' %}
-        {% if 'language' in cat|lower %}
-          {% set stamp_char = '語' %}
-        {% elif 'mnemonic' in cat|lower %}
-          {% set stamp_char = '記' %}
-        {% elif 'program' in cat|lower or 'code' in cat|lower or 'web' in cat|lower or 'git' in cat|lower or 'sql' in cat|lower or 'python' in cat|lower or 'rust' in cat|lower %}
-          {% set stamp_char = '術' %}
-        {% elif 'philosophy' in cat|lower or 'thought' in cat|lower or 'mind' in cat|lower %}
-          {% set stamp_char = '考' %}
-        {% endif %}
-
-        <div class="washi-card p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <!-- Card Header -->
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="stamp-kanji">{{ stamp_char }}</div>
-                <div>
-                  <h3 class="text-base md:text-lg font-serif text-charcoal dark:text-[#e8e4de] capitalize group-hover:text-[#8c7853] dark:group-hover:text-[#fff] transition-colors">
-                    {{ cat }}
-                  </h3>
-                  <span class="text-[10px] font-mono uppercase tracking-widest text-muted dark:text-[#888]">
-                    {{ cat.split('/')[0] }}
-                  </span>
-                </div>
-              </div>
-              <span class="pill-badge">{{ items|length }} notes</span>
-            </div>
-
-            <!-- Note previews list -->
-            <ul class="space-y-1.5 pt-3" style="border-top: var(--glass-border);">
-              {% for doc in items[:4] %}
-                <li>
-                  <a 
-                    href="{{ url_for('doc_detail', slug=doc.slug) }}" 
-                    class="text-xs text-[#555] dark:text-[#aaa] hover:text-charcoal dark:hover:text-[#fff] truncate block py-0.5 hover:translate-x-0.5 transition-transform flex items-center gap-1.5"
-                    title="{{ doc.title }}"
-                  >
-                    <span class="text-muted dark:text-[#666] text-[10px]">›</span>
-                    <span class="truncate">{{ doc.title }}</span>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="pt-4 mt-4 flex items-center justify-between" style="border-top: var(--glass-border);">
-            <span class="text-[10px] font-mono text-muted dark:text-[#666]">
-              {% if items|length > 4 %}+{{ items|length - 4 }} more{% else %}Complete{% endif %}
-            </span>
-            <a 
-              href="{{ url_for('doc_detail', slug=items[0].slug) }}" 
-              class="text-xs text-charcoal dark:text-[#e8e4de] font-medium hover:text-[#8c7853] dark:hover:text-[#fff] inline-flex items-center gap-1 font-mono transition-colors"
-            >
-              <span>Explore</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-</div>
-
-<script>
-  document.getElementById('hero-random-btn')?.addEventListener('click', () => {
-    if (window.searchIndex && window.searchIndex.length > 0) {
-      const idx = Math.floor(Math.random() * window.searchIndex.length);
-      window.location.href = `/doc/${window.searchIndex[idx].slug}`;
-    } else {
-      document.getElementById('random-note-btn')?.click();
-    }
-  });
-</script>
+  {% if not selected_category %}
+  <div class="hero-art" aria-hidden="true">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="art-pebble pebble-coral"></div><div class="art-pebble pebble-lilac"></div>
+    <div class="art-lens liquid-surface"><span>知</span><small>ЗНАНИЕ НАЧИНАЕТСЯ<br>С ЛЮБОПЫТСТВА</small></div>
+    <span class="art-caption">少しずつ · шаг за шагом</span><span class="art-spark spark-one">✳</span><span class="art-spark spark-two">+</span>
+  </div>
+  {% endif %}
+</section>
+{% if not selected_category %}
+<div class="collections-heading"><h2>Мир становится ближе</h2><span>Четыре языка — тысячи открытий</span></div><section class="featured-collections" aria-label="Языковые коллекции">
+  {% for cat in ['languages / japanese', 'languages / english', 'languages / chinese', 'languages / korean'] %}
+  {% if cat in categories %}
+  <a class="collection-card glass liquid-surface" href="{{ url_for('index', category=cat) }}"><span class="collection-symbol">{{ cat|category_symbol }}</span><span class="collection-arrow">{{ icon('arrow', 17) }}</span><h2>{{ cat|category_label }}</h2><span>{{ categories[cat]|length }} заметок</span></a>
+  {% endif %}
+  {% endfor %}
+</section>
+{% endif %}
+<section class="notes-section" aria-labelledby="notes-title">
+  <div class="section-toolbar"><div><h2 id="notes-title">{{ 'Заметки коллекции' if selected_category else 'Все заметки' }} <span>{{ filtered_count }}</span></h2></div><div class="catalog-controls"><form method="get" class="sort-control"><input type="hidden" name="category" value="{{ selected_category }}"><label for="sort">Порядок:</label><select id="sort" name="sort"><option value="title" {% if sort == 'title' %}selected{% endif %}>По названию</option><option value="recent" {% if sort == 'recent' %}selected{% endif %}>По изменению файла</option></select><button type="submit" class="text-button">Применить</button></form><div class="view-switch" role="group" aria-label="Вид заметок" hidden>
+      <button type="button" data-view="cards" aria-pressed="true" title="Карточки"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="12" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="12" width="6" height="6" rx="1.5"/><rect x="12" y="12" width="6" height="6" rx="1.5"/></svg><span>Карточки</span></button>
+      <button type="button" data-view="list" aria-pressed="false" title="Список"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 4h11M7 10h11M7 16h11M2 4h1M2 10h1M2 16h1"/></svg><span>Список</span></button>
+    </div></div></div>
+  <div class="notes-grid">
+    {% for doc in visible_docs %}
+    <a class="note-card glass" href="{{ url_for('doc_detail', slug=doc.slug) }}">
+      <div class="note-card-top"><span>{{ doc.category|category_label }}</span>{{ icon('note', 17) }}</div>
+      <h3>{{ doc.title }}</h3><p class="note-excerpt">{{ doc.excerpt }}</p>
+      <div class="note-card-bottom"><span>{{ doc.readingTime }} мин чтения</span><span class="source-dot" title="{{ doc.collection }}">{{ 'Хранилище 02' if doc.slug.startswith('knowledge/') else 'Хранилище 01' }}</span></div>
+      <span class="note-path" title="{{ doc.relativePath }}">{{ doc.relativePath }}</span>
+    </a>
+    {% else %}<div class="empty-state glass"><h2>Здесь появятся ваши заметки</h2><p>Добавьте Markdown-файлы в папку библиотеки.</p></div>{% endfor %}
+  </div>
+  {% if pages > 1 %}<nav class="pagination" aria-label="Страницы заметок">{% if page > 1 %}<a class="pill-button glass" href="{{ url_for('index', category=selected_category, sort=sort, page=page-1) }}">← Назад</a>{% else %}<span></span>{% endif %}<span>{{ page }} / {{ pages }}</span>{% if page < pages %}<a class="pill-button glass" href="{{ url_for('index', category=selected_category, sort=sort, page=page+1) }}">Далее →</a>{% else %}<span></span>{% endif %}</nav>{% endif %}
+</section>
 {% endblock %}
