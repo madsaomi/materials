@@ -69,3 +69,40 @@ If the active session was interrupted (due to token limits, tool timeouts, or us
 - **Status:** `COMPLETED` (Verified on 642 notes, all 7 phases complete)
 - **Logged in:** Session 003 in `.agents/history/agent-session-log.md`
 - **Output:** New Wabi-Sabi CSS system, Inkan stamps, sequential prev/next navigation, Raycast search pills, toast notifications.
+
+## Task 2026-09-28: Project familiarization (Session 008)
+- Agent: Codex
+- [x] Read repository rules, state, history, backend and UI implementation.
+- [x] Identify stale 642-document baseline, malformed rewritten links, external fonts and nested-vault category handling.
+- [x] Verify current document counts and Flask routes using the local test client.
+- [x] Report findings and append session history.
+- Application files modified: none.
+
+
+## Task 2026-09-28: Minimal frosted-glass library (Session 009)
+- Agent: Codex
+- Status: COMPLETED
+- [x] Inspect application and confirm Obsidian-to-site workflow; no deployment configuration found.
+- [x] Rebuild accessible, Russian-language minimal glass interface with library browsing and reading views.
+- [x] Fix Markdown links, nested-vault categories and file-change cache invalidation.
+- [x] Verify Flask routes, full rendered-link audit and focused regressions; inspect browser layouts and interactions.
+- [x] Document publishing workflow and append handoff results.
+- Modified files: app.py, templates/ (including macros.html), static/css/style.css, static/js/site.js, verify.py, README.md, gunicorn.conf.py, .agents/ tracking. Four relative links corrected in two nested-vault notes; note text and all collections preserved. Browser screenshots are outside the repository in the visualization workspace.
+
+## Task 2026-09-28: Glass and typography refinement (Session 010)
+- [x] Refine glass edges and text hierarchy; add persistent cards/list switch.
+- [x] Check desktop/mobile layouts, persistence and existing routes.
+- [x] Append results and update state.
+- Files: templates/index.html, templates/layout.html, static/css/style.css, static/js/site.js.
+
+## Session 011 — Liquid glass redesign, 2026-09-29
+- [x] Create a distinctive liquid-glass composition from user-supplied effects, with local CSS art and accessible reading surfaces.
+- [x] Verify desktop/mobile, dark mode, existing interactions and Flask routes.
+- [x] Finish handoff and record results.
+- Files: templates/index.html, templates/layout.html, static/css/style.css; no knowledge changes.
+
+## Session 012 — Publish changes to GitHub, 2026-09-29
+- [x] Inspect changes and fetch origin; main matches origin/main before publishing.
+- [x] Confirm previous 1217-document audit and browser checks; diff whitespace check clean.
+- [x] Commit and push the completed website changes (45730ac on origin/main).
+- [x] Record publication; tracking updates included in the accompanying documentation commit.

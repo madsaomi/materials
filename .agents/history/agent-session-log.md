@@ -96,3 +96,69 @@
   - Strengthened the \ody::before\ animated mesh gradients in both light and dark modes to ensure vibrant refractions through the glass.
   - Refined inner glows and borders to simulate edge-lighting on physical glass.
 - **Handoff Notes**: The application now features a stylish, transparent, and matte glassmorphism design as requested. The UI remains fully responsive.
+
+## Session 007 - 2026-09-13
+
+- **Agent**: opencode (CLI)
+- **Task**: Commit + push the nested knowledge vault (`knowledge/knowledge/`)
+- **Status**: Complete
+- **Actions Taken**:
+  1. Inspected `.agents/STATE.json` + `ACTIVE_PLAN.md` (no active session, previous work COMPLETED).
+  2. Confirmed only untracked change was `knowledge/knowledge/` (nested Obsidian language-study vault, user-added).
+  3. Sanity check via Flask test client: `/` 200, `/api/search.json` 200, `get_all_docs()` = 1217.
+  4. Committed 577 files (Home.md, README.md, 4 languages x 15 units, vocabulary, mnemonics, tools/export_to_anki.py) as `b9435bf`.
+  5. Pushed `cba752b..b9435bf  main -> main` to origin.
+- **Note**: `knowledge/` now contains 1217 docs (was 642). Verification checks in AGENTS.md/RULES.md that assert `== 642` (and unique-titles audit) are now stale and must be updated to 1217.
+- **Next Steps**: Update STATE.json knowledge.files + verification scripts to the new 1217-doc baseline; audit duplicate titles (nested vault mirrors some top-level notes).
+
+## Session 008 - 2026-09-28
+- **Agent:** Codex
+- **Task:** Study the project, its architecture and current behavior.
+- **Status:** Complete
+- **Actions Taken:** Read agent instructions, state, history, backend, templates, CSS structure and nested vault README. No application or knowledge files changed; pre-existing history edits preserved.
+- **Verification:** Flask test client: homepage and search API 200; 7 sample document routes 200; unknown document 404. Actual document and API count: 1217. Found 440 duplicate title groups and 575 nested-vault documents grouped under knowledge. HTMLParser audit reports 1572 invalid rendered /doc/ href values and 167 href values containing .md; these are rendered-HTML observations, not a source-link audit.
+- **Findings:** app.py rewrite_link omits closing href quote, reproduced with a minimal Markdown link. verify.py and state knowledge metrics retain old 642 baseline. Google Fonts is externally loaded despite offline invariant. Cache keyed only on maximum mtime can miss deletions. Nested categories do not match language-domain search filtering.
+- **Handoff:** Fix malformed link HTML first, then audit source links independently, reconcile vault categories and duplicate titles, update baseline verification/state metrics, and address offline fonts and cache invalidation. Historical knowledge metrics left unchanged pending a dedicated full audit. Existing content expansion and deployment tasks remain pending.
+
+## Session 009 - 2026-09-28
+- **Agent:** Codex
+- **Task:** Preserve the Obsidian-edit / website-read workflow; rebuild the site as a minimal frosted-glass library; prepare for later Railway hosting.
+- **Status:** Complete (local implementation; hosting not connected).
+- **Milestones:**
+  - [x] Rebuilt layout, catalog, document, 404 and shared icons; local CSS/JS with no build dependency or remote fonts.
+  - [x] Added complete category browsing, 24-note pagination, sort controls, collection provenance, Russian UI, light/dark themes, responsive reading, keyboard search, focus mode and copy controls.
+  - [x] Fixed missing href closing quote, URL path encoding, UTF-8 BOM decoding, nested categories, duplicate current-document breadcrumbs and file-cache invalidation for addition/edit/rename/deletion.
+  - [x] Corrected four relative Markdown paths in nested modern-slang.md and psychology/unit-03/lesson.md. No documents deleted or deduplicated.
+  - [x] Replaced fixed 642 assertion with filesystem-count verification, route/category checks, whole-library source/rendered-link audit and focused cache/link/BOM regressions.
+  - [x] Documented Obsidian/GitHub/Railway workflow and production Gunicorn settings; checked current official Railway docs. No deployment performed.
+- **Verification:** 1217 documents; 440 duplicate title groups preserved and distinguished by source/path; zero leftover .md hrefs, zero broken source links, zero broken rendered document links, zero duplicate heading ids. Route/API/category/pagination/assets/cache/BOM tests pass. Browser verification in isolated Chrome at 1440x1000 and 390x844 passes search/filtering, Esc close, theme persistence, collection navigation, pagination, focus exit, font switching, mobile menu/TOC, 404 and no horizontal overflow. No JavaScript page errors or external requests. Desktop, dark, search, document and mobile screenshots visually inspected. git diff --check clean for implementation files.
+- **Environment Notes:** App browser and node_repl connectors returned Transport closed; used bundled Playwright only as an external QA runtime, no Node project files/dependencies added. Initial Edge navigation timed out; isolated Chrome passed. Python commands require sandbox escalation. Local server remains running on 127.0.0.1:5000 via exec session 46116 after verify.main() passed.
+- **Files:** app.py, templates/{layout,index,doc,404,macros}.html, static/css/style.css, static/js/site.js, verify.py, README.md, gunicorn.conf.py; four link destinations in two Markdown files; .agents/ tracking. A draft railway.json was removed after current Railway docs showed new services cannot use that legacy configuration.
+- **Handoff:** User plans Railway but all work remains local; no commit/push/deploy. Use README dashboard settings and GitHub autodeploy with knowledge/** included. Free Railway credit is limited, not a promise of free 24/7 hosting. Both vaults and duplicate titles remain intentionally intact. Full audit at %TEMP%/chishiki-audit.json; browser evidence under C:/Users/~/.codex/visualizations/2026/09/28/01a0e8a0-098d-7fa1-812c-08e7904abda0/. Previous history, including pre-existing modifications, preserved append-only.
+
+## Session 010 - 2026-09-29
+- **Agent:** Codex
+- **Task:** Refine glass edges, typography and add a compact list view. Implementation and checks began 2026-09-28; resumed to finish handoff 2026-09-29.
+- **Status:** Complete.
+- **Actions:** Reduced bright panel borders, softened inner highlights, increased card headings/excerpts and article text. Added accessible cards/list buttons, responsive compact rows with full titles, localStorage persistence and early preference restoration to avoid flashing. Added local asset version 4.1 and README feature note. No backend or content changes in this session.
+- **Files:** templates/index.html, templates/layout.html, static/css/style.css, static/js/site.js, README.md and agent tracking.
+- **Verification:** Full verify.py run passed: 1217 docs; no broken source or rendered internal links, no .md href leftovers, no duplicate heading IDs. Browser checks passed on desktop and mobile: view switch, pressed state, persistence across reload/pagination, no horizontal overflow, existing search/theme/navigation/reading interactions. No JavaScript errors or external requests. Cards/list/mobile screenshot results visually inspected. Implementation diff whitespace check passed.
+- **Handoff:** User-facing local preview restarted at http://127.0.0.1:5000 via exec session 38444 after resuming; earlier server had stopped. No commit, push or deployment performed. Browser screenshots including library-list.png and library-mobile-list.png remain in the existing visualization workspace. Previous history preserved append-only.
+
+## Session 011 - 2026-09-29
+- **Agent:** Codex
+- **Task:** Create a more expressive design synthesizing the user's two liquid-glass examples.
+- **Status:** Complete.
+- **Changes:** Redesigned homepage composition with oversized sans/italic serif title, prominent search and random-note controls, lavender/peach background, subtle dot texture and original CSS abstract lens sculpture. Added inline SVG displacement filter on a background-only pseudo layer, distinct tint/shine layers and optical edges. Reworked collection cards, floating header controls, sidebar and smoke-purple dark theme. Reading surface stays opaque enough for long text; no distortion applied to text. Mobile and reduced-motion use simpler frosted effects, unsupported backdrop-filter has opaque fallback. No external assets or dependencies. Updated local asset version to 5.0 and README.
+- **Files:** templates/index.html, templates/layout.html, static/css/style.css, README.md and agent tracking. Knowledge files and backend unchanged in this session.
+- **Verification:** Full verify.py PASS, 1217 docs, zero broken source/rendered internal links, zero leftover .md links and zero duplicate heading ids. Chrome checks PASS: theme/persistence, search/Escape/filtering, category navigation/pagination, cards/list/persistence, font/focus controls, mobile menu/TOC, 404. No JavaScript errors or external requests. No horizontal overflow at 320/390/768/1024/1440; tablet decorative overflow found and fixed by omitting the art below 1100px. Reduced-motion disables refraction. Light/dark and mobile screenshots visually inspected. Implementation whitespace check passed before final responsive adjustment.
+- **Handoff:** Local preview running on http://127.0.0.1:5000, exec session 24835. No commit, push or deployment. QA uses bundled external browser runtime only, no Node project added. Latest screenshots and browser-check.json in existing visualization workspace. Prior history preserved append-only.
+
+## Session 012 - 2026-09-29
+- **Agent:** Codex
+- **Task:** Commit and push completed work at the user's explicit request.
+- **Status:** Application published to GitHub.
+- **Actions:** Fetched origin and verified main had no divergence. Confirmed prior full 1217-document and browser PASS results and clean whitespace check. Created application commit 45730ac (13 files). Push to https://github.com/madsaomi/materials.git main succeeded: b9435bf..45730ac.
+- **Review:** Initial automatic review rejected push over potential note exposure. Inspected exact delta: no new notes and only four relative-link corrections in two existing origin files. Resubmitted the same push with this evidence; approved and completed without bypass.
+- **Tracking:** This accompanying documentation commit preserves the pre-existing Session 007 log and appends Sessions 008-012 with current project state. No historical entries overwritten. No new application changes after verification.
+- **Handoff:** Website code is on origin/main; Railway deployment is still pending. Local preview is independent of this Git push.

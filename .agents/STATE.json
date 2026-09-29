@@ -1,16 +1,16 @@
 {
   "project": "materials",
-  "version": "2.2.0",
-  "last_updated": "2026-09-05",
-  "stack": "Python Flask + Jinja2 + python-markdown + Pygments + Vanilla CSS Wabi-Sabi (no Node.js, no external CDN dependencies, 100% offline)",
+  "version": "4.0.0",
+  "last_updated": "2026-09-29",
+  "stack": "Python Flask + Jinja2 + Python-Markdown + Pygments + local vanilla CSS/JavaScript; minimal frosted-glass library, offline assets",
   "knowledge": {
-    "files": 642,
-    "lines": 173380,
-    "internal_duplicates": 0,
+    "files": 1217,
+    "lines": null,
+    "internal_duplicates": null,
     "broken_internal_links": 0,
-    "duplicate_titles": 0,
+    "duplicate_titles": 440,
     "duplicate_heading_ids": 0,
-    "code_comments_in_toc": 0
+    "code_comments_in_toc": null
   },
   "git_status": {
     "branch": "main",
@@ -18,13 +18,13 @@
   },
   "active_components": [
     "app.py",
+    "templates/",
     "static/css/style.css",
-    "templates/layout.html",
-    "templates/doc.html",
-    "templates/index.html",
-    "templates/404.html",
-    ".agents/",
-    "knowledge/"
+    "static/js/site.js",
+    "verify.py",
+    "gunicorn.conf.py",
+    "knowledge/",
+    ".agents/"
   ],
   "environment": {
     "python_executable": ".\\venv\\Scripts\\python.exe",
@@ -49,10 +49,11 @@
     "windows_console_cjk_safe": true,
     "relative_md_internal_links": true
   },
-  "current_focus": "Session 005 complete: Glassmorphism Design Overhaul is fully implemented across CSS and Jinja2 templates.",
+  "current_focus": "Session 012: application commit 45730ac successfully pushed to origin/main (madsaomi/materials). Liquid glass redesign, navigation and link fixes published to GitHub. Railway deployment remains pending.",
   "pending_tasks": [
-    "Expand 60 thin usage.md stubs with per-unit content",
-    "Production deploy (gunicorn + hosting)"
+    "Connect GitHub repository to Railway and deploy using README; code is now pushed, hosting not connected.",
+    "Optional: reconcile 440 duplicate title groups across the two preserved vaults.",
+    "Expand thin usage.md stubs with per-unit content (historical backlog; exact current count not re-audited)."
   ],
-  "notes": "Systematized multi-agent protocol: .agents/ACTIVE_PLAN.md tracks active steps in parallel ([x], [/], [ ]), history in .agents/history/agent-session-log.md is strictly append-only (no overwriting), and root rules (AGENTS.md, CLAUDE.md, .cursorrules) enforce cross-IDE and cross-provider compliance."
+  "notes": "Session 009 audit: duplicate_titles counts groups, not extra files. Null knowledge metrics were not re-audited and replace stale 642-file-era values. verify.py uses the current filesystem count and audits all source/rendered links. Historical 642/unique-title rules remain in older agent documentation; both user-owned vaults are preserved. Railway settings are documented for its dashboard, since current docs disallow railway.json for new services. Application commit 45730ac pushed to origin/main; no hosting deployment performed. Local Flask preview runs on 127.0.0.1:5000."
 }
