@@ -3,7 +3,8 @@ import re
 import html as html_mod
 import math
 import threading
-from urllib.parse import quote as urlquote, unquote
+from html.parser import HTMLParser
+from urllib.parse import quote as urlquote, unquote, urlsplit
 import markdown
 import frontmatter
 from pygments import highlight
@@ -15,6 +16,38 @@ app = Flask(__name__)
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 KNOWLEDGE_DIR = os.path.join(BASE_DIR, 'knowledge')
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
+
+class SearchText(HTMLParser):
+    """Keep inline words intact, but separate paragraphs and table cells."""
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+        self.hidden = 0
+        self.links = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'a':
+            target = urlsplit(dict(attrs).get('href', ''))
+            if not target.scheme and not target.netloc and target.path.startswith('/doc/'):
+                self.links.add(unquote(target.path[5:]))
+        if tag in ('script', 'style'):
+            self.hidden += 1
+        if tag in ('p', 'div', 'br', 'li', 'td', 'th', 'pre', 'h1', 'h2', 'h3', 'h4'):
+            self.parts.append(' ')
+
+    def handle_endtag(self, tag):
+        if tag in ('script', 'style'):
+            self.hidden = max(0, self.hidden - 1)
+        self.handle_starttag(tag if tag not in ('script', 'style') else '', [])
+
+    def handle_data(self, data):
+        if not self.hidden:
+            self.parts.append(data)
+
+def search_text(rendered):
+    parser = SearchText()
+    parser.feed(rendered)
+    return re.sub(r'\s+', ' ', ''.join(parser.parts)).strip()
 
 def slugify(text):
     # GitHub-style heading anchors: lowercase, drop punctuation
@@ -221,6 +254,9 @@ def _load_docs():
         words = len(plain_text.split())
         reading_time = max(1, round(words / 200))
 
+        parser = SearchText()
+        parser.feed(html)
+        searchable = re.sub(r'\s+', ' ', ''.join(parser.parts)).strip()
         docs.append({
             'slug': slug,
             'title': title,
@@ -232,7 +268,10 @@ def _load_docs():
             'readingTime': reading_time,
             'modified': mtime,
             'collection': 'Дополнительное хранилище' if slug.startswith('knowledge/') else 'Основная библиотека',
-            'excerpt': re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html_mod.unescape(html)))[:180],
+            'excerpt': searchable[:180],
+            'searchText': searchable,
+            'searchFolded': searchable.casefold(),
+            'links': parser.links,
         })
         next_file_cache[file_path] = ((mtime, size), docs[-1])
     _docs_cache = docs
@@ -248,6 +287,32 @@ def build_categories(docs):
             categories[cat] = []
         categories[cat].append(doc)
     return dict(sorted(categories.items(), key=lambda item: category_label(item[0]).casefold()))
+
+def related_notes(current, docs):
+    """Prefer explicit connections, then nearby notes; suppress mirrored copies."""
+    candidates = []
+    for doc in docs:
+        if doc['slug'] == current['slug'] or doc['title'].casefold() == current['title'].casefold():
+            continue
+        outgoing = doc['slug'] in current['links']
+        incoming = current['slug'] in doc['links']
+        same_folder = doc['slug'].rsplit('/', 1)[0] == current['slug'].rsplit('/', 1)[0]
+        same_category = doc['category'] == current['category']
+        if not (outgoing or incoming or same_category):
+            continue
+        reason = 'Ссылка из этой заметки' if outgoing else 'Ссылается на эту заметку' if incoming else 'Рядом в разделе' if same_folder else 'Из этой коллекции'
+        score = 100 * outgoing + 80 * incoming + 20 * same_folder + 5 * same_category + (doc['collection'] == current['collection'])
+        candidates.append((score, doc, reason))
+    candidates.sort(key=lambda item: (-item[0], item[1]['title'].casefold(), item[1]['slug']))
+    chosen, titles = [], set()
+    for _, doc, reason in candidates:
+        title = doc['title'].casefold()
+        if title not in titles:
+            chosen.append({'doc': doc, 'reason': reason})
+            titles.add(title)
+        if len(chosen) == 4:
+            break
+    return chosen
 
 
 @app.route('/')
@@ -324,7 +389,8 @@ def doc_detail(slug):
         docs=docs,
         categories=categories,
         prev_doc=prev_doc,
-        next_doc=next_doc
+        next_doc=next_doc,
+        related=related_notes(current_doc, docs)
     )
 
 @app.route('/favicon.ico')
@@ -343,6 +409,48 @@ def search_json():
          'categoryLabel': category_label(d['category']), 'collection': d['collection']}
         for d in docs
     ])
+
+@app.route('/api/preview/<path:slug>')
+def note_preview(slug):
+    doc = next((doc for doc in get_all_docs() if doc['slug'] == slug), None)
+    if doc is None:
+        return jsonify(error='not_found'), 404
+    return jsonify(title=doc['title'], category=category_label(doc['category']),
+                   excerpt=doc['searchText'][:360], readingTime=doc['readingTime'])
+
+@app.route('/api/search')
+def full_text_search():
+    query = request.args.get('q', '')[:200].strip()
+    words = list(dict.fromkeys(query.casefold().split()))
+    domain = request.args.get('domain', 'all')
+    if domain not in ('all', 'languages', 'mnemonics', 'programming', 'other'):
+        abort(400)
+    matches = []
+    for doc in get_all_docs():
+        category = doc['category'].split(' / ')[0]
+        if domain != 'all' and not (category not in ('languages', 'mnemonics', 'programming') if domain == 'other' else category == domain):
+            continue
+        title = doc['title'].casefold()
+        metadata = f"{title} {doc['slug']} {doc['category']} {category_label(doc['category'])}".casefold()
+        if not all(word in metadata or word in doc['searchFolded'] for word in words):
+            continue
+        score = (100 if query and query.casefold() == title else 0) + sum(10 if word in title else 2 if word in metadata else 0 for word in words)
+        matches.append((score, doc))
+    matches.sort(key=lambda item: (-item[0], item[1]['title'].casefold(), item[1]['slug']))
+    found = []
+    for _, doc in matches[:40]:
+        body = doc['searchText']
+        match = re.search('|'.join(re.escape(word) for word in words), body, re.IGNORECASE) if words else None
+        start = max(0, match.start() - 65) if match else 0
+        snippet = ('…' if start else '') + body[start:start + 230] + ('…' if len(body) > start + 230 else '')
+        found.append({'title': doc['title'], 'slug': doc['slug'], 'categoryLabel': category_label(doc['category']), 'snippet': snippet})
+    return jsonify(total=len(matches), results=found)
+
+
+@app.get('/healthz')
+def healthz():
+    # Gunicorn warms the library before accepting requests. No repeated scan here.
+    return jsonify(status='ok'), 200, {'Cache-Control': 'no-store'}
 
 
 @app.errorhandler(404)

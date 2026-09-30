@@ -2,15 +2,20 @@
 {% from 'macros.html' import icon %}
 {% block title %}{{ current_doc.title }} · Chishiki{% endblock %}
 {% block content %}
-<div class="document-layout">
-  <article class="document glass">
-    <nav class="breadcrumbs" aria-label="Путь к заметке"><a href="{{ url_for('index') }}">Библиотека</a>{% for crumb in breadcrumbs %}<span aria-hidden="true">/</span>{% if crumb.url and not crumb.isLast %}<a href="{{ crumb.url }}">{{ crumb.title }}</a>{% else %}<span {% if crumb.isLast %}aria-current="page"{% endif %}>{{ crumb.title }}</span>{% endif %}{% endfor %}</nav>
-    <header class="document-header"><a class="category-tag" href="{{ url_for('index', category=current_doc.category) }}">{{ current_doc.category|category_label }}</a><h1>{{ current_doc.title }}</h1><div class="document-meta"><span>{{ current_doc.readingTime }} мин чтения</span><span>·</span><span>{{ current_doc.collection }}</span></div><div class="document-tools"><button class="pill-button" id="font-toggle" aria-pressed="false">Aa <span>Шрифт</span></button><button class="pill-button" id="copy-link">{{ icon('link', 16) }} Ссылка</button><button class="pill-button" id="zen-toggle" aria-pressed="false">{{ icon('focus', 16) }} Читать</button></div></header>
+<div class="document-layout" data-family="{{ current_doc.category.split(' / ')[0] }}">
+  <article class="document glass" data-doc-slug="{{ current_doc.slug }}" data-doc-title="{{ current_doc.title }}">
+    <nav class="breadcrumbs" aria-label="Путь к заметке"><a href="{{ url_for('index') }}">← Библиотека</a><span>/</span><a href="{{ url_for('index', category=current_doc.category) }}">{{ current_doc.category|category_label }}</a></nav>
+    <header class="document-header">
+      <h1>{{ current_doc.title }}</h1>
+      <div class="reader-byline"><div class="document-meta"><span>{{ current_doc.readingTime }} мин чтения</span>{% if current_doc.data.get('level') %}<span>Уровень {{ current_doc.data.get('level') }}</span>{% endif %}<span>{{ current_doc.collection }}</span></div><div class="document-tools"><button class="pill-button" id="font-toggle" aria-pressed="false">Aa <span>Шрифт</span></button><button class="pill-button" id="copy-link">{{ icon('link', 16) }} Ссылка</button><button class="pill-button" id="zen-toggle" aria-pressed="false">{{ icon('focus', 16) }} Читать</button></div></div>
+    </header>
     {% if current_doc.toc %}<details class="mobile-toc"><summary>Содержание <span>{{ current_doc.toc|length }}</span></summary><nav aria-label="Содержание заметки">{% for heading in current_doc.toc %}<a href="#{{ heading.id }}">{{ heading.text }}</a>{% endfor %}</nav></details>{% endif %}
+    <div class="resume-banner" id="resume-banner" hidden><span id="resume-label"></span><button class="pill-button" id="resume-reading">Продолжить →</button><button class="text-button" id="restart-reading">С начала</button></div>
     <div class="prose">{{ current_doc.html|safe }}</div>
     <div class="document-end"><span>{{ current_doc.relativePath }}</span><a href="#main">Наверх ↑</a></div>
+    {% if related %}<section class="related-notes" aria-labelledby="related-title"><div class="related-heading"><span class="eyebrow">ПРОДОЛЖИТЬ ТЕМУ</span><h2 id="related-title">Связанные заметки</h2></div><div class="related-grid">{% for item in related %}<a class="related-card" href="{{ url_for('doc_detail', slug=item.doc.slug) }}"><small>{{ item.reason }}</small><h3>{{ item.doc.title }}</h3><p>{{ item.doc.excerpt }}</p><span>{{ item.doc.readingTime }} мин · {{ item.doc.category|category_label }} ↗</span></a>{% endfor %}</div></section>{% endif %}
     {% if prev_doc or next_doc %}<nav class="adjacent-notes" aria-label="Соседние заметки">{% if prev_doc %}<a href="{{ url_for('doc_detail', slug=prev_doc.slug) }}"><small>← Предыдущая</small><span>{{ prev_doc.title }}</span></a>{% else %}<span></span>{% endif %}{% if next_doc %}<a href="{{ url_for('doc_detail', slug=next_doc.slug) }}"><small>Следующая →</small><span>{{ next_doc.title }}</span></a>{% endif %}</nav>{% endif %}
   </article>
-  {% if current_doc.toc %}<aside class="toc-panel"><div class="toc-inner"><p class="eyebrow">НА ЭТОЙ СТРАНИЦЕ</p><nav aria-label="Содержание">{% for heading in current_doc.toc %}<a class="toc-link level-{{ heading.level }}" href="#{{ heading.id }}" data-target="{{ heading.id }}">{{ heading.text }}</a>{% endfor %}</nav></div></aside>{% endif %}
+  {% if current_doc.toc %}<dialog id="contents-dialog" class="contents-dialog glass" aria-labelledby="contents-title"><div class="contents-header"><div><h2 id="contents-title">Содержание</h2><small>Разделов: {{ current_doc.toc|length }}</small></div><button id="contents-close" class="icon-button" aria-label="Закрыть содержание">{{ icon('close') }}</button></div><nav aria-label="Содержание">{% for heading in current_doc.toc %}<a class="toc-link level-{{ heading.level }}" href="#{{ heading.id }}" data-target="{{ heading.id }}">{{ heading.text }}</a>{% endfor %}</nav></dialog>{% endif %}
 </div>
 {% endblock %}

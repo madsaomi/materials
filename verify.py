@@ -2,6 +2,7 @@
 import json
 import os
 import posixpath
+import runpy
 import tempfile
 from collections import Counter
 from html.parser import HTMLParser
@@ -53,8 +54,62 @@ def regressions():
             (Path(directory) / 'renamed.md').unlink()
             assert len(site.get_all_docs()) == 1
 
+    with tempfile.TemporaryDirectory() as directory:
+        folder = Path(directory) / 'programming'
+        folder.mkdir()
+        (folder / 'body.md').write_text('# Neutral\n\nHidden **needle** 日本語 &lt;unsafe&gt;\n\n```python\nprint(123)\n```', encoding='utf-8')
+        (Path(directory) / 'title.md').write_text('# Needle\nOther text', encoding='utf-8')
+        with patch.object(site, 'KNOWLEDGE_DIR', directory), patch.object(site, '_docs_cache', None), patch.object(site, '_cache_signature', None), patch.object(site, '_file_cache', {}), site.app.test_client() as client:
+            data = client.get('/api/search?q=needle').json
+            assert data['total'] == 2 and data['results'][0]['slug'] == 'title'
+            data = client.get('/api/search', query_string={'q': '日本語 needle', 'domain': 'programming'}).json
+            assert data['total'] == 1 and '<unsafe>' in data['results'][0]['snippet']
+            assert client.get('/api/search?q=print').json['total'] == 1
+            assert client.get('/api/search?q=needle&domain=other').json['total'] == 1
+            assert client.get('/api/search?q=absent').json['total'] == 0
+            assert client.get('/api/search?domain=invalid').status_code == 400
+            (folder / 'body.md').write_text('# Neutral\nReplacement content', encoding='utf-8')
+            assert client.get('/api/search?q=needle').json['total'] == 1
+
+
+    with tempfile.TemporaryDirectory() as directory:
+        folder = Path(directory) / 'topic'
+        folder.mkdir()
+        (folder / 'main.md').write_text('# Main\n[Other](other.md#part) [External](https://example.com/doc/fake)\n```\n[Code](ghost.md)\n```', encoding='utf-8')
+        (folder / 'other.md').write_text('# Other\n## Part\nA **plain** excerpt', encoding='utf-8')
+        (folder / 'back.md').write_text('# Back\n[Main](main.md)', encoding='utf-8')
+        (folder / 'copy.md').write_text('# Main\nDuplicate', encoding='utf-8')
+        with patch.object(site, 'KNOWLEDGE_DIR', directory), patch.object(site, '_docs_cache', None), patch.object(site, '_cache_signature', None), patch.object(site, '_file_cache', {}), site.app.test_client() as client:
+            docs = site.get_all_docs()
+            current = next(d for d in docs if d['slug'] == 'topic/main')
+            assert current['links'] == {'topic/other'}
+            related = site.related_notes(current, docs)
+            assert [item['doc']['slug'] for item in related] == ['topic/other', 'topic/back']
+            response = client.get('/api/preview/topic/other')
+            assert response.status_code == 200 and 'A plain excerpt' in response.json['excerpt']
+            assert 'html' not in response.json
+            assert client.get('/api/preview/missing').status_code == 404
+            assert 'related-notes' in client.get('/doc/topic/main').get_data(as_text=True)
+            (folder / 'other.md').write_text('# Updated\nNew excerpt', encoding='utf-8')
+            assert client.get('/api/preview/topic/other').json['title'] == 'Updated'
+            (folder / 'other.md').unlink()
+            assert client.get('/api/preview/topic/other').status_code == 404
+
 
 def main():
+    with patch.dict(os.environ, {'PORT': '8765'}):
+        production = runpy.run_path('gunicorn.conf.py')
+    assert production['bind'] == '0.0.0.0:8765'
+    assert production['workers'] == 1
+    from unittest.mock import Mock
+    with patch.object(site, 'get_all_docs', return_value=[{}]) as load:
+        production['post_worker_init'](Mock())
+        load.assert_called_once_with()
+    with patch.object(site, 'get_all_docs', side_effect=AssertionError('Health must not scan')):
+        with site.app.test_client() as client:
+            health = client.get('/healthz')
+            assert health.status_code == 200 and health.json == {'status': 'ok'}
+            assert health.headers['Cache-Control'] == 'no-store'
     regressions()
     docs = site.get_all_docs()
     expected = len(list(Path(site.KNOWLEDGE_DIR).rglob('*.md')))

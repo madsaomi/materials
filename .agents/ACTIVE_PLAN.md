@@ -106,3 +106,65 @@ If the active session was interrupted (due to token limits, tool timeouts, or us
 - [x] Confirm previous 1217-document audit and browser checks; diff whitespace check clean.
 - [x] Commit and push the completed website changes (45730ac on origin/main).
 - [x] Record publication; tracking updates included in the accompanying documentation commit.
+
+## Session 013 — Full-text search and continue reading, 2026-09-29
+- [x] Implement cached full-text search with snippets and safe highlighting.
+- [x] Add local reading history, resume positions and homepage cards.
+- [x] Test search correctness, position restoration, mobile layout and existing routes.
+- [x] Update documentation and handoff.
+- Scope: app.py, static/js/site.js, templates, CSS, verify.py; note content unchanged.
+
+Session 013 completed. Modified files: app.py, static/js/site.js, static/css/style.css, templates/{layout,index,doc}.html, verify.py, README.md, agent tracking.
+
+## Session 014 — Link previews and related notes, 2026-09-29
+- [x] Add link graph, related notes and preview metadata endpoint.
+- [x] Add accessible hover/button previews and responsive styling.
+- [x] Verify routes, ranking, preview interactions and document links.
+- [x] Update documentation and append handoff.
+- Modified files: app.py, templates/doc.html, templates/layout.html, static/js/site.js, static/css/style.css, verify.py, README.md, agent tracking.
+
+Session 014 completed: full audit and preview desktop/mobile checks passed.
+
+## Session 015 — Editorial reading design, 2026-09-29
+- [x] Refine document cover, collection accents, reading typography and contents panel.
+- [x] Verify light/dark, mobile, reading controls and Flask routes.
+- [x] Record handoff and documentation.
+- Modified files: templates/doc.html, templates/layout.html, static/css/style.css, README.md, agent tracking.
+
+Session 015 completed. Also modified static/js/site.js for accessible table scroll wrappers.
+
+## Session 016 — Spacious glass reader, 2026-09-29
+- [x] Replace permanent reading navigation with compact controls and drawers.
+- [x] Restyle article and code blocks as readable frosted glass.
+- [x] Verify desktop/mobile navigation, themes and routes; append handoff.
+
+Session 016 completed 2026-09-30. Modified: templates/layout.html, templates/doc.html, static/css/style.css, static/js/site.js, README.md, tracking.
+
+## Session 017 — Quiet glass library, 2026-09-30
+- [x] Replace decorative homepage with compact search, collection tabs and note rows.
+- [x] Simplify reading header and related/recent sections; preserve glass opacity.
+- [x] Verify navigation, search, reading tools, themes and responsive layouts.
+- [x] Update documentation and handoff.
+- Modified files: templates, static/css/style.css, static/js/site.js, README.md, tracking.
+
+Session 017 completed. Full audit and browser checks passed.
+
+## Session 018 — Distraction-free styling, 2026-09-30
+- [x] Remove decorative background, excess accents and secondary visual noise.
+- [x] Verify light/dark and mobile layouts, then record handoff.
+- Modified files: static/css/style.css, templates/layout.html, tracking.
+
+Session 018 complete. Also modified templates/index.html, static/js/site.js and README.md.
+
+## Session 019 — Library view options, 2026-09-30
+- [x] Add persistent list/cards/table views shared by all catalogs.
+- [x] Check persistence, pagination, mobile and keyboard controls.
+- [x] Run required verification and record handoff.
+
+Session 019 complete. Modified templates/index.html, templates/layout.html, static/js/site.js, static/css/style.css, README.md and tracking.
+
+## Session 020 - Railway preparation, 2026-09-30
+- [x] Prepare Docker startup, readiness and deployment instructions.
+- [x] Verify application and production configuration; record handoff.
+
+Session 020 complete locally. Modified Dockerfile, .dockerignore, gunicorn.conf.py, app.py, verify.py, README.md and tracking. Docker build and Railway deployment pending (Docker unavailable; user has no Railway project).

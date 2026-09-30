@@ -10,16 +10,17 @@
   <link rel="icon" type="image/svg+xml" href="{{ url_for('favicon_svg') }}">
   <script>
     try {
+      const view = localStorage.getItem('catalogView');
+      document.documentElement.dataset.catalogView = ['list', 'cards', 'table'].includes(view) ? view : 'list';
       const theme = localStorage.getItem('theme');
       document.documentElement.classList.toggle('dark', theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches));
       document.documentElement.dataset.font = localStorage.getItem('docFont') || 'sans';
-      document.documentElement.dataset.view = localStorage.getItem('libraryView') === 'list' ? 'list' : 'cards';
     } catch (_) {}
   </script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='5.0') }}">
-  <script src="{{ url_for('static', filename='js/site.js', v='5.0') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='6.2') }}">
+  <script src="{{ url_for('static', filename='js/site.js', v='6.2') }}" defer></script>
 </head>
-<body>
+<body class="reading-shell quiet-library">
   <svg class="glass-filter-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <defs><filter id="library-refraction" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="1" seed="8" result="noise"/>
@@ -31,6 +32,7 @@
   <div id="reading-progress" aria-hidden="true"></div>
   <button class="sidebar-overlay" aria-label="Закрыть разделы" hidden></button>
   <aside class="sidebar glass liquid-surface" id="sidebar" aria-label="Разделы библиотеки">
+    <button id="sidebar-close" class="icon-button drawer-close" aria-label="Закрыть разделы">{{ icon('close') }}</button>
     <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">知</span><span>Chishiki<small>Личная библиотека</small></span></a>
     <button class="search-trigger" data-search>{{ icon('search', 17) }}<span>Поиск заметок</span><kbd>Ctrl K</kbd></button>
     <nav class="sidebar-nav">
@@ -46,14 +48,14 @@
   </aside>
   <div class="workspace" id="workspace">
     <header class="topbar">
-      <div class="topbar-left"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Открыть разделы" aria-controls="sidebar" aria-expanded="false">{{ icon('menu') }}</button><a href="{{ url_for('index') }}">Библиотека</a><span class="topbar-divider">/</span><span>{{ current_doc.category|category_label if current_doc else (selected_category|category_label if selected_category else 'Все заметки') }}</span></div>
-      <div class="topbar-actions"><button class="icon-button" data-search aria-label="Поиск">{{ icon('search', 18) }}</button><button class="icon-button" data-theme aria-label="Переключить тему">{{ icon('sun', 18) }}</button><span class="avatar" aria-hidden="true">知</span></div>
+      <div class="topbar-left"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Открыть разделы" aria-controls="sidebar" aria-expanded="false">{{ icon('menu') }}</button><a class="quiet-brand" href="{{ url_for('index') }}">Chishiki<span> / библиотека</span></a><span class="topbar-divider">/</span><span class="topbar-location">{{ current_doc.category|category_label if current_doc else (selected_category|category_label if selected_category else 'Все заметки') }}</span></div>
+      <div class="topbar-actions">{% if current_doc and current_doc.toc %}<button class="pill-button" id="contents-toggle" aria-haspopup="dialog" aria-controls="contents-dialog">{{ icon('note', 16) }} Содержание</button>{% endif %}<button class="icon-button" data-search aria-label="Поиск">{{ icon('search', 18) }}<span class="search-button-label">Поиск заметок</span><kbd>Ctrl K</kbd></button><button class="icon-button" data-theme aria-label="Переключить тему">{{ icon('sun', 18) }}</button><span class="avatar" aria-hidden="true">知</span></div>
     </header>
     <main id="main" tabindex="-1">{% block content %}{% endblock %}</main>
-    <footer class="site-footer"><span>知 &nbsp; Chishiki</span><span>Знания, к которым хочется возвращаться.</span></footer>
+
   </div>
   <dialog id="search-dialog" class="search-dialog glass" aria-labelledby="search-title">
-    <div class="search-dialog-header">{{ icon('search') }}<label class="sr-only" id="search-title" for="search-input">Поиск по библиотеке</label><input id="search-input" type="search" placeholder="Название, тема или путь к заметке…" autocomplete="off"><button class="icon-button" id="search-close" aria-label="Закрыть поиск">{{ icon('close', 18) }}</button></div>
+    <div class="search-dialog-header">{{ icon('search') }}<label class="sr-only" id="search-title" for="search-input">Поиск по библиотеке</label><input id="search-input" maxlength="200" type="search" placeholder="Название или слова из текста…" autocomplete="off"><button class="icon-button" id="search-close" aria-label="Закрыть поиск">{{ icon('close', 18) }}</button></div>
     <div class="search-domains" aria-label="Область поиска"><button data-domain="all" class="selected" aria-pressed="true">Всё</button><button data-domain="languages" aria-pressed="false">Языки</button><button data-domain="mnemonics" aria-pressed="false">Память</button><button data-domain="programming" aria-pressed="false">Код</button><button data-domain="other" aria-pressed="false">Другое</button></div>
     <p id="search-status" role="status" class="search-status">Загрузка заметок…</p>
     <div id="search-results" class="search-results"></div>

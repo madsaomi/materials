@@ -1,7 +1,7 @@
 {
   "project": "materials",
   "version": "4.0.0",
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-09-30",
   "stack": "Python Flask + Jinja2 + Python-Markdown + Pygments + local vanilla CSS/JavaScript; minimal frosted-glass library, offline assets",
   "knowledge": {
     "files": 1217,
@@ -49,11 +49,11 @@
     "windows_console_cjk_safe": true,
     "relative_md_internal_links": true
   },
-  "current_focus": "Session 012: application commit 45730ac successfully pushed to origin/main (madsaomi/materials). Liquid glass redesign, navigation and link fixes published to GitHub. Railway deployment remains pending.",
+  "current_focus": "Session 020 complete locally: Railway Docker deployment setup, startup library warmup and /healthz readiness. Full 1217-note verification passed. Uncommitted; no hosted deployment.",
   "pending_tasks": [
-    "Connect GitHub repository to Railway and deploy using README; code is now pushed, hosting not connected.",
+    "Commit/push local changes, create Railway GitHub service, configure /healthz with 300s timeout and generate domain; verify actual Docker build and deployment.",
     "Optional: reconcile 440 duplicate title groups across the two preserved vaults.",
     "Expand thin usage.md stubs with per-unit content (historical backlog; exact current count not re-audited)."
   ],
-  "notes": "Session 009 audit: duplicate_titles counts groups, not extra files. Null knowledge metrics were not re-audited and replace stale 642-file-era values. verify.py uses the current filesystem count and audits all source/rendered links. Historical 642/unique-title rules remain in older agent documentation; both user-owned vaults are preserved. Railway settings are documented for its dashboard, since current docs disallow railway.json for new services. Application commit 45730ac pushed to origin/main; no hosting deployment performed. Local Flask preview runs on 127.0.0.1:5000."
+  "notes": "Session 009 audit: duplicate_titles counts groups, not extra files. Null knowledge metrics were not re-audited and replace stale 642-file-era values. verify.py uses the current filesystem count and audits all source/rendered links. Historical 642/unique-title rules remain in older agent documentation; both user-owned vaults are preserved. Railway settings are documented for its dashboard, since current docs disallow railway.json for new services. Application commit 45730ac pushed to origin/main; no hosting deployment performed. Local Flask preview runs on 127.0.0.1:5000. Session 013: new /api/search endpoint, cached plain text, 20-entry browser history with 3 homepage cards and heading-relative resume. Full audit and dedicated Chrome desktop/mobile checks passed. Preview exec session 31094. Session 014: cached outgoing link sets, related-note ranking with backlink reasons and duplicate-title suppression, plain-text preview endpoint and accessible responsive hover/button cards. Full audit and Chrome checks passed; preview exec session 25646. Session 015 full audit and desktop/mobile/light/dark checks passed. Local preview exec session 74094 with template auto_reload enabled; asset version 5.3. Session 016 resumed after local server stopped; fresh full verification passed. Local preview session 17406, template auto_reload enabled, asset v5.4. Session 017 preview session 45961, app.config TEMPLATES_AUTO_RELOAD=True (setting jinja_env alone was overridden by app.run debug setter); asset v6.0. Full audit and Chrome navigation/theme/mobile checks passed. Session 018 full 1217-note audit and Chrome light/dark/mobile checks passed, asset v6.1. Preview remains session 45961. Session 019 full audit and Chrome view/persistence/mobile/keyboard checks passed. Preview session 5316, asset v6.2."
 }
