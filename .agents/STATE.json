@@ -14,7 +14,7 @@
   },
   "git_status": {
     "branch": "main",
-    "working_tree": "modified"
+    "working_tree": "clean after publication tracking commit"
   },
   "active_components": [
     "app.py",
@@ -49,9 +49,9 @@
     "windows_console_cjk_safe": true,
     "relative_md_internal_links": true
   },
-  "current_focus": "Session 020 complete locally: Railway Docker deployment setup, startup library warmup and /healthz readiness. Full 1217-note verification passed. Uncommitted; no hosted deployment.",
+  "current_focus": "Session 021: site and Railway configuration committed as 2280bb8 and pushed to origin/main. Railway deployment pending.",
   "pending_tasks": [
-    "Commit/push local changes, create Railway GitHub service, configure /healthz with 300s timeout and generate domain; verify actual Docker build and deployment.",
+    "Create Railway GitHub service, configure /healthz with 300s timeout and generate domain; verify Docker build and deployment.",
     "Optional: reconcile 440 duplicate title groups across the two preserved vaults.",
     "Expand thin usage.md stubs with per-unit content (historical backlog; exact current count not re-audited)."
   ],

@@ -218,3 +218,9 @@
 - **Changes:** Python 3.12 slim Dockerfile, non-root runtime, allowlisted build context excluding local Obsidian/env/git data. Gunicorn retains PORT binding and one worker/two threads, warms library before serving, timeout 300s. Added lightweight no-store /healthz endpoint and production config/readiness regression checks. Rewrote Railway README steps for Docker autodetection, health timeout and GitHub updates.
 - **Verification:** verify.py PASS for 1217 notes, zero broken source/rendered links, leftover .md links or duplicate heading IDs; 440 duplicate title groups preserved. PORT override, worker warmup and scan-free health endpoint passed. git diff --check clean. Docker/railway CLI unavailable; image build and actual Linux Gunicorn execution not verified locally.
 - **Handoff:** Changes uncommitted/unpushed. User needs new Railway project connected to GitHub after push. No account resources created. Official Railway Dockerfile/health/config-as-code docs checked; legacy railway.json not added. Prior session history preserved.
+
+## Session 021 - 2026-09-30
+- **Task:** User requested push.
+- **Status:** Application commit 2280bb8 pushed to origin/main successfully.
+- **Verification:** Reused successful Session 020 full audit for unchanged application files; git diff --check passed. No force push. Railway deployment still pending.
+

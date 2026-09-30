@@ -168,3 +168,8 @@ Session 019 complete. Modified templates/index.html, templates/layout.html, stat
 - [x] Verify application and production configuration; record handoff.
 
 Session 020 complete locally. Modified Dockerfile, .dockerignore, gunicorn.conf.py, app.py, verify.py, README.md and tracking. Docker build and Railway deployment pending (Docker unavailable; user has no Railway project).
+
+## Session 021 - Publish, 2026-09-30
+- [x] Commit verified site and Railway changes (2280bb8).
+- [x] Push main to origin.
+
