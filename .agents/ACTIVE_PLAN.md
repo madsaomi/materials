@@ -16,7 +16,7 @@
 - **Current Task:** Publish verified Next.js knowledge-base and textbook changes to origin/main
 - **Active Agent:** Codex
 - **Environment / IDE:** Codex desktop (Windows/PowerShell)
-- **Status:** `IN PROGRESS`
+- **Status:** `COMPLETED`
 - **Session Reference:** `Session 034` in `.agents/history/agent-session-log.md`
 - **Last Updated:** 2026-10-19
 
@@ -278,9 +278,11 @@ Root English/contents/integration/tracking; delegates Japanese/Korean/Chinese on
 
 Session033 modified:136 existing notes, scripts/editorial/session033/, reports/session033/, README.md and agent tracking.200 active vocabulary positions/20 dialogues/20 self-checks; all1683 priorIDs/links preserved. Full1348 corpus,TypeScript,30HTTP and four-A1-route/disclosure UI checks PASS. Preview restored as exec41795 on127.0.0.1:5000; temporaryQA tab closed. Next vocabulary/dialogue/test units06-15 and old banks; Chinese1636unfinished rows unchanged. No deletion/merge/app edits/build/commit/push/deploy.
 
-## Session 034 - Publish accumulated library changes (IN PROGRESS)
+## Session 034 - Publish accumulated library changes (COMPLETE)
 - [x] Inspect pending files, packaging exclusions, branch and remote state.
 - [x] Verify TypeScript, full content audit and production build without disturbing the running preview.
-- [/] Commit the reviewed migration/content changes and push normally to origin/main.
-- [ ] Verify remote commit, append publication log and publish tracking updates.
+- [x] Commit the reviewed migration/content changes and push normally to origin/main.
+- [x] Verify remote commit, append publication log and publish tracking updates.
 User explicitly requested push. Root owns Git mutations; push_audit delegate read-only packaging review. No force push or content cleanup.
+
+Session034: published primary commit c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e to origin/main; remote SHA verified. Full1348-doc/1217-target audit, TypeScript and isolated Next webpack production build PASS. Runtime/dependency/cache/backup exclusions reviewed. Git Credential Manager login completed by user. Temporary build copy removed safely; local preview unaffected. Completion record committed separately. No force push; no external hosting/Docker execution claim.
