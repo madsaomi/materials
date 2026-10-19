@@ -3,8 +3,8 @@
 {% block title %}{{ current_doc.title }} · Chishiki{% endblock %}
 {% block content %}
 <div class="document-layout" data-family="{{ current_doc.category.split(' / ')[0] }}">
-  <article class="document glass" data-doc-slug="{{ current_doc.slug }}" data-doc-title="{{ current_doc.title }}">
-    <nav class="breadcrumbs" aria-label="Путь к заметке"><a href="{{ url_for('index') }}">← Библиотека</a><span>/</span><a href="{{ url_for('index', category=current_doc.category) }}">{{ current_doc.category|category_label }}</a></nav>
+  <article class="document glass" data-doc-slug="{{ current_doc.slug }}" data-doc-title="{{ current_doc.title }}" data-doc-aliases='{{ current_doc.legacySlugs|tojson }}'>
+    <nav class="breadcrumbs folder-breadcrumbs" aria-label="Путь к заметке"><a href="{{ url_for('index') }}">Библиотека</a>{% for crumb in reader_folders %}<span>/</span><a href="{{ crumb.url }}">{{ crumb.title }}</a>{% endfor %}</nav>
     <header class="document-header">
       <h1>{{ current_doc.title }}</h1>
       <div class="reader-byline"><div class="document-meta"><span>{{ current_doc.readingTime }} мин чтения</span>{% if current_doc.data.get('level') %}<span>Уровень {{ current_doc.data.get('level') }}</span>{% endif %}<span>{{ current_doc.collection }}</span></div><div class="document-tools"><button class="pill-button" id="font-toggle" aria-pressed="false">Aa <span>Шрифт</span></button><button class="pill-button" id="copy-link">{{ icon('link', 16) }} Ссылка</button><button class="pill-button" id="zen-toggle" aria-pressed="false">{{ icon('focus', 16) }} Читать</button></div></div>

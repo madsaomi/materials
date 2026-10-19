@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-19",
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 58723
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 57518
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 457621
+    },
+    {
+      "route": "/doc/languages/english/_contents",
+      "status": 200,
+      "bytes": 144611
+    },
+    {
+      "route": "/doc/languages/english/a1/_contents",
+      "status": 200,
+      "bytes": 94988
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/vocabulary/words",
+      "status": 200,
+      "bytes": 196699
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/dialogue",
+      "status": 200,
+      "bytes": 114984
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/test",
+      "status": 200,
+      "bytes": 102510
+    },
+    {
+      "route": "/doc/languages/japanese/_contents",
+      "status": 200,
+      "bytes": 142913
+    },
+    {
+      "route": "/doc/languages/japanese/a1/_contents",
+      "status": 200,
+      "bytes": 95429
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/vocabulary/words",
+      "status": 200,
+      "bytes": 140382
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/dialogue",
+      "status": 200,
+      "bytes": 129025
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/test",
+      "status": 200,
+      "bytes": 105307
+    },
+    {
+      "route": "/doc/languages/korean/_contents",
+      "status": 200,
+      "bytes": 141845
+    },
+    {
+      "route": "/doc/languages/korean/a1/_contents",
+      "status": 200,
+      "bytes": 94885
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/vocabulary/words",
+      "status": 200,
+      "bytes": 128752
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/dialogue",
+      "status": 200,
+      "bytes": 118906
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/test",
+      "status": 200,
+      "bytes": 103572
+    },
+    {
+      "route": "/doc/languages/chinese/_contents",
+      "status": 200,
+      "bytes": 142150
+    },
+    {
+      "route": "/doc/languages/chinese/a1/_contents",
+      "status": 200,
+      "bytes": 95259
+    },
+    {
+      "route": "/doc/languages/chinese/a1/unit-05/vocabulary/words",
+      "status": 200,
+      "bytes": 139275
+    },
+    {
+      "route": "/doc/languages/chinese/a1/unit-05/dialogue",
+      "status": 200,
+      "bytes": 121719
+    },
+    {
+      "route": "/doc/languages/chinese/a1/unit-05/test",
+      "status": 200,
+      "bytes": 114149
+    },
+    {
+      "route": "/doc/knowledge/languages/korean/a1/_contents",
+      "status": 200,
+      "bytes": 96809
+    },
+    {
+      "route": "/doc/knowledge/languages/chinese/a1/unit-04/test",
+      "status": 200,
+      "bytes": 110306
+    },
+    {
+      "route": "/doc/languages/english/b1/unit-15/reading",
+      "status": 200,
+      "bytes": 108438
+    },
+    {
+      "route": "/api/search?q=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BF%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83&domain=languages",
+      "status": 200
+    },
+    {
+      "route": "/api/preview/languages/english/a1/unit-05/dialogue",
+      "status": 200
+    },
+    {
+      "route": "/doc/languages/english/units/unit-05/test?from=session033",
+      "status": 308,
+      "location": "/doc/languages/english/a1/unit-05/test?from=session033"
+    },
+    {
+      "route": "/doc/nonexistent-session033",
+      "status": 404
+    }
+  ]
+}

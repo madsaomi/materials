@@ -1,19 +1,23 @@
-FROM python:3.12-slim
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
-
+FROM node:22-bookworm-slim AS build
 WORKDIR /app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt \
-    && useradd --create-home --uid 10001 library
+ENV NEXT_TELEMETRY_DISABLED=1 NEXT_STANDALONE=1
+RUN corepack enable && corepack prepare pnpm@11.25.0 --activate
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
+COPY app ./app
+COPY components ./components
+COPY lib ./lib
+COPY public ./public
+COPY knowledge ./knowledge
+COPY legacy_paths.json next.config.ts next-env.d.ts tsconfig.json ./
+RUN pnpm build
 
-COPY app.py gunicorn.conf.py ./
-COPY templates/ ./templates/
-COPY static/ ./static/
-COPY public/ ./public/
-COPY knowledge/ ./knowledge/
-
-USER library
-CMD ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
+FROM node:22-bookworm-slim AS runtime
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 HOSTNAME=0.0.0.0 PORT=5000
+COPY --from=build --chown=node:node /app/.next/standalone ./
+COPY --from=build --chown=node:node /app/.next/static ./.next/static
+COPY --from=build --chown=node:node /app/public ./public
+USER node
+EXPOSE 5000
+CMD ["node", "server.js"]

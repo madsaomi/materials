@@ -3,6 +3,7 @@ import re
 import html as html_mod
 import math
 import threading
+import json
 from html.parser import HTMLParser
 from urllib.parse import quote as urlquote, unquote, urlsplit
 import markdown
@@ -10,12 +11,18 @@ import frontmatter
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
-from flask import Flask, render_template, abort, url_for, jsonify, send_from_directory, request
+from flask import Flask, render_template, abort, url_for, jsonify, send_from_directory, request, redirect
+from catalog import build_folder_tree, folder_label, logical_path, subject_for_path, level_for_path, note_order, LEVELS, NAMES
 
 app = Flask(__name__)
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 KNOWLEDGE_DIR = os.path.join(BASE_DIR, 'knowledge')
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
+with open(os.path.join(BASE_DIR, 'legacy_paths.json'), encoding='utf-8') as migration_file:
+    LEGACY_PATHS = json.load(migration_file)['paths']
+LEGACY_BY_TARGET = {}
+for legacy_slug, canonical_slug in LEGACY_PATHS.items():
+    LEGACY_BY_TARGET.setdefault(canonical_slug, []).append(legacy_slug)
 
 class SearchText(HTMLParser):
     """Keep inline words intact, but separate paragraphs and table cells."""
@@ -170,14 +177,7 @@ def _knowledge_snapshot():
 
 
 def category_for_slug(slug):
-    parts = slug.split('/')
-    if parts[0] == 'knowledge':
-        parts = parts[1:]
-    if len(parts) < 2:
-        return 'overview'
-    if parts[0] in ('languages', 'mnemonics') and len(parts) > 2:
-        return f'{parts[0]} / {parts[1]}'
-    return parts[0]
+    return subject_for_path(slug).replace('/', ' / ')
 
 
 LABELS = {
@@ -195,7 +195,7 @@ LABELS = {
 
 @app.template_filter('category_label')
 def category_label(category):
-    return LABELS.get(category, LABELS.get(category.split(' / ')[-1], category.replace('-', ' ').capitalize()))
+    return LABELS.get(category, NAMES.get(category.split(' / ')[-1], category.replace('-', ' ').capitalize()))
 
 
 @app.template_filter('category_symbol')
@@ -272,6 +272,10 @@ def _load_docs():
             'searchText': searchable,
             'searchFolded': searchable.casefold(),
             'links': parser.links,
+            'catalogFolder': logical_path(slug).rsplit('/', 1)[0] if '/' in logical_path(slug) else '',
+            'catalogLevel': level_for_path(slug),
+            'legacySlugs': LEGACY_BY_TARGET.get(slug, []),
+            'isContents': slug.endswith('/_contents'),
         })
         next_file_cache[file_path] = ((mtime, size), docs[-1])
     _docs_cache = docs
@@ -325,21 +329,45 @@ def index():
     sort = request.args.get('sort', 'title')
     if sort not in ('title', 'recent'):
         sort = 'title'
-    filtered = categories.get(selected, docs)
-    ordered = sorted(filtered, key=(lambda d: (-d['modified'], d['slug'])) if sort == 'recent'
-                     else (lambda d: (d['title'].casefold(), d['slug'])))
+    folder = request.args.get('folder', selected.replace(' / ', '/'))
+    tree = build_folder_tree(docs)
+    if folder not in tree:
+        abort(404)
+    node = tree[folder]
+    entries = node['files']
+    ordered = sorted(entries, key=(lambda item: (-item['doc']['modified'], item['doc']['slug'])) if sort == 'recent'
+                     else (lambda item: note_order(item['doc'])))
     page = max(1, request.args.get('page', 1, type=int))
     pages = max(1, math.ceil(len(ordered) / 24))
     page = min(page, pages)
+    breadcrumbs = [{'title': 'Библиотека', 'url': url_for('index')}]
+    parts = folder.split('/') if folder else []
+    for depth in range(1, len(parts) + 1):
+        path = '/'.join(parts[:depth])
+        breadcrumbs.append({'title': folder_label(path), 'url': url_for('index', folder=path)})
+    category = subject_for_path(folder + '/placeholder') if folder else ''
     return render_template('index.html', docs=docs, categories=categories,
                            selected_category=selected, sort=sort, page=page, pages=pages,
-                           visible_docs=ordered[(page-1)*24:page*24], filtered_count=len(ordered))
+                           visible_entries=ordered[(page-1)*24:page*24], filtered_count=len(ordered),
+                           folder=folder, folder_node=node, folder_children=[tree[path] for path in node['children']],
+                           folder_breadcrumbs=breadcrumbs, active_subject=category, level_description=LEVELS.get(parts[-1], ('', ''))[1] if parts else '')
+
+
+@app.context_processor
+def catalog_navigation():
+    tree = build_folder_tree(get_all_docs())
+    return {'catalog_roots': [tree[path] for path in tree['']['children']]}
 
 @app.route('/doc/<path:slug>')
 def doc_detail(slug):
     docs = get_all_docs()
     current_doc = next((d for d in docs if d['slug'] == slug), None)
     if not current_doc:
+        if slug in LEGACY_PATHS:
+            target = url_for('doc_detail', slug=LEGACY_PATHS[slug])
+            if request.query_string:
+                target += '?' + request.query_string.decode('utf-8', errors='replace')
+            return redirect(target, code=301)
         abort(404)
 
     slug_set = {d['slug']: d for d in docs}
@@ -371,7 +399,9 @@ def doc_detail(slug):
 
     categories = build_categories(docs)
     cat_docs = sorted((d for d in categories.get(current_doc['category'], [])
-                       if d['collection'] == current_doc['collection']), key=lambda d: d['slug'])
+                       if d['collection'] == current_doc['collection']
+                       and d['catalogLevel'] == current_doc['catalogLevel']
+                       and not d['isContents']), key=note_order)
     prev_doc = None
     next_doc = None
     for idx, d in enumerate(cat_docs):
@@ -382,10 +412,15 @@ def doc_detail(slug):
                 next_doc = cat_docs[idx + 1]
             break
 
+    folder_parts = current_doc['catalogFolder'].split('/') if current_doc['catalogFolder'] else []
+    reader_folders = [{'title': folder_label('/'.join(folder_parts[:depth])),
+                       'url': url_for('index', folder='/'.join(folder_parts[:depth]))}
+                      for depth in range(1, len(folder_parts) + 1)]
     return render_template(
         'doc.html',
         current_doc=current_doc,
         breadcrumbs=breadcrumbs,
+        reader_folders=reader_folders,
         docs=docs,
         categories=categories,
         prev_doc=prev_doc,
@@ -406,7 +441,7 @@ def search_json():
     docs = get_all_docs()
     return jsonify([
         {'title': d['title'], 'slug': d['slug'], 'category': d['category'],
-         'categoryLabel': category_label(d['category']), 'collection': d['collection']}
+         'categoryLabel': category_label(d['category']), 'collection': d['collection'], 'legacySlugs': d['legacySlugs']}
         for d in docs
     ])
 

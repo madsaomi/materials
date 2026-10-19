@@ -1,77 +1,38 @@
-# AGENTS.md — materials (Flask knowledge base)
+# AGENTS.md — materials (Next.js knowledge base)
 
 ## Stack
 
-Pure Python. No Node.js, no Astro, no Tailwind build step.
+User explicitly approved migration from Flask to TypeScript + Next.js on 2026-10-18. This supersedes earlier Python-only / no-Node rules. Next.js App Router, React, hand-written CSS, no Astro or Tailwind.
 
-- `app.py` — Flask app: scans `knowledge/`, parses frontmatter + Markdown,
-  builds ToC, reading time, breadcrumbs, search index
-- `templates/` — Jinja2 (`layout.html`, `index.html`, `doc.html`, `404.html`)
-- `static/css/style.css` — hand-written CSS (Wabi-Sabi theme, dark mode, Pygments Monokai)
-- `knowledge/` — 642 Markdown notes (UTF-8, Russian content, CJK vocabulary)
-- `requirements.txt` — Flask, Markdown, python-frontmatter, Pygments, gunicorn
+- app/: React server pages and API route handlers.
+- lib/knowledge.ts: Markdown/frontmatter, links, headings, cache, search, related notes.
+- lib/catalog.ts: folders, levels, lesson order, retained-vault versions.
+- components/shell.tsx: shared interface.
+- public/static/: current CSS/JS; all browser assets local.
+- knowledge/: 1348 UTF-8 Markdown documents, both vaults retained.
+- legacy_paths.json: 1217 old path mappings; redirect queries must survive.
+- Python runtime, templates/ and static/ are retained for comparison only. Do not accidentally change the old copy instead of public/static/.
 
-## Development
+## Development and verification
 
-Install deps once:
-
-```
-pip install -r requirements.txt
-```
-
-Run the dev server (foreground, port 5000):
+Node.js 22+, pnpm 11.25.0. See MIGRATION_NEXT.md.
 
 ```
-python app.py
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm typecheck
+pnpm verify
+pnpm build
+pnpm start
 ```
 
-Production:
+Default port 5000; production honors PORT. Docker runs the standalone Node server.
+Verify / and /api/search.json (1348 entries), representative /doc/ pages, unknown paths 404, legacy redirects with query parameters, search and preview API. The full verifier audits rendered Markdown links, fragments and heading IDs. Preserve localStorage keys and old heading anchors.
 
-```
-gunicorn app:app
-```
+## Content conventions
 
-## Conventions
+UTF-8; never print CJK directly from Python to a Windows cp1251 console. Markdown links stay relative .md paths for Obsidian; rewrite only when rendering. Heading IDs are lowercase, punctuation removed, spaces replaced by hyphens, duplicates suffixed -1, -2. Code comments inside fences are not headings. Both vaults and editorial warnings remain intact. Never rerun the one-time folder migration.
 
-- Knowledge files are UTF-8. Console on Windows is cp1251 — never `print()` CJK
-  directly; write verification output to files under the Temp dir instead.
-- Internal links use relative `.md` paths (Obsidian-compatible), e.g.
-  `../grammar/core.md`. `app.py` rewrites them to `/doc/...` routes at render time.
-- Heading anchors are GitHub-style (`slugify` in `app.py`: lowercase, drop
-  punctuation, spaces → hyphens, e.g. `### 2.2 Частицы` → `#22-частицы`).
-  Repeat `#` headings after the first also get ids and ToC entries.
-- Breadcrumb segments without a matching doc render as plain text (never 404 links).
-- `get_all_docs()` is mtime-cached. C Old Node/Astro files must never come back:
-  no `package.json`, `src/`, `astro.config.mjs`, `node_modules/`, `dist/`, `.astro/`.
+## Persistence
 
-## Verification
-
-Before committing site changes, verify with the Flask test client:
-
-- `/` → 200, `/api/search.json` → 200 with 642 entries
-- sample `/doc/<slug>` pages → 200, unknown slug → 404
-- zero `href="*.md"` leftovers in rendered HTML
-- zero broken internal `.md` links across `knowledge/` (audit script pattern:
-  resolve relative links against slug set, excluding fenced code blocks)
-- all 642 doc titles unique
-
-## Multi-Agent Protocol & Live Planning
-
-All agents working on this project (across any IDE, tool, or LLM provider) must adhere to the multi-agent persistence system in `.agents/`:
-
-1. **Before starting work:**
-   - Inspect `.agents/STATE.json` for repository version, active focus, and pending tasks.
-   - Inspect `.agents/ACTIVE_PLAN.md` to see if there is an in-progress task from a previous agent.
-   - Review operational rules in `.agents/RULES.md`.
-2. **During work (Live Planning):**
-   - Maintain the live checklist in `.agents/ACTIVE_PLAN.md` using 3 states: `[x]` (done), `[/]` (in progress right now), `[ ]` (remaining).
-   - Any agent can immediately resume from a `[/]` or `[ ]` step without repeating completed work.
-3. **Session Logging (Strictly Append-Only):**
-   - **NEVER overwrite, edit, or truncate past history** in `.agents/history/agent-session-log.md`.
-   - Always append your session (`## Session XXX - <Date>`) with actions taken, tests verified, and handoff notes for the next agent.
-
-## Docs
-
-- Flask: https://flask.palletsprojects.com/
-- Jinja2: https://jinja.palletsprojects.com/
-- Python-Markdown: https://python-markdown.github.io/
+Before work read .agents/STATE.json, ACTIVE_PLAN.md and RULES.md. Maintain [x] done, [/] active, [ ] pending. Append sessions to .agents/history/agent-session-log.md; NEVER overwrite or truncate history. Update state after verified work. Do not restore the superseded Python-only restriction.

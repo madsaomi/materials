@@ -96,6 +96,50 @@ def regressions():
             assert client.get('/api/preview/topic/other').status_code == 404
 
 
+def hierarchy_regressions():
+    """Exercise real folder navigation, retained variants and bookmarked URLs."""
+    from catalog import build_folder_tree
+    from scripts.organize_knowledge import rewrite
+    mapping = {'other.md': 'reference/other.md'}
+    moved = rewrite('[Next](other.md#part)', 'note.md', 'a1/note.md', mapping)
+    assert moved == '[Next](../reference/other.md#part)'
+    balanced = '```\n[Example](other.md)\n```'
+    assert rewrite(balanced, 'note.md', 'a1/note.md', mapping) == balanced
+    unmatched = '```\n[Real link](other.md#part)'
+    assert '../reference/other.md#part' in rewrite(unmatched, 'note.md', 'a1/note.md', mapping)
+    with tempfile.TemporaryDirectory() as directory:
+        for slug, body in {
+            'languages/english/a1/unit-01/overview': '# First lesson\nContent',
+            'languages/english/a1/unit-01/grammar/core': '# Grammar\nRules',
+            'knowledge/languages/english/a1/unit-01/overview': '# Other version\nMore content',
+            'languages/english/a2/unit-06/overview': '# Second level\nContent',
+            'languages/english/a1/_contents': '# Level contents\n[First](unit-01/overview.md)',
+        }.items():
+            path = Path(directory) / (slug + '.md')
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(body, encoding='utf-8')
+        legacy = 'languages/english/units/unit-01/overview'
+        target = 'languages/english/a1/unit-01/overview'
+        with patch.object(site, 'KNOWLEDGE_DIR', directory), patch.object(site, '_docs_cache', None), patch.object(site, '_cache_signature', None), patch.object(site, '_file_cache', {}), patch.object(site, 'LEGACY_PATHS', {legacy: target}), site.app.test_client() as client:
+            for folder in ('', 'languages', 'languages/english', 'languages/english/a1', 'languages/english/a1/unit-01', 'languages/english/a1/unit-01/grammar'):
+                response = client.get('/', query_string={'folder': folder})
+                assert response.status_code == 200, folder
+            html = client.get('/?folder=languages/english').get_data(as_text=True)
+            assert 'data-folder="languages/english/a1"' in html
+            assert 'data-folder="languages/english/a2"' in html
+            tree = build_folder_tree(site.get_all_docs())
+            entries = tree['languages/english/a1/unit-01']['files']
+            assert len(entries) == 1 and len(entries[0]['variants']) == 1
+            assert tree['languages/english']['count'] == 3
+            response = client.get('/doc/' + legacy + '?resume=1')
+            assert response.status_code == 301
+            assert response.headers['Location'] == '/doc/' + target + '?resume=1'
+            assert client.get(response.headers['Location']).status_code == 200
+            assert client.get('/?folder=languages/english/a9').status_code == 404
+            assert client.get('/?folder=../../secret').status_code == 404
+            assert client.get('/?folder=languages/english/a1/unit-01&sort=recent&page=bad').status_code == 200
+
+
 def main():
     with patch.dict(os.environ, {'PORT': '8765'}):
         production = runpy.run_path('gunicorn.conf.py')
@@ -111,6 +155,7 @@ def main():
             assert health.status_code == 200 and health.json == {'status': 'ok'}
             assert health.headers['Cache-Control'] == 'no-store'
     regressions()
+    hierarchy_regressions()
     docs = site.get_all_docs()
     expected = len(list(Path(site.KNOWLEDGE_DIR).rglob('*.md')))
     assert len(docs) == expected

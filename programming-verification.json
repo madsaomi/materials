@@ -1,0 +1,105 @@
+{
+  "chapters": 12,
+  "notes": 51,
+  "retainedOriginalHeadingIds": 997,
+  "executed": 12,
+  "notExecuted": 12,
+  "runs": [
+    {
+      "name": "python-01-example",
+      "status": "executed"
+    },
+    {
+      "name": "python-01-solution",
+      "status": "executed"
+    },
+    {
+      "name": "python-02-example",
+      "status": "executed"
+    },
+    {
+      "name": "python-02-solution",
+      "status": "executed"
+    },
+    {
+      "name": "python-03-example",
+      "status": "executed"
+    },
+    {
+      "name": "python-03-solution",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-01-example",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-01-solution",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-02-example",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-02-solution",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-03-example",
+      "status": "executed"
+    },
+    {
+      "name": "javascript-03-solution",
+      "status": "executed"
+    },
+    {
+      "name": "go-01-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "go-01-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "go-02-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "go-02-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "go-03-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "go-03-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-01-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-01-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-02-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-02-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-03-example",
+      "status": "not executed: compiler not configured; complete source exported"
+    },
+    {
+      "name": "rust-03-solution",
+      "status": "not executed: compiler not configured; complete source exported"
+    }
+  ]
+}

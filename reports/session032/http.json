@@ -1,0 +1,123 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 58723
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 57518
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 452114
+    },
+    {
+      "route": "/doc/languages/english/_contents",
+      "status": 200,
+      "bytes": 135936
+    },
+    {
+      "route": "/doc/languages/english/b1/_contents",
+      "status": 200,
+      "bytes": 83758
+    },
+    {
+      "route": "/doc/languages/english/b1/unit-15/reading",
+      "status": 200,
+      "bytes": 108438
+    },
+    {
+      "route": "/doc/languages/english/b1/unit-15/practice/exercises",
+      "status": 200,
+      "bytes": 116520
+    },
+    {
+      "route": "/doc/languages/japanese/_contents",
+      "status": 200,
+      "bytes": 134145
+    },
+    {
+      "route": "/doc/languages/japanese/b1/_contents",
+      "status": 200,
+      "bytes": 83811
+    },
+    {
+      "route": "/doc/languages/japanese/b1/unit-15/reading",
+      "status": 200,
+      "bytes": 201691
+    },
+    {
+      "route": "/doc/languages/japanese/b1/unit-15/practice/exercises",
+      "status": 200,
+      "bytes": 185486
+    },
+    {
+      "route": "/doc/languages/korean/_contents",
+      "status": 200,
+      "bytes": 133131
+    },
+    {
+      "route": "/doc/languages/korean/b1/_contents",
+      "status": 200,
+      "bytes": 83649
+    },
+    {
+      "route": "/doc/languages/korean/b1/unit-15/reading",
+      "status": 200,
+      "bytes": 116106
+    },
+    {
+      "route": "/doc/languages/korean/b1/unit-15/practice/exercises",
+      "status": 200,
+      "bytes": 133553
+    },
+    {
+      "route": "/doc/languages/chinese/_contents",
+      "status": 200,
+      "bytes": 133442
+    },
+    {
+      "route": "/doc/languages/chinese/b1/_contents",
+      "status": 200,
+      "bytes": 83609
+    },
+    {
+      "route": "/doc/languages/chinese/b1/unit-15/reading",
+      "status": 200,
+      "bytes": 132050
+    },
+    {
+      "route": "/doc/languages/chinese/b1/unit-15/practice/exercises",
+      "status": 200,
+      "bytes": 124686
+    },
+    {
+      "route": "/doc/knowledge/languages/korean/b1/_contents",
+      "status": 200,
+      "bytes": 85373
+    },
+    {
+      "route": "/doc/knowledge/languages/chinese/b1/unit-13/reading",
+      "status": 200,
+      "bytes": 130380
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-01/reading",
+      "status": 200,
+      "bytes": 96017
+    },
+    {
+      "route": "/doc/languages/english/units/unit-14/reading?from=session032",
+      "status": 308,
+      "location": "/doc/languages/english/b1/unit-14/reading?from=session032"
+    },
+    {
+      "route": "/doc/nonexistent-session032",
+      "status": 404
+    }
+  ]
+}

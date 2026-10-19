@@ -313,13 +313,14 @@
     recentSection.hidden = true;
     if (!history.length) return;
     try {
-      const docs = new Map((await loadIndex()).map(doc => [doc.slug, doc]));
+      const docs = new Map();
+      (await loadIndex()).forEach(doc => { docs.set(doc.slug, doc); (doc.legacySlugs || []).forEach(slug => docs.set(slug, doc)); });
       if (version !== historyRender) return;
       const cards = document.querySelector('#recent-cards'); cards.replaceChildren();
       history.filter(item => docs.has(item.slug)).slice(0, 3).forEach(item => {
         const doc = docs.get(item.slug);
         const link = document.createElement('a'); link.className = 'recent-card glass';
-        link.href = '/doc/' + item.slug.split('/').map(encodeURIComponent).join('/') + '?resume=1';
+        link.href = '/doc/' + doc.slug.split('/').map(encodeURIComponent).join('/') + '?resume=1';
         const label = document.createElement('small'); label.textContent = doc.categoryLabel;
         const title = document.createElement('h3'); title.textContent = doc.title;
         const path = document.createElement('small'); path.className = 'recent-path'; path.textContent = item.slug;
@@ -340,12 +341,15 @@
     const progress = document.querySelector('#reading-progress');
     const banner = document.querySelector('#resume-banner');
     const slug = article.dataset.docSlug;
-    const saved = readingHistory().find(item => item.slug === slug);
+    let oldSlugs = [];
+    try { oldSlugs = JSON.parse(article.dataset.docAliases || '[]'); } catch (_) {}
+    const saved = readingHistory().find(item => item.slug === slug || oldSlugs.includes(item.slug));
     let record = saved || {slug, title: article.dataset.docTitle, ratio: 0};
     let moved = false, saveTimer;
     function save() {
       record.title = article.dataset.docTitle; record.updatedAt = Date.now();
-      storage.set(historyKey, JSON.stringify([record, ...readingHistory().filter(item => item.slug !== slug)].slice(0, 20)));
+      record.slug = slug;
+      storage.set(historyKey, JSON.stringify([record, ...readingHistory().filter(item => item.slug !== slug && !oldSlugs.includes(item.slug))].slice(0, 20)));
     }
     function range() { return Math.max(1, prose.getBoundingClientRect().bottom + scrollY - innerHeight); }
     function update() {

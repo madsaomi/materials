@@ -72,25 +72,14 @@ def find_vocab_files(lang: str, unit: int | None = None) -> list[Path]:
     lang_dir = VAULT_ROOT / "languages" / lang
 
     files = []
-    # Основные словари
-    vocab_dir = lang_dir / "vocabulary"
-    if vocab_dir.exists():
-        files.extend(sorted(vocab_dir.glob("*.md")))
-
-    # Словари по юнитам
-    units_dir = lang_dir / "units"
-    if units_dir.exists():
-        for unit_dir in sorted(units_dir.iterdir()):
-            if not unit_dir.is_dir():
-                continue
-            if unit is not None:
-                unit_num = re.search(r"(\d+)", unit_dir.name)
-                if unit_num and int(unit_num.group(1)) != unit:
-                    continue
-            unit_vocab = unit_dir / "vocabulary"
-            if unit_vocab.exists():
-                files.extend(sorted(unit_vocab.glob("*.md")))
-
+    for filepath in sorted(lang_dir.rglob("*.md")):
+        relative = filepath.relative_to(lang_dir)
+        if "vocabulary" not in relative.parts or filepath.name == "_contents.md":
+            continue
+        unit_match = re.search(r"(?:^|/)unit-(\d+)(?:/|$)", relative.as_posix())
+        if unit is not None and (not unit_match or int(unit_match.group(1)) != unit):
+            continue
+        files.append(filepath)
     return files
 
 

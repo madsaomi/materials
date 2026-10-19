@@ -1,0 +1,13 @@
+{
+  "documents": 1348,
+  "lines": 437321,
+  "titleGroupsWithDuplicates": 395,
+  "extraTitleCopies": 395,
+  "textbookUniqueEditedFilesSessions027to033": 845,
+  "session033Files": 136,
+  "exactFileDuplicateGroups": 239,
+  "extraExactFileCopies": 239,
+  "samePathMirrorPairs": 582,
+  "identicalSamePathMirrors": 235,
+  "differingSamePathMirrors": 347
+}

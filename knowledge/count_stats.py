@@ -1,6 +1,7 @@
 import os
+from pathlib import Path
 
-root = 'C:/Users/~/Desktop/materials/knowledge'
+root = Path(__file__).resolve().parent
 total_lines = 0
 total_files = 0
 

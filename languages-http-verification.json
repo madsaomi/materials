@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 56446
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 55327
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 362094
+    },
+    {
+      "route": "/doc/languages/english/_contents",
+      "status": 200,
+      "bytes": 106351
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-02/reading",
+      "status": 200,
+      "bytes": 91951
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-01/reading",
+      "status": 200,
+      "bytes": 105786
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-02/practice/exercises",
+      "status": 200,
+      "bytes": 92955
+    },
+    {
+      "route": "/doc/languages/chinese/a1/unit-04/practice/exercises",
+      "status": 200,
+      "bytes": 95982
+    },
+    {
+      "route": "/doc/knowledge/languages/chinese/a1/_contents",
+      "status": 200,
+      "bytes": 77876
+    },
+    {
+      "route": "/doc/nonexistent-session029",
+      "status": 404
+    }
+  ]
+}

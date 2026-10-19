@@ -20,3 +20,5 @@ You are an AI assistant working on the "materials" repository. You must follow t
 
 4. VERIFICATION BEFORE HANDOFF:
    - Test client check: GET `/` (200), GET `/api/search.json` (200, 642 entries), sample `/doc/<slug>` (200, 0 leftover `.md` hrefs).
+
+2026-10-18 OVERRIDE: User approved Next.js + TypeScript migration. Earlier no-Node/Python-only constraints are superseded. Follow AGENTS.md and MIGRATION_NEXT.md. Active styling is public/static/css/style.css.

@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 56446
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 55327
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 364022
+    },
+    {
+      "route": "/doc/languages/english/_contents",
+      "status": 200,
+      "bytes": 112344
+    },
+    {
+      "route": "/doc/languages/english/a2/_contents",
+      "status": 200,
+      "bytes": 75303
+    },
+    {
+      "route": "/doc/languages/english/a2/unit-08/reading",
+      "status": 200,
+      "bytes": 96757
+    },
+    {
+      "route": "/doc/languages/japanese/a2/unit-08/reading",
+      "status": 200,
+      "bytes": 107260
+    },
+    {
+      "route": "/doc/languages/korean/a2/unit-06/reading",
+      "status": 200,
+      "bytes": 89396
+    },
+    {
+      "route": "/doc/languages/chinese/a2/unit-09/reading",
+      "status": 200,
+      "bytes": 115098
+    },
+    {
+      "route": "/doc/knowledge/languages/korean/a2/_contents",
+      "status": 200,
+      "bytes": 76438
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-01/reading",
+      "status": 200,
+      "bytes": 85682
+    },
+    {
+      "route": "/doc/languages/english/units/unit-08/reading?from=session030",
+      "status": 308,
+      "location": "/doc/languages/english/a2/unit-08/reading?from=session030"
+    },
+    {
+      "route": "/doc/nonexistent-session030",
+      "status": 404
+    }
+  ]
+}

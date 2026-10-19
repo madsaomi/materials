@@ -117,3 +117,6 @@ Before reporting completion or committing changes, run the Flask test client ver
 - [ ] Sample `/doc/<slug>` routes return `200 OK`
 - [ ] Zero leftover `href="*.md"` in rendered HTML
 - [ ] Unknown slug returns `404 Not Found`
+
+## Session 026 architecture override (2026-10-18)
+User explicitly approved TypeScript + Next.js migration. Earlier Python-only and no-Node/package.json rules are superseded. Current rules are AGENTS.md; run pnpm typecheck, pnpm verify and pnpm build. Current corpus is 1348 documents, not the historical 642. CSS/JS source is public/static/. Keep offline assets, UTF-8, relative Markdown links, heading IDs and append-only session history.

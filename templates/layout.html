@@ -17,8 +17,8 @@
       document.documentElement.dataset.font = localStorage.getItem('docFont') || 'sans';
     } catch (_) {}
   </script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='6.2') }}">
-  <script src="{{ url_for('static', filename='js/site.js', v='6.2') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='7.0') }}">
+  <script src="{{ url_for('static', filename='js/site.js', v='7.0') }}" defer></script>
 </head>
 <body class="reading-shell quiet-library">
   <svg class="glass-filter-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -36,11 +36,11 @@
     <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">知</span><span>Chishiki<small>Личная библиотека</small></span></a>
     <button class="search-trigger" data-search>{{ icon('search', 17) }}<span>Поиск заметок</span><kbd>Ctrl K</kbd></button>
     <nav class="sidebar-nav">
-      <a class="nav-item {% if not selected_category and not current_doc %}active{% endif %}" href="{{ url_for('index') }}">{{ icon('library', 18) }}<span>Все заметки</span><span class="nav-count">{{ docs|length }}</span></a>
+      <a class="nav-item {% if not folder and not current_doc %}active{% endif %}" href="{{ url_for('index') }}">{{ icon('library', 18) }}<span>Библиотека</span></a>
       <p class="nav-caption">КОЛЛЕКЦИИ</p>
-      {% for cat, items in categories.items() %}
-      <a class="nav-item {% if selected_category == cat or (current_doc and current_doc.category == cat) %}active{% endif %}" href="{{ url_for('index', category=cat) }}" title="{{ cat|category_label }}">
-        <span class="nav-symbol">{{ cat|category_symbol }}</span><span>{{ cat|category_label }}</span><span class="nav-count">{{ items|length }}</span>
+      {% for item in catalog_roots %}
+      <a class="nav-item {% if folder is defined and (folder == item.path or folder.startswith(item.path + '/')) or (current_doc and current_doc.catalogFolder.startswith(item.path + '/')) %}active{% endif %}" href="{{ url_for('index', folder=item.path) }}" title="{{ item.label }}">
+        <span class="nav-symbol">{{ icon('folder', 16) }}</span><span>{{ item.label }}</span><span class="nav-count">{{ item.count }}</span>
       </a>
       {% endfor %}
     </nav>
@@ -48,7 +48,7 @@
   </aside>
   <div class="workspace" id="workspace">
     <header class="topbar">
-      <div class="topbar-left"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Открыть разделы" aria-controls="sidebar" aria-expanded="false">{{ icon('menu') }}</button><a class="quiet-brand" href="{{ url_for('index') }}">Chishiki<span> / библиотека</span></a><span class="topbar-divider">/</span><span class="topbar-location">{{ current_doc.category|category_label if current_doc else (selected_category|category_label if selected_category else 'Все заметки') }}</span></div>
+      <div class="topbar-left"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Открыть разделы" aria-controls="sidebar" aria-expanded="false">{{ icon('menu') }}</button><a class="quiet-brand" href="{{ url_for('index') }}">Chishiki<span> / библиотека</span></a><span class="topbar-divider">/</span><span class="topbar-location">{{ current_doc.category|category_label if current_doc else (folder_node.label if folder_node is defined else 'Библиотека') }}</span></div>
       <div class="topbar-actions">{% if current_doc and current_doc.toc %}<button class="pill-button" id="contents-toggle" aria-haspopup="dialog" aria-controls="contents-dialog">{{ icon('note', 16) }} Содержание</button>{% endif %}<button class="icon-button" data-search aria-label="Поиск">{{ icon('search', 18) }}<span class="search-button-label">Поиск заметок</span><kbd>Ctrl K</kbd></button><button class="icon-button" data-theme aria-label="Переключить тему">{{ icon('sun', 18) }}</button><span class="avatar" aria-hidden="true">知</span></div>
     </header>
     <main id="main" tabindex="-1">{% block content %}{% endblock %}</main>
