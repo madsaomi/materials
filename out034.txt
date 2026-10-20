@@ -1,0 +1,8 @@
+﻿C:\Users\madsaomi\Desktop\materials\node_modules\.bin\tsx.cmd : "node" не является внутренней или внешней
+строка:1 знак:1
++ C:\Users\madsaomi\Desktop\materials\node_modules\.bin\tsx.cmd C:\User ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ("node" не являе...ней или внешней:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+командой, исполняемой программой или пакетным файлом.

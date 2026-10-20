@@ -1,0 +1,8 @@
+﻿powershell : "node" не является внутренней или внешней
+строка:1 знак:1
++ powershell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Users\m ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ("node" не являе...ней или внешней:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+командой, исполняемой программой или пакетным файлом.

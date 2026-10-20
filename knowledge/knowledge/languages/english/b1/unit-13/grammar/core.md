@@ -1,3 +1,5 @@
+<!-- session034-chinese-reference: provenance retained (unfinished warnings preserved) -->
+
 ---
 teaching_revision: '2026-10-18'
 editorial_session: 32
