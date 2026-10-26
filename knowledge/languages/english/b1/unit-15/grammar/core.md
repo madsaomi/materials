@@ -4,6 +4,38 @@ editorial_session: 32
 ---
 # Английский · Урок 15 — грамматика: Сборник клуба: результат, процесс и следующий шаг
 
+## Основной разбор: сначала решите, что сообщаете
+
+Один проект позволяет говорить о привычке, процессе, количестве готовых результатов и прошлом эпизоде. Не ищите «единственное правильное время» без цели сообщения.
+
+| Вопрос к смыслу | Пример | Перевод |
+|---|---|---|
+| Что происходит обычно? | I write for the club. | Я пишу для клуба. |
+| Что в процессе сейчас? | I'm writing a report. | Я сейчас пишу отчёт. |
+| Сколько готово к настоящему? | I've written three reports. | Я написал три отчёта. |
+| Чем занимался до настоящего? | I've been writing all morning. | Я писал всё утро. |
+| Что случилось в завершённом прошлом? | I wrote a report yesterday. | Я написал отчёт вчера. |
+
+Present Perfect Simple: **have/has + V3**. Present Perfect Continuous: **have/has been + V-ing**. Первая форма удобна для количества готовых результатов; вторая — для деятельности и длительности. Continuous может описывать и недавно закончившуюся деятельность с нынешними следами, а не только действие, продолжающееся ровно сейчас.
+
+**I've worked here for two years** и **I've been working here for two years** могут оба описывать продолжающуюся работу. Выбор акцента различается; «началось раньше — значит обязательно Continuous» неверно. Для состояния знания обычна форма **I've known her for two years**.
+
+### Вопрос внутри вопроса
+
+**Where does Mina work?** — Где работает Мина? **Do you know where Mina works?** — Ты знаешь, где работает Мина? Внутри после where сохраняется порядок утверждения. **Could you tell me where Mina works?** — Не могли бы вы сказать, где работает Мина? Could делает просьбу вежливой и не переносит работу автоматически в прошлое.
+
+### Условие и план — ещё не результат
+
+**If we finish today, we'll send the report tomorrow.** — Если закончим сегодня, отправим отчёт завтра. Обычное будущее условие имеет Present Simple после if; это не сообщение о том, что отчёт уже закончен. **Mina asks if we will finish today** — «Мина спрашивает, закончим ли мы сегодня»: if вводит косвенный вопрос, поэтому правило условной части здесь не применяется.
+
+Частые ошибки: **since two years** → **for two years**; **has wrote** → **has written**; **Could you tell me where does she work?** → **Could you tell me where she works?**
+
+[British Council: Perfect Simple / Continuous](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/present-perfect-simple-continuous); [British Council: косвенные вопросы](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-questions).
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебная модель
 
 Перед выбором времени подпишите цель: процесс до настоящего (has been making for two weeks), готовый результат (has finished three pages), отдельный эпизод (interviewed yesterday) или уже согласованная встреча (is meeting tomorrow). Слова-маркеры помогают только вместе со смыслом.
@@ -294,5 +326,3 @@ WH-слова: what (что), where (где), when (когда), why (почем
 ## Источники уточнений
 
 [Основное правило](https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech). Ситуация и задания написаны для библиотеки. [British Council: Present Perfect](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect). [British Council: будущие формы](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/future-forms-will-be-going-present-continuous).
-
-

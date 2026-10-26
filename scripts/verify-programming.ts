@@ -8,11 +8,9 @@ import { getDocs, renderMarkdown } from "../lib/knowledge";
 import { chapters } from "./programming-content";
 const backup = process.argv[2];
 assert(backup && path.isAbsolute(backup));
-const python =
-  process.env.LESSON_PYTHON ||
-  "C:/Users/madsaomi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe";
+// Educational interpreters are opt-in; the site and its normal checks use Node.js.
 const tools: Record<string, string | undefined> = {
-  python,
+  python: process.env.LESSON_PYTHON,
   javascript: process.execPath,
   go: process.env.LESSON_GO,
   rust: process.env.LESSON_RUSTC,
@@ -40,7 +38,7 @@ for (const c of chapters)
       runs.push({
         name,
         status:
-          "not executed: compiler not configured; complete source exported",
+          "not executed: interpreter/compiler not configured; complete source exported",
       });
       continue;
     }
@@ -116,7 +114,7 @@ const result = {
   runs,
 };
 fs.writeFileSync(
-  "programming-verification.json",
+  process.env.PROGRAMMING_REPORT || "programming-verification.json",
   JSON.stringify(result, null, 2),
 );
 console.log(

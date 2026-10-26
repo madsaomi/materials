@@ -3,6 +3,37 @@ language_revision: '2026-10-18'
 ---
 # Английский · Урок 06 — грамматика: Дождливый день: погода и впечатления
 
+## Основной разбор: погода, причина чувства и само чувство
+
+В **It is cold** — «Холодно» — cold является прилагательным. В **It is snowing** — «Идёт снег» — snowing является частью глагольной формы. **It snowing** и **It is snow** не заменяют эти две модели.
+
+| Значение | Модель | Пример и перевод |
+|---|---|---|
+| Состояние погоды | it + be + adjective | It is windy. — Ветрено. |
+| Погодный процесс сейчас | it + be + V-ing | It is raining. — Идёт дождь. |
+| Обычная погода | it + verb в Simple | It often rains here. — Здесь часто идёт дождь. |
+| Наличие явления | there + be + noun | There is a storm. — Бушует шторм. |
+
+Формальное it нужно в первых трёх моделях; оно не заменяет всякое погодное подлежащее. **The wind is blowing** — «Дует ветер» — уже имеет подлежащее wind. **There is wind** грамматически возможно при сообщении о наличии ветра; часто естественнее It is windy.
+
+### Впечатление: два взгляда на одну ситуацию
+
+**The walk is tiring, so I am tired.** — Прогулка утомительная, поэтому я устал. Tiring характеризует то, что утомляет; tired — состояние испытывающего усталость. В этой паре окончание -ed не означает прошедшее время: **I am tired now** — настоящее.
+
+**The guide is interesting. We are interested in the tour.** — Экскурсовод интересный. Нам интересна экскурсия. Человек вполне может быть interesting; правило «-ing для вещей, -ed для людей» не передаёт смысла.
+
+### Отрицание и вопрос
+
+**Is it raining? — No, it isn't.** — Идёт дождь? — Нет. **Are you interested in the exhibition?** — Вам интересна выставка? В обоих вопросах переносится форма be, но raining и interested выполняют разные роли.
+
+Частые ошибки: **I am boring** вместо «Мне скучно» → **I am bored**; **It rain now** → **It is raining now** при описании процесса; **I interested** → **I am interested**.
+
+[British Council: -ed/-ing adjectives](https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/adjectives-ending-ed-ing) подтверждает различие испытываемого чувства и вызывающего его свойства.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебное ядро урока
 
 Сначала различите два вопроса. **Что происходит сейчас?** — It is raining. **Как бывает обычно?** — It often rains. Формальное it нужно в этих погодных моделях; The wind is blowing имеет собственное подлежащее.
@@ -100,7 +131,7 @@ We use **there is / there are** to say that something exists.
 
 ### 6.5. Comparatives and Superlatives
 
-We use comparatives to compare two things and superlatives to compare three or more.
+A comparative compares degree with another person, thing or earlier situation: **Today is colder than yesterday**; **It is getting colder**. A superlative singles out an extreme within a group: **This is the coldest day of the week**. Choose the form by the comparison you mean, rather than by counting every object mentioned in the sentence.
 
 | Adjective | Comparative | Superlative |
 |-----------|-------------|-------------|
@@ -177,13 +208,15 @@ We use **will** to make predictions about the future weather.
 | at | specific point | at the river, at the station |
 | under | below | under the tree |
 | above | higher | above the clouds |
-| between | between two things | between two mountains |
-| among | among many things | among the trees |
+| between | separating distinct reference points | between two mountains |
+| among | within or surrounded by a group | among the trees |
 | in front of | ahead | in front of the house |
 | behind | at the back | behind the mountain |
 | next to / beside | by the side | next to the lake |
 | near / close to | not far | near the river |
 | far from | distant | far from the city |
+
+Between is not limited to two in every use: **There is a path between the lake, the forest and the road** treats the places as separate reference points. **A cottage among the trees** places the cottage within a group of trees. [Cambridge: between](https://dictionary.cambridge.org/us/dictionary/english/between) also records uses involving more than two participants; [between / among](https://dictionary.cambridge.org/us/grammar/british-grammar/between-or-among) explains the distinction.
 
 ### 6.10. Describing Nature
 

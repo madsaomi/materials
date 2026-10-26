@@ -1,5 +1,41 @@
 # Unit 04 — Grammar (A2 Level)
 
+## Основной разбор: владелец и предмет
+
+**My notebook** — «мой блокнот»: my стоит перед названием предмета. **The notebook is mine** — «Блокнот мой»: mine заменяет всё сочетание my notebook. Эти формы не удваиваются: **my notebook**, не **my mine notebook**.
+
+| Перед существительным | Без повторения существительного |
+|---|---|
+| my bag | The bag is mine. |
+| your bag | The bag is yours. |
+| her bag | The bag is hers. |
+| our bag | The bag is ours. |
+| their bag | The bag is theirs. |
+
+Его сумка — **his bag**; сумка его — **The bag is his**. Апострофа у hers/ours/yours нет. **Its** обозначает принадлежность, **it's** — сокращение it is или it has в соответствующей конструкции.
+
+### Как назвать владельца
+
+**Nora's bicycle** — «велосипед Норы»; **the students' room** — «комната студентов»; **the children's room** — «детская комната / комната детей». У обычного множественного на -s апостроф ставится после s; у children сохраняется 's.
+
+Для неодушевлённых предметов часто естественны **the leg of the table** или сочетание существительных **a table leg**. Но запрета 's для всех неодушевлённых нет: **the company's address**, **today's meeting**. Выбор конструкции зависит от самого сочетания.
+
+### «У него есть» и вопрос
+
+**Sam has a sister** — «У Сэма есть сестра». **Does Sam have a sister?** — «У Сэма есть сестра?» После does нужна have. Разговорная модель **Has Sam got a sister?** имеет тот же основной смысл; не смешивайте её части в **Does Sam has got…?**
+
+**He has breakfast at eight** означает «Он завтракает в восемь», а не обладание завтраком. Have got для такого регулярного действия не заменяет have.
+
+### Предпочтение — отдельная модель
+
+**I enjoy cooking** — «Мне нравится готовить»: перед следующим глаголом после enjoy нужна -ing-форма. После like/love/prefer возможны и -ing, и to + глагол. Не переносите ограничение enjoy на все глаголы предпочтения.
+
+[Cambridge: притяжательность](https://dictionary.cambridge.org/us/grammar/british-grammar/possessive-s); [Cambridge: have got и have](https://dictionary.cambridge.org/grammar/british-grammar/have-got-); [Cambridge: like/love/prefer](https://dictionary.cambridge.org/grammar/british-grammar/hate).
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 # Семья и отношения: possessives, have/has got, прилагательные, like/love/enjoy/prefer
 
 ## 4.1. Have / Has — Possession
@@ -76,7 +112,7 @@
 | you | your | твой | Is this your book? |
 | he | his | его | His name is Tom. |
 | she | her | её | Her mother is kind. |
-| it | its | его/её (неодуш.) | The dog loves its owner. |
+| it | its | его/её; также о животном | The dog loves its owner. |
 | we | our | наш | Our parents are here. |
 | they | their | их | Their house is big. |
 
@@ -152,9 +188,9 @@
 
 ### 4.5.3. Притяжательный падеж vs of
 
-- Для людей и животных: **'s** — *my friend's car*.
-- Для неодушевлённых предметов: **of** — *the door of the house*, *the roof of the building*.
-- Иногда оба варианта возможны: *the end of the story* (не 's).
+- С человеком обычно естественно **'s**: *my friend's car* — «машина друга».
+- Для частей предмета часто выбирают **of** или составное название: *the roof of the building / the building roof* — «крыша здания».
+- Неодушевлённость не запрещает **'s**: *the report's conclusion / the conclusion of the report* — «вывод отчёта». Выбор зависит от сочетания и контекста. [Cambridge: 's / of](https://dictionary.cambridge.org/us/grammar/british-grammar/possessive-s).
 
 ## 4.6. Family-related Constructions — Конструкции о семейном статусе
 
@@ -181,6 +217,8 @@
 
 ### 4.7.1. Правило OSASCOMP
 
+OSASCOMP — упрощённая памятка, а не полный неизменный порядок. В подробной схеме отдельно учитываются физическое качество и тип; порядок может зависеть от акцента. Например, **a large square old box** — «большая квадратная старая коробка» — допускает shape перед age. [Cambridge: порядок прилагательных](https://dictionary.cambridge.org/nl/grammatica/british-grammar/adjectives-order).
+
 | Order | Category | Examples |
 |-------|----------|---------|
 | 1 | Opinion | nice, beautiful, wonderful |
@@ -204,10 +242,10 @@
 
 ### 4.7.3. Правила
 
-- Прилагательные стоят **перед существительным**.
+- Эта таблица описывает сочетания **перед существительным**. Прилагательное бывает и после связки: **The coat is brown** — «Пальто коричневое». Не переносите порядок нескольких определений на все позиции прилагательного. [Cambridge: позиции прилагательных](https://dictionary.cambridge.org/nl/grammatica/british-grammar/adjective-phrases-position).
 - Между ними **не ставится запятая**, если они из разных категорий.
 - Сложные сочетания из 3+ прилагательных редки в речи.
-- При выборе: *a young friendly man* (не *a friendly young man* — допустимы оба, порядок по возрасту/мнению варьируется).
+- Для обычного описания естественно *a friendly young man*: оценка обычно предшествует возрасту. Порядок может меняться с акцентом; не объявляйте этот пример ошибкой.
 
 ## 4.8. Opinion vs Fact Adjectives
 
@@ -239,9 +277,12 @@
 | Rule | Example |
 |------|---------|
 | + s | likes, loves, cares |
-| + es (после s, sh, ch, x, o) | misses, watches, goes |
+| + es в формах вроде miss/watch/wash/fix | misses, watches, washes, fixes |
+| особые частые формы | go → goes; do → does; have → has |
 | y → ies (после согласной) | studies, flies |
 | y → ys (после гласной) | plays, enjoys |
+
+Окончание -o само по себе не является универсальной инструкцией добавлять -es: **goes / does** запоминаются как формы go/do. [Cambridge: Present Simple, spelling](https://dictionary.cambridge.org/grammar/british-grammar/present-simple).
 
 ### 4.9.3. Примеры (факты)
 
@@ -257,9 +298,9 @@
 
 ### 4.10.1. Основные правила
 
-- После **like, love, enjoy, prefer** используем **глагол + -ing**.
-- Также можно **to + verb** после like/love/prefer (менее часто).
-- После **enjoy** только **-ing** (нельзя *enjoy to do*).
+- После **like / love / hate / prefer** следующий глагол допускает **-ing** и **to + verb**: *I like reading / I like to read*.
+- После **would like / would love / would prefer** для желаемого действия используйте **to + verb**: *I'd prefer to walk* — «Я бы предпочёл пройти пешком». [Cambridge: like/love/prefer с would и без него](https://dictionary.cambridge.org/grammar/british-grammar/hate-like-love-and-prefer).
+- После **enjoy**, когда далее называется действие, нужна **-ing**-форма: *I enjoy cooking*, не *enjoy to cook*. Возможно и существительное: *I enjoy this meal* — «Мне нравится эта еда». [Cambridge: enjoy](https://dictionary.cambridge.org/dictionary/english/enjoy).
 
 | Verb + -ing | Example | Russian |
 |-------------|---------|---------|

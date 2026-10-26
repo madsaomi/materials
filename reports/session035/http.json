@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-24",
+  "status": "PASS",
+  "build": "Next.js16.4.2 webpack isolated production; build/start PATH contains Node and Windows only",
+  "base": "http://127.0.0.1:5001",
+  "searchEntries": 1348,
+  "checks": [
+    {
+      "route": "/healthz",
+      "status": 200,
+      "bytes": 15
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 58397
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 57192
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 457621
+    },
+    {
+      "route": "/doc/languages/english/_contents",
+      "status": 200,
+      "bytes": 144285
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/test",
+      "status": 200,
+      "bytes": 102184
+    },
+    {
+      "route": "/doc/languages/japanese/_contents",
+      "status": 200,
+      "bytes": 142587
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/test",
+      "status": 200,
+      "bytes": 104981
+    },
+    {
+      "route": "/doc/languages/korean/_contents",
+      "status": 200,
+      "bytes": 141519
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/test",
+      "status": 200,
+      "bytes": 103246
+    },
+    {
+      "route": "/doc/languages/chinese/_contents",
+      "status": 200,
+      "bytes": 141824
+    },
+    {
+      "route": "/doc/languages/chinese/a1/unit-05/test",
+      "status": 200,
+      "bytes": 113823
+    },
+    {
+      "route": "/doc/knowledge/languages/chinese/a1/unit-04/test",
+      "status": 200,
+      "bytes": 109980
+    },
+    {
+      "route": "/doc/programming/python/foundation/unit-01/syntax",
+      "status": 200,
+      "bytes": 404449
+    },
+    {
+      "route": "/static/css/style.css",
+      "status": 200,
+      "bytes": 72982
+    },
+    {
+      "route": "/static/css/highlight.css",
+      "status": 200,
+      "bytes": 997
+    },
+    {
+      "route": "/static/js/site.js",
+      "status": 200,
+      "bytes": 25873
+    },
+    {
+      "route": "/favicon.svg",
+      "status": 200,
+      "bytes": 758
+    },
+    {
+      "route": "/api/search?q=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BF%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83&domain=languages",
+      "status": 200
+    },
+    {
+      "route": "/api/preview/languages/english/a1/unit-05/dialogue",
+      "status": 200
+    },
+    {
+      "route": "/doc/languages/english/units/unit-05/test?from=session035&resume=test",
+      "status": 308,
+      "location": "/doc/languages/english/a1/unit-05/test?from=session035&resume=test"
+    },
+    {
+      "route": "/doc/nonexistent-session035",
+      "status": 404
+    },
+    {
+      "route": "/api/preview/nonexistent-session035",
+      "status": 404
+    }
+  ],
+  "restoredPreview": {
+    "url": "http://127.0.0.1:5000",
+    "status": 200,
+    "searchEntries": 1348,
+    "build": "existing unchanged application production build"
+  }
+}

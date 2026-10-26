@@ -1,38 +1,25 @@
-# AGENTS.md — materials (Next.js knowledge base)
+# CLAUDE.md — materials
 
-## Stack
+Follow [AGENTS.md](AGENTS.md) and the current state in `.agents/STATE.json`.
+Read `.agents/ACTIVE_PLAN.md` and `.agents/RULES.md` before making changes.
+Resume active checklist steps after checking the filesystem; preserve completed work.
 
-User explicitly approved migration from Flask to TypeScript + Next.js on 2026-10-18. This supersedes earlier Python-only / no-Node rules. Next.js App Router, React, hand-written CSS, no Astro or Tailwind.
+The application is **TypeScript + Next.js App Router + React**, running on Node.js 22+.
+Use pnpm 11.25.0. Runtime, normal content maintenance and site verification require no Python.
+The Python teaching materials in `knowledge/` remain part of the library;
+the removed Flask implementation is available in Git history.
+Optional educational/export helpers inside the vaults may use Python independently; preserve their note links.
 
-- app/: React server pages and API route handlers.
-- lib/knowledge.ts: Markdown/frontmatter, links, headings, cache, search, related notes.
-- lib/catalog.ts: folders, levels, lesson order, retained-vault versions.
-- components/shell.tsx: shared interface.
-- public/static/: current CSS/JS; all browser assets local.
-- knowledge/: 1348 UTF-8 Markdown documents, both vaults retained.
-- legacy_paths.json: 1217 old path mappings; redirect queries must survive.
-- Python runtime, templates/ and static/ are retained for comparison only. Do not accidentally change the old copy instead of public/static/.
+- Current CSS/JS: `public/static/`. Browser assets stay local; no CDN, Astro or Tailwind.
+- Current Markdown/rendering/search: `lib/knowledge.ts`; catalog/navigation: `lib/catalog.ts`.
+- Preserve all 1348 Markdown notes, both vaults, 1217 old path mappings and query parameters.
+- Keep relative `.md` links, old heading anchors and localStorage keys compatible.
+- Use UTF-8 and keep CJK output safe for Windows consoles.
+- `pnpm contents:refresh` is a dry run; `pnpm contents:refresh --apply` writes.
+  Preserve `editorial: manual` pages. Do not repeat the one-time folder migration.
+- Verify with `pnpm typecheck`, `pnpm contents:verify`, `pnpm verify`, `pnpm build`
+  and appropriate HTTP/browser checks. See [MIGRATION_NEXT.md](MIGRATION_NEXT.md).
+- Maintain `[x]`, `[/]`, `[ ]` in the live plan and update state after verified work.
+  Append session logs; never edit or truncate earlier history.
 
-## Development and verification
-
-Node.js 22+, pnpm 11.25.0. See MIGRATION_NEXT.md.
-
-```
-pnpm install --frozen-lockfile
-pnpm dev
-pnpm typecheck
-pnpm verify
-pnpm build
-pnpm start
-```
-
-Default port 5000; production honors PORT. Docker runs the standalone Node server.
-Verify / and /api/search.json (1348 entries), representative /doc/ pages, unknown paths 404, legacy redirects with query parameters, search and preview API. The full verifier audits rendered Markdown links, fragments and heading IDs. Preserve localStorage keys and old heading anchors.
-
-## Content conventions
-
-UTF-8; never print CJK directly from Python to a Windows cp1251 console. Markdown links stay relative .md paths for Obsidian; rewrite only when rendering. Heading IDs are lowercase, punctuation removed, spaces replaced by hyphens, duplicates suffixed -1, -2. Code comments inside fences are not headings. Both vaults and editorial warnings remain intact. Never rerun the one-time folder migration.
-
-## Persistence
-
-Before work read .agents/STATE.json, ACTIVE_PLAN.md and RULES.md. Maintain [x] done, [/] active, [ ] pending. Append sessions to .agents/history/agent-session-log.md; NEVER overwrite or truncate history. Update state after verified work. Do not restore the superseded Python-only restriction.
+Old reports retain their original context. Superseded Python-only or no-Node rules do not apply.

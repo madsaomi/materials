@@ -1,0 +1,549 @@
+{
+  "mode": "applied",
+  "files": 60,
+  "oldIds": 1183,
+  "aliases": 34,
+  "correctionOccurrences": 62,
+  "notes": [
+    {
+      "slug": "languages/english/a1/unit-01/grammar/core",
+      "oldIds": 12,
+      "aliases": 0,
+      "corrections": 1,
+      "beforeBytes": 12677,
+      "afterBytes": 16067,
+      "afterSha256": "852a0e0f2aa61d977027536cc35a3de159b08cb2e89181033a1f259cbcd4041e"
+    },
+    {
+      "slug": "languages/english/a1/unit-01/grammar/usage",
+      "oldIds": 10,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2864,
+      "afterBytes": 5687,
+      "afterSha256": "2abc3994fdb6473ae42ea4adb96c200b4f67df4735e18aee403cc08ed70bd3b4"
+    },
+    {
+      "slug": "languages/english/a1/unit-02/grammar/core",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 5,
+      "beforeBytes": 15635,
+      "afterBytes": 19575,
+      "afterSha256": "237c482a189671efc3d7ab994ac980a55b46c546a6d613a5ba12ab3ebbfa7501"
+    },
+    {
+      "slug": "languages/english/a1/unit-02/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2590,
+      "afterBytes": 5371,
+      "afterSha256": "9a45a12a6f03f298d8ae15c984b2460c76be8104f988cedef3fac7fe6d470af0"
+    },
+    {
+      "slug": "languages/english/a1/unit-03/grammar/core",
+      "oldIds": 29,
+      "aliases": 0,
+      "corrections": 2,
+      "beforeBytes": 14220,
+      "afterBytes": 17879,
+      "afterSha256": "222f7245f23c72a41c7fa5737e9d63aa6b76c529c457aa750183169770d66322"
+    },
+    {
+      "slug": "languages/english/a1/unit-03/grammar/usage",
+      "oldIds": 10,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2940,
+      "afterBytes": 5605,
+      "afterSha256": "8e91923c8249dc20a3bd4d570db07bbc6259e9ff6807c27231424d32eea72015"
+    },
+    {
+      "slug": "languages/english/a1/unit-04/grammar/core",
+      "oldIds": 40,
+      "aliases": 0,
+      "corrections": 2,
+      "beforeBytes": 15668,
+      "afterBytes": 19630,
+      "afterSha256": "d4bbcfa24850e66b5d814580e9c08aaf2bddb650753fa6b848203d1c94862f99"
+    },
+    {
+      "slug": "languages/english/a1/unit-04/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2463,
+      "afterBytes": 5320,
+      "afterSha256": "2aa398241343a018ced762004230a612eb3304fcc354303bb1f8237ad27fe1ea"
+    },
+    {
+      "slug": "languages/english/a1/unit-05/grammar/core",
+      "oldIds": 18,
+      "aliases": 0,
+      "corrections": 3,
+      "beforeBytes": 11506,
+      "afterBytes": 15927,
+      "afterSha256": "2d84df63dc55ca50d7c031e04c8941e3cdf076687cf6e31b5b8b2a648de926fe"
+    },
+    {
+      "slug": "languages/english/a1/unit-05/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2538,
+      "afterBytes": 5715,
+      "afterSha256": "713b661a0cf6cfce275735d57791d1140c622386bf7026758df1db9d14e352cd"
+    },
+    {
+      "slug": "languages/english/a2/unit-06/grammar/core",
+      "oldIds": 17,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 10648,
+      "afterBytes": 14238,
+      "afterSha256": "d5e9ee3f9791ff9f5882cb13d10f9c3b5ad3471af323944f39bedc266c24d049"
+    },
+    {
+      "slug": "languages/english/a2/unit-06/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2544,
+      "afterBytes": 5546,
+      "afterSha256": "e3c5dfce354df640162607c349ea90f6cad388bfc9cd24feba955c68b4ea70dd"
+    },
+    {
+      "slug": "languages/english/a2/unit-07/grammar/core",
+      "oldIds": 26,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 15647,
+      "afterBytes": 19655,
+      "afterSha256": "28fdf4e207b6be7d7ea329a3dd70ea5df5bcd71d4f7d232a96ccd39919511eb9"
+    },
+    {
+      "slug": "languages/english/a2/unit-07/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2490,
+      "afterBytes": 5346,
+      "afterSha256": "d51abfb663707c53db03df565ef4f269c07f08621410daf95e80d49579056b76"
+    },
+    {
+      "slug": "languages/english/a2/unit-08/grammar/core",
+      "oldIds": 45,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 21888,
+      "afterBytes": 25565,
+      "afterSha256": "0ec48d921ce414853c8c83f045eed070db3feef18a0f267d4cb6e5a3a023e1a6"
+    },
+    {
+      "slug": "languages/english/a2/unit-08/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2262,
+      "afterBytes": 5014,
+      "afterSha256": "201532f8915ee9e3171832a1f74163be232463e96f0f2fe50b6652f2a7b3d214"
+    },
+    {
+      "slug": "languages/english/a2/unit-09/grammar/core",
+      "oldIds": 29,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 14608,
+      "afterBytes": 18251,
+      "afterSha256": "ee91cfcf7d752ed6ac4db0c248968515c1f8b3205da5c9af494c8e0576fce411"
+    },
+    {
+      "slug": "languages/english/a2/unit-09/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2497,
+      "afterBytes": 5194,
+      "afterSha256": "5d90483d787a42b0df6272ecc4694963f2eaf55f7ee7bbbae745b571919b07f9"
+    },
+    {
+      "slug": "languages/english/a2/unit-10/grammar/core",
+      "oldIds": 27,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 17957,
+      "afterBytes": 21794,
+      "afterSha256": "866840f03b191333e37d65bbe3384f057fda8d53e17576860f6c53eb414a6a09"
+    },
+    {
+      "slug": "languages/english/a2/unit-10/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2413,
+      "afterBytes": 5133,
+      "afterSha256": "09dadb810318ed449877796317c8883631115d212828c2f88402c3de807d924d"
+    },
+    {
+      "slug": "languages/english/b1/unit-11/grammar/core",
+      "oldIds": 18,
+      "aliases": 0,
+      "corrections": 1,
+      "beforeBytes": 15970,
+      "afterBytes": 19682,
+      "afterSha256": "973b2cd3f48ca0df4d34f2a83c8743ddd062e210806e82472ccfc5eaecd989f2"
+    },
+    {
+      "slug": "languages/english/b1/unit-11/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2439,
+      "afterBytes": 5189,
+      "afterSha256": "b4113402bf867bd430c6f1d22222d91cfb8d4e48a63c4469da7726776c19bd2f"
+    },
+    {
+      "slug": "languages/english/b1/unit-12/grammar/core",
+      "oldIds": 41,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 24945,
+      "afterBytes": 28786,
+      "afterSha256": "be6880e847484704cb8f2caced843e88c16a973f9983da84bb00e65aa9bc174f"
+    },
+    {
+      "slug": "languages/english/b1/unit-12/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2595,
+      "afterBytes": 5293,
+      "afterSha256": "412ebe4ffd52ea5fe8fa65926e5d509bc09ca408dfa783ffe96ba651dc196350"
+    },
+    {
+      "slug": "languages/english/b1/unit-13/grammar/core",
+      "oldIds": 30,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 19759,
+      "afterBytes": 23424,
+      "afterSha256": "ed11c32d5f80722824fcc9df5b76b2860943f64399f639853c35d5cbd27442d8"
+    },
+    {
+      "slug": "languages/english/b1/unit-13/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2396,
+      "afterBytes": 5425,
+      "afterSha256": "339d4f8d3eceed6b7bda6d3d07844728a504cac7b8c67d8d8da8a7a252d8d6f2"
+    },
+    {
+      "slug": "languages/english/b1/unit-14/grammar/core",
+      "oldIds": 46,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 19675,
+      "afterBytes": 23614,
+      "afterSha256": "fc7d42d17f11722754f323d0e2515c871f089c731c8fc30f84ec03aafe4715d9"
+    },
+    {
+      "slug": "languages/english/b1/unit-14/grammar/usage",
+      "oldIds": 10,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2982,
+      "afterBytes": 5929,
+      "afterSha256": "6868637265e7a3a81d7335e42b00d138bbf83903f6eb3cbe28b32c2db3645ac7"
+    },
+    {
+      "slug": "languages/english/b1/unit-15/grammar/core",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 17818,
+      "afterBytes": 22127,
+      "afterSha256": "aecb7b10ad589f74ad937b36bec6a935b392db9f5746918dc48011ac7de8d859"
+    },
+    {
+      "slug": "languages/english/b1/unit-15/grammar/usage",
+      "oldIds": 9,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 2611,
+      "afterBytes": 6215,
+      "afterSha256": "b6cf38f5afa705864c382aa832e949c4ca2c9b9498033b77960316cb1a77caf3"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-01/grammar/core",
+      "oldIds": 12,
+      "aliases": 0,
+      "corrections": 1,
+      "beforeBytes": 12677,
+      "afterBytes": 16067,
+      "afterSha256": "852a0e0f2aa61d977027536cc35a3de159b08cb2e89181033a1f259cbcd4041e"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-01/grammar/usage",
+      "oldIds": 15,
+      "aliases": 1,
+      "corrections": 2,
+      "beforeBytes": 4873,
+      "afterBytes": 7903,
+      "afterSha256": "f7c5035801c58df75dda5f9110737e26a64b4b4d3042387fea8951a2ae60f918"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-02/grammar/core",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 5,
+      "beforeBytes": 15635,
+      "afterBytes": 19575,
+      "afterSha256": "237c482a189671efc3d7ab994ac980a55b46c546a6d613a5ba12ab3ebbfa7501"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-02/grammar/usage",
+      "oldIds": 14,
+      "aliases": 2,
+      "corrections": 2,
+      "beforeBytes": 4052,
+      "afterBytes": 7267,
+      "afterSha256": "40e5d0802002d8777c7baf9af29a12ae6aa8c9d4db29e6e24c896c4ec12c86d4"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-03/grammar/core",
+      "oldIds": 29,
+      "aliases": 0,
+      "corrections": 2,
+      "beforeBytes": 14220,
+      "afterBytes": 17879,
+      "afterSha256": "222f7245f23c72a41c7fa5737e9d63aa6b76c529c457aa750183169770d66322"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-03/grammar/usage",
+      "oldIds": 15,
+      "aliases": 1,
+      "corrections": 3,
+      "beforeBytes": 4436,
+      "afterBytes": 7589,
+      "afterSha256": "ef4a23d73bee6b0d624f4eb7aea94cb339caa6f8c1e5f6b265153bf60921a82e"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-04/grammar/core",
+      "oldIds": 40,
+      "aliases": 0,
+      "corrections": 2,
+      "beforeBytes": 15668,
+      "afterBytes": 19630,
+      "afterSha256": "d4bbcfa24850e66b5d814580e9c08aaf2bddb650753fa6b848203d1c94862f99"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-04/grammar/usage",
+      "oldIds": 14,
+      "aliases": 3,
+      "corrections": 6,
+      "beforeBytes": 3856,
+      "afterBytes": 8271,
+      "afterSha256": "c002ddf8fa19f2b304700b2a2240abc4303a3e9f0e5ca1aae0da29a583329aa2"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-05/grammar/core",
+      "oldIds": 18,
+      "aliases": 0,
+      "corrections": 3,
+      "beforeBytes": 11506,
+      "afterBytes": 15927,
+      "afterSha256": "2d84df63dc55ca50d7c031e04c8941e3cdf076687cf6e31b5b8b2a648de926fe"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-05/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 2,
+      "beforeBytes": 4030,
+      "afterBytes": 7611,
+      "afterSha256": "3c471d9217c032853b7b08fd19dcf8d7852c1cf5abd713c07802cd1e2fc87211"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-06/grammar/core",
+      "oldIds": 17,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 10648,
+      "afterBytes": 14238,
+      "afterSha256": "d5e9ee3f9791ff9f5882cb13d10f9c3b5ad3471af323944f39bedc266c24d049"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-06/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 1,
+      "beforeBytes": 3954,
+      "afterBytes": 7175,
+      "afterSha256": "22e6991cea0e87c8f8d4417d21104f45e21be516df0a5e0e33aeb8ab2a21bd7a"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-07/grammar/core",
+      "oldIds": 26,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 15647,
+      "afterBytes": 19655,
+      "afterSha256": "28fdf4e207b6be7d7ea329a3dd70ea5df5bcd71d4f7d232a96ccd39919511eb9"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-07/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 2,
+      "beforeBytes": 3969,
+      "afterBytes": 7194,
+      "afterSha256": "2cb38f1521167c82d488d7932320bdeaacba4584968579793096191b15db2105"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-08/grammar/core",
+      "oldIds": 45,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 21888,
+      "afterBytes": 25565,
+      "afterSha256": "0ec48d921ce414853c8c83f045eed070db3feef18a0f267d4cb6e5a3a023e1a6"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-08/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 2,
+      "beforeBytes": 3703,
+      "afterBytes": 6825,
+      "afterSha256": "d0f8424dd97e9a777c2bd6d12f680cb46cb633092c395c1052112bd7ce835a87"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-09/grammar/core",
+      "oldIds": 29,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 14608,
+      "afterBytes": 18251,
+      "afterSha256": "ee91cfcf7d752ed6ac4db0c248968515c1f8b3205da5c9af494c8e0576fce411"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-09/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 1,
+      "beforeBytes": 4044,
+      "afterBytes": 7111,
+      "afterSha256": "0aa1a6ded60712556b0cfc712af058a0a5d39ce4a309ecd7c88fa93e3e6b08e5"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-10/grammar/core",
+      "oldIds": 27,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 17957,
+      "afterBytes": 21794,
+      "afterSha256": "866840f03b191333e37d65bbe3384f057fda8d53e17576860f6c53eb414a6a09"
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-10/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 3896,
+      "afterBytes": 6616,
+      "afterSha256": "2b07889521bd88ee3be93bad27f93cbe92a5edf4ca8460315896de2686444fe2"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-11/grammar/core",
+      "oldIds": 18,
+      "aliases": 0,
+      "corrections": 1,
+      "beforeBytes": 15970,
+      "afterBytes": 19682,
+      "afterSha256": "973b2cd3f48ca0df4d34f2a83c8743ddd062e210806e82472ccfc5eaecd989f2"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-11/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 3,
+      "beforeBytes": 3945,
+      "afterBytes": 7316,
+      "afterSha256": "68a73666c7cd3f6717dcb6a473844d911bb237cf70892c620cc8224bb4db3ca4"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-12/grammar/core",
+      "oldIds": 41,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 24945,
+      "afterBytes": 28786,
+      "afterSha256": "be6880e847484704cb8f2caced843e88c16a973f9983da84bb00e65aa9bc174f"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-12/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 0,
+      "beforeBytes": 4284,
+      "afterBytes": 6982,
+      "afterSha256": "374b54c0dd25bede1f0839753d2398f2bda9482b9c6a98dd2713cbd97e425b1d"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-13/grammar/core",
+      "oldIds": 30,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 19759,
+      "afterBytes": 23424,
+      "afterSha256": "ed11c32d5f80722824fcc9df5b76b2860943f64399f639853c35d5cbd27442d8"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-13/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 3,
+      "beforeBytes": 4014,
+      "afterBytes": 7703,
+      "afterSha256": "59f111b61834639018e0cbab43b2f01375faf204ceb5ddcb585fe12ce726886d"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-14/grammar/core",
+      "oldIds": 46,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 19675,
+      "afterBytes": 23614,
+      "afterSha256": "fc7d42d17f11722754f323d0e2515c871f089c731c8fc30f84ec03aafe4715d9"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-14/grammar/usage",
+      "oldIds": 15,
+      "aliases": 2,
+      "corrections": 4,
+      "beforeBytes": 4643,
+      "afterBytes": 8251,
+      "afterSha256": "32fbaec857b0d956391a55b8d5d7414626a540254a2f1600a1a04dc51816f25f"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-15/grammar/core",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 0,
+      "beforeBytes": 17818,
+      "afterBytes": 22127,
+      "afterSha256": "aecb7b10ad589f74ad937b36bec6a935b392db9f5746918dc48011ac7de8d859"
+    },
+    {
+      "slug": "knowledge/languages/english/b1/unit-15/grammar/usage",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 3,
+      "beforeBytes": 4317,
+      "afterBytes": 8541,
+      "afterSha256": "5677acbf203cc4e82af40c9f032662e8955baad14907622c8a7bbd84ea438359"
+    }
+  ]
+}

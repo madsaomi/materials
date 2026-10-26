@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-25",
+  "status": "PASS",
+  "base": "http://127.0.0.1:5000",
+  "checks": [
+    {
+      "route": "/healthz",
+      "status": 200,
+      "bytes": 15
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 58723
+    },
+    {
+      "route": "/?folder=languages",
+      "status": 200,
+      "bytes": 57518
+    },
+    {
+      "route": "/api/search.json",
+      "status": 200,
+      "bytes": 457621
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-01/grammar/core",
+      "status": 200,
+      "bytes": 127949
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-01/grammar/usage",
+      "status": 200,
+      "bytes": 86331
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-03/grammar/core",
+      "status": 200,
+      "bytes": 162080
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-03/grammar/usage",
+      "status": 200,
+      "bytes": 86423
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/grammar/core",
+      "status": 200,
+      "bytes": 140557
+    },
+    {
+      "route": "/doc/languages/english/a1/unit-05/grammar/usage",
+      "status": 200,
+      "bytes": 85543
+    },
+    {
+      "route": "/doc/knowledge/languages/english/a1/unit-04/grammar/usage",
+      "status": 200,
+      "bytes": 103240
+    },
+    {
+      "route": "/api/preview/languages/english/a1/unit-01/grammar/core",
+      "status": 200
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-01/grammar/core",
+      "status": 200,
+      "bytes": 152553
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-01/grammar/usage",
+      "status": 200,
+      "bytes": 89652
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-03/grammar/core",
+      "status": 200,
+      "bytes": 140330
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-03/grammar/usage",
+      "status": 200,
+      "bytes": 90919
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/grammar/core",
+      "status": 200,
+      "bytes": 143364
+    },
+    {
+      "route": "/doc/languages/japanese/a1/unit-05/grammar/usage",
+      "status": 200,
+      "bytes": 90284
+    },
+    {
+      "route": "/doc/knowledge/languages/japanese/a1/unit-04/grammar/usage",
+      "status": 200,
+      "bytes": 107291
+    },
+    {
+      "route": "/api/preview/languages/japanese/a1/unit-01/grammar/core",
+      "status": 200
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-01/grammar/core",
+      "status": 200,
+      "bytes": 136398
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-01/grammar/usage",
+      "status": 200,
+      "bytes": 87566
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-03/grammar/core",
+      "status": 200,
+      "bytes": 125926
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-03/grammar/usage",
+      "status": 200,
+      "bytes": 87042
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/grammar/core",
+      "status": 200,
+      "bytes": 130901
+    },
+    {
+      "route": "/doc/languages/korean/a1/unit-05/grammar/usage",
+      "status": 200,
+      "bytes": 87588
+    },
+    {
+      "route": "/doc/knowledge/languages/korean/a1/unit-04/grammar/usage",
+      "status": 200,
+      "bytes": 104694
+    },
+    {
+      "route": "/api/preview/languages/korean/a1/unit-01/grammar/core",
+      "status": 200
+    },
+    {
+      "route": "/api/search?q=%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0&domain=languages",
+      "status": 200
+    },
+    {
+      "route": "/doc/languages/english/units/unit-01/grammar/core?from=grammar037&resume=example",
+      "status": 308,
+      "location": "/doc/languages/english/a1/unit-01/grammar/core?from=grammar037&resume=example"
+    },
+    {
+      "route": "/doc/nonexistent-grammar037",
+      "status": 404
+    }
+  ]
+}

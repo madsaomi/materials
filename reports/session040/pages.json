@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-26",
+  "status": "UNSUPPORTED_CURRENT_APPLICATION",
+  "workflowExists": false,
+  "staticExportConfigured": false,
+  "dynamicFiles": [
+    "app/page.tsx",
+    "app/doc/[...slug]/page.tsx",
+    "app/api/search/route.ts",
+    "app/api/search.json/route.ts",
+    "app/api/preview/[...slug]/route.ts"
+  ],
+  "documentStaticParams": false,
+  "requestBasedSearch": true,
+  "serverRedirects308": true,
+  "basePathConfigured": false,
+  "rootAbsoluteAssetsAndApiLinks": true,
+  "expectedProjectPath": "/materials/",
+  "fullStaticAdaptationImplemented": false,
+  "remotePagesSettingsChecked": false,
+  "sources": [
+    "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+    "https://nextjs.org/docs/app/guides/static-exports"
+  ]
+}

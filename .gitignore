@@ -7,7 +7,9 @@
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
+!.env.*.example
 
 # Python
 __pycache__/

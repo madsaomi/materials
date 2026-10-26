@@ -4,6 +4,37 @@ editorial_session: 32
 ---
 # Английский · Урок 14 — грамматика: Архив вымышленного города: даты и пассив
 
+## Основной разбор: событие, прежнее состояние и повторение
+
+**The archive opened in 2008** — «Архив открылся в 2008 году» — отдельное событие. **The archive used to be a school** — «Раньше здание архива было школой» — прежнее состояние, которое изменилось. **Every Friday, visitors would gather outside** — «Каждую пятницу посетители собирались снаружи» — повторение в уже понятном прошлом.
+
+| Задача | Модель | Пример и перевод |
+|---|---|---|
+| Отдельное событие | Past Simple | Jo visited once in 2019. — Джо побывал там один раз в 2019 году. |
+| Прежнее состояние / привычка | used to + V | Jo used to live nearby. — Джо раньше жил рядом. |
+| Повторявшееся действие | would + V | Each winter he would visit. — Каждую зиму он приезжал. |
+| Привычное сейчас | be used to + noun / V-ing | Jo is used to walking there. — Джо привык ходить туда пешком. |
+
+**Used to do** и **be used to doing** — разные конструкции. В первой to относится к инфинитиву; во второй после to возможны существительное или -ing: **used to the noise**, **used to working**.
+
+В обычном вопросе о прежней привычке: **Did Jo use to live here?**; отрицание **Jo didn't use to live here**. После did/didn't используйте use, не used.
+
+### Дата и пассив сохраняют факты
+
+В учебном архиве: **Workers repaired the windows in 2018** → **The windows were repaired in 2018**. — Рабочие отремонтировали окна в 2018 году → Окна были отремонтированы в 2018 году. Пассив меняет тему предложения; он не меняет год и не означает, что ремонт продолжается.
+
+Год: **in 2018**; конкретная дата: **on 4 May 2018**. **The window was repaired** — одно окно; **the windows were repaired** — несколько. V3 требуется независимо от правильности/неправильности глагола.
+
+### Где would не подходит как прошлая привычка
+
+Для прежнего постоянного состояния **I used to know everyone here** естественно, а **I would know everyone here** не передаёт тот же смысл привычки. При этом would имеет и другие значения, например условное; это не запрет слова рядом с любым глаголом состояния во всём языке.
+
+[British Council: past habits](https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/past-habits-used-to-would-past-simple) подтверждает различие прежних состояний и повторявшихся действий.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебная модель
 
 В архиве отделите год постройки, открытия и последующего ремонта. In 2005 — год, on 3 October — конкретная дата. Перевод в пассив не меняет дату: Workers repaired the bridge in 2005 → The bridge was repaired in 2005.
@@ -363,5 +394,3 @@ Past Simple представляет проверку целиком; Past Conti
 ## Источники уточнений
 
 [Основное правило](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives). Ситуация и задания написаны для библиотеки. [British Council: Past Continuous/Past Simple](https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/past-continuous-past-simple). [British Council: даты](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/when-time-dates).
-
-

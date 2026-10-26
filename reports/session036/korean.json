@@ -1,0 +1,379 @@
+{
+  "language": "korean",
+  "files": 60,
+  "logicalUnits": 15,
+  "newChecks": 45,
+  "checksAcrossEditions": 90,
+  "oldIds": 1999,
+  "aliases": 1,
+  "correctionsAcrossEditions": 58,
+  "preserved": [
+    "all old IDs",
+    "all old rendered internal links",
+    "frontmatter",
+    "separate mirror supplements",
+    "closed answer disclosures"
+  ],
+  "paths": [
+    {
+      "path": "knowledge/languages/korean/a1/unit-01/grammar/core.md",
+      "oldIds": 20,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-01/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-02/grammar/core.md",
+      "oldIds": 23,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-02/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-03/grammar/core.md",
+      "oldIds": 20,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-03/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-04/grammar/core.md",
+      "oldIds": 24,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-04/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-05/grammar/core.md",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-05/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-06/grammar/core.md",
+      "oldIds": 79,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-06/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-07/grammar/core.md",
+      "oldIds": 81,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-07/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-08/grammar/core.md",
+      "oldIds": 68,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-08/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-09/grammar/core.md",
+      "oldIds": 74,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-09/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-10/grammar/core.md",
+      "oldIds": 75,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/a2/unit-10/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-11/grammar/core.md",
+      "oldIds": 55,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-11/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-12/grammar/core.md",
+      "oldIds": 70,
+      "aliases": 0,
+      "corrections": 10
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-12/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-13/grammar/core.md",
+      "oldIds": 64,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-13/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-14/grammar/core.md",
+      "oldIds": 72,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-14/grammar/usage.md",
+      "oldIds": 9,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-15/grammar/core.md",
+      "oldIds": 82,
+      "aliases": 0,
+      "corrections": 1
+    },
+    {
+      "path": "knowledge/languages/korean/b1/unit-15/grammar/usage.md",
+      "oldIds": 10,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-01/grammar/core.md",
+      "oldIds": 20,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-01/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 1
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-02/grammar/core.md",
+      "oldIds": 23,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-02/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-03/grammar/core.md",
+      "oldIds": 20,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-03/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 2
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-04/grammar/core.md",
+      "oldIds": 24,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-04/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 2
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-05/grammar/core.md",
+      "oldIds": 19,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-05/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-06/grammar/core.md",
+      "oldIds": 79,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-06/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 1
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-07/grammar/core.md",
+      "oldIds": 81,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-07/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 2
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-08/grammar/core.md",
+      "oldIds": 68,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-08/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-09/grammar/core.md",
+      "oldIds": 74,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-09/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-10/grammar/core.md",
+      "oldIds": 75,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a2/unit-10/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-11/grammar/core.md",
+      "oldIds": 55,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-11/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 2
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-12/grammar/core.md",
+      "oldIds": 70,
+      "aliases": 0,
+      "corrections": 10
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-12/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 1
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-13/grammar/core.md",
+      "oldIds": 64,
+      "aliases": 0,
+      "corrections": 0
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-13/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 1,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-14/grammar/core.md",
+      "oldIds": 72,
+      "aliases": 0,
+      "corrections": 3
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-14/grammar/usage.md",
+      "oldIds": 14,
+      "aliases": 0,
+      "corrections": 4
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-15/grammar/core.md",
+      "oldIds": 82,
+      "aliases": 0,
+      "corrections": 1
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/b1/unit-15/grammar/usage.md",
+      "oldIds": 15,
+      "aliases": 0,
+      "corrections": 0
+    }
+  ]
+}

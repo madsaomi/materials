@@ -1,0 +1,147 @@
+{
+  "session": 38,
+  "date": "2026-10-26",
+  "mode": "verify-current",
+  "candidateFiles": 12,
+  "changedFiles": 9,
+  "ruleEntries": 36,
+  "physicalReplacementOccurrences": 66,
+  "files": [
+    {
+      "slug": "knowledge/languages/english/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "comparison-scope",
+        "between-among",
+        "between-context-examples"
+      ]
+    },
+    {
+      "slug": "knowledge/languages/english/a2/unit-06/grammar/usage",
+      "changed": true,
+      "edits": [
+        "bored-translation"
+      ]
+    },
+    {
+      "slug": "knowledge/languages/japanese/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "contraction",
+        "nonexhaustive-aspect",
+        "door-state-no-agent",
+        "invitation-not-prior-decision",
+        "negative-preparation",
+        "oku-te-inflection",
+        "comparison-subject",
+        "purpose-formation",
+        "purpose-model-scope",
+        "youni-desired-state",
+        "purpose-summary",
+        "noun-before-example",
+        "tari-finite-ending",
+        "fenced-form-markup",
+        "humble-source-verb",
+        "intentional-result-not-maintenance",
+        "embedded-question",
+        "purpose-adjacent-consistency"
+      ]
+    },
+    {
+      "slug": "knowledge/languages/japanese/a2/unit-06/grammar/usage",
+      "changed": true,
+      "edits": [
+        "neutral-negative-knowledge",
+        "neutral-negative-scope"
+      ]
+    },
+    {
+      "slug": "knowledge/languages/korean/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "process-relative-time",
+        "after-completion",
+        "modifier-function",
+        "modifier-explanation",
+        "question-conjecture",
+        "guess-models",
+        "disconnect-base",
+        "experience-quantity",
+        "predicate-key"
+      ]
+    },
+    {
+      "slug": "knowledge/languages/korean/a2/unit-06/grammar/usage",
+      "changed": true,
+      "edits": [
+        "process-time-consistency",
+        "before-model-scope",
+        "after-relative-completion"
+      ]
+    },
+    {
+      "slug": "languages/english/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "comparison-scope",
+        "between-among",
+        "between-context-examples"
+      ]
+    },
+    {
+      "slug": "languages/english/a2/unit-06/grammar/usage",
+      "changed": false,
+      "edits": []
+    },
+    {
+      "slug": "languages/japanese/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "contraction",
+        "nonexhaustive-aspect",
+        "door-state-no-agent",
+        "invitation-not-prior-decision",
+        "negative-preparation",
+        "oku-te-inflection",
+        "comparison-subject",
+        "purpose-formation",
+        "purpose-model-scope",
+        "youni-desired-state",
+        "purpose-summary",
+        "noun-before-example",
+        "tari-finite-ending",
+        "fenced-form-markup",
+        "humble-source-verb",
+        "intentional-result-not-maintenance",
+        "embedded-question",
+        "purpose-adjacent-consistency"
+      ]
+    },
+    {
+      "slug": "languages/japanese/a2/unit-06/grammar/usage",
+      "changed": false,
+      "edits": []
+    },
+    {
+      "slug": "languages/korean/a2/unit-06/grammar/core",
+      "changed": true,
+      "edits": [
+        "process-relative-time",
+        "after-completion",
+        "modifier-function",
+        "modifier-explanation",
+        "question-conjecture",
+        "guess-models",
+        "disconnect-base",
+        "experience-quantity",
+        "predicate-key"
+      ]
+    },
+    {
+      "slug": "languages/korean/a2/unit-06/grammar/usage",
+      "changed": false,
+      "edits": []
+    }
+  ],
+  "limits": "Exact in-place grammar corrections; primary usage and Session036 introductions remain intact. No independent peer review in038. Some source access limitations are documented in README."
+}

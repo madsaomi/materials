@@ -1,0 +1,63 @@
+{
+  "session": 39,
+  "date": "2026-10-26",
+  "status": "ready-for-commit",
+  "branch": "main",
+  "baseCommit": "fb2eec9199319085b11401fe0ec291d26fd6be60",
+  "checks": {
+    "typecheck": "PASS",
+    "contents": {
+      "result": "PASS",
+      "pages": 131,
+      "manual": 38,
+      "links": 1515,
+      "priorIds": 619,
+      "pendingGeneratedRefresh": 42,
+      "writtenKnowledgeFiles": 0
+    },
+    "fullCorpus": {
+      "result": "PASS",
+      "documents": 1348,
+      "legacyTargets": 1217
+    },
+    "build": {
+      "result": "PASS",
+      "next": "16.4.2",
+      "bundler": "webpack",
+      "isolated": true,
+      "pythonOnPath": false,
+      "sandboxAttempt": "EPERM; retry with permitted access PASS"
+    },
+    "http": {
+      "result": "PASS",
+      "freshBuildChecks": 25,
+      "originalPreviewHealth": 200
+    },
+    "knowledgeSha256": {
+      "result": "PASS",
+      "unchangedSincePreparationStart": 1348
+    },
+    "ignoreCases": 9,
+    "credentialLiteralCandidates": 0,
+    "unexpectedUntrackedFiles": 0,
+    "trackedBuildOrEnvArtifacts": 0,
+    "gitIdentityConfigured": true,
+    "node": "v24.22.1",
+    "whitespace": "PASS with intentional Markdown hardbreak/EOF whitespace retained"
+  },
+  "temporaryServerStopped": true,
+  "temporaryBuildRemoved": true,
+  "originalDependenciesPreserved": true,
+  "stagedFiles": 271,
+  "commitCreated": false,
+  "pushed": false,
+  "index": {
+    "modified": 197,
+    "deletedLegacyFiles": 16,
+    "added": 58,
+    "grammarMarkdown": 180,
+    "unstaged": 0,
+    "untracked": 0,
+    "knowledgeDeletions": 0
+  }
+}

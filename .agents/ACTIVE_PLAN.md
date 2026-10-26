@@ -13,31 +13,28 @@
 
 ## 📌 Active Task Profile
 
-- **Current Task:** Publish verified Next.js knowledge-base and textbook changes to origin/main
+- **Current Task:** Publish audited Git package to origin/main
 - **Active Agent:** Codex
 - **Environment / IDE:** Codex desktop (Windows/PowerShell)
-- **Status:** `COMPLETED`
-- **Session Reference:** `Session 034` in `.agents/history/agent-session-log.md`
-- **Last Updated:** 2026-10-19
+- **Status:** `IN PROGRESS`
+- **Session Reference:** `Session 041` in `.agents/history/agent-session-log.md`
+- **Last Updated:** 2026-10-26
 
 ---
 
 ## 📋 Live Progress Checklist
 
-- [x] Phase 1: Update CSS Design Tokens for enhanced transparency and blur.
-- [x] Phase 2: Enhance the animated background mesh gradient (body::before) in light and dark mode.
-- [x] Phase 3: Refine borders and inner glows for a matte glass edge effect.
-- [x] Phase 4: Validate UI visually by running a test script or relying on CSS changes.
-- [x] Phase 5: Append Session 006 to agent-session-log.md
+- [x] Audit all278 staged paths/blobs for unwanted artifacts and credential literals.
+- [x] Fetch origin/main and confirm no divergence; retain successful Session040 checks.
+- [/] Commit and push the authorized changes.
+- [ ] Verify remote commit and record completed publication.
 
 ---
 
 ## 📂 Modified Files in This Session
-- `.agents/ACTIVE_PLAN.md` (Updated with glassmorphism task)
-- `static/css/style.css` (Glassmorphism tokens + components completed)
-- `templates/layout.html` (Glassmorphism layout completed)
-- `templates/index.html` (Glassmorphism index completed)
-- `templates/doc.html` (Glassmorphism doc completed)
+
+- Agent state/plan and append-only session history; preserve all278prepared paths.
+- Publication audit and commit message outside repository in publish041; no runtime/content edits.
 
 ---
 
@@ -286,3 +283,55 @@ Session033 modified:136 existing notes, scripts/editorial/session033/, reports/s
 User explicitly requested push. Root owns Git mutations; push_audit delegate read-only packaging review. No force push or content cleanup.
 
 Session034: published primary commit c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e to origin/main; remote SHA verified. Full1348-doc/1217-target audit, TypeScript and isolated Next webpack production build PASS. Runtime/dependency/cache/backup exclusions reviewed. Git Credential Manager login completed by user. Temporary build copy removed safely; local preview unaffected. Completion record committed separately. No force push; no external hosting/Docker execution claim.
+
+## Session 035 - Node-only application and maintenance (COMPLETE)
+- [x] Inspect Python runtime/tooling dependencies and capture1348-note byte baseline.
+- [x] Port contents maintenance and remove Python runtime/obsolete assets; update current docs.
+- [x] Verify fixtures, typecheck, corpus preservation, production build and live routes.
+- [x] Document exact scope, remaining educational optional interpreters and append history.
+Root removes obsolete implementation and handles config/integration/tracking. Delegates: contents_ts035 port, docs_ts035 docs, audit_ts035 readonly audit. All knowledge Markdown unchanged; no migration reapply.
+
+Session035 complete: all1348Markdown bytes/public/1217redirects preserved. Typecheck, fullcorpus, contents, Node-only PATH webpack production build and23HTTP PASS.131contents/38manual/619oldIDs/1515candidate links;42pending generated updates notapplied. Optional Python vault tools and educational course retained. reports/session035/README.md records scope and limits. Preview5000exec19335 restored; QAserver/tempbuild removed. Local changes uncommitted; no push/deploy. Next notes: support units06-15 and retained-bank review.
+
+## Session 036 - Three-language grammar only (COMPLETE)
+- [x] Read handoff and snapshot180 grammar notes/all1348 hashes outside repo.
+- [x] Improve explanations, contrasts, contextual examples and short grammar checks in first15units, both vaults.
+- [x] Review teaching accuracy; preserve allold IDs/links and unique retained material.
+- [x] Verify and document exact scope, append session history and update state.
+User explicitly chose grammar for English/Japanese/Korean. No Chinese or vocabulary/dialogue/test/reading edits; no commit/push.
+
+Session036 completed2026-10-25:180grammar files/45logicalunits, first15lessons inEnglish/Japanese/Korean, bothvaults.4268oldIDs andalloldinternal links retained;1168otherMarkdown byte-identical. Three independent peerreviews/fourclarities resolved; fullcorpus1348/1217,typecheck,targetedpreservation,31HTTP andbrowser checks PASS. reports/session036/README.md documents scope/sources/limits. No newappUI edits/build/commit/push/deploy; priorSession035cleanup preserved. Focus remains grammar inthese three languages, especially retainedoldbanks; no automatic return tovocabulary orChinese.
+
+## Session 037 - Retained A1 grammar banks (COMPLETE)
+- [x] Capture60candidate before-images and1348SHA256baseline afterSession036.
+- [x] Inspect actual old rules/examples in both vaults; verify concrete language defects.
+- [x] Improve retained material with sourced corrections and independent peer review.
+- [x] Audit preservation/scope/corpus/HTTP,record exact limits andappend history.
+User repeats grammar-only focus for English/Japanese/Korean. Root integration/tracking; language delegates own disjoint A1grammar candidates. New036teaching blocks stay unless a confirmed defect requires repair. No vocab/dialogue/test/reading/Chinese/app edits,commit orpush.
+
+Session037 completed2026-10-26:41changed/60inspected,13English15Japanese13Korean;1307unchangedMarkdown.1081oldIDs/alloldinternal links/036entries retained; corpus1348/1217,tsc,31HTTP,3peer reviews PASS. reports/session037/README.md. No app/build/commit/push.
+
+## Session 038 - Retained A2unit06 grammar (COMPLETE)
+- [x] Snapshot12candidates/all1348hashes;inspect selected retained rules and keys.
+- [x] Correct sourced language defects in place, preserving036entries/anchors/links.
+- [x] Verify corpus/scope/types/HTTP andappend results.
+User asks continue2026-10-26. Root handles allthree languages; no newsubagents. Other notes/app/priorchanges preserved.
+
+Session038 completed2026-10-26:9changed/12candidates,36operations/66physical replacements,1339unchangedMarkdown.338oldIDs/alloldinternal links/036prefixbytes retained. Manual source review,no newpeer review. Fullcorpus1348/1217 PASS; final plan/scope/layout/tsc/22HTTP/reportlinks/whitespace PASS after English table relocation. reports/session038/README.md. No app/build/commit/push. Next retainedgrammar07–15 in three selected languages.
+
+## Session 039 - Git preparation (COMPLETE)
+- [x] Inspect accumulated tracked/untracked files; credential-literal candidates0; env ignore update.
+- [x] Verify type/contents/corpus and isolated production build.
+- [x] Record checks/history;stage all relevant files and verify exact index.
+User asks prepare everything for Git. No commit/push yet. Keep all1348notes/priorchanges and existing live preview intact.
+
+Session039 complete2026-10-26:271staged files (197M/58A/16legacyD),180grammarMarkdown. Type/contents/corpus1348/1217/newisolated webpackproduction/25HTTP/9ignorecases/scope PASS.1348note hashes unchanged duringprep. Temporaryserver5001 stopped/build removed withjunction safety; originalpreview5000/dependencies preserved. No unstaged/untracked changes expected after finalrestage; no commit/push. reports/session039/README.md; proposedcommitmessage outside repo. Next user Git action or grammar07–15.
+
+## Session 040 - Railway / GitHub Pages audit (COMPLETE)
+- [x] Inspect Dockerfile/start/config/routes and primary platform docs; no .github workflows present.
+- [x] Verify standalone runtime andcustomPORT; Docker CLI unavailable locally.
+- [x] Record correct Railway settings and Pages static-hosting blockers.
+- [x] Verify preservation,restage relevant changes andappend history.
+User asks check scripts; no authorization for actual remote deployment or full static-site conversion inferred.
+
+Session040 complete2026-10-26: unchanged runtime scripts passnormalPORT5002 andfreshstandalonePORT5003,30HTTP inclRailwayhealthhostname/repeated308query/frameworkassets/Pythoncourse. Offlinefrozenpnpm11.25/defaultTurbopackstandalone build PASS after removing external-dependency fixture influence.28standaloneHTTP+2startscript. Fulltype/contents/corpus1348/1217/noteSHA PASS. DockerCLI unavailable; no Linuxcontainer/remoteRailway/Pages settings/deploy checked. Pages unsupported currentSSR/API, no workflow/static conversion. DEPLOYMENT.md and reports/session040 clarify. Fixtures/187reparsepoints safelycleaned,original5000 preserved.278files staged; no commit/push. Prior271staged changes preserved.

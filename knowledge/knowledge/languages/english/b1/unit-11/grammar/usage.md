@@ -10,6 +10,42 @@ tags:
 ---
 # Английский · Урок 11 — применение: Фон рассказа и событие · дополнительная версия
 
+## Ситуация: что произошло с билетом
+
+Учебные факты: в 8:10 Амина искала билет; в 8:12 нашла его; затем села в автобус. **At 8:10 Amina was looking for her ticket. She found it two minutes later and got on the bus.** — В 8:10 Амина искала билет. Через две минуты она его нашла и села в автобус. Процесс поиска отделён от последовательных событий.
+
+### Самостоятельная проверка
+
+1. Задайте вопрос о находке: **Did / Amina / find / her ticket?**
+2. В 8:10 поиск уже шёл. Заполните: **Amina ___ ___ for her ticket at 8:10. (look)**
+3. Сравните смысл: **When the bus arrived, we were buying tickets** и **When the bus arrived, we bought tickets**.
+4. Исправьте отрицание: **We didn't found the map, but we was waiting near the entrance.**
+5. Обязательно ли while означает, что следующее за ним действие должно быть в Continuous во всех контекстах?
+
+<details>
+<summary>Ответы: перспектива рассказчика и формы прошлого</summary>
+
+1. **Did Amina find her ticket?** — Амина нашла билет? После did стоит find.
+2. **was looking**. — Амина искала билет в 8:10. Условие прямо задаёт момент внутри процесса.
+3. В первом варианте покупка уже шла при прибытии автобуса. Во втором покупка представлена как следующее событие после прибытия. Выбор меняет картину, а не просто длину действия.
+4. **We didn't find the map, but we were waiting near the entrance.** — Мы не нашли карту, но ждали у входа. Didn't требует find; we согласуется с were.
+5. Нет. Союз сам по себе не заменяет анализ временных отношений.
+
+</details>
+
+### Свой короткий рассказ
+
+Напишите три предложения: что уже происходило, какое событие случилось на этом фоне, что произошло затем. Проверьте, что на временной линии нет противоречия между already-in-progress и последовательностью.
+
+### Опора для проверки правила
+
+[Официальный грамматический справочник](https://dictionary.cambridge.org/uk/grammar/british-grammar/past-continuous-or-past-simple). Примеры, ситуации и задания составлены для этой библиотеки.
+
+<details>
+<summary>Сохранённые примеры и дополнительные пояснения прежней версии</summary>
+
+> Этот дополнительный банк сохранён отдельно от нового разбора; он не объявляется полностью проверенным. Исправления конкретных неточностей перечислены в отчёте Session036.
+
 ## Учебный разбор: Фон рассказа и событие
 
 ### Сначала разберитесь в смысле
@@ -20,7 +56,7 @@ Past Continuous показывает действие в процессе в м�
 
 I was reading when the phone rang. — Я читал, когда зазвонил телефон. Чтение уже шло; звонок обозначает наступившее событие.
 
-Прочитайте пример, закройте его и объясните своими словами, почему выбрана именно эта форма. Затем измените одного участника или обстоятельство и проверьте, что ещё должно измениться.
+
 
 ### Попробуйте без подсказки
 
@@ -33,9 +69,7 @@ While I was cooking dinner, the lights went out. Длительное приго
 
 </details>
 
-### Перенос в свою речь
 
-Составьте два собственных примера на эту модель. Для каждого укажите ситуацию, участников и смысл выбранной формы. Проверьте не только окончание, но и порядок слов. Не считайте повторение примера по памяти самостоятельным решением.
 
 ## Дополнительные объяснения исходной версии
 
@@ -49,7 +83,7 @@ While I was cooking dinner, the lights went out. Длительное приго
 Past Continuous sets the scenery/background ('I was walking down the street...'), and Past Simple introduces the sudden event ('...when suddenly an explosion occurred').
 
 ### While vs When
-'While' is typically paired with Continuous: 'While I was cooking...'. 'When' is typically paired with Simple: '...when the phone rang.'
+While I was cooking и when the phone rang — частые модели процесса и события. Но when/while не являются обязательными переключателями времени; сначала определите временную картину.
 
 ### Parallel actions in the past
 Two simultaneous ongoing past actions: 'While mother was reading, father was washing the dishes' (both in Past Continuous).
@@ -59,10 +93,10 @@ Two simultaneous ongoing past actions: 'While mother was reading, father was was
 ## 2. Ловушки перевода и типичные ошибки русскоязычных учащихся
 
 - ❌ While I walked, I was finding a coin
-  ✅ While I was walking, I found a coin — The long action is Continuous, the sudden discovery is Simple.
+  ✅ While I was walking, I found a coin — В этой картине поиск/ходьба уже идёт, а находка представлена событием. Дело не в измеренной длине действия: Past Simple также может обозначать долгое завершённое действие.
 
 - ❌ I was knowing the answer
-  ✅ I knew the answer — 'Know' is stative and cannot take Continuous.
+  ✅ I knew the answer — Know в обычном значении знания здесь описывает состояние, поэтому нейтрально I knew. Не выбирайте время только по внешнему глагольному слову или союзу.
 
 ---
 
@@ -77,3 +111,8 @@ Two simultaneous ongoing past actions: 'While mother was reading, father was was
 ## Учебный маршрут
 
 [Обзор урока](../overview.md) · [Подробная грамматика](core.md) · [Практика](../practice/exercises.md) · [Проверка знаний](../test.md)
+
+</details>
+
+<!-- Retained heading aliases for incoming links. -->
+<span id="перенос-в-свою-речь"></span>

@@ -106,8 +106,8 @@ export interface Note {
   legacySlugs: string[];
   isContents: boolean;
 }
-export function order(a: Note, b: Note) {
-  const rank = (n: Note) => {
+export function order(a: Pick<Note, "slug" | "title">, b: Pick<Note, "slug" | "title">) {
+  const rank = (n: Pick<Note, "slug" | "title">) => {
     const p = logical(n.slug);
     return [
       Number(/\/unit-(\d+)\//.exec(p)?.[1] || 0),

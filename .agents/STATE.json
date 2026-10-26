@@ -1,7 +1,7 @@
 {
   "project": "materials",
-  "version": "6.6.0",
-  "last_updated": "2026-10-19",
+  "version": "6.13.0",
+  "last_updated": "2026-10-26",
   "stack": "TypeScript + Next.js 16 App Router + React 19 + Markdown-it; local CSS/JavaScript, Node.js runtime",
   "knowledge": {
     "files": 1348,
@@ -39,13 +39,28 @@
     "language_vocab_dialogue_test_units_total": 20,
     "language_active_entries_session033": 200,
     "language_dialogues_session033": 20,
-    "language_selfchecks_session033": 20
+    "language_selfchecks_session033": 20,
+    "metrics_note_session035": "Historical line/title/duplicate metrics above describe Session033 (2026-10-19), before incoming fb2eec9 provenance comments. They were not recomputed as a content audit in Session035. Current file count1348 and byte preservation verified; no note edits.",
+    "grammar_edited_files_session036": 180,
+    "grammar_logical_units_session036": 45,
+    "grammar_checks_per_edition_session036": {
+      "englishNumberedItems": 73,
+      "japaneseMiniChecks": 45,
+      "koreanMiniChecks": 45,
+      "note": "Items may have several parts and are not comparable proficiency scores"
+    },
+    "metrics_note_session036": "Session036 verifies1348current Markdown documents,180grammar edits and1168byte-identical other notes. Earlier line/title/exact-duplicate and845edited-path-union fields remain historical Session033 metrics, not a newly recomputed content audit.",
+    "grammar_edited_files_session037": 41,
+    "metrics_note_session037": "41in-place edits inside180Session036 grammar paths; not additional unique edited files.1307otherMarkdown byte-identical after036. Historical line/title/duplicate metrics not recomputed.",
+    "grammar_edited_files_session038": 9,
+    "metrics_note_session038": "9retained grammar edits inside180Session036 paths, not additional unique files.1339otherMarkdown SHA256 unchanged after037.36editorial operations/66physical replacements include clarifications and mirror copies; not66independent errors. Historical corpus metrics not recomputed."
   },
   "git_status": {
     "branch": "main",
-    "working_tree": "all authorized changes committed and published to origin/main; publication record included",
+    "working_tree": "278files staged, final pre-publication audit PASS; commit/push in progress.",
     "published_content_commit": "c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e",
-    "remote": "https://github.com/madsaomi/materials.git"
+    "remote": "https://github.com/madsaomi/materials.git",
+    "baseline_commit": "fb2eec9199319085b11401fe0ec291d26fd6be60"
   },
   "active_components": [
     "app/",
@@ -58,14 +73,24 @@
     "next.config.ts",
     "package.json",
     "pnpm-lock.yaml",
-    ".agents/"
+    ".agents/",
+    "scripts/refresh-contents.ts",
+    "scripts/verify-contents.ts",
+    "scripts/check-unit-markers.ts",
+    "scripts/verify-programming.ts"
   ],
   "environment": {
-    "python_executable": ".\\venv\\Scripts\\python.exe",
-    "pip_executable": ".\\venv\\Scripts\\pip.exe",
     "dev_command": "pnpm dev",
     "prod_command": "pnpm build; pnpm start",
-    "default_port": 5000
+    "default_port": 5000,
+    "node": "Node.js22+; verified locally with24.22.1",
+    "package_manager": "pnpm11.25.0 (packageManager field)",
+    "contents_command": "pnpm contents:refresh (dry-run); add --apply to write",
+    "contents_verify_command": "pnpm contents:verify",
+    "preview": "http://127.0.0.1:5000 (Next production exec19335, existing application build)",
+    "deployment_doc": "DEPLOYMENT.md",
+    "railway": "Dockerfile standalone; PORT/HOSTNAME/healthz validated locally; Linux Docker/remote service unverified",
+    "github_pages": "Unsupported current SSR/API application; requires separate static adaptation"
   },
   "entrypoints": {
     "agent_readme": ".agents/README.md",
@@ -83,8 +108,9 @@
     "windows_console_cjk_safe": true,
     "relative_md_internal_links": true
   },
-  "current_focus": "Session034 publication complete: Next.js migration, hierarchy and textbook work pushed normally to origin/main as c1b1c10. GitHub branch SHA verified; committed tree contains1348 Markdown notes and all1217 legacy targets. TypeScript, full content audit and isolated production webpack build PASS. User completed Git Credential Manager login. Publication tracking saved in follow-up docs commit. Local preview exec41795 unchanged. Editorial backlog remains in pending_tasks; no external deployment claim.",
+  "current_focus": "Session041: final staged-blob audit PASS; all278prepared files authorized for commit/push to origin/main. Fresh remote fetch matches baseline. Publication in progress; grammar07-15 backlog remains deferred.",
   "pending_tasks": [
+    "Continue grammar-only English/Japanese/Korean retained long banks07–15; unit06 has targeted corrections, not exhaustive phonetic/audio/cultural verification. Other subjects/vocabulary/dialogue/test/reading stay out of scope.",
     "Reconstruct818 unresolved Chinese vocabulary records per vault (1636 copies), retaining unfinished warnings and provenance.",
     "Continue active vocabulary/dialogue/self-check route in units06-15 for all four languages. Units01-05 now have20 support sets; reading/practice route01-15 remains60 logical units. Separately review all retained long grammar/vocabulary/dialogue/test banks and unsupported factual assertions; no audio/exam-completeness claim.",
     "Compile/run the12 exported Go/Rust examples when toolchains are available; independently validate legacy programming code and expand remaining topics beyond the12 new cores.",
@@ -93,5 +119,299 @@
     "Re-audit mirror differences before merging; preserve unique material and incoming links.",
     "Docker execution and external hosting remain unverified."
   ],
-  "notes": "Session 009 audit: duplicate_titles counts groups, not extra files. Null knowledge metrics were not re-audited and replace stale 642-file-era values. verify.py uses the current filesystem count and audits all source/rendered links. Historical 642/unique-title rules remain in older agent documentation; both user-owned vaults are preserved. Railway settings are documented for its dashboard, since current docs disallow railway.json for new services. Application commit 45730ac pushed to origin/main; no hosting deployment performed. Local Flask preview runs on 127.0.0.1:5000. Session 013: new /api/search endpoint, cached plain text, 20-entry browser history with 3 homepage cards and heading-relative resume. Full audit and dedicated Chrome desktop/mobile checks passed. Preview exec session 31094. Session 014: cached outgoing link sets, related-note ranking with backlink reasons and duplicate-title suppression, plain-text preview endpoint and accessible responsive hover/button cards. Full audit and Chrome checks passed; preview exec session 25646. Session 015 full audit and desktop/mobile/light/dark checks passed. Local preview exec session 74094 with template auto_reload enabled; asset version 5.3. Session 016 resumed after local server stopped; fresh full verification passed. Local preview session 17406, template auto_reload enabled, asset v5.4. Session 017 preview session 45961, app.config TEMPLATES_AUTO_RELOAD=True (setting jinja_env alone was overridden by app.run debug setter); asset v6.0. Full audit and Chrome navigation/theme/mobile checks passed. Session 018 full 1217-note audit and Chrome light/dark/mobile checks passed, asset v6.1. Preview remains session 45961. Session 019 full audit and Chrome view/persistence/mobile/keyboard checks passed. Preview session 5316, asset v6.2. Session 025: current physical paths are recorded in legacy_paths.json (old slug -> new slug). Never rerun the one-time migration on the moved vault. Current notes=1348 includes 131 new contents pages; all 1217 originals retained. refresh_contents.py updates existing contents pages. Sections without safely separable level material stay in reference; no fabricated C2 course. Duplicate-body metrics remain historical and require re-audit. Current preview exec 66507. Session 026: Node.js/TypeScript migration explicitly approved by user, superseding no-Node rule. Flask files retained for comparison only. pnpm 11.25, Node22+, Next16.4.2. Live preview Next production on port5000 exec5245. Standard and standalone build passed. No commit/push/deployment. Session 027: 120 generic overview/usage pages replaced; 120 overview and120 usage editions improved total.440 notes edited, original1348 count retained. 4102 old headingIDs and2085 original arrow answers verified;340 explicit answer sections folded. Study handbook in overview/_contents both editions has editorial:manual; refresh_contents.py preserves it. Details reader CSS and ToC opening adjusted. TEXTBOOK_PROGRESS.md documents limits; all-content verification PASS. Next preview remains exec5245. Session028:51 programming notes updated:12 syntax teaching cores,12 independent practices with hidden solutions and retained old code banks,4 manual course routes and23 generated contents routes. Catalog and contents tooling now put syntax before practice (12-folder regression). Original1348 files retained. All997 prior headingIDs/code blocks preserved;12 Python/JS programs executed and12 Go/Rust programs exported but not executed. Full corpus PASS; TypeScript,production build,HTTP and browser disclosure checks PASS. Preview Next production exec89386 at5000. First cold request briefly exceeded browser navigation timeout; page loaded after cache warmup. No performance claim. PROGRAMMING_TEXTBOOK.md records scope and limitations; no commit/push/deploy. Session029:114 existing language notes updated across both vaults;20 short readings and60 contextual tasks,18 grammar notes corrected and16 manual course/A1 contents. English22/Japanese24/Korean30/Chinese22 content notes plus navigation16. All1766 old IDs retained;1847 edited-note internal links and310 closed details checked. Full1348-doc audit,TypeScript,10 HTTP checks and four-course browser/disclosure checks passed. Production Session028 preview exec89386 serves changed Markdown; no app/frontend changes, rebuild,commit,push or deploy. LANGUAGES_SESSION029.md and languages-verification.json document scope/limits. Unique teaching-edited path union Sessions027-029=565; duplicate-title groups now430. Backups languages-before-session029 outside repository. Session030:140 existing notes updated in four languages A2units06-10 and16 manual course/A2 contents;20 short readings/60 tasks, both vaults retained. English30/Japanese34/Korean30/Chinese30 content notes.3225 oldIDs/all original internal links retained;2087 current internal links and622 closed details checked. Full1348-doc audit,TypeScript,13HTTP incl308query/404 and browser route/four-course/disclosures pass. Source-grounded grammar/old-key fixes and English lifestyle overclaims corrected. Existing production exec89386 serves Markdown; no app/frontend changes,rebuild,commit,push/deploy. LANGUAGES_SESSION030.md records scope and limits. Whole corpus423141lines;420 duplicate-title groups;unique teaching-edited path union Sessions027-030=665. Next main units11-15;1636 unfinished Chinese reference rows unchanged. Session032:136 existing notes updated in four languages B1units11-15 and16 manual course/B1 contents.20 short readings/60 tasks;English30/Japanese30/Korean30/Chinese30 content notes;3151 oldIDs/all original internal links retained,2205 current links and552 closed details checked. Full1348-doc/1217legacy-target audit,TypeScript,24HTTP and browser routes/disclosures PASS. Independent peer reviews corrected English archive-cost evidence, Korean speaker identity and embedded-question instruction. Corpus429655lines;410 duplicate-title groups;unique teaching-edited union Sessions027-032=765. Whole-file duplicate audit244groups/244copies;582same-path pairs240same/342different. reports/session032/README.md documents exact scope and limits; scripts/editorial/session032 holds one-time guarded editors/safe checks. Existing Next production exec89386 serves Markdown. No app/frontend changes,rebuild,commit,push/deploy. Mainroutefirst15 complete;long banks/dialogues/vocabulary/tests/1636 unfinished Chinese rows remain pending. Session033 (2026-10-19):136 existing notes updated (four languages A1units01-05 vocabulary/dialogue/test +16 contents).200 active positions,20 role dialogues,20 fair explained self-checks repeated both vaults. English40 and Korean40 logical numbered check items;Japanese20 multipoint items,Chinese30 multipoint items. New scales8/8/8/10 are task-specific,not comparable level scores. Confirmed legacy gaps,keys,readings,role mismatches and overclaims corrected. Peer reviews fixed optional-water price in English and answer leakage from open Chinese criteria.1683 oldIDs/all oldlinks retained;2683 currentlinks/336closed details checked. Full1348docs/1217legacytargets audit,TypeScript,30HTTP and browser PASS. Corpus437321lines;395titleduplicate groups;teaching-edited union845paths. Whole-file SHA256239duplicate groups;582mirrorpairs235same/347different. Next production restored from prior build on127.0.0.1:5000 exec41795 after old preview stopped;initial cold browser navigation timed out,then warmed loaded and allchecks passed. No app/frontend edits,rebuild,commit,push/deploy. Reports andtools grouped under reports/session033 andscripts/editorial/session033. Before-images immutable outside repo languages-before-session033. Next support units06-15 and long-bank review;1636 unfinished Chinese reference rows untouched. Session034 (2026-10-19): user authorized commit/push. Read-only packaging audit found no dependency/build/env/key/backup candidates, largest candidate193387bytes. Fetched origin/main identical to local before commit. Fresh TypeScript/full1348-doc1217-target audit PASS. Next16.4.2 production webpack build in normal Temp copy PASS after automatic retries of static error/not-found pages; copy removed after unlinking dependency junction, original node_modules preserved. Default whitespace check flags retained Markdown hardbreaks and legacy EOF blanks; structural whitespace check with blank-at-eol/blank-at-eof ignored PASS. Primary commit c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e pushed after user completed Git Credential Manager login; remote ls-remote confirms sameSHA. Committed1348notes/all1217redirect targets verified. No force push or external hosting action. Completion record committed separately."
+  "notes": "Session 009 audit: duplicate_titles counts groups, not extra files. Null knowledge metrics were not re-audited and replace stale 642-file-era values. verify.py uses the current filesystem count and audits all source/rendered links. Historical 642/unique-title rules remain in older agent documentation; both user-owned vaults are preserved. Railway settings are documented for its dashboard, since current docs disallow railway.json for new services. Application commit 45730ac pushed to origin/main; no hosting deployment performed. Local Flask preview runs on 127.0.0.1:5000. Session 013: new /api/search endpoint, cached plain text, 20-entry browser history with 3 homepage cards and heading-relative resume. Full audit and dedicated Chrome desktop/mobile checks passed. Preview exec session 31094. Session 014: cached outgoing link sets, related-note ranking with backlink reasons and duplicate-title suppression, plain-text preview endpoint and accessible responsive hover/button cards. Full audit and Chrome checks passed; preview exec session 25646. Session 015 full audit and desktop/mobile/light/dark checks passed. Local preview exec session 74094 with template auto_reload enabled; asset version 5.3. Session 016 resumed after local server stopped; fresh full verification passed. Local preview session 17406, template auto_reload enabled, asset v5.4. Session 017 preview session 45961, app.config TEMPLATES_AUTO_RELOAD=True (setting jinja_env alone was overridden by app.run debug setter); asset v6.0. Full audit and Chrome navigation/theme/mobile checks passed. Session 018 full 1217-note audit and Chrome light/dark/mobile checks passed, asset v6.1. Preview remains session 45961. Session 019 full audit and Chrome view/persistence/mobile/keyboard checks passed. Preview session 5316, asset v6.2. Session 025: current physical paths are recorded in legacy_paths.json (old slug -> new slug). Never rerun the one-time migration on the moved vault. Current notes=1348 includes 131 new contents pages; all 1217 originals retained. refresh_contents.py updates existing contents pages. Sections without safely separable level material stay in reference; no fabricated C2 course. Duplicate-body metrics remain historical and require re-audit. Current preview exec 66507. Session 026: Node.js/TypeScript migration explicitly approved by user, superseding no-Node rule. Flask files retained for comparison only. pnpm 11.25, Node22+, Next16.4.2. Live preview Next production on port5000 exec5245. Standard and standalone build passed. No commit/push/deployment. Session 027: 120 generic overview/usage pages replaced; 120 overview and120 usage editions improved total.440 notes edited, original1348 count retained. 4102 old headingIDs and2085 original arrow answers verified;340 explicit answer sections folded. Study handbook in overview/_contents both editions has editorial:manual; refresh_contents.py preserves it. Details reader CSS and ToC opening adjusted. TEXTBOOK_PROGRESS.md documents limits; all-content verification PASS. Next preview remains exec5245. Session028:51 programming notes updated:12 syntax teaching cores,12 independent practices with hidden solutions and retained old code banks,4 manual course routes and23 generated contents routes. Catalog and contents tooling now put syntax before practice (12-folder regression). Original1348 files retained. All997 prior headingIDs/code blocks preserved;12 Python/JS programs executed and12 Go/Rust programs exported but not executed. Full corpus PASS; TypeScript,production build,HTTP and browser disclosure checks PASS. Preview Next production exec89386 at5000. First cold request briefly exceeded browser navigation timeout; page loaded after cache warmup. No performance claim. PROGRAMMING_TEXTBOOK.md records scope and limitations; no commit/push/deploy. Session029:114 existing language notes updated across both vaults;20 short readings and60 contextual tasks,18 grammar notes corrected and16 manual course/A1 contents. English22/Japanese24/Korean30/Chinese22 content notes plus navigation16. All1766 old IDs retained;1847 edited-note internal links and310 closed details checked. Full1348-doc audit,TypeScript,10 HTTP checks and four-course browser/disclosure checks passed. Production Session028 preview exec89386 serves changed Markdown; no app/frontend changes, rebuild,commit,push or deploy. LANGUAGES_SESSION029.md and languages-verification.json document scope/limits. Unique teaching-edited path union Sessions027-029=565; duplicate-title groups now430. Backups languages-before-session029 outside repository. Session030:140 existing notes updated in four languages A2units06-10 and16 manual course/A2 contents;20 short readings/60 tasks, both vaults retained. English30/Japanese34/Korean30/Chinese30 content notes.3225 oldIDs/all original internal links retained;2087 current internal links and622 closed details checked. Full1348-doc audit,TypeScript,13HTTP incl308query/404 and browser route/four-course/disclosures pass. Source-grounded grammar/old-key fixes and English lifestyle overclaims corrected. Existing production exec89386 serves Markdown; no app/frontend changes,rebuild,commit,push/deploy. LANGUAGES_SESSION030.md records scope and limits. Whole corpus423141lines;420 duplicate-title groups;unique teaching-edited path union Sessions027-030=665. Next main units11-15;1636 unfinished Chinese reference rows unchanged. Session032:136 existing notes updated in four languages B1units11-15 and16 manual course/B1 contents.20 short readings/60 tasks;English30/Japanese30/Korean30/Chinese30 content notes;3151 oldIDs/all original internal links retained,2205 current links and552 closed details checked. Full1348-doc/1217legacy-target audit,TypeScript,24HTTP and browser routes/disclosures PASS. Independent peer reviews corrected English archive-cost evidence, Korean speaker identity and embedded-question instruction. Corpus429655lines;410 duplicate-title groups;unique teaching-edited union Sessions027-032=765. Whole-file duplicate audit244groups/244copies;582same-path pairs240same/342different. reports/session032/README.md documents exact scope and limits; scripts/editorial/session032 holds one-time guarded editors/safe checks. Existing Next production exec89386 serves Markdown. No app/frontend changes,rebuild,commit,push/deploy. Mainroutefirst15 complete;long banks/dialogues/vocabulary/tests/1636 unfinished Chinese rows remain pending. Session033 (2026-10-19):136 existing notes updated (four languages A1units01-05 vocabulary/dialogue/test +16 contents).200 active positions,20 role dialogues,20 fair explained self-checks repeated both vaults. English40 and Korean40 logical numbered check items;Japanese20 multipoint items,Chinese30 multipoint items. New scales8/8/8/10 are task-specific,not comparable level scores. Confirmed legacy gaps,keys,readings,role mismatches and overclaims corrected. Peer reviews fixed optional-water price in English and answer leakage from open Chinese criteria.1683 oldIDs/all oldlinks retained;2683 currentlinks/336closed details checked. Full1348docs/1217legacytargets audit,TypeScript,30HTTP and browser PASS. Corpus437321lines;395titleduplicate groups;teaching-edited union845paths. Whole-file SHA256239duplicate groups;582mirrorpairs235same/347different. Next production restored from prior build on127.0.0.1:5000 exec41795 after old preview stopped;initial cold browser navigation timed out,then warmed loaded and allchecks passed. No app/frontend edits,rebuild,commit,push/deploy. Reports andtools grouped under reports/session033 andscripts/editorial/session033. Before-images immutable outside repo languages-before-session033. Next support units06-15 and long-bank review;1636 unfinished Chinese reference rows untouched. Session034 (2026-10-19): user authorized commit/push. Read-only packaging audit found no dependency/build/env/key/backup candidates, largest candidate193387bytes. Fetched origin/main identical to local before commit. Fresh TypeScript/full1348-doc1217-target audit PASS. Next16.4.2 production webpack build in normal Temp copy PASS after automatic retries of static error/not-found pages; copy removed after unlinking dependency junction, original node_modules preserved. Default whitespace check flags retained Markdown hardbreaks and legacy EOF blanks; structural whitespace check with blank-at-eol/blank-at-eof ignored PASS. Primary commit c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e pushed after user completed Git Credential Manager login; remote ls-remote confirms sameSHA. Committed1348notes/all1217redirect targets verified. No force push or external hosting action. Completion record committed separately. Session035 (2026-10-24): user-authorized removal of Python application stack completed after interruption. Baseline includes incomingfb2eec9; all1348MD bytes/public/legacy map unchanged. Removed obsolete Flask/runtime/templates/static, one-time organizer and redundant Python editors. TypeScript contents refresh defaults dry-run and preserves manual bytes/rawmetadata/oldIDs;131pages(38manual),1515candidate links,619oldIDs;42pending updates notapplied. Marker counter ported toTS. Optional Anki/count helpers and educational Python retained. Current instructions Node-only. tsc/fullcorpus/contents/isolatedNext16.4.2webpack build with noPython inPATH/23HTTP/programming997oldIDs+6JS pass.18 interpreter/compiler examples exported only. Preview restored5000exec19335 existingbuild; QA5001stopped/tempbuildremoved. No commit/push/Docker/externaldeploy. Report reports/session035/README.md. Session036 (2026-10-24 to25): user requested grammar only in English/Japanese/Korean.180existing core/usage notes in first15units perlanguage improved, bothvaults retained;45focused cores and90logicalgrammar pages. Newchecks peredition73English numbereditems/45Japanese/45Korean mini-checks, not comparable scores. Concrete false blanket rules corrected, unique old banks retained with explicit limits. Fourpeerclarities fixed: Englishmealarticle adjectiveexample/checkingprompt; Japanesecomparative notation/completeたらchoice. All4268oldIDs/oldinternal links retained;1168otherMarkdown bytes unchanged. Full1348corpus/1217legacytargets,tsc,targetedpreservation,31HTTP,browsercontent/disclosures PASS. JapaneseeditorTS7022 fixed with explicit type; no runtime changes. Initial authoring interrupted, resumed tofinishreviews/reports; no one-time editor reapplied onresume. Reports/tools grouped session036; prior035cleanup untouched. Preview19335on5000verified; QA tabclosed/screenshotsoutside repo. No newbuild/commit/push/deploy. Continue grammar retainedbanks inthree selectedlanguages.",
+  "session035": {
+    "date": "2026-10-24",
+    "status": "complete",
+    "report": "reports/session035/README.md",
+    "unchangedMarkdown": 1348,
+    "legacyTargets": 1217,
+    "knowledgeEdits": 0,
+    "contents": {
+      "existing": 131,
+      "manualPreserved": 38,
+      "generated": 93,
+      "previousIdsPreserved": 619,
+      "candidateLinksValidated": 1515,
+      "pendingGeneratedRefresh": 42,
+      "applied": 0
+    },
+    "checks": [
+      "typecheck PASS",
+      "full corpus PASS",
+      "contents fixtures/read-only library PASS",
+      "Node-only PATH production webpack build PASS",
+      "23 HTTP checks PASS",
+      "1348-note SHA256 preservation PASS",
+      "programming verification997 old IDs /6JS executed /18 optional runs skipped PASS",
+      "independent diff review PASS"
+    ],
+    "optionalPythonHelpers": [
+      "knowledge/count_stats.py",
+      "knowledge/knowledge/tools/export_to_anki.py"
+    ],
+    "localPreviewExec": 19335,
+    "temporaryBuildCopyRemoved": true,
+    "commitOrPush": false
+  },
+  "session036": {
+    "started": "2026-10-24",
+    "completed": "2026-10-25",
+    "status": "complete",
+    "report": "reports/session036/README.md",
+    "languages": [
+      "english",
+      "japanese",
+      "korean"
+    ],
+    "logicalUnits": 45,
+    "grammarFiles": 180,
+    "retainedEditions": 2,
+    "untouchedMarkdown": 1168,
+    "previousIds": 4268,
+    "currentInternalLinks": 919,
+    "closedDetails": 510,
+    "notesByLanguage": {
+      "english": {
+        "notes": 60,
+        "previousIds": 1183,
+        "internalLinks": 245,
+        "closedDetails": 90
+      },
+      "japanese": {
+        "notes": 60,
+        "previousIds": 1086,
+        "internalLinks": 449,
+        "closedDetails": 218
+      },
+      "korean": {
+        "notes": 60,
+        "previousIds": 1999,
+        "internalLinks": 225,
+        "closedDetails": 202
+      }
+    },
+    "newChecksPerEdition": {
+      "englishNumberedItems": 73,
+      "japaneseMiniChecks": 45,
+      "koreanMiniChecks": 45
+    },
+    "verification": {
+      "typecheck": "PASS",
+      "fullCorpus": "PASS1348docs/1217legacytargets",
+      "targetedPreservation": "PASS",
+      "http": "PASS31checks",
+      "independentPeerReview": "PASS, four local teaching clarities resolved",
+      "browser": "English01/Japanese13/Korean12 content and disclosures PASS"
+    },
+    "applicationEdits": 0,
+    "productionRebuild": false,
+    "commitOrPush": false,
+    "previewExec": 19335,
+    "limits": "Retained long banks have targeted corrections and explicit incomplete-review notices; no exhaustive old-bank/phonetic/audio/exam-completeness claim."
+  },
+  "session037": {
+    "started": "2026-10-25",
+    "completed": "2026-10-26",
+    "status": "complete",
+    "report": "reports/session037/README.md",
+    "candidateFiles": 60,
+    "changedFiles": 41,
+    "unchangedMarkdown": 1307,
+    "notesByLanguage": {
+      "english": {
+        "notes": 13,
+        "previousIds": 348,
+        "internalLinks": 45
+      },
+      "japanese": {
+        "notes": 15,
+        "previousIds": 407,
+        "internalLinks": 111
+      },
+      "korean": {
+        "notes": 13,
+        "previousIds": 326,
+        "internalLinks": 30
+      }
+    },
+    "previousIds": 1081,
+    "currentInternalLinks": 186,
+    "session036TeachingEntries": "unchanged",
+    "verification": {
+      "typecheck": "PASS",
+      "fullCorpus": "PASS1348docs/1217legacytargets",
+      "scopeAndPreservation": "PASS",
+      "http": "PASS31checks",
+      "peerReview": "PASS allthree; Korean adjacent consistency resolved"
+    },
+    "productionRebuild": false,
+    "commitOrPush": false,
+    "limits": "Concrete rules/examples/keys; no exhaustive phonetic/audio/cultural/exam audit."
+  },
+  "session038": {
+    "date": "2026-10-26",
+    "status": "complete",
+    "report": "reports/session038/README.md",
+    "candidateFiles": 12,
+    "changedFiles": 9,
+    "unchangedMarkdown": 1339,
+    "ruleEntries": 36,
+    "physicalReplacementOccurrences": 66,
+    "notesByLanguage": {
+      "english": {
+        "notes": 3,
+        "previousIds": 60,
+        "internalLinks": 13
+      },
+      "japanese": {
+        "notes": 3,
+        "previousIds": 90,
+        "internalLinks": 21
+      },
+      "korean": {
+        "notes": 3,
+        "previousIds": 188,
+        "internalLinks": 10
+      }
+    },
+    "previousIds": 338,
+    "currentInternalLinks": 44,
+    "session036TeachingEntries": "exact bytes unchanged",
+    "verification": {
+      "authoringPlan": "PASS --check",
+      "scopeAndPreservation": "PASS",
+      "renderedWeatherTables": "PASS2tables/12rows",
+      "fullCorpus": "PASS1348docs/1217legacytargets before final English paragraph relocation; final scope/layout/HTTP repeated",
+      "typecheck": "PASS",
+      "http": "PASS22checks",
+      "reportLinks": "PASS58local links"
+    },
+    "independentPeerReview": false,
+    "applicationEdits": 0,
+    "productionRebuild": false,
+    "commitOrPush": false,
+    "limits": "Selected retained rules/examples/translations; no exhaustive phonetic/audio/cultural/exam audit. Primary source access limits in README."
+  },
+  "session039": {
+    "date": "2026-10-26",
+    "status": "ready-for-commit",
+    "report": "reports/session039/README.md",
+    "branch": "main",
+    "baseCommit": "fb2eec9199319085b11401fe0ec291d26fd6be60",
+    "stagedFiles": 271,
+    "index": {
+      "modified": 197,
+      "deletedLegacyFiles": 16,
+      "added": 58,
+      "grammarMarkdown": 180,
+      "unstaged": 0,
+      "untracked": 0,
+      "knowledgeDeletions": 0
+    },
+    "checks": {
+      "typecheck": "PASS",
+      "contents": {
+        "result": "PASS",
+        "pages": 131,
+        "manual": 38,
+        "links": 1515,
+        "priorIds": 619,
+        "pendingGeneratedRefresh": 42,
+        "writtenKnowledgeFiles": 0
+      },
+      "fullCorpus": {
+        "result": "PASS",
+        "documents": 1348,
+        "legacyTargets": 1217
+      },
+      "build": {
+        "result": "PASS",
+        "next": "16.4.2",
+        "bundler": "webpack",
+        "isolated": true,
+        "pythonOnPath": false,
+        "sandboxAttempt": "EPERM; retry with permitted access PASS"
+      },
+      "http": {
+        "result": "PASS",
+        "freshBuildChecks": 25,
+        "originalPreviewHealth": 200
+      },
+      "knowledgeSha256": {
+        "result": "PASS",
+        "unchangedSincePreparationStart": 1348
+      },
+      "ignoreCases": 9,
+      "credentialLiteralCandidates": 0,
+      "unexpectedUntrackedFiles": 0,
+      "trackedBuildOrEnvArtifacts": 0,
+      "gitIdentityConfigured": true,
+      "node": "v24.22.1",
+      "whitespace": "PASS with intentional Markdown hardbreak/EOF whitespace retained"
+    },
+    "knowledgeUnchanged": 1348,
+    "temporaryBuildRemoved": true,
+    "temporaryServerStopped": true,
+    "commitCreated": false,
+    "pushed": false
+  },
+  "session040": {
+    "date": "2026-10-26",
+    "status": "complete-audit",
+    "report": "reports/session040/README.md",
+    "railway": {
+      "localNodeStart": "PASS PORT5002/0.0.0.0/2HTTP",
+      "defaultStandaloneBuild": "PASS NEXT_STANDALONE=1 pnpm build(Turbopack)",
+      "pnpm": "11.25.0",
+      "node": "v24.22.1",
+      "offlineFrozenInstall": "PASS74packages/0downloads",
+      "runtime": "PASS standalone/original link topology/no parent node_modules/NODE_PATH empty",
+      "packagedNotes": 1348,
+      "standaloneHttpChecks": 28,
+      "totalHttpChecks": 30,
+      "healthcheckHostname": "PASS healthcheck.railway.app",
+      "repeatedRedirectParameters": "PASS",
+      "dockerCliAvailable": false,
+      "linuxContainerTested": false,
+      "remoteServiceSettingsChecked": false,
+      "remoteDeploymentPerformed": false
+    },
+    "githubPages": {
+      "status": "UNSUPPORTED_CURRENT_APPLICATION",
+      "workflowPresent": false,
+      "fullStaticConversionImplemented": false,
+      "remoteSettingsChecked": false
+    },
+    "verification": {
+      "typecheck": "PASS",
+      "contents": "PASS131pages/38manual/1515links/619IDs/0writes;42pendingrefresh unapplied",
+      "fullCorpus": "PASS1348documents/1217legacytargets/links/fragments/IDs/hierarchy/search",
+      "knowledgeSha256": "PASS1348unchanged",
+      "originalPreviewHealth": 200,
+      "originalDependenciesPreserved": true,
+      "localDocumentationLinks": "PASS22"
+    },
+    "knowledgeEdits": 0,
+    "runtimeSourceChanges": 0,
+    "priorStagedFiles": 271,
+    "stagedFiles": 278,
+    "temporaryFixturesRemoved": true,
+    "commitCreated": false,
+    "pushed": false
+  },
+  "session041": {
+    "date": "2026-10-26",
+    "status": "publishing",
+    "userAuthorizedPush": true,
+    "stagedFiles": 278,
+    "grammarFiles": 180,
+    "unexpectedArtifacts": 0,
+    "credentialLiteralCandidates": 0,
+    "binaryFiles": 0,
+    "trackedBuildEnvArtifacts": 0,
+    "remoteBefore": "fb2eec9199319085b11401fe0ec291d26fd6be60",
+    "verification": "Session040 typecheck/contents/full-corpus/default standalone build and30HTTP PASS; runtime/content unchanged since checks. Session041 staged-blob audit and whitespace PASS.",
+    "pushed": false
+  }
 }

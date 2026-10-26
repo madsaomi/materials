@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26",
+  "status": "PASS",
+  "command": "node scripts/start.mjs",
+  "configuredPort": 5002,
+  "host": "0.0.0.0",
+  "checks": [
+    {
+      "route": "/healthz",
+      "status": 200
+    },
+    {
+      "route": "/static/js/site.js",
+      "status": 200
+    }
+  ]
+}

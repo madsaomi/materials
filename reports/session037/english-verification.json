@@ -1,0 +1,299 @@
+{
+  "mode": "dry-run",
+  "reviewedCandidates": 20,
+  "changedFiles": 13,
+  "preservedIds": 452,
+  "preservedInternalLinks": 65,
+  "aliases": 3,
+  "notes": [
+    {
+      "slug": "languages/english/a1/unit-01/grammar/core",
+      "ids": 16,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "852a0e0f2aa61d977027536cc35a3de159b08cb2e89181033a1f259cbcd4041e"
+    },
+    {
+      "slug": "languages/english/a1/unit-01/grammar/usage",
+      "ids": 15,
+      "links": 4,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "2abc3994fdb6473ae42ea4adb96c200b4f67df4735e18aee403cc08ed70bd3b4"
+    },
+    {
+      "slug": "languages/english/a1/unit-02/grammar/core",
+      "ids": 23,
+      "links": 0,
+      "aliases": 1,
+      "repairs": [
+        "verb-types",
+        "collocations",
+        "it",
+        "it-source",
+        "negative-be",
+        "possessive-term",
+        "a-an",
+        "profession-article",
+        "plural-f",
+        "plural-source",
+        "complement",
+        "complement-table",
+        "question-scope"
+      ],
+      "changed": true,
+      "afterSha256": "8ef63b534990c2cb839301f9fa4a550b59c668dfcdd38379abbed6bebae9097c"
+    },
+    {
+      "slug": "languages/english/a1/unit-02/grammar/usage",
+      "ids": 14,
+      "links": 4,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "9a45a12a6f03f298d8ae15c984b2460c76be8104f988cedef3fac7fe6d470af0"
+    },
+    {
+      "slug": "languages/english/a1/unit-03/grammar/core",
+      "ids": 33,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "little-comparison",
+        "adverb-comparison",
+        "adverb-source",
+        "sentence-pattern",
+        "ordinal-the",
+        "ordinal-spelling",
+        "uncountable-the",
+        "uncountable-source",
+        "some-any",
+        "few-little",
+        "this-term",
+        "there-is"
+      ],
+      "changed": true,
+      "afterSha256": "dbb67062831cfa3c412fd4f965a397d677f2b9cb9fee55439d97e8619894dea3"
+    },
+    {
+      "slug": "languages/english/a1/unit-03/grammar/usage",
+      "ids": 15,
+      "links": 4,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "8e91923c8249dc20a3bd4d570db07bbc6259e9ff6807c27231424d32eea72015"
+    },
+    {
+      "slug": "languages/english/a1/unit-04/grammar/core",
+      "ids": 45,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "its-animal",
+        "genitive-of",
+        "adjective-position",
+        "adjective-order",
+        "third-person-o",
+        "third-person-source",
+        "liking"
+      ],
+      "changed": true,
+      "afterSha256": "4f29f601b8393a718c22245832fff690bd4f1caeb46b2576456df3362b2bde50"
+    },
+    {
+      "slug": "languages/english/a1/unit-04/grammar/usage",
+      "ids": 14,
+      "links": 4,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "2aa398241343a018ced762004230a612eb3304fcc354303bb1f8237ad27fe1ea"
+    },
+    {
+      "slug": "languages/english/a1/unit-05/grammar/core",
+      "ids": 23,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "quantity-table",
+        "meal-article",
+        "meal-source",
+        "third-person-spelling",
+        "like-to",
+        "would-like",
+        "would-like-time",
+        "like-source",
+        "future-continuous-use",
+        "future-markers",
+        "mistake-context",
+        "fruit"
+      ],
+      "changed": true,
+      "afterSha256": "e50742cdaf04580e2fdf5cdbf148f854fda1eda71099c8f29ddb9831496f0f00"
+    },
+    {
+      "slug": "languages/english/a1/unit-05/grammar/usage",
+      "ids": 14,
+      "links": 4,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "713b661a0cf6cfce275735d57791d1140c622386bf7026758df1db9d14e352cd"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-01/grammar/core",
+      "ids": 16,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [],
+      "changed": false,
+      "afterSha256": "852a0e0f2aa61d977027536cc35a3de159b08cb2e89181033a1f259cbcd4041e"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-01/grammar/usage",
+      "ids": 20,
+      "links": 9,
+      "aliases": 0,
+      "repairs": [
+        "question-mnemonic"
+      ],
+      "changed": true,
+      "afterSha256": "dcd184dc3e937140ce2899397bb5230dfedf38fed358b327d2e2ed9211fa3aa9"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-02/grammar/core",
+      "ids": 23,
+      "links": 0,
+      "aliases": 1,
+      "repairs": [
+        "verb-types",
+        "collocations",
+        "it",
+        "it-source",
+        "negative-be",
+        "possessive-term",
+        "a-an",
+        "profession-article",
+        "plural-f",
+        "plural-source",
+        "complement",
+        "complement-table",
+        "question-scope"
+      ],
+      "changed": true,
+      "afterSha256": "8ef63b534990c2cb839301f9fa4a550b59c668dfcdd38379abbed6bebae9097c"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-02/grammar/usage",
+      "ids": 20,
+      "links": 9,
+      "aliases": 0,
+      "repairs": [
+        "phrasal-position",
+        "stative-context"
+      ],
+      "changed": true,
+      "afterSha256": "df9b83116513e0f7a8cc1d35e9358023c3fe8cc60d584dee70106c90337316c1"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-03/grammar/core",
+      "ids": 33,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "little-comparison",
+        "adverb-comparison",
+        "adverb-source",
+        "sentence-pattern",
+        "ordinal-the",
+        "ordinal-spelling",
+        "uncountable-the",
+        "uncountable-source",
+        "some-any",
+        "few-little",
+        "this-term",
+        "there-is"
+      ],
+      "changed": true,
+      "afterSha256": "dbb67062831cfa3c412fd4f965a397d677f2b9cb9fee55439d97e8619894dea3"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-03/grammar/usage",
+      "ids": 20,
+      "links": 9,
+      "aliases": 1,
+      "repairs": [
+        "linking-context",
+        "double-comparative-heading",
+        "double-comparative-scope"
+      ],
+      "changed": true,
+      "afterSha256": "b56063e7d249ed66231f6b65ab5c7d6acf415ab8bcb1bf63d31f1e89ca06dd2e"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-04/grammar/core",
+      "ids": 45,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "its-animal",
+        "genitive-of",
+        "adjective-position",
+        "adjective-order",
+        "third-person-o",
+        "third-person-source",
+        "liking"
+      ],
+      "changed": true,
+      "afterSha256": "4f29f601b8393a718c22245832fff690bd4f1caeb46b2576456df3362b2bde50"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-04/grammar/usage",
+      "ids": 21,
+      "links": 9,
+      "aliases": 0,
+      "repairs": [
+        "enjoy-object"
+      ],
+      "changed": true,
+      "afterSha256": "cd3a7e30a6f647a168e9505555b40db149429dffdea0c072a50b9ef55756b8c4"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-05/grammar/core",
+      "ids": 23,
+      "links": 0,
+      "aliases": 0,
+      "repairs": [
+        "quantity-table",
+        "meal-article",
+        "meal-source",
+        "third-person-spelling",
+        "like-to",
+        "would-like",
+        "would-like-time",
+        "like-source",
+        "future-continuous-use",
+        "future-markers",
+        "mistake-context",
+        "fruit"
+      ],
+      "changed": true,
+      "afterSha256": "e50742cdaf04580e2fdf5cdbf148f854fda1eda71099c8f29ddb9831496f0f00"
+    },
+    {
+      "slug": "knowledge/languages/english/a1/unit-05/grammar/usage",
+      "ids": 19,
+      "links": 9,
+      "aliases": 0,
+      "repairs": [
+        "few-not-evaluation"
+      ],
+      "changed": true,
+      "afterSha256": "f5230752db00766643ce23713bc0a0dd59664347f23e88efa7dcf3de1b5fe4e0"
+    }
+  ]
+}

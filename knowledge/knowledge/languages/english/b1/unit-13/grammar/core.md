@@ -6,6 +6,38 @@ editorial_session: 32
 ---
 # Английский · Урок 13 — грамматика: Правила компьютерной комнаты: обязанность и выбор
 
+## Основной разбор: нужно, нельзя или можно не делать
+
+**Must** и **have to** выражают необходимость; **should** обычно даёт совет. Но отрицания различаются особенно сильно: **mustn't** запрещает действие, **don't have to** разрешает его не делать.
+
+| Смысл | Форма | Пример и перевод |
+|---|---|---|
+| Обязанность | must + V / have to + V | You must sign in. — Вы обязаны зарегистрироваться. |
+| Внешняя необходимость | have/has to + V | Jo has to leave at six. — Джо нужно уйти в шесть. |
+| Запрет | mustn't + V | You mustn't copy this file. — Этот файл копировать нельзя. |
+| Нет необходимости | don't/doesn't have to + V | You don't have to print it. — Печатать это необязательно. |
+| Совет | should/shouldn't + V | You should save your work. — Вам стоит сохранить работу. |
+
+После must/should базовый глагол стоит без to; окончание -s не добавляется: **She must leave**, не **musts to leave**. Have to изменяется: **She has to leave. Does she have to leave?** Для прошлой обязанности: **She had to leave** — «Ей пришлось уйти».
+
+### Источник обязанности не сводится к двум жёстким ящикам
+
+**I must call Jo** может выражать решение говорящего, а **I have to call Jo** — необходимость по обстоятельствам. Однако must также встречается в правилах учреждения: **Visitors must sign in** — «Посетители обязаны зарегистрироваться». Не объявляйте must только внутренним чувством, а have to — исключительно чужим приказом.
+
+### Условие и следствие
+
+**If you finish early, you can leave** — «Если закончите рано, можете уйти». В обычном условии о будущем используется Present Simple, а результат может содержать can, will или приказ. **If you press this key, the light comes on** описывает правило конкретного учебного устройства; грамматическая форма не доказывает его применимость к любому устройству.
+
+### Проверьте отрицание по смыслу
+
+**You mustn't bring food** — «Еду приносить нельзя». **You don't have to bring food** — «Еду приносить необязательно». Заменив одно другим, вы измените правило, а не степень вежливости.
+
+[British Council: permission and obligation](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/modals-permission-obligation) подтверждает различие запрета, отсутствия обязанности и необходимости.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебная модель
 
 Разделяйте смысл отрицаний: mustn’t = запрещено; don’t have to = обязанности нет. Should задаёт совет в данной ситуации. После must/should не ставится to; у have to есть согласование и do-вопрос: He has to book → Does he have to book?
@@ -300,5 +332,3 @@ Present Simple описывает **регулярные действия, пр�
 ## Источники уточнений
 
 [Основное правило](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/modals-permission-obligation). Ситуация и задания написаны для библиотеки. [Cambridge: if и условия](https://dictionary.cambridge.org/grammar/british-grammar/third-conditional). [British Council: stative verbs](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/stative-verbs).
-
-

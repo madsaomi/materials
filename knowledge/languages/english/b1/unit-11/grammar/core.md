@@ -4,6 +4,37 @@ editorial_session: 32
 ---
 # Английский · Урок 11 — грамматика: Поездка: фон и последовательность событий
 
+## Основной разбор: событие целиком или момент внутри него
+
+**At eight, I was waiting for the bus** — «В восемь я ждал автобус»: в выбранный момент ожидание уже шло. **I waited for the bus for an hour** — «Я ждал автобус час»: рассказчик представляет ожидание целиком. Оба действия могут быть долгими; длительность в минутах не выбирает форму автоматически.
+
+| Задача | Форма | Пример и перевод |
+|---|---|---|
+| Прошлое событие / этап рассказа | V2 | We arrived at nine. — Мы приехали в девять. |
+| Отрицание события | didn't + V | We didn't arrive late. — Мы не опоздали. |
+| Вопрос о событии | Did + subject + V? | Did you arrive at nine? — Вы приехали в девять? |
+| Процесс в прошлый момент | was/were + V-ing | We were waiting at nine. — В девять мы ждали. |
+
+В Continuous с I/he/she/it используется was, с you/we/they — were. Вопрос: **Were you waiting?** Отрицание: **I wasn't waiting**. После did форма arrived возвращается к arrive.
+
+### Фон и новое событие
+
+**I was copying the address when my phone rang.** — Я переписывал адрес, когда зазвонил телефон. Копирование уже происходило; звонок — событие на этом фоне. Фраза не обязательно сообщает, что после звонка копирование прекратилось навсегда.
+
+**When I got home, I made tea.** — Когда я пришёл домой, я приготовил чай. Это обычная последовательность. **When I got home, Jo was making tea.** — Когда я пришёл домой, Джо готовила чай. Во втором случае процесс уже шёл при моём приходе.
+
+### Не выбирайте время только по союзу
+
+When и while связывают временные отношения, но не требуют одного-единственного времени. Сначала определите, какие действия показаны в процессе, а какие — целиком. Для обычного состояния знания нужно **I knew the address**, а не механическое **I was knowing**.
+
+Ошибка **Did she found it?** → **Did she find it?**; **We was waiting** → **We were waiting**; **I waiting at eight** → **I was waiting at eight**.
+
+[Cambridge: Past Continuous / Past Simple](https://dictionary.cambridge.org/uk/grammar/british-grammar/past-continuous-or-past-simple) подтверждает выбор перспективы на прошлое событие.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебная модель
 
 Past Simple представляет событие как целое: The driver waited. Это ожидание могло длиться некоторое время. Past Continuous показывает процесс в выбранный прошлый момент: Leila was waiting when the bus arrived.
@@ -207,7 +238,7 @@ Present Perfect рассказывает об **опыте** в жизни: ва
 | How long did you stay? | Сколько ты там пробыл? | For ten days. |
 | Did you enjoy it? | Тебе понравилось? | Yes, I did. / No, I didn't. |
 | What did you see? | Что ты видел? | We saw the pyramids. |
-| Have you ever been to...? | Ты когда-нибудь был...? | Yes, I have. / No, I've never. |
+| Have you ever been to...? | Ты когда-нибудь был...? | Yes, I have. / No, I haven't. |
 | How was the trip? | Как прошла поездка? | It was amazing! |
 
 - Короткие ответы в Past Simple строятся через did: **Yes, I did** / **No, I didn't**.
@@ -250,5 +281,3 @@ Present Perfect рассказывает об **опыте** в жизни: ва
 ## Источники уточнений
 
 [Основное правило](https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/past-continuous-past-simple). Ситуация и задания написаны для библиотеки. [British Council: Present Perfect](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect).
-
-

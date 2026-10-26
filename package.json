@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "node scripts/start.mjs",
     "typecheck": "tsc --noEmit",
-    "verify": "tsx scripts/verify-next.ts"
+    "verify": "tsx scripts/verify-next.ts",
+    "contents:refresh": "tsx scripts/refresh-contents.ts",
+    "contents:verify": "tsx scripts/verify-contents.ts",
+    "notes:markers": "tsx scripts/check-unit-markers.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

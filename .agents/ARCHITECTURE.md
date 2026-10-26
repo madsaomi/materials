@@ -1,116 +1,97 @@
-# 🏛️ Architecture & Technical Specifications
+# Application architecture — materials
 
-This document describes the architectural flow, algorithms, caching mechanisms, and design systems of `materials` (`Chishiki Knowledge Sanctuary`).
+The current application uses Next.js App Router, React and TypeScript on Node.js.
+The old Flask implementation is available in Git history.
 
----
+## Data flow
 
-## 1. High-Level Data Flow
-
-```
-[knowledge/*.md] (642 Markdown Notes)
-        │
-        ▼
-   [app.py: get_all_docs()]
-        │
-        ├── 1. Frontmatter extraction (`python-frontmatter`)
-        ├── 2. Slug calculation (`rel_path[:-3].replace('\\', '/')`)
-        ├── 3. Title resolution (Frontmatter > First H1 > Filename)
-        ├── 4. Category grouping (`slug.split('/')[0]`)
-        ├── 5. Markdown Parsing & Pygments Syntax Highlighting
-        ├── 6. Obsidian Link Rewriting (`.md` -> `/doc/...`)
-        ├── 7. Table of Contents & Heading Slugification (Code-block safe)
-        └── 8. Reading Time Estimation (Words / 200 wpm)
-        │
-        ▼
-[_docs_cache in Memory] (Invalidated on knowledge/ mtime change)
-        │
-        ├── Route `/`                  ──► index.html (Stats, Hero, Category Directory)
-        ├── Route `/doc/<path:slug>`    ──► doc.html (Article, Breadcrumbs, Prev/Next, ToC)
-        ├── Route `/api/search.json`   ──► JSON (Client-side multi-word search index)
-        └── Route `404`                ──► 404.html (Sanctuary error page)
+```text
+knowledge/**/*.md (1348 notes, both vaults)
+  → lib/knowledge.ts: getDocs()
+      gray-matter frontmatter and title
+      Markdown-it tokens and highlight.js code
+      heading IDs and ToC
+      relative .md link → /doc/... rewriting
+      plain text, outgoing links and reading time
+      cache per file: mtime + size
+  → lib/catalog.ts: folders, levels, ordered lessons and vault versions
+  → app/: server-rendered pages and JSON API
+  → public/static/: local CSS and browser behavior
 ```
 
----
+## Parsing and cache
 
-## 2. Core Modules & Mechanisms
+`getDocs()` scans non-hidden Markdown files under `knowledge/` and derives the slug
+from each relative path without `.md`, using forward slashes.
+Titles prefer frontmatter, then the first Markdown H1, then the filename.
+The cache checks file mtime and size and reparses changed files; deleted files leave the cache.
+Scans are throttled to 1.5 seconds when documents are already loaded.
+A cold request parses the library; no fixed latency is guaranteed.
 
-### 2.1 Caching Mechanism (`_docs_cache`)
-- `_knowledge_mtime()` walks `knowledge/` and checks the latest `.md` file modification time.
-- `get_all_docs()` checks if `current_mtime <= _cache_mtime`.
-- If cache is valid, it returns the in-memory `_docs_cache` instantly (0ms latency).
-- Cold start parses all 642 files in ~10-15 seconds; all subsequent requests are instantaneous.
+`renderMarkdown()` uses Markdown-it tokens so comments inside code fences do not become headings.
+The first H1 is removed from the article body because the page displays the document title.
+Remaining headings receive IDs; levels 1–3 appear in the ToC.
+`slugify()` lowercases, removes punctuation and hyphenates whitespace.
+Repeated heading slugs receive `-1`, `-2`, etc.
+Explicit old-ID spans in edited notes preserve incoming fragment links.
 
-### 2.2 Markdown Parsing & Code Fence Tracking
-In `app.py:parse_markdown(content, slug)`:
-- Markdown is parsed using `python-markdown` with extensions: `fenced_code`, `codehilite`, `tables`, `toc`.
-- **Critical Invariant:** To prevent Markdown headings regex from matching `# comment` lines inside Python/bash code blocks, the parser tracks code fence boundaries:
-  ```python
-  in_code_block = False
-  for line in content.splitlines():
-      if line.strip().startswith('```'):
-          in_code_block = not in_code_block
-          continue
-      if in_code_block:
-          continue  # Skip comments inside code blocks
-      ...
-  ```
-  *(This invariant rescues over 1,200 code comments from polluting the Table of Contents).*
+Relative `.md` targets are resolved against the current slug with POSIX path operations,
+then rendered as encoded `/doc/...` URLs with query/fragment suffixes preserved.
+Source Markdown remains suitable for Obsidian.
 
-### 2.3 Heading Anchors & Deduplication
-- Headings are slugified via GitHub-style slugification:
-  `slugify(title): lowercase, remove punctuation, replace whitespace with '-'`.
-- Per-document slug collision handling: If multiple headings in a note produce the same slug (e.g. multiple `### Summary`), `app.py` tracks `seen_slugs` and appends `-1`, `-2`, etc.
+## Catalog and navigation
 
-### 2.4 Obsidian Link Rewriter
-- Internal links in `knowledge/` are written using relative Obsidian `.md` links:
-  - Example: `[Grammar Overview](../grammar/overview.md)`
-- In `parse_markdown`, a regex rewriter matches `href="...*.md"`:
-  1. Resolves relative path against current document directory `os.path.dirname(slug)`.
-  2. Normalizes path with `os.path.normpath`.
-  3. Translates to clean `/doc/<normalized_slug>` URL.
-- **Verification Rule:** Rendered HTML must have zero leftover `href="*.md"`.
+`lib/catalog.ts` supplies labels, level names, folder trees and material order.
+The nested vault prefix is removed only for logical grouping; each physical note keeps its slug.
+The catalog can show one logical row with links to both retained versions.
+Course level labels describe organization and do not certify complete exam or CEFR coverage.
 
-### 2.5 Sequential Reading Navigation (`prev_doc` / `next_doc`)
-In `doc_detail(slug)`:
-- Categories are indexed: `categories = build_categories(docs)`.
-- Notes within the same category are sequenced.
-- The route calculates `prev_doc` and `next_doc` and passes them to `doc.html`.
-- `doc.html` renders elegant adjacent note cards at the bottom of the article.
+Document pages choose previous/next notes within the same category, vault and level.
+Related notes rank outgoing links and backlinks before neighboring content and explain the relation.
+Duplicate-title suppression in suggestions changes presentation, not files.
 
----
+`scripts/refresh-contents.ts` maintains existing `_contents.md` pages.
+The default invocation previews changes; `--apply` writes.
+Pages marked `editorial: manual` are preserved.
+The one-time reorganization is complete and must not be repeated.
 
-## 3. Client-Side Search Architecture
+## Routes
 
-- **Search Index Endpoint:** `/api/search.json` returns lightweight metadata:
-  ```json
-  [
-    {
-      "title": "...",
-      "slug": "languages/chinese/grammar/core",
-      "category": "languages / chinese"
-    }
-  ]
-  ```
-- **Modal Logic (`templates/layout.html`):**
-  - Trigger: `Cmd+K`, `Ctrl+K`, `/`, or clicking the search box in the sidebar/hero.
-  - Multi-word search: splits queries by whitespace and verifies every word matches against title, slug, or category.
-  - Highlight: matches are highlighted with `<mark class="search-highlight">`.
-  - Domain filter chips: instant filter by `Languages (語)`, `Mnemonics (記)`, `Code & Tech (術)`, `Philosophy (考)`, `Other (書)`.
-  - Keyboard navigation: `↑`, `↓` to navigate results, `Enter` to open, `ESC` to close.
+| Path | Role |
+| --- | --- |
+| `/` | Folder catalog, sorting, pagination and views |
+| `/doc/[...slug]` | Document, ToC, breadcrumbs, adjacent and related notes |
+| `/api/search.json` | Metadata for all 1348 documents |
+| `/api/search?q=...&domain=...` | Ranked full-text search, up to 40 results |
+| `/api/preview/[...slug]` | Plain-text excerpt and metadata, or 404 |
+| `/healthz` | Lightweight JSON health response without parsing notes |
 
----
+Missing document paths are checked against the 1217 mappings in `legacy_paths.json`.
+Mapped paths redirect with HTTP 308 and preserve query parameters, including repeated values.
+Unmapped unknown paths return 404.
 
-## 4. Design System & CSS Architecture
+## Browser state and local assets
 
-- Hand-written in `static/css/style.css` (approx. 1,000 lines of pure Vanilla CSS).
-- Zero external CSS libraries or build tools (Tailwind CDN was completely removed in Session 002 for 100% offline capability).
-- **Design Tokens:**
-  - Light mode: `--bg-paper: #f7f5f0`, `--bg-card: #ffffff`, `--text-charcoal: #2b2b2b`, `--accent-gold: #8c7853`, `--accent-vermilion: #b93838`.
-  - Dark mode: `--bg-paper: #1a1a1a`, `--bg-card: #252525`, `--text-charcoal: #e8e4de`, `--border-color: #333333`.
-- **Wabi-Sabi Components:**
-  - `.stamp-seal`: Traditional vermilion Inkan seal (`知`).
-  - `.stamp-kanji`: Subtle category kanji badge.
-  - `.hero-watermark`: Large, low-opacity calligraphy character.
-  - `.washi-card`: Glassmorphism card with micro-elevation on hover.
-  - `.toast-notification`: Animated bottom-right feedback toast.
-  - `zen-mode`: Single-click distraction-free reading mode hiding sidebar and ToC.
+`components/shell.tsx` provides shared controls.
+`public/static/css/style.css` contains the current hand-written theme and responsive layout;
+`public/static/js/site.js` implements search, disclosures, previews and reading controls.
+Browser assets are served locally.
+
+The keys `theme`, `catalogView`, `docFont` and `chishikiReadingHistory`
+preserve existing preferences. Reading history holds up to 20 notes locally and understands old slugs.
+Storage failures are caught; state remains usable during the current page session.
+Normal links perform full navigation rather than depending on a separate client router.
+
+## Runtime and verification
+
+`pnpm dev` starts development on 5000. `pnpm build` creates the production application;
+`pnpm start` uses `scripts/start.mjs`, honoring `PORT`.
+Docker builds a standalone Node 22 image and starts `node server.js` as a non-root user.
+The application needs server filesystem access to its Markdown; it is not a static export.
+
+`pnpm verify` audits corpus count, rendered links, fragments, IDs, legacy targets,
+catalog order and search. `pnpm contents:verify` checks content-maintenance behavior.
+Use HTTP and browser checks for actual routing and interaction.
+Docker execution and external deployment require separate evidence.
+Python is unnecessary for the application and normal maintenance;
+optional learning/export helpers inside the vaults may require it independently.

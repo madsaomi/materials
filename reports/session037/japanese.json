@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "mode": "applied",
+  "language": "japanese",
+  "candidatesRead": 20,
+  "changedFiles": 15,
+  "unchangedPrimaryUsage": 5,
+  "edits": 82,
+  "previousIds": 407,
+  "previousInternalLinks": 111,
+  "session036TeachingPrefixesUnchanged": true,
+  "files": [
+    {
+      "file": "knowledge/languages/japanese/a1/unit-01/grammar/core.md",
+      "edits": 5,
+      "oldIds": 31,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-01/grammar/core.md",
+      "edits": 5,
+      "oldIds": 31,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/languages/japanese/a1/unit-02/grammar/core.md",
+      "edits": 7,
+      "oldIds": 31,
+      "oldLinks": 7
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-02/grammar/core.md",
+      "edits": 7,
+      "oldIds": 31,
+      "oldLinks": 7
+    },
+    {
+      "file": "knowledge/languages/japanese/a1/unit-03/grammar/core.md",
+      "edits": 11,
+      "oldIds": 30,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-03/grammar/core.md",
+      "edits": 11,
+      "oldIds": 30,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/languages/japanese/a1/unit-04/grammar/core.md",
+      "edits": 6,
+      "oldIds": 30,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-04/grammar/core.md",
+      "edits": 6,
+      "oldIds": 30,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/languages/japanese/a1/unit-05/grammar/core.md",
+      "edits": 8,
+      "oldIds": 29,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-05/grammar/core.md",
+      "edits": 8,
+      "oldIds": 29,
+      "oldLinks": 4
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-01/grammar/usage.md",
+      "edits": 1,
+      "oldIds": 21,
+      "oldLinks": 13
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-02/grammar/usage.md",
+      "edits": 1,
+      "oldIds": 21,
+      "oldLinks": 13
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-03/grammar/usage.md",
+      "edits": 2,
+      "oldIds": 21,
+      "oldLinks": 13
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-04/grammar/usage.md",
+      "edits": 1,
+      "oldIds": 21,
+      "oldLinks": 13
+    },
+    {
+      "file": "knowledge/knowledge/languages/japanese/a1/unit-05/grammar/usage.md",
+      "edits": 3,
+      "oldIds": 21,
+      "oldLinks": 13
+    }
+  ]
+}

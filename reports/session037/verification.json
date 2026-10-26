@@ -1,0 +1,71 @@
+{
+  "session": 37,
+  "date": "2026-10-25",
+  "status": "PASS",
+  "documents": 1348,
+  "candidateFiles": 60,
+  "changedFiles": 41,
+  "unchangedMarkdown": 1307,
+  "notesByLanguage": {
+    "english": {
+      "notes": 13,
+      "previousIds": 348,
+      "internalLinks": 45
+    },
+    "japanese": {
+      "notes": 15,
+      "previousIds": 407,
+      "internalLinks": 111
+    },
+    "korean": {
+      "notes": 13,
+      "previousIds": 326,
+      "internalLinks": 30
+    }
+  },
+  "files": [
+    "knowledge/languages/english/a1/unit-01/grammar/usage",
+    "knowledge/languages/english/a1/unit-02/grammar/core",
+    "knowledge/languages/english/a1/unit-02/grammar/usage",
+    "knowledge/languages/english/a1/unit-03/grammar/core",
+    "knowledge/languages/english/a1/unit-03/grammar/usage",
+    "knowledge/languages/english/a1/unit-04/grammar/core",
+    "knowledge/languages/english/a1/unit-04/grammar/usage",
+    "knowledge/languages/english/a1/unit-05/grammar/core",
+    "knowledge/languages/english/a1/unit-05/grammar/usage",
+    "knowledge/languages/japanese/a1/unit-01/grammar/core",
+    "knowledge/languages/japanese/a1/unit-01/grammar/usage",
+    "knowledge/languages/japanese/a1/unit-02/grammar/core",
+    "knowledge/languages/japanese/a1/unit-02/grammar/usage",
+    "knowledge/languages/japanese/a1/unit-03/grammar/core",
+    "knowledge/languages/japanese/a1/unit-03/grammar/usage",
+    "knowledge/languages/japanese/a1/unit-04/grammar/core",
+    "knowledge/languages/japanese/a1/unit-04/grammar/usage",
+    "knowledge/languages/japanese/a1/unit-05/grammar/core",
+    "knowledge/languages/japanese/a1/unit-05/grammar/usage",
+    "knowledge/languages/korean/a1/unit-01/grammar/core",
+    "knowledge/languages/korean/a1/unit-02/grammar/core",
+    "knowledge/languages/korean/a1/unit-02/grammar/usage",
+    "knowledge/languages/korean/a1/unit-03/grammar/core",
+    "knowledge/languages/korean/a1/unit-04/grammar/core",
+    "knowledge/languages/korean/a1/unit-04/grammar/usage",
+    "knowledge/languages/korean/a1/unit-05/grammar/core",
+    "knowledge/languages/korean/a1/unit-05/grammar/usage",
+    "languages/english/a1/unit-02/grammar/core",
+    "languages/english/a1/unit-03/grammar/core",
+    "languages/english/a1/unit-04/grammar/core",
+    "languages/english/a1/unit-05/grammar/core",
+    "languages/japanese/a1/unit-01/grammar/core",
+    "languages/japanese/a1/unit-02/grammar/core",
+    "languages/japanese/a1/unit-03/grammar/core",
+    "languages/japanese/a1/unit-04/grammar/core",
+    "languages/japanese/a1/unit-05/grammar/core",
+    "languages/korean/a1/unit-01/grammar/core",
+    "languages/korean/a1/unit-02/grammar/core",
+    "languages/korean/a1/unit-03/grammar/core",
+    "languages/korean/a1/unit-04/grammar/core",
+    "languages/korean/a1/unit-05/grammar/core"
+  ],
+  "session036TeachingEntries": "Unchanged (line endings normalized for comparison)",
+  "limits": "Structural preservation and exact edit scope; grammar correctness is separately source-checked and peer-reviewed. No comprehensive phonetic/audio/cultural audit."
+}

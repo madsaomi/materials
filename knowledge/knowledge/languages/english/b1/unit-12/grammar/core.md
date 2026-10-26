@@ -4,6 +4,37 @@ editorial_session: 32
 ---
 # Английский · Урок 12 — грамматика: Выставка: кто сделал работу и какую выбирают
 
+## Основной разбор: какое произведение и кто его создал
+
+Относительное придаточное присоединяет описание к существительному. **The artist who painted this lives nearby** — «Художник, который это написал, живёт рядом». Who обозначает artist и является подлежащим painted; новое he после who не нужно.
+
+| Что обозначаем | Пример | Перевод |
+|---|---|---|
+| Человек | the guide who helps us | экскурсовод, который нам помогает |
+| Предмет | the picture which hangs here | картина, которая здесь висит |
+| Принадлежность | the artist whose work won | художник, чья работа победила |
+| Объект действия | the picture (that) I chose | картина, которую я выбрал |
+
+В defining clause описание помогает определить, о ком/чём идёт речь; запятые обычно не ставятся. That может заменять who/which в таких конструкциях. Если местоимение — дополнение, его можно опустить: **the picture I chose**. Если оно подлежащее в полной личной конструкции, просто удалить его нельзя: **the guide helps us** перестало бы быть тем же придаточным.
+
+### Добавочная информация и запятые
+
+**Nora, who runs the gallery, is here.** — Нора, которая руководит галереей, здесь. Имя уже определяет человека; придаточное добавляет сведения. В таком non-defining clause сохраняются who/which, а that и простое опущение местоимения не подходят.
+
+Не удваивайте роль: **the picture that I chose it** → **the picture that I chose**. That и it здесь претендовали бы на одно дополнение.
+
+### Изменение фокуса: актив и пассив
+
+**Nora painted the doors in 2023** — «Нора покрасила двери в 2023 году». **The doors were painted by Nora in 2023** — «Двери были покрашены Норой в 2023 году». В пассиве меняется фокус, но сохраняются исполнитель, время и предметы.
+
+Пассив в Past Simple: **was/were + V3**; в Present Simple: **am/is/are + V3**. Число определяется новым подлежащим: the doors **were** painted. Если исполнитель неизвестен, by не требует выдуманного имени.
+
+[British Council: relative clauses](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses); [British Council: passives](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives).
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## Учебная модель
 
 В defining clause уточняется предмет: the painting (that) Noor likes. That — дополнение, поэтому его можно опустить. В the artist who painted it местоимение who выполняет роль подлежащего и в этой полной конструкции остаётся.
@@ -342,5 +373,3 @@ Whose brother сообщает принадлежность. При активе
 ## Источники уточнений
 
 [Основное правило](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses). Ситуация и задания написаны для библиотеки. [British Council: non-defining clauses](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-non-defining-relative-clauses). [British Council: пассив](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives).
-
-

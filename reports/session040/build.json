@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "command": "NEXT_STANDALONE=1 pnpm build",
+  "pnpm": "11.25.0",
+  "bundler": "Turbopack",
+  "node": "v24.22.1",
+  "isolatedDependencies": true,
+  "installedOffline": true,
+  "downloadedPackages": 0,
+  "standaloneInternalLinks": 25,
+  "standaloneExternalLinks": 0,
+  "detachedRuntime": "Original standalone output; all links internal; parent node_modules renamed away; NODE_PATH empty; public and .next/static copied",
+  "packagedNotes": 1348,
+  "legacyMapIdentical": true,
+  "windowsCopyProbe": "Flattening pnpm link topology produced missing @swc/helpers; flattened copy discarded from final runtime test",
+  "initialJunctionBuild": "27traces skipped outside root; diagnostic only, replaced with offline local dependency installation"
+}

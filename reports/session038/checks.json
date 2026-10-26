@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-26",
+  "status": "PASS",
+  "fullCorpus": {
+    "documents": 1348,
+    "legacyTargets": 1217,
+    "result": "PASS after final Japanese wording, before English paragraph layout relocation"
+  },
+  "finalChecks": {
+    "scopeAndPreservation": "PASS",
+    "weatherPrepositionTables": "PASS2tables/12rows",
+    "exactAuthoringPlan": "verify-current",
+    "typecheck": "PASS",
+    "http": "PASS22checks",
+    "reportLinks": "PASS58local links (037+038+rootREADME)",
+    "whitespace": "PASS; Markdown hardbreak/EOF whitespace retained",
+    "applicationScope": "app/components/public/libknowledge/legacyPaths/config/lockfile unchanged"
+  },
+  "independentPeerReview": false,
+  "productionRebuild": false,
+  "commitOrPush": false
+}

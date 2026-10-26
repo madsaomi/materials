@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-24",
+  "status": "PASS",
+  "baselineCommit": "fb2eec9199319085b11401fe0ec291d26fd6be60",
+  "corpus": {
+    "documents": 1348,
+    "byteIdenticalToSessionBaseline": 1348,
+    "legacyTargets": 1217,
+    "knowledgeEdits": 0,
+    "publicAssetEdits": 0
+  },
+  "typecheck": "PASS",
+  "fullVerifier": {
+    "documents": 1348,
+    "legacyPaths": 1217,
+    "folders": 403,
+    "errors": []
+  },
+  "contents": {
+    "status": "PASS",
+    "existing": 131,
+    "manualBytesPreserved": 38,
+    "generated": 93,
+    "candidateLinksValidated": 1515,
+    "previousIdsPreserved": 619,
+    "generatedPagesPendingRefresh": 42,
+    "knowledgeFilesWritten": 0,
+    "checkExitCode": 1,
+    "checkExitExplanation": "Expected pending generated updates; dry-run only, no editorial changes applied."
+  },
+  "productionBuild": {
+    "status": "PASS",
+    "next": "16.4.2",
+    "node": "24.22.1",
+    "compiler": "webpack",
+    "isolatedCopy": true,
+    "pythonAbsentFromPath": true,
+    "dockerExecuted": false,
+    "externalDeployment": false
+  },
+  "programmingVerification": {
+    "notes": 51,
+    "retainedOriginalHeadingIds": 997,
+    "executedJavaScript": 6,
+    "notExecutedOptInInterpreters": 18
+  },
+  "unitMarkerAudit": {
+    "total": 2,
+    "changed": false,
+    "scope": "A2/B1 units06-15 in both vaults; English/Japanese/Korean/Chinese"
+  },
+  "retainedOptionalPython": [
+    "knowledge/count_stats.py",
+    "knowledge/knowledge/tools/export_to_anki.py"
+  ],
+  "commitOrPushPerformed": false
+}

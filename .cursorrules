@@ -1,24 +1,25 @@
-# .cursorrules — Cursor IDE Rules for materials
+# Cursor rules — materials
 
-You are an AI assistant working on the "materials" repository. You must follow these inviolable rules:
+Read AGENTS.md, .agents/STATE.json, .agents/ACTIVE_PLAN.md and .agents/RULES.md before work.
+Resume an active checklist step after checking current files; do not repeat completed work.
+Maintain [x] completed, [/] active and [ ] pending. Update state after verification.
+The session log .agents/history/agent-session-log.md is strictly append-only.
 
-1. READ STATE & LIVE PLAN FIRST:
-   - Before answering or making any changes, inspect `.agents/STATE.json` and `.agents/ACTIVE_PLAN.md`.
-   - If an ongoing task is in progress (marked with `[/]`), resume from that exact point.
-   - Maintain the 3-state checklist in `.agents/ACTIVE_PLAN.md` (`[x]`, `[/]`, `[ ]`) as you work.
+Stack: TypeScript + Next.js App Router + React, Node.js 22+, pnpm 11.25.0.
+Application runtime, normal contents maintenance and site verification require no Python.
+Python educational notes remain; the removed Flask implementation is available in Git history.
+Optional educational/export helpers inside the vaults may use Python independently; preserve their note links.
+Current CSS/JS is public/static/. Keep browser assets local; no CDN, Astro or Tailwind.
 
-2. STRICT APPEND-ONLY SESSION LOGGING:
-   - NEVER overwrite or truncate past sessions in `.agents/history/agent-session-log.md`.
-   - When concluding your work, append a new session (`## Session XXX - <Date>`) with all actions taken and verification results.
+Preserve 1348 UTF-8 Markdown documents, both vaults, relative .md links,
+1217 legacy mappings with query parameters, old heading anchors and localStorage keys.
+Code comments inside fenced blocks must not become headings. Keep CJK output safe for Windows consoles.
+Never repeat the one-time folder migration. Preserve editorial: manual contents pages.
 
-3. ARCHITECTURAL INVARIANTS:
-   - Pure Python Flask + Jinja2 + Vanilla CSS (`static/css/style.css`).
-   - ZERO Node.js / NPM / Astro / Tailwind build tools. Never introduce package.json or node_modules.
-   - 100% offline self-containment. No external CDNs.
-   - Windows CP1251 Console: Never print() CJK characters directly in the console (UnicodeEncodeError). Write verification output to files.
-   - Internal links: Relative Obsidian `.md` links (e.g. `../grammar/core.md`). Flask rewrites them to `/doc/...`.
+pnpm contents:refresh performs a dry run; pnpm contents:refresh --apply writes changes.
+Run pnpm typecheck, pnpm contents:verify, pnpm verify and pnpm build before handoff.
+Check /, /api/search.json (1348 entries), sample /doc/ pages, unknown paths 404,
+legacy 308 redirects with queries, /api/search and /api/preview where affected.
+See MIGRATION_NEXT.md for setup and deployment details.
 
-4. VERIFICATION BEFORE HANDOFF:
-   - Test client check: GET `/` (200), GET `/api/search.json` (200, 642 entries), sample `/doc/<slug>` (200, 0 leftover `.md` hrefs).
-
-2026-10-18 OVERRIDE: User approved Next.js + TypeScript migration. Earlier no-Node/Python-only constraints are superseded. Follow AGENTS.md and MIGRATION_NEXT.md. Active styling is public/static/css/style.css.
+Historical reports do not restore old Flask commands or superseded Python-only/no-Node rules.

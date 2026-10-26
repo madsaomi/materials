@@ -1,0 +1,45 @@
+{
+  "session": 40,
+  "date": "2026-10-26",
+  "status": "COMPLETE_AUDIT",
+  "railway": {
+    "localNodeStart": "PASS PORT5002/0.0.0.0/2HTTP",
+    "defaultStandaloneBuild": "PASS NEXT_STANDALONE=1 pnpm build(Turbopack)",
+    "pnpm": "11.25.0",
+    "node": "v24.22.1",
+    "offlineFrozenInstall": "PASS74packages/0downloads",
+    "runtime": "PASS standalone/original link topology/no parent node_modules/NODE_PATH empty",
+    "packagedNotes": 1348,
+    "standaloneHttpChecks": 28,
+    "totalHttpChecks": 30,
+    "healthcheckHostname": "PASS healthcheck.railway.app",
+    "repeatedRedirectParameters": "PASS",
+    "dockerCliAvailable": false,
+    "linuxContainerTested": false,
+    "remoteServiceSettingsChecked": false,
+    "remoteDeploymentPerformed": false
+  },
+  "githubPages": {
+    "status": "UNSUPPORTED_CURRENT_APPLICATION",
+    "workflowPresent": false,
+    "fullStaticConversionImplemented": false,
+    "remoteSettingsChecked": false
+  },
+  "checks": {
+    "typecheck": "PASS",
+    "contents": "PASS131pages/38manual/1515links/619IDs/0writes;42pendingrefresh unapplied",
+    "fullCorpus": "PASS1348documents/1217legacytargets/links/fragments/IDs/hierarchy/search",
+    "knowledgeSha256": "PASS1348unchanged",
+    "originalPreviewHealth": 200,
+    "originalDependenciesPreserved": true,
+    "localDocumentationLinks": "PASS22"
+  },
+  "runtimeSourceChanges": 0,
+  "temporaryServersStopped": true,
+  "temporaryFixturesRemoved": true,
+  "reparseLinksSafelyUnlinked": 187,
+  "priorStagedFiles": 271,
+  "finalStagedFiles": 278,
+  "commitCreated": false,
+  "pushed": false
+}

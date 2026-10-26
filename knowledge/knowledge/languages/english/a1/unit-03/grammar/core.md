@@ -1,5 +1,38 @@
 # Unit 03 — Grammar (A1-A2 Level)
 
+## Основной разбор: что именно описывает слово
+
+**A quiet room** — «тихая комната»: quiet описывает room. **They speak quietly** — «Они говорят тихо»: quietly описывает действие speak. Прилагательное обычно ставится перед существительным или после связки: **The room is quiet**. Наречие образа действия объясняет, как выполняют действие.
+
+| Роль | Пример | Перевод |
+|---|---|---|
+| Признак человека | Aya is careful. | Ая осторожна. |
+| Способ действия | Aya writes carefully. | Ая пишет аккуратно. |
+| Состояние после feel | Aya feels tired. | Ая чувствует усталость. |
+| Особая форма: good → well | Aya draws well. | Ая хорошо рисует. |
+
+Не всякое наречие имеет -ly: **fast → fast**, **hard → hard**. **Hardly** имеет другой смысл — «почти не»: **He works hard** — «Он усердно работает»; **He hardly works** — «Он почти не работает».
+
+### Как сравнить варианты
+
+Для сравнения двух цен: **This bag is cheaper than that one** — «Эта сумка дешевле той». Для выбора из названной группы: **This is the cheapest bag in the shop** — «Это самая дешёвая сумка в магазине».
+
+- Короткая модель: cheap → cheaper → the cheapest; big → bigger → the biggest.
+- Длинная модель: useful → more useful → the most useful.
+- Отдельно запомните good → better → the best; bad → worse → the worst; happy → happier → the happiest.
+
+Двухсложные слова проверяйте отдельно: правило «два слога всегда more» неверно. **Much cheaper** — «намного дешевле» правильно, а **more cheaper** в стандартном сравнении — нет. Равенство: **as cheap as** — «такой же дешёвый, как»; отрицание **not as cheap as** — «не такой дешёвый, как».
+
+### Не подменяйте смысл механическим -ly
+
+**The soup tastes good** — «Суп вкусный»: good характеризует суп. Но **The cook tastes the soup carefully** — «Повар осторожно пробует суп»: carefully относится к действию. Один и тот же глагол может выполнять разные роли.
+
+[British Council: сравнительная и превосходная степень](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/comparative-superlative-adjectives) подтверждает модели сравнения.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## 3.1. Adjectives — степени сравнения
 
 ### Положительная степень (Positive)
@@ -36,7 +69,7 @@
 | good | better | best |
 | bad | worse | worst |
 | far | farther/further | farthest/furthest |
-| little | less | least |
+| little (мало: количество) | less | least |
 | much/many | more | most |
 
 ## 3.2. Adverbs (Наречия)
@@ -45,7 +78,7 @@
 
 | Тип | Функция | Примеры |
 |-----|---------|---------|
-| Времени | когда | always, never, often, sometimes, usually, today, tomorrow |
+| Времени | когда | today, tomorrow, yesterday |
 | Места | где | here, there, outside, inside, up, down |
 | Образа действия | как | quickly, slowly, carefully, well, badly |
 | Частоты | как часто | always, often, sometimes, rarely, never |
@@ -55,18 +88,23 @@
 
 | Правило | Формула | Пример |
 |---------|---------|--------|
-| Короткие | -er | faster, slower |
-| Длинные | more | more carefully |
+| Некоторые короткие формы | -er / -est | fast → faster → fastest; hard → harder → hardest |
+| Обычные наречия на -ly | more / most | carefully → more carefully → most carefully |
+| Особая форма на -ly | -er / -est | early → earlier → earliest |
 | Исключения | особая форма | better, worse, best, worst, more, less |
+
+У **slowly** обычная сравнительная форма — **more slowly**: «медленнее». Форма **slower** возможна как сравнение наречия slow; выбор зависит от самой формы слова. Не добавляйте -er механически ко всем наречиям. [Cambridge: сравнение наречий](https://dictionary.cambridge.org/uk/grammar/british-grammar/comparison).
 
 ## 3.3. Sentence Structure (Структура предложения)
 
 ### Утверждение (Positive)
 
 ```
-Subject + Verb + Object + Adverb
-I   + eat + breakfast + every day.
-She + works + hard + always.
+Subject + Verb + Object + time expression
+I + eat + breakfast + every day.
+
+Subject + frequency adverb + Verb + manner adverb
+She + always + works + hard.
 ```
 
 ### Отрицание (Negative)
@@ -127,7 +165,7 @@ Did + you + go + to school?
 | Круглые десятки | y → ie + th | twenty → twentieth |
 | Составные | меняем только последнюю часть | twenty-first, thirty-second |
 
-Исключения в своих группах: 8 → eighth (без t), 9 → ninth (без e), 12 → twelfth, 5 → fifth, 40 → fortieth (без u).
+Исключения в своих группах: 8 → eighth (одна t, не eightth), 9 → ninth (без e), 12 → twelfth, 5 → fifth, 40 → fortieth (без u).
 
 | Порядковое | Сокращение | Пример |
 |------------|-----------|--------|
@@ -137,7 +175,7 @@ Did + you + go + to school?
 | twentieth | 20th | the 20th century |
 | twenty-first | 21st | the 21st century |
 
-Порядковые числительные почти всегда употребляются с определённым артиклем `the`: **the** first, **the** third book.
+Перед порядковым числительным в группе существительного часто стоит **the**: **the third book** — «третья книга». Но возможен другой определитель: **my third book** — «моя третья книга», без the. В **She arrived first** — «Она пришла первой» — first употреблено как наречие без артикля. [Cambridge: first](https://dictionary.cambridge.org/uk/grammar/british-grammar/first); [Cambridge: примеры с my first/second](https://assets.cambridge.org/97805217/49237/excerpt/9780521749237_excerpt.pdf).
 
 ## 3.6. Артикли a / an (Articles)
 
@@ -154,7 +192,9 @@ Did + you + go + to school?
 |---------------|--------|---------|
 | money | Do you have money? | нет a/an с неисчисляемыми |
 | bread / milk / water | I drink water. | обычно без артикля |
-| luggage / information | useful information | без артикля |
+| luggage / information | useful information | без a/an в неисчисляемом значении |
+
+Неисчисляемость не запрещает **the**: **The information in this email is useful** — «Информация в этом письме полезна». Выбирается конкретная информация. [Cambridge: артикли с неисчисляемыми](https://dictionary.cambridge.org/grammar/british-grammar/a-an).
 
 При покупках `a/an` часто означают «один / порцию»: **a** kilo of apples, **an** apple, **a** loaf of bread.
 
@@ -166,7 +206,7 @@ Did + you + go + to school?
 | any | вопросы, отрицания | Do you have any change? / I don't have any cash. |
 | no | отрицание (= not any) | I have no money. |
 
-Правило-подсказка: **some** — в утвердительных и вежливых просьбах, **any** — в вопросах и отрицаниях, **no** — с уже отрицательным смыслом.
+Это частые модели количества, а не автоматический выбор по знаку вопроса. **Have you got some paper?** возможно, если ожидаем наличие бумаги; **You can choose any notebook** — «Можно выбрать любой блокнот» — использует any в утверждении со значением свободного выбора. Для отсутствия: **I have no paper / I don't have any paper**. [Cambridge: some/any](https://dictionary.cambridge.org/grammar/british-grammar/any-and-some); [Cambridge: any со значением любого выбора](https://dictionaryblog.cambridge.org/2017/01/18/some-or-any-little-words-that-cause-big-problems/).
 
 | Пример | Перевод |
 |--------|---------|
@@ -212,7 +252,7 @@ Did + you + go + to school?
 | Add a little salt. | Добавь немного соли. | немного |
 | There is little milk left. | Молока почти не осталось. | мало |
 
-Запомните рифму-подсказку: **a few / a little** = «чуть-чуть есть» (позитив), **few / little** = «почти нет» (негатив).
+**A few / a little** выделяют имеющееся небольшое количество; **few / little** подчёркивают скудность. Это не точная численность и не обязательная радость/огорчение: **a few problems** — «несколько проблем» — не означает, что говорящий им рад. [British Council: few / a few / little](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar/quantifiers-few-a-few-little-a-bit).
 
 ## 3.10. How much / How many (Вопросы о количестве и цене)
 
@@ -225,7 +265,7 @@ Did + you + go + to school?
 
 ### Разбор
 
-- **How much is this?** — «Сколько это стоит?» (личное местоимение this в значении «это»).
+- **How much is this?** — «Сколько это стоит?» (указательное местоимение this в значении «это»; [Cambridge: demonstratives](https://dictionary.cambridge.org/us/grammar/british-grammar/this-that-these-those.)).
 - **How much does it cost?** — то же, с глаголом cost (стоить).
 - **How much + неисчисляемое** — о количестве: *How much milk do you need?*
 - **How many + исчисляемое** — о количестве: *How many eggs do you want?*
@@ -281,7 +321,7 @@ There are + many customers + in the shop.
 | Are there any discounts? | Есть скидки? |
 
 ### Правило-подсказка
-**There is** + единственное/неисчисляемое, **there are** + множественное. С а тут обратный порядок: незнакомый предмет вводится оборотом there is/are, а повторно упоминается через it/they.
+**There is** + единственное/неисчисляемое, **there are** + множественное. Оборот вводит наличие: **There is a bakery near here** — «Поблизости есть пекарня». Затем о ней можно сказать **It is open** — «Она открыта». **There** здесь не обозначает место «там»: место передано near here.
 
 ---
 

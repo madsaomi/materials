@@ -1,5 +1,38 @@
 # Unit 05 — Grammar (A2-B1 Level)
 
+## Основной разбор: что считается в этой фразе
+
+Исчисляемость относится к **значению существительного**, а не к возможности физически пересчитать вещество. **Two apples** — «два яблока»; **some rice** — «немного риса». Чтобы посчитать порции риса, назовите единицу: **two bowls of rice** — «две миски риса».
+
+| Что нужно сказать | Предметы во множественном числе | Вещество / неисчисляемое |
+|---|---|---|
+| Сколько? | How many eggs? | How much milk? |
+| Немного есть | a few eggs | a little milk |
+| Мало, недостаточно | few eggs | little milk |
+| Много | a lot of eggs | a lot of milk |
+
+Одна исчисляемая вещь требует определителя: **an egg**, **the egg**, **my egg**. Для milk в значении вещества a/an не подходит. **A coffee** в кафе допустимо: имеется в виду чашка или порция кофе, а не отмена правил.
+
+### Some и any: роль высказывания
+
+**There is some bread** — «Хлеб есть». **Is there any bread?** — «Есть хлеб?» **There isn't any bread** — «Хлеба нет». Но в предложении угощения естественно **Would you like some bread?** — «Хотите хлеба?» Тип предложения — полезная подсказка, но не механический запрет some во всех вопросах.
+
+### Предпочтение и конкретное желание
+
+**I like tea** — «Мне нравится чай». **I'd like some tea, please** — «Я бы хотел чаю, пожалуйста». **I'd like to order** — «Я бы хотел сделать заказ». После would like + действия ставится to; **I'd like order** неверно.
+
+**We have breakfast at home** — обычный завтрак без артикля. **We had a late breakfast** — один описываемый приём пищи. **The breakfast at the hotel was cold** — конкретный завтрак. Наличие прилагательного само по себе не делает a/an обязательным: **The late breakfast was delicious** — «Поздний завтрак был вкусным» — сообщает о конкретном известном завтраке.
+
+### Типичные ошибки
+
+**Many milk** → **much milk / a lot of milk**; **an advice** → **some advice / a piece of advice**; **two breads** для двух буханок → **two loaves of bread**. При специальном значении «сорта хлеба» исчисляемость может отличаться.
+
+[British Council: значения count/uncount](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/common-problems-count-uncount-nouns) подтверждает различие вещества, порции и разновидности.
+
+## Сохранённые справочные материалы
+
+> Учебный разбор выше обновлён. Ниже сохранены прежние таблицы и расширенные темы; исправлены отмеченные в отчёте конкретные ошибки. Весь старый банк, включая фонетические и предметные примеры, не прошёл полной повторной проверки. Название уровня не подтверждает экзаменационного покрытия.
+
 ## 5.1. Countable and Uncountable Nouns
 
 ### Countable Nouns (Исчисляемые)
@@ -13,12 +46,14 @@
 
 - Нельзя посчитать: water, rice, information
 - Не используют a/an: water (NOT a water в значении "вода")
-- Не имеют формы множественного числа: water (NOT waters)
+- В данном неисчисляемом значении не образуют обычное множественное: water. В других значениях возможны формы вроде waters (воды/водные пространства), поэтому проверяйте значение.
 - Примеры: water, rice, bread, information, advice, money, music, news
 
 ### Words for Quantity
 
-| Countable | Uncountable | Example |
+В столбцах ниже — возможные сочетания, а не взаимоисключающие пары: **some** и **a lot of** сочетаются и с исчисляемым множественным числом, и с неисчисляемым. [British Council: quantifiers](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/quantifiers).
+
+| С исчисляемым множественным | С неисчисляемым | Example |
 |-----------|-------------|---------|
 | many | much | many books / much water |
 | few | little | few friends / little time |
@@ -30,9 +65,11 @@
 
 | Article | When | Example |
 |---------|------|---------|
-| a/an | When describing a meal in general | We had a delicious lunch. |
+| a/an | Один описываемый приём пищи, не установленный как известный | We had a delicious lunch. |
 | the | When referring to a specific meal | The dinner I had yesterday was great. |
 | — (zero) | For generalizations and routine | I have breakfast at eight. |
+
+Описание прилагательным не выбирает артикль автоматически: **a late lunch** — «поздний обед» как один случай; **the late lunch** — конкретный известный обед. [Cambridge: значение a/an и the](https://dictionary.cambridge.org/grammar/british-grammar/a-an).
 
 ## 5.3. Containers and Quantities
 
@@ -81,7 +118,7 @@
 Present Simple используют для привычек и регулярных действий с едой.
 
 - Утверждение: I / you / we / they + глагол; he / she / it + глагол + -s: *I eat breakfast at 8. She eats breakfast at 8.*
-- -es добавляется после -sh, -ch, -x, -s, -o: *wash → washes, watch → watches, go → goes.*
+- Запомните написание *wash → washes, watch → watches, fix → fixes*; частые особые формы — *go → goes, do → does, have → has*. После согласной + y: *try → tries*, после гласной + y: *enjoy → enjoys*. [Cambridge: Present Simple, spelling](https://dictionary.cambridge.org/grammar/british-grammar/present-simple).
 - Отрицание: don't / doesn't + глагол (без -s): *I don't eat meat. She doesn't drink coffee.*
 - Вопрос: Do / Does + подлежащее + глагол: *Do you cook every day? Does he order pizza?*
 
@@ -98,16 +135,16 @@ Present Simple используют для привычек и регулярн�
 
 | Форма | Значение | Пример |
 |-------|----------|--------|
-| I like + сущ. / -ing | нравится вообще, обычно | I like coffee. I like cooking. |
-| I'd like + сущ. | хочу сейчас (конкретно) | I'd like a coffee, please. |
+| I like + сущ. / -ing / to + глагол | нравится, общее предпочтение или привычный выбор | I like coffee. I like cooking. I like to cook at home. |
+| I'd like + сущ. | вежливо сообщаю о желаемом | I'd like a coffee, please. |
 | I'd like + to + глагол | хотел бы сделать | I'd like to order a pizza. |
 | Do you like...? | нравится ли вообще | Do you like spicy food? |
 | Would you like...? | предложение, приглашение | Would you like some tea? |
 
 Правила:
 
-- **like** = любить, нравиться (общее предпочтение).
-- **would like** = хотеть конкретно сейчас; сокращение **I'd like**.
+- **Like** = нравиться; перед следующим глаголом возможны и -ing, и to-инфинитив. [Cambridge: like](https://dictionary.cambridge.org/grammar/british-grammar/like).
+- **Would like** вежливо выражает желание; **I'd** здесь = **I would**. Желание может относиться к будущему: *I'd like to have lunch with you tomorrow* — «Я бы хотел завтра пообедать с тобой». [Cambridge: would like](https://dictionary.cambridge.org/grammar/british-grammar/would-like%29).
 - **Would you like...?** — вежливое предложение (угощение): ответ *Yes, please.* / *No, thank you.*
 - Сравните: *Do you like water?* (любишь ли вообще) и *Would you like some water?* (хочешь ли сейчас).
 
@@ -171,12 +208,12 @@ Present Simple используют для привычек и регулярн�
 
 Правила:
 
-- **some** — в утверждении; **any** — в вопросе и отрицании.
+- В нейтральном сообщении наличия обычно **some**, в вопросе о наличии/отрицании — **any**. Предложения и просьбы могут содержать some: Would you like some tea?
 - Конструкцию часто используют, когда говорят о холодильнике, меню или магазине: *What is there for dinner? There is soup and salad.*
 
 ## 5.13. Present Continuous with Food (прямо сейчас)
 
-Present Continuous описывает действия, происходящие сейчас, или планы на ближайшее будущее.
+Present Continuous может описывать текущий процесс или будущее, представленное как организованный план/договорённость. Это не форма для любого будущего события и не ограничение только ближайшим временем. **We are having lunch together next month** — «В следующем месяце мы обедаем вместе» — уместно, если встреча уже организована. [British Council: будущие планы и договорённости](https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/future-forms-will-be-going-present-continuous).
 
 | Форма | Пример |
 |-------|--------|
@@ -190,11 +227,13 @@ Present Continuous описывает действия, происходящие
 - *He cooks every day.* — привычка (каждый день).
 - *He is cooking now.* — действие прямо сейчас.
 
-Слова-маркеры Present Continuous: **now, at the moment, today, tonight, this week.**
+**Now, at the moment, today, tonight, this week** уточняют время, но не назначают форму автоматически. **I want soup tonight** — «Я хочу суп сегодня вечером» — остаётся Simple: важны значение глагола и контекст.
 
 ## 5.14. Food Nouns: Common Mistakes
 
-| Неправильно | Правильно | Почему |
+Таблица относится к обычным указанным значениям: хлеб как продукт, информация как сведения и т. д. В другом значении исчисляемость может измениться: например, название сорта. [Cambridge: исчисляемость и значение](https://dictionary.cambridge.org/uk/grammar/british-grammar/nouns-countable).
+
+| Ошибка в данном значении | Нейтральный вариант | Почему |
 |-------------|-----------|--------|
 | a bread | a loaf of bread / some bread | bread — неисчисляемое |
 | two informations | two pieces of information | information — неисчисляемое |
@@ -202,7 +241,7 @@ Present Continuous описывает действия, происходящие
 | a furniture | a piece of furniture | furniture — неисчисляемое |
 | many money | much money | money — неисчисляемое |
 | I have a homework. | I have homework. | homework — неисчисляемое |
-| fruit → fruits | fruit (в общем виде) | но: fruits = виды фруктов |
+| fruits в значении фруктов вообще | fruit / some fruit | fruits возможно о разновидностях; не все употребления fruits ошибочны |
 | like — likes? | She likes coffee. | 3-е лицо ед.ч. -s |
 
 Запомни «упаковки» для неисчисляемых продуктов: **a loaf of bread, a slice of cheese, a jar of honey, a packet of sugar, a bar of chocolate.**
@@ -222,7 +261,7 @@ Present Continuous описывает действия, происходящие
 | How often | как часто | How often do you eat out? |
 | Why | почему | Why do you avoid meat? |
 
-**Важно:** после How much/How many и What/Where ставится вспомогательный глагол do/does: *What do you like? Where does she eat?*
+**Важно:** с обычным глаголом в вопросе к дополнению/обстоятельству Present Simple нужны do/does: *What do you like? Where does she eat?* Но *How much is it? How many people are here? Who cooks?* строятся иначе.
 
 ---
 

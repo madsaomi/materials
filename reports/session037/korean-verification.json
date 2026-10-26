@@ -1,0 +1,168 @@
+{
+  "session": 37,
+  "language": "korean",
+  "inspectedFiles": 20,
+  "changedFiles": 13,
+  "replacementOccurrences": 78,
+  "preserved": [
+    "Session036 teaching-prefix bytes",
+    "frontmatter bytes",
+    "all rendered IDs/aliases",
+    "all existing hrefs",
+    "unchanged candidates"
+  ],
+  "changed": [
+    {
+      "path": "knowledge/languages/korean/a1/unit-01/grammar/core.md",
+      "repairs": [
+        "formal-declarative-l",
+        "negative-key-complete"
+      ]
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-02/grammar/core.md",
+      "repairs": [
+        "hayo-regular-scope",
+        "hayo-not-always-contracted",
+        "progressive-not-only-now",
+        "go-listing-vs-order",
+        "future-l-and-politeness",
+        "exam-agent-translation",
+        "work-key-context"
+      ]
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-03/grammar/core.md",
+      "repairs": [
+        "ability-l",
+        "inability-vs-ban",
+        "inability-vs-ban-context"
+      ]
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-04/grammar/core.md",
+      "repairs": [
+        "request-noun-vs-action",
+        "lkkayo-l",
+        "meal-statement-vs-wish",
+        "ge-meaning",
+        "ability-l",
+        "aseo-hada-and-other-construction",
+        "gonaiseo-other-construction",
+        "progressive-time-consistency",
+        "subject-honorification-and-seated-result",
+        "recipient-register",
+        "recipient-register-consistency",
+        "recipient-honorific-translation",
+        "nikka-reason-not-necessarily-shared",
+        "hungry-translation",
+        "neun-dongan-relative-time",
+        "relative-time-l"
+      ]
+    },
+    {
+      "path": "knowledge/languages/korean/a1/unit-05/grammar/core.md",
+      "repairs": [
+        "weather-predicate-structure",
+        "embedded-negative-translation",
+        "go-parts-of-speech",
+        "neunde-noun-and-existentials",
+        "purpose-reo-l",
+        "honorific-examples-distinguished",
+        "hungry-translation",
+        "hungry-prompt",
+        "recipient-honorific-translation"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-01/grammar/core.md",
+      "repairs": [
+        "formal-declarative-l",
+        "negative-key-complete"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-02/grammar/core.md",
+      "repairs": [
+        "hayo-regular-scope",
+        "hayo-not-always-contracted",
+        "progressive-not-only-now",
+        "go-listing-vs-order",
+        "future-l-and-politeness",
+        "exam-agent-translation",
+        "work-key-context"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-02/grammar/usage.md",
+      "repairs": [
+        "mirror-hayo-not-blanket",
+        "mirror-hayo-not-always-contracted"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-03/grammar/core.md",
+      "repairs": [
+        "ability-l",
+        "inability-vs-ban",
+        "inability-vs-ban-context"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-04/grammar/core.md",
+      "repairs": [
+        "request-noun-vs-action",
+        "lkkayo-l",
+        "meal-statement-vs-wish",
+        "ge-meaning",
+        "ability-l",
+        "aseo-hada-and-other-construction",
+        "gonaiseo-other-construction",
+        "progressive-time-consistency",
+        "subject-honorification-and-seated-result",
+        "recipient-register",
+        "recipient-register-consistency",
+        "recipient-honorific-translation",
+        "nikka-reason-not-necessarily-shared",
+        "hungry-translation",
+        "neun-dongan-relative-time",
+        "relative-time-l"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-04/grammar/usage.md",
+      "repairs": [
+        "request-object-not-prohibited"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-05/grammar/core.md",
+      "repairs": [
+        "weather-predicate-structure",
+        "embedded-negative-translation",
+        "go-parts-of-speech",
+        "neunde-noun-and-existentials",
+        "purpose-reo-l",
+        "honorific-examples-distinguished",
+        "hungry-translation",
+        "hungry-prompt",
+        "recipient-honorific-translation"
+      ]
+    },
+    {
+      "path": "knowledge/knowledge/languages/korean/a1/unit-05/grammar/usage.md",
+      "repairs": [
+        "mirror-weather-predicate"
+      ]
+    }
+  ],
+  "unchanged": [
+    "knowledge/languages/korean/a1/unit-01/grammar/usage.md",
+    "knowledge/languages/korean/a1/unit-02/grammar/usage.md",
+    "knowledge/languages/korean/a1/unit-03/grammar/usage.md",
+    "knowledge/languages/korean/a1/unit-04/grammar/usage.md",
+    "knowledge/languages/korean/a1/unit-05/grammar/usage.md",
+    "knowledge/knowledge/languages/korean/a1/unit-01/grammar/usage.md",
+    "knowledge/knowledge/languages/korean/a1/unit-03/grammar/usage.md"
+  ]
+}

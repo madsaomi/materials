@@ -1,0 +1,40 @@
+{
+  "session": 38,
+  "date": "2026-10-26",
+  "status": "PASS",
+  "documents": 1348,
+  "candidateFiles": 12,
+  "changedFiles": 9,
+  "unchangedMarkdown": 1339,
+  "weatherPrepositionTables": 2,
+  "notesByLanguage": {
+    "english": {
+      "notes": 3,
+      "previousIds": 60,
+      "internalLinks": 13
+    },
+    "japanese": {
+      "notes": 3,
+      "previousIds": 90,
+      "internalLinks": 21
+    },
+    "korean": {
+      "notes": 3,
+      "previousIds": 188,
+      "internalLinks": 10
+    }
+  },
+  "files": [
+    "knowledge/languages/english/a2/unit-06/grammar/core",
+    "knowledge/languages/english/a2/unit-06/grammar/usage",
+    "knowledge/languages/japanese/a2/unit-06/grammar/core",
+    "knowledge/languages/japanese/a2/unit-06/grammar/usage",
+    "knowledge/languages/korean/a2/unit-06/grammar/core",
+    "knowledge/languages/korean/a2/unit-06/grammar/usage",
+    "languages/english/a2/unit-06/grammar/core",
+    "languages/japanese/a2/unit-06/grammar/core",
+    "languages/korean/a2/unit-06/grammar/core"
+  ],
+  "session036TeachingEntries": "Unchanged (exact UTF-8 teaching-prefix bytes)",
+  "limits": "Structural preservation and exact edit scope; grammar corrections are source-checked and manually reviewed. No independent peer review in038 or comprehensive phonetic/audio/cultural audit."
+}
