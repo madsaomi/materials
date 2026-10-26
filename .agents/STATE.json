@@ -57,10 +57,11 @@
   },
   "git_status": {
     "branch": "main",
-    "working_tree": "278files staged, final pre-publication audit PASS; commit/push in progress.",
-    "published_content_commit": "c1b1c10cb02a5c5fe0e8b6a194d833a6c8b8874e",
+    "working_tree": "Content publication verified; final session tracking record follows in a separate documentation commit.",
+    "published_content_commit": "a00b6305980a039393c89bba76290e544b1c342b",
     "remote": "https://github.com/madsaomi/materials.git",
-    "baseline_commit": "fb2eec9199319085b11401fe0ec291d26fd6be60"
+    "baseline_commit": "fb2eec9199319085b11401fe0ec291d26fd6be60",
+    "last_verified_remote_content_commit": "a00b6305980a039393c89bba76290e544b1c342b"
   },
   "active_components": [
     "app/",
@@ -108,7 +109,7 @@
     "windows_console_cjk_safe": true,
     "relative_md_internal_links": true
   },
-  "current_focus": "Session041: final staged-blob audit PASS; all278prepared files authorized for commit/push to origin/main. Fresh remote fetch matches baseline. Publication in progress; grammar07-15 backlog remains deferred.",
+  "current_focus": "Session041 complete: authorized278-file package committed and pushed to origin/main; remote SHA independently verified. Grammar07-15 remains deferred. No hosting deployment.",
   "pending_tasks": [
     "Continue grammar-only English/Japanese/Korean retained long banks07–15; unit06 has targeted corrections, not exhaustive phonetic/audio/cultural verification. Other subjects/vocabulary/dialogue/test/reading stay out of scope.",
     "Reconstruct818 unresolved Chinese vocabulary records per vault (1636 copies), retaining unfinished warnings and provenance.",
@@ -402,7 +403,7 @@
   },
   "session041": {
     "date": "2026-10-26",
-    "status": "publishing",
+    "status": "complete",
     "userAuthorizedPush": true,
     "stagedFiles": 278,
     "grammarFiles": 180,
@@ -412,6 +413,10 @@
     "trackedBuildEnvArtifacts": 0,
     "remoteBefore": "fb2eec9199319085b11401fe0ec291d26fd6be60",
     "verification": "Session040 typecheck/contents/full-corpus/default standalone build and30HTTP PASS; runtime/content unchanged since checks. Session041 staged-blob audit and whitespace PASS.",
-    "pushed": false
+    "pushed": true,
+    "contentCommit": "a00b6305980a039393c89bba76290e544b1c342b",
+    "remoteVerifiedCommit": "a00b6305980a039393c89bba76290e544b1c342b",
+    "historyPrefixPreserved": true,
+    "auditedSourcePreserved": true
   }
 }
